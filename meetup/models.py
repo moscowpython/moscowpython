@@ -48,11 +48,8 @@ class Speaker(models.Model):
 
 
 class Sponsor(models.Model):
-    name = models.CharField(u'Название компании', max_length=100)
-    logo = models.ImageField(u'Логотип', upload_to='sponsors', blank=True)
-
-    def __unicode__(self):
-        return self.name
+    name = models.CharField(u'Название компании', max_length=250)
+    logo = models.ImageField(u'Логотип', upload_to='sponsors')
 
     class Meta:
         verbose_name = u'Спонсор'
