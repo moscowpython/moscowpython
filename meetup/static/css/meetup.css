@@ -1,5 +1,5 @@
 /**
- * Общие стили
+ * Стили про митап
  *
  * @package     moscowdjango
  * @version     0.1
@@ -9,5 +9,60 @@
 
 
 /**
- * @section     Общие стили
+ * @section     Стили про митап
  */
+
+.archive {}
+.archive-item {
+    margin-bottom: 40px;
+}
+.archive-item__title {
+    margin: 0 0 0.5em;
+    line-height: 1.4;
+    font-size: 240%;
+}
+.archive-item__gallery {
+    position: relative;
+    float: left;
+    padding: 0 0 0 10px;
+}
+.archive-item__image {
+    position: relative;
+    padding: 4px;
+    border: 1px solid #ccb;
+    background: white;
+}
+.archive-item__image_second {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+.archive-item__statements {
+    margin: 0 0 0 250px;
+}
+.archive-item__statement {
+    display: inline-block;
+    width: 45%;
+    margin: 0 3% 20px 0;
+    vertical-align: top;
+}
+.archive-item__statement-title {
+    display: block;
+    margin-bottom: 0.2em;
+    font-size: 140%;
+}
+.archive-item__statement-author {
+    margin-right: 15px;
+    font-size: 130%;
+    color: #777;
+}
+.archive-item__statement-comments {
+    display: inline-block;
+    height: 16px;
+    padding-left: 20px;
+    line-height: 16px;
+    text-decoration: none;
+    font-size: 130%;
+    color: #777;
+    background: url(../images/icons/comment.png) 0 0 no-repeat;
+}
