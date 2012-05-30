@@ -1,0 +1,83 @@
+/**
+ * Общие стили
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Общие стили
+ */
+
+
+/**
+ * @subsection  Эмуляция тегов и поведений
+ */
+
+.g-clear {
+    clear: both;
+    overflow: hidden;
+    height: 0px;
+    font-size: 0;
+}
+.g-nobr {
+    white-space: nowrap;
+}
+.g-visible {
+    display: block;
+}
+
+
+/**
+ * Убираем рамочку при нажатии на кнопку
+ * @css-for     FF
+ * @link        http://forums.mozillazine.org/viewtopic.php?f=25&t=451213&st=0&sk=t&sd=a&start=0
+ */
+input[type="submit"]::-moz-focus-inner {
+    border: none;
+}
+
+
+/**
+ * @subsection  Сокрытие элементов при включённом js
+ */
+
+.g-nojsshow {
+    display: none;
+}
+.no-js .g-nojsshow,
+.no-animation .g-nojsshow {
+    display: block;
+}
+.no-js .g-nojshide,
+.no-animation .g-nojshide {
+    display: none;
+}
+.g-hide {
+    display: none;
+}
+.jsdisabled {
+    font-size: 12px;
+    display: inline-block;
+    margin: 10px 0px;
+    padding: 3px;
+    background: #fffe35;
+}
+
+
+/**
+ * @section     Обёртка
+ */
+
+body {
+    font-size: 62.5%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

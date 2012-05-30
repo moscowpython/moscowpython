@@ -1,0 +1,104 @@
+/**
+ * Шапка сайта
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Шапка сайта
+ */
+
+.header {
+    height: 35px;
+    background: rgba(0, 0, 0, 0.8)
+}
+
+
+/**
+ * @subsection  Меню
+ */
+
+.menu {
+    margin-right: 20px;
+    float: left;
+}
+.menu__items {
+    display: inline;
+    margin: 0;
+    list-style: none;
+}
+.menu__item {
+    position: relative;
+    padding: 0 20px 0 10px;
+    float: left;
+}
+.menu__link {
+    line-height: 35px;
+    font-size: 160%;
+    color: white;
+}
+.menu__subitems {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    display: none;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.7)
+}
+.menu__item:hover .menu__subitems {
+    display: block;
+}
+.menu__subitem {
+    padding: 5px 10px;
+}
+.menu__subitem-link {
+    font-size: 140%;
+    color: white;
+}
+
+
+/**
+ * @subsection  Поиск
+ */
+
+.search {
+    float: left;
+}
+.search__query {
+    vertical-align: middle;
+}
+.search__submit {
+    vertical-align: middle;
+    font-size: 140%;
+}
+.search__strut {
+    display: inline-block;
+    height: 35px;
+    vertical-align: middle;
+}
+
+
+
+/**
+ * @subsection  Меню пользователя
+ */
+
+.user-menu {
+    float: right;
+}
+.user-menu__avatar {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.user-menu__name {
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 140%;
+    color: #ccc;
+}

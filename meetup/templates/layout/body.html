@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie6 ie67 ie no-js" lang="ru"><![endif]-->
+<!--[if IE 7 ]>   <html class="ie7 ie67 ie no-js" lang="ru"><![endif]-->
+<!--[if IE 8 ]>   <html class="ie8 ie no-js" lang="ru"><![endif]-->
+<!--[if IE 9 ]>   <html class="ie9 ie no-js" lang="ru"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="ru" class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script type="text/javascript" src="{% static 'js/libs/modernizr-2.5.3.min.js' %}"></script>
+
+    <title>Прототип сайта Moscow Django Meetup</title>
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/meetup.css' %}" type="text/css" />
+</head>
+<body>
+    {% block layout %}{% endblock %}
+</body>
+</html>

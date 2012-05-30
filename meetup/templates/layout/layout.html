@@ -1,0 +1,65 @@
+{% extends 'layout/body.html' %}
+
+
+{% block layout %}
+    <header class="header">
+        <div class="wrapper">
+            <nav class="menu">
+                <ul class="menu__items">
+                    <li class="menu__item">
+                        <a class="menu__link" href="">Главная</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="">События</a>
+                        <ul class="menu__subitems">
+                            <li class="menu__subitem">
+                                <a class="menu__subitem-link" href="">Митап № 4</a>
+                            </li>
+                            <li class="menu__subitem">
+                                <a class="menu__subitem-link" href="">Django-спринт</a>
+                            </li>
+                            <li class="menu__subitem">
+                                <a class="menu__subitem-link" href="">Митап № 3</a>
+                            </li>
+                            <li class="menu__subitem">
+                                <a class="menu__subitem-link" href="">Митап № 2</a>
+                            </li>
+                            <li class="menu__subitem">
+                                <a class="menu__subitem-link" href="">Митап № 1</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="">О проекте</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="">Полезные ссылки</a>
+                    </li>
+                </ul>
+            </nav>
+            <aside class="search">
+                <form action="">
+                    <input class="search__query" type="text" />
+                    <input class="search__submit" type="submit" value="Найти" />
+                    <span class="search__strut"></span>
+                </form>
+            </aside>
+            <nav class="user-menu">
+                <img class="user-menu__avatar" src="https://si0.twimg.com/profile_images/1894545057/ilya_normal.jpg" />
+                <a class="user-menu__name" href="">Илья Барышев</a>
+            <nav>
+        </div>
+    </header>
+    {% block page %}{% endblock %}
+    <footer class="footer">
+        <div class="wrapper">
+            <nav class="footer__menu">
+                <a class="footer__menu-link" href="">О проекте</a>
+                <a class="footer__menu-link" href="">Обратная связь</a>
+            </nav>
+            <span class="footer__copyright">
+                &copy; 2012 <a class="footer__copyright-link" href="">Future Colors</a>
+            </span>
+        </div>
+    </footer>
+{% endblock %}
