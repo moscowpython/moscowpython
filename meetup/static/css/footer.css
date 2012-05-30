@@ -1,5 +1,5 @@
 /**
- * Общие стили
+ * Подвал
  *
  * @package     moscowdjango
  * @version     0.1
@@ -9,5 +9,24 @@
 
 
 /**
- * @section     Общие стили
+ * @section     Подвал
  */
+
+.footer {
+    border-top: 1px solid #ccb;
+    padding: 15px 0 30px;
+}
+.footer__menu {
+    float: left;
+}
+.footer__menu-link {
+    font-size: 140%;
+    margin-right: 15px;
+}
+.footer__copyright {
+    float: right;
+    font-size: 140%;
+}
+.footer__copyright-link {
+    color: black;
+}
