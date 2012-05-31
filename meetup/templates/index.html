@@ -1,95 +1,30 @@
 {% extends 'layout/layout.html' %}
 
-
 {% block page %}
     <div class="wrapper">
         <section class="meetup">
             <header class="title">
                 <img class="title__logo" src="http://placehold.it/100x100" />
-                <h1 class="title__name">Moscow Django Meetup № 4</h1>
+                <h1 class="title__name">{{ next_event }}</h1>
                 <div class="title__description">
-                    Московская встреча разработчиков на Django. Халявная.
+                    {{ next_event.descripiton }}
                 </div>
             </header>
             <ul class="meetup__statements">
+                {% for talk in next_event.talks.all %}
                 <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="">
-                        Class-based generic views в Django
+                    <a class="meetup__statement-title" href="{{ talk.get_absolute_url }}">
+                        {{ talk }}
                     </a>
                     <div class="meetup__statement-author">
-                        Александр Емелин (Mail.ru Group)
+                        {{ talk.speaker }} {% if talk.company_name%}({{ talk.company_name }}){% endif %}
                     </div>
                     <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
                     <div class="meetup__statement-description">
-                        Тем кто до сих пор не пользуется вьюхами на классах, рекомендуем обратить на них внимание,
-                        порой они экономят очень много boilerplate-кода. Тем же, кто активно их применяет,
-                        неплохая ссылочка по рекомендации Александра: Classy CBV - замена официальной путаной и
-                        неудобной документации по видам на классах. Доставило обсуждение CBV vs functional views,
-                        когда уместно использовать тот или иной вариант и почему.
+                        {{ talk.description }}
                     </div>
                 </li>
-                <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="">
-                        Разработка расширяемых приложений
-                    </a>
-                    <div class="meetup__statement-author">
-                        Владимир Филонов (WebCanFly)
-                    </div>
-                    <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__statement-description">
-                        На примере небольшой части интернет-магазина рассмотрели различные варианты реализации API для
-                        подключения плагинов к django-приложениям. Подробно, много кода, но всё понятно и логично
-                        выстроено. Хороший доклад, думаем, при разработке сложных систем со слабым связыванием
-                        компонентов всем придётся столкнуться с чем-либо подобным.
-                    </div>
-                </li>
-                <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="">
-                        Работа со статикой в Django
-                    </a>
-                    <div class="meetup__statement-author">
-                        Михаил Юматов (Trilan)
-                    </div>
-                    <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__statement-description">
-                        Доклад можно было смело назвать django-gears, поскольку речь шла в основном об этой амбициозной
-                        билиотеке, которую разрабатывают ребята из Trilan. Она призвана заменить django-compressor и
-                        webassets, обладает большей частью их функциональности, к тому же хранит зависимости прямо в
-                        css/js (по аналогии с sprockets). Пока приложение ещё не в продакшене,
-                        но от этого не менее интересно.
-                    </div>
-                </li>
-                <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="">
-                        Производительность в Django
-                    </a>
-                    <div class="meetup__statement-author">
-                        Иван Вирабян (Kanobu.ru)
-                    </div>
-                    <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__statement-description">
-                        По большей части речь шла об ORM. Иван объяснил, почему «db_index=True не творит чудеса»,
-                        показал каким иногда непредсказуемым может быть генератор SQL, объяснил как нужно использовать
-                        «Defer()», а так же описал основные подходы к инвалидации кеша и оптимизации контекст
-                        процессоров в Django. Самое продвинутое выступление явно не для новичков, жаль, что всего лишь
-                        на 10 минут, такая тема достойна больших временных рамок. Обязательно посмотрите слайды,
-                        очень полезный и наиболее прикладной доклад.
-                    </div>
-                </li>
-                <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="">
-                        Django на Android
-                    </a>
-                    <div class="meetup__statement-author">
-                        Александр Шлемин
-                    </div>
-                    <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__statement-description">
-                        Докладчик наглядно показал, что Django это не только про Web и что его можно запускать в том
-                        числе на мобильных устройствах. Александр продемонстрировал нам это на примере мобильного
-                        телефона на базе Android.
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
             <div class="meetup__info">
                 <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
@@ -112,118 +47,28 @@
     </div>
     <section class="archive">
         <div class="wrapper">
+            {% for event in events %}
             <article class="archive-item">
-                <h1 class="archive-item__title"><a href="">Moscow Django Meetup № 3</a></h1>
+                <h1 class="archive-item__title"><a href="{{ event.get_absolute_url }}">{{ event }}</a></h1>
                 <figure class="archive-item__gallery">
                     <img class="archive-item__image" src="http://placehold.it/200x120" />
                     <img class="archive-item__image archive-item__image_second" src="http://placehold.it/200x120" />
                 </figure>
                 <ul class="archive-item__statements">
+                    {% for talk in event.talks.all %}
                     <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Class-based generic views в Django
+                        <a class="archive-item__statement-title" href="{{ talk.get_absolute_url }}">
+                            {{ talk }}
                         </a>
-                        <span class="archive-item__statement-author">Александр Емелин (Mail.ru Group)</span>
+                        <span class="archive-item__statement-author">{{ talk.speaker }}
+                            {% if talk.company_name%}({{ talk.company_name }}){% endif %}</span>
                         <a class="archive-item__statement-comments" href="">376</a>
                     </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Разработка расширяемых приложений
-                        </a>
-                        <span class="archive-item__statement-author">Владимир Филонов (WebCanFly)</span>
-                        <a class="archive-item__statement-comments" href="">100500</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Работа со статикой в Django
-                        </a>
-                        <span class="archive-item__statement-author">Михаил Юматов (Trilan)</span>
-                        <a class="archive-item__statement-comments" href="">44</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Производительность в Django
-                        </a>
-                        <span class="archive-item__statement-author">Иван Вирабян (Kanobu.ru)</span>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Django на Android
-                        </a>
-                        <span class="archive-item__statement-author">Александр Шлемин</span>
-                        <a class="archive-item__statement-comments" href="">1 325 634</a>
-                    </li>
+                    {% endfor %}
                 </ul>
                 <div class="g-clear"></div>
             </article>
-            <article class="archive-item">
-                <h1 class="archive-item__title"><a href="">Moscow Django Meetup № 2</a></h1>
-                <figure class="archive-item__gallery">
-                    <img class="archive-item__image" src="http://placehold.it/200x120" />
-                    <img class="archive-item__image archive-item__image_second" src="http://placehold.it/200x120" />
-                </figure>
-                <ul class="archive-item__statements">
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Шаблоны проектов на основе PasteScript и Django 1.4
-                        </a>
-                        <span class="archive-item__statement-author">Виталий Коробкин (SevenQuark)</span>
-                        <a class="archive-item__statement-comments" href="">376</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Что нового в Django 1.4
-                        </a>
-                        <span class="archive-item__statement-author">Илья Барышев (Future Colors)</span>
-                        <a class="archive-item__statement-comments" href="">100500</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Использование Django и SQLAlchemy
-                        </a>
-                        <span class="archive-item__statement-author">Андрей Попп</span>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Простой и удобный деплоймент проекта
-                        </a>
-                        <span class="archive-item__statement-author">Михаил Корнеев (Greenfield Project)</span>
-                        <a class="archive-item__statement-comments" href="">44</a>
-                    </li>
-                </ul>
-                <div class="g-clear"></div>
-            </article>
-            <article class="archive-item">
-                <h1 class="archive-item__title"><a href="">Moscow Django Meetup № 1</a></h1>
-                <figure class="archive-item__gallery">
-                    <img class="archive-item__image" src="http://placehold.it/200x120" />
-                    <img class="archive-item__image archive-item__image_second" src="http://placehold.it/200x120" />
-                </figure>
-                <ul class="archive-item__statements">
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Журнальная вёрстка. Делаем “красиво” с Django
-                        </a>
-                        <span class="archive-item__statement-author">Алексей Дубков</span>
-                        <a class="archive-item__statement-comments" href="">5</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Сила ваших кончиков пальцев
-                        </a>
-                        <span class="archive-item__statement-author">Владимир Епифанов (Островок)</span>
-                        <a class="archive-item__statement-comments" href="">51</a>
-                    </li>
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="">
-                            Миграция баз данных на South
-                        </a>
-                        <span class="archive-item__statement-author">Николай Ходов</span>
-                        <a class="archive-item__statement-comments" href="">2</a>
-                    </li>
-                </ul>
-                <div class="g-clear"></div>
-            </article>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
