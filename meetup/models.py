@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.db.models import permalink
 
 
 class Talk(models.Model):
@@ -13,6 +14,10 @@ class Talk(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @permalink
+    def get_absolute_url(self):
+        return 'talk', [self.pk]
 
     class Meta:
         verbose_name = u'Выступление'
@@ -30,9 +35,14 @@ class Event(models.Model):
     def __unicode__(self):
         return self.name
 
+    @permalink
+    def get_absolute_url(self):
+        return 'event', [self.pk]
+
     class Meta:
         verbose_name = u'Событие'
         verbose_name_plural = u'События'
+        get_latest_by = 'id'
 
 
 class Speaker(models.Model):
