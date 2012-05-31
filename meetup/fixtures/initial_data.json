@@ -4,8 +4,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "Доклад посвящён проблеме всех WYSIWYG’ов, а именно, их примитивности в форматировании наполнения сайтов. Алексей предложил вариант построения админки проекта, которая по задумке автора позволяет получить на сайте вёрстку контента как в журнале, то есть красивую и сложную.", 
-            "speaker": 1, 
-            "company_name": "", 
+            "speaker": 1,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-11836862", 
             "event": 1, 
@@ -17,8 +16,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "О важности использования консоли и использовании нескольких командных оболочек, таких как: sh, bash, zsh. Всё началось с описания привычных даже не юниксоидам команд и их ключей, а закончилось введением в sed, awk. Далее были представлены алиасы, сокращения и трюки для часто используемых паттернов. Обязательно взгляните на презентацию, можете найти для себя много полезного.", 
-            "speaker": 2, 
-            "company_name": "Островок", 
+            "speaker": 2,
             "video": "", 
             "presentation": "http://voldmar.ru/talks/power-of-your-fingertips/", 
             "event": 1, 
@@ -30,8 +28,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "На комплексном примере показывается, как производить миграции структуры БД и миграции данных. Неплохое введение для новичков, чтобы начать погружение в тему миграций, которую Django пока что обходит стороной.", 
-            "speaker": 3, 
-            "company_name": "", 
+            "speaker": 3,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-south", 
             "event": 1, 
@@ -43,8 +40,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "С увеличением количества проектов встаёт проблема автоматизации создания каркаса под новые приложения. До недавнего времени новые проекты мы создавали путем копирования заготовленного шаблонного проекта и изменения различных настроек в разных местах проекта. Решение - модуль Paste Script, с помощью которого можно создавать шаблоны-заготовки и на основе них генерировать проекты.", 
-            "speaker": 4, 
-            "company_name": "SevenQuark", 
+            "speaker": 4,
             "video": "", 
             "presentation": "http://digitaldemiurge.ru/slides/templates/", 
             "event": 2, 
@@ -56,8 +52,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "Галопом по Европам об основных фичах релиза Django 1.4", 
-            "speaker": 5, 
-            "company_name": "Future Colors", 
+            "speaker": 5,
             "video": "", 
             "presentation": "http://www.slideshare.net/Coagulant/django-14", 
             "event": 2, 
@@ -69,8 +64,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "", 
-            "speaker": 6, 
-            "company_name": "", 
+            "speaker": 6,
             "video": "", 
             "presentation": "", 
             "event": 2, 
@@ -82,8 +76,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "", 
-            "speaker": 7, 
-            "company_name": "Greenfield Project", 
+            "speaker": 7,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/deploy", 
             "event": 2, 
@@ -95,8 +88,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "Тем кто до сих пор не пользуется вьюхами на классах, рекомендуем обратить на них внимание, порой они экономят очень много boilerplate-кода. Тем же, кто активно их применяет, неплохая ссылочка по рекомендации Александра: Classy CBV - замена официальной путаной и неудобной документации по видам на классах. Доставило обсуждение CBV vs functional views, когда уместно использовать тот или иной вариант и почему.", 
-            "speaker": 8, 
-            "company_name": "Mail.ru Group", 
+            "speaker": 8,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/class-based-generic-views-django", 
             "event": 3, 
@@ -108,8 +100,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "На примере небольшой части интернет-магазина рассмотрели различные варианты реализации API для подключения плагинов к django-приложениям. Подробно, много кода, но всё понятно и логично выстроено. Хороший доклад, думаем, при разработке сложных систем со слабым связыванием компонентов всем придётся столкнуться с чем-либо подобным.", 
-            "speaker": 9, 
-            "company_name": "WebCanFly", 
+            "speaker": 9,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897050", 
             "event": 3, 
@@ -121,8 +112,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "Доклад можно было смело назвать django-gears, поскольку речь шла в основном об этой амбициозной билиотеке, которую разрабатывают ребята из Trilan. Она призвана заменить django-compressor и webassets, обладает большей частью их функциональности, к тому же хранит зависимости прямо в css/js (по аналогии с sprockets). Пока приложение ещё не в продакшене, но от этого не менее интересно.", 
-            "speaker": 10, 
-            "company_name": "", 
+            "speaker": 10,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897095", 
             "event": 3, 
@@ -134,8 +124,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "По большей части речь шла об ORM. Иван объяснил, почему «db_index=True не творит чудеса», показал каким иногда непредсказуемым может быть генератор SQL, объяснил как нужно использовать «Defer()», а так же описал основные подходы к инвалидации кеша и оптимизации контекст процессоров в Django. Самое продвинутое выступление явно не для новичков, жаль, что всего лишь на 10 минут, такая тема достойна больших временных рамок. Обязательно посмотрите слайды, очень полезный и наиболее прикладной доклад.", 
-            "speaker": 11, 
-            "company_name": "Kanobu.ru", 
+            "speaker": 11,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658", 
             "event": 3, 
@@ -147,8 +136,7 @@
         "model": "meetup.talk", 
         "fields": {
             "description": "Докладчик наглядно показал, что Django это не только про Web и что его можно запускать в том числе на мобильных устройствах. Александр продемонстрировал нам это на примере мобильного телефона на базе Android.", 
-            "speaker": 12, 
-            "company_name": "", 
+            "speaker": 12,
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-android", 
             "event": 3, 
@@ -159,7 +147,7 @@
         "pk": 3, 
         "model": "meetup.event", 
         "fields": {
-            "status": "active",
+            "status": "active", 
             "name": "Moscow Django Meetup № 3", 
             "image": "", 
             "sponsors": [
@@ -176,7 +164,7 @@
         "pk": 2, 
         "model": "meetup.event", 
         "fields": {
-            "status": "archived",
+            "status": "archived", 
             "name": "Moscow Django Meetup № 2", 
             "image": "", 
             "sponsors": [
@@ -193,7 +181,7 @@
         "pk": 1, 
         "model": "meetup.event", 
         "fields": {
-            "status": "archived",
+            "status": "archived", 
             "name": "Moscow Django Meetup № 1", 
             "image": "", 
             "sponsors": [
@@ -211,7 +199,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Алексей Дубков"
+            "name": "Алексей Дубков",
+            "company_name": ""
         }
     }, 
     {
@@ -219,7 +208,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Владимир Епифанов"
+            "name": "Владимир Епифанов",
+            "company_name": "Островок"
         }
     }, 
     {
@@ -227,7 +217,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Николай Ходов"
+            "name": "Николай Ходов",
+            "company_name": ""
         }
     }, 
     {
@@ -235,7 +226,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Виталий Коробкин"
+            "name": "Виталий Коробкин",
+            "company_name": "SevenQuark"
         }
     }, 
     {
@@ -243,7 +235,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Илья Барышев"
+            "name": "Илья Барышев",
+            "company_name": "Future Colors"
         }
     }, 
     {
@@ -251,7 +244,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Андрей Попп"
+            "name": "Андрей Попп",
+            "company_name": ""
         }
     }, 
     {
@@ -259,7 +253,8 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Михаил Корнеев"
+            "name": "Михаил Корнеев",
+            "company_name": "Greenfield Project"
         }
     }, 
     {
@@ -267,31 +262,35 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Александр Емелин"
+            "name": "Александр Емелин",
+            "company_name": "Mail.ru Group"
         }
     }, 
     {
         "pk": 9, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "", 
-            "name": "Владимир Филонов"
+            "photo": "",
+            "name": "Владимир Филонов",
+            "company_name": "WebCanFly"
         }
     }, 
     {
         "pk": 10, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "", 
-            "name": "Михаил Юматов"
+            "photo": "",
+            "name": "Михаил Юматов",
+            "company_name": "Trilan"
         }
     }, 
     {
         "pk": 11, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "", 
-            "name": "Иван Вирабян"
+            "photo": "",
+            "name": "Иван Вирабян",
+            "company_name": "Kanobu.ru"
         }
     }, 
     {
@@ -299,13 +298,15 @@
         "model": "meetup.speaker", 
         "fields": {
             "photo": "", 
-            "name": "Александр Шлемин"
+            "name": "Александр Шлемин",
+            "company_name": ""
         }
     }, 
     {
         "pk": 1, 
         "model": "meetup.sponsor", 
         "fields": {
+            "url": "http://greenfield-project.ru/",
             "logo": "", 
             "name": "Greenfield Project"
         }
@@ -314,8 +315,18 @@
         "pk": 2, 
         "model": "meetup.sponsor", 
         "fields": {
+            "url": "http://sevenquark.com/",
             "logo": "", 
             "name": "SevenQuark"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "meetup.sponsor",
+        "fields": {
+            "url": "http://futurecolors.ru",
+            "logo": "",
+            "name": "Future Colors"
         }
     }
 ]

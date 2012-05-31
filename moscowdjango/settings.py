@@ -149,7 +149,6 @@ LOGGING = {
 
 SERIALIZATION_MODULES = {
     'json-pretty': 'serializers.json_pretty',
-    'yaml-pretty': 'serializers.yaml_pretty',
 }
 
 try:

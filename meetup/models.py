@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.db.models import permalink
-from django.db.models.manager import Manager
 from model_utils import Choices
-from model_utils.managers import QueryManager
 from model_utils.models import StatusModel
 
 
 class Talk(models.Model):
     name = models.CharField(u'Название', max_length=1024)
     speaker = models.ForeignKey('Speaker', verbose_name=u'Докладчик', related_name='talks')
-    company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
     event = models.ForeignKey('Event', verbose_name=u'Событие', related_name='talks')
     description = models.TextField(u'Описание', blank=True)
     presentation = models.URLField(u'Адрес презентации', blank=True)
@@ -55,6 +52,7 @@ class Event(StatusModel):
 class Speaker(models.Model):
     name = models.CharField(u'Имя', max_length=100)
     photo = models.ImageField(u'Фотография', upload_to='speakers', null=True, blank=True)
+    company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -67,6 +65,10 @@ class Speaker(models.Model):
 class Sponsor(models.Model):
     name = models.CharField(u'Название компании', max_length=250)
     logo = models.ImageField(u'Логотип', upload_to='sponsors')
+    url = models.URLField(u'Адрес сайта', blank=True)
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         verbose_name = u'Спонсор'

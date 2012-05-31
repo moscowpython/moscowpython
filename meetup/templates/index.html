@@ -18,7 +18,7 @@
                         {{ talk }}
                     </a>
                     <div class="meetup__talk-author">
-                        {{ talk.speaker }} {% if talk.company_name %}({{ talk.company_name }}){% endif %}
+                        {{ talk.speaker }} {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}
                     </div>
                     <img class="meetup__talk-avatar" src="http://placehold.it/50x50" />
                     <div class="meetup__talk-description">
@@ -63,7 +63,7 @@
                             {{ talk }}
                         </a>
                         <span class="archive-item__talk-author">{{ talk.speaker }}
-                            {% if talk.company_name%}({{ talk.company_name }}){% endif %}</span>
+                            {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}</span>
                         <a class="archive-item__talk-comments" href="">376</a>
                     </li>
                     {% endfor %}
