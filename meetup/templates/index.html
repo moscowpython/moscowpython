@@ -11,17 +11,17 @@
                     {{ next_event.descripiton }}
                 </div>
             </header>
-            <ul class="meetup__statements">
+            <ul class="meetup__talks">
                 {% for talk in next_event.talks.all %}
-                <li class="meetup__statement">
-                    <a class="meetup__statement-title" href="{{ talk.get_absolute_url }}">
+                <li class="meetup__talk">
+                    <a class="meetup__talk-title" href="{{ talk.get_absolute_url }}">
                         {{ talk }}
                     </a>
-                    <div class="meetup__statement-author">
-                        {{ talk.speaker }} {% if talk.company_name%}({{ talk.company_name }}){% endif %}
+                    <div class="meetup__talk-author">
+                        {{ talk.speaker }} {% if talk.company_name %}({{ talk.company_name }}){% endif %}
                     </div>
-                    <img class="meetup__statement-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__statement-description">
+                    <img class="meetup__talk-avatar" src="http://placehold.it/50x50" />
+                    <div class="meetup__talk-description">
                         {{ talk.description }}
                     </div>
                 </li>
@@ -56,15 +56,15 @@
                     <img class="archive-item__image" src="http://placehold.it/200x120" />
                     <img class="archive-item__image archive-item__image_second" src="http://placehold.it/200x120" />
                 </figure>
-                <ul class="archive-item__statements">
+                <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}
-                    <li class="archive-item__statement">
-                        <a class="archive-item__statement-title" href="{{ talk.get_absolute_url }}">
+                    <li class="archive-item__talk">
+                        <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
                             {{ talk }}
                         </a>
-                        <span class="archive-item__statement-author">{{ talk.speaker }}
+                        <span class="archive-item__talk-author">{{ talk.speaker }}
                             {% if talk.company_name%}({{ talk.company_name }}){% endif %}</span>
-                        <a class="archive-item__statement-comments" href="">376</a>
+                        <a class="archive-item__talk-comments" href="">376</a>
                     </li>
                     {% endfor %}
                 </ul>

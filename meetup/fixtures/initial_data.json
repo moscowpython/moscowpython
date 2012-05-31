@@ -159,7 +159,7 @@
         "pk": 3, 
         "model": "meetup.event", 
         "fields": {
-            "status": "archived",
+            "status": "active",
             "name": "Moscow Django Meetup № 3", 
             "image": "", 
             "sponsors": [

@@ -37,32 +37,32 @@
     font-size: 160%;
     color: #777;
 }
-.meetup__statements {
+.meetup__talks {
     list-style: none;
     width: 60%;
     float: left;
 }
-.meetup__statement {
+.meetup__talk {
     position: relative;
     padding: 0 0 15px 60px;
     min-height: 60px;
 }
-.meetup__statement-title {
+.meetup__talk-title {
     display: block;
     margin-bottom: 0.1em;
     font-size: 160%;
 }
-.meetup__statement-author {
+.meetup__talk-author {
     margin-bottom: 0.2em;
     font-size: 140%;
     color: #777;
 }
-.meetup__statement-avatar {
+.meetup__talk-avatar {
     position: absolute;
     top: 0;
     left: 0;
 }
-.meetup__statement-description {
+.meetup__talk-description {
     font-size: 120%;
 }
 .meetup__info {
@@ -121,27 +121,27 @@
     top: 10px;
     left: 0px;
 }
-.archive-item__statements {
+.archive-item__talks {
     margin: 0 0 0 250px;
     list-style: none;
 }
-.archive-item__statement {
+.archive-item__talk {
     display: inline-block;
     width: 45%;
     margin: 0 3% 20px 0;
     vertical-align: top;
 }
-.archive-item__statement-title {
+.archive-item__talk-title {
     display: block;
     margin-bottom: 0.2em;
     font-size: 140%;
 }
-.archive-item__statement-author {
+.archive-item__talk-author {
     margin-right: 15px;
     font-size: 130%;
     color: #777;
 }
-.archive-item__statement-comments {
+.archive-item__talk-comments {
     display: inline-block;
     height: 16px;
     padding-left: 20px;
