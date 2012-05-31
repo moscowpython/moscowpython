@@ -1,4 +1,6 @@
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from meetup.models import Talk
 from models import Event
 
 
@@ -21,3 +23,13 @@ class IndexPage(ListView):
             'next_event': self.get_active_event()
         })
         return context
+
+
+class EventPage(DetailView):
+    template_name = 'event.html'
+    model = Event
+
+
+class TalkPage(DetailView):
+    template_name = 'talk.html'
+    model = Talk
