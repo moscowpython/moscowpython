@@ -1,6 +1,7 @@
 {% extends 'layout/layout.html' %}
 
 {% block page %}
+    {% if next_event %}
     <div class="wrapper">
         <section class="meetup">
             <header class="title">
@@ -45,6 +46,7 @@
             <div class="g-clear"></div>
         </section>
     </div>
+    {% endif %}
     <section class="archive">
         <div class="wrapper">
             {% for event in events %}

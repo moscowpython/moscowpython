@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.db.models import permalink
+from django.db.models.manager import Manager
+from model_utils import Choices
+from model_utils.managers import QueryManager
+from model_utils.models import StatusModel
 
 
 class Talk(models.Model):
@@ -24,7 +28,9 @@ class Talk(models.Model):
         verbose_name_plural = u'Выступление'
 
 
-class Event(models.Model):
+class Event(StatusModel):
+    STATUS = Choices('draft', 'active', 'archived')
+
     name = models.CharField(u'Название', max_length=1024)
     description = models.TextField(u'Описание', blank=True)
     image = models.ImageField(u'Изображение', upload_to='events', null=True, blank=True)
@@ -43,6 +49,7 @@ class Event(models.Model):
         verbose_name = u'Событие'
         verbose_name_plural = u'События'
         get_latest_by = 'id'
+        ordering = ['-date']
 
 
 class Speaker(models.Model):
