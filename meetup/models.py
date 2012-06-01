@@ -72,6 +72,9 @@ class Sponsor(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return self.url
+
     class Meta:
         verbose_name = u'Спонсор'
         verbose_name_plural = u'Спонсоры'

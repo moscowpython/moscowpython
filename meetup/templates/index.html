@@ -39,10 +39,11 @@
                 как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com
                 {% include 'blocks/map.html' with event=next_event %}
                 <div class="meetup__sponsors">
-                    <img class="meetup__sponsor" src="http://placehold.it/80x30" />
-                    <img class="meetup__sponsor" src="http://placehold.it/60x60" />
-                    <img class="meetup__sponsor" src="http://placehold.it/55x60" />
-                    <img class="meetup__sponsor" src="http://placehold.it/50x55" />
+                    {% for sponsor in next_event.sponsors.all %}
+                        <a href="{{ sponsor.get_absolute_url }}">
+                            <img class="meetup__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                        </a>
+                    {% endfor %}
                 </div>
             </div>
             <div class="g-clear"></div>

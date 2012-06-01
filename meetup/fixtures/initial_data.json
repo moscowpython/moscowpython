@@ -152,13 +152,14 @@
             "image": "", 
             "sponsors": [
                 1, 
-                2
+                2, 
+                3
             ], 
-            "longitude": "37.580193",
-            "latitude": "55.75824",
+            "longitude": "37.580193", 
+            "latitude": "55.75824", 
             "address": "Малый Конюшковский переулок, дом 2", 
             "date": "2012-05-10T15:00:00Z", 
-            "status_changed": "2012-05-31T13:57:17.150Z", 
+            "status_changed": "2012-05-31T13:57:17Z", 
             "description": "На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада. \r\n\r\nЕсли вы хотите сделать интересный доклад по Python/Django на каком-либо из будущих мероприятий или как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com"
         }
     }, 
@@ -173,8 +174,8 @@
                 1, 
                 2
             ], 
-            "longitude": "37.477067",
-            "latitude": "55.667198",
+            "longitude": "37.477067", 
+            "latitude": "55.667198", 
             "address": "Проспект Вернадского, дом 82, корпус 1, аудитория 222", 
             "date": "2012-04-05T15:00:00Z", 
             "status_changed": "2012-05-31T13:57:17.155Z", 
@@ -192,8 +193,8 @@
                 1, 
                 2
             ], 
-            "longitude": "37.64808",
-            "latitude": "55.753336",
+            "longitude": "37.64808", 
+            "latitude": "55.753336", 
             "address": "Покровский бульвар., 11, (НИУ Высшая Школа Экономики, ауд. Г-114)", 
             "date": "2012-03-01T15:00:00Z", 
             "status_changed": "2012-05-31T13:57:17.159Z", 
@@ -313,7 +314,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://greenfield-project.ru/", 
-            "logo": "", 
+            "logo": "/media/sponsors/greenfield_project.jpg", 
             "name": "Greenfield Project"
         }
     }, 
@@ -322,7 +323,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://sevenquark.com/", 
-            "logo": "", 
+            "logo": "/media/sponsors/sevenquark.png", 
             "name": "SevenQuark"
         }
     }, 
@@ -331,7 +332,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://futurecolors.ru", 
-            "logo": "", 
+            "logo": "/media/sponsors/futurecolors.png", 
             "name": "Future Colors"
         }
     }
