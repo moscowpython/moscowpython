@@ -37,9 +37,7 @@
                 <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
                 <p>Если вы хотите сделать интересный доклад по Python/Django на каком-либо из будущих мероприятий или
                 как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com
-                <div class="meetup__map">
-                    Схема проезда
-                </div>
+                {% include 'blocks/map.html' with event=next_event %}
                 <div class="meetup__sponsors">
                     <img class="meetup__sponsor" src="http://placehold.it/80x30" />
                     <img class="meetup__sponsor" src="http://placehold.it/60x60" />

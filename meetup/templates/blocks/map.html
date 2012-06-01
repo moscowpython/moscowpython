@@ -1,0 +1,19 @@
+{% if event.latitude and event.longitude %}
+<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
+    ymaps.ready(init);
+    function init () {
+        var myMap = new ymaps.Map("map", {
+            center: [{{ event.latitude }}, {{ event.longitude }}],
+            zoom: 15
+        }),
+        myPlacemark = new ymaps.Placemark([{{ event.latitude }}, {{ event.longitude }}], {
+            balloonContent: '{{ event|escapejs }}'
+        });
+        myMap.geoObjects.add(myPlacemark);
+        myMap.controls.add('smallZoomControl')
+    }
+</script>
+<div class="meetup__map" id="map">
+</div>
+{% endif %}

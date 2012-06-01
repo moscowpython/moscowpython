@@ -73,10 +73,7 @@
 .meetup__map {
     margin: 1em 0;
     height: 250px;
-    line-height: 250px;
-    text-align: center;
     border: 2px solid #3a2;
-    color: #3a2;
     background: #e7f2b3;
 }
 .meetup__sponsors {

@@ -33,6 +33,8 @@ class Event(StatusModel):
     image = models.ImageField(u'Изображение', upload_to='events', null=True, blank=True)
     date = models.DateTimeField(u'Начало', blank=True, null=True)
     address = models.TextField(u'Место проведения', blank=True)
+    latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
+    longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
 
     def __unicode__(self):
