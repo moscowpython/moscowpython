@@ -1,4 +1,4 @@
-{% load staticfiles %}<!doctype html>
+{% load staticfiles compress %}<!doctype html>
 <!--[if lt IE 7 ]><html class="ie6 ie67 ie no-js" lang="ru"><![endif]-->
 <!--[if IE 7 ]>   <html class="ie7 ie67 ie no-js" lang="ru"><![endif]-->
 <!--[if IE 8 ]>   <html class="ie8 ie no-js" lang="ru"><![endif]-->
@@ -11,11 +11,13 @@
 
     <title>{% block title %}{% endblock %}</title>
 
+    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/meetup.css' %}" type="text/css" />
+    {% endcompress %}
 </head>
 <body>
     {% block layout %}{% endblock %}

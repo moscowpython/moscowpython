@@ -1,5 +1,8 @@
+{% load compress %}
+
+
 {% if event.latitude and event.longitude %}
-<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 <script type="text/javascript">
     ymaps.ready(init);
     function init () {
@@ -11,7 +14,7 @@
             balloonContent: '{{ event|escapejs }}'
         });
         myMap.geoObjects.add(myPlacemark);
-        myMap.controls.add('smallZoomControl')
+        myMap.controls.add('smallZoomControl');
     }
 </script>
 <div class="meetup__map" id="map">

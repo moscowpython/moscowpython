@@ -81,6 +81,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -115,6 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'compressor',
     'meetup',
 )
 
@@ -157,8 +159,13 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 SERIALIZATION_MODULES = {
-    'json-pretty': 'serializers.json_pretty',
+    'json-pretty': 'moscowdjango.serializers.json_pretty',
 }
+
+COMPRESS_CSS_FILTERS = (
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+)
 
 try:
     LOCAL_SETTINGS
