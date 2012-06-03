@@ -1,32 +1,25 @@
 {% extends 'layout/body.html' %}
 
 
+{% load url from future %}
+
+
 {% block layout %}
     <header class="header">
         <div class="wrapper">
             <nav class="menu">
                 <ul class="menu__items">
                     <li class="menu__item">
-                        <a class="menu__link" href="">Главная</a>
+                        <a class="menu__link" href="{% url 'index' %}">Главная</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="">События</a>
                         <ul class="menu__subitems">
+                            {% for event in all_events %}
                             <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="">Митап № 4</a>
+                                <a class="menu__subitem-link" href="{{ event.get_absolute_url }}">{{ event }}</a>
                             </li>
-                            <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="">Django-спринт</a>
-                            </li>
-                            <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="">Митап № 3</a>
-                            </li>
-                            <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="">Митап № 2</a>
-                            </li>
-                            <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="">Митап № 1</a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </li>
                     <li class="menu__item">
@@ -47,7 +40,7 @@
             <nav class="user-menu">
                 <img class="user-menu__avatar" src="https://si0.twimg.com/profile_images/1894545057/ilya_normal.jpg" />
                 <a class="user-menu__name" href="">Илья Барышев</a>
-            <nav>
+            </nav>
         </div>
     </header>
     {% block page %}{% endblock %}

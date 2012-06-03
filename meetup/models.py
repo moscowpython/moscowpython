@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+from django.conf import settings
 from django.db import models
 from django.db.models import permalink
+from embedly.client import Embedly
 from model_utils import Choices
+from model_utils.managers import QueryManager
 from model_utils.models import StatusModel
+from picklefield.fields import PickledObjectField
 
 
 class Talk(models.Model):
@@ -11,7 +15,9 @@ class Talk(models.Model):
     event = models.ForeignKey('Event', verbose_name=u'Событие', related_name='talks')
     description = models.TextField(u'Описание', blank=True)
     presentation = models.URLField(u'Адрес презентации', blank=True)
+    presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
     video = models.URLField(u'Адрес видео', blank=True)
+    video_data = PickledObjectField(u'Meta-данные видео', blank=True)
 
     def __unicode__(self):
         return self.name
@@ -20,9 +26,17 @@ class Talk(models.Model):
     def get_absolute_url(self):
         return 'talk', [self.pk]
 
+    def save(self, *args, **kwargs):
+        if self.presentation and not self.presentation_data:
+            embedly_key = getattr(settings, 'EMBEDLY_KEY')
+            if embedly_key:
+                client = Embedly()
+                self.presentation_data = client.oembed(self.presentation).data
+        return super(Talk, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name = u'Выступление'
-        verbose_name_plural = u'Выступление'
+        verbose_name_plural = u'Выступления'
 
 
 class Event(StatusModel):
@@ -36,6 +50,8 @@ class Event(StatusModel):
     latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
     longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
+
+    visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
 
     def __unicode__(self):
         return self.name

@@ -2,6 +2,8 @@ django==1.4
 pillow==1.7.7
 django-model-utils==1.1.0
 django-compressor==1.1.2
+django-picklefield==0.2.1
+embedly==0.4.3
 
 #development
 django-debug-toolbar==0.9.4

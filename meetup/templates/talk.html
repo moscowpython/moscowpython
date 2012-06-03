@@ -3,6 +3,14 @@
 
 {% block title %}{{ talk }}{% endblock %}
 
-
 {% block page %}
+    <h1>{{ talk }}</h1>
+
+    {% if talk.presentation %}
+        {% if talk.presentation_data.type == 'link' %}
+            <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>
+        {% else %}
+            {{ talk.presentation_data.html|safe }}
+        {% endif %}
+    {% endif %}
 {% endblock %}
