@@ -12,3 +12,9 @@ virtualenv ../moscowdjango.env
 3) Launch it
 
 ../moscowdjango.env/bin/python manage.py runserver
+
+
+Useful dev commands
+-------------------
+
+python manage.py dumpdata meetup --format=json-pretty --indent=4 > meetup/fixtures/initial_data.json

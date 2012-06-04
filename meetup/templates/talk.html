@@ -1,6 +1,9 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load pytils_dt %}
+
+
 {% block title %}{{ talk }}{% endblock %}
 
 {% block page %}
@@ -9,13 +12,13 @@
             <aside class="event-card">
                 <a href="{{ talk.event.get_absolute_url }}">
                     <div class="event-card__name">
-                        Moscow Django Meetup
+                        {{ talk.event.name }}
                         <div class="event-card__number">
-                            № 2
+                            № {{ talk.event.number }}
                         </div>
                     </div>
                     <div class="event-card__date">
-                        5 апреля 2012 года
+                        {{ talk.event.date|ru_strftime:"%d %B %Y" }}
                     </div>
                 </a>
             </aside>
@@ -33,7 +36,7 @@
                     Advanced
                 </div>
                 <button class="talk__download">
-                    Download, 340 kb
+                    Скачать слайды
                 </button>
             </header>
             <section class="talk__resources">

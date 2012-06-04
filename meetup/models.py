@@ -43,6 +43,7 @@ class Event(StatusModel):
     STATUS = Choices('draft', 'active', 'archived')
 
     name = models.CharField(u'Название', max_length=1024)
+    number = models.SmallIntegerField(u'Номер', blank=True, null=True)
     description = models.TextField(u'Описание', blank=True)
     image = models.ImageField(u'Изображение', upload_to='events', null=True, blank=True)
     date = models.DateTimeField(u'Начало', blank=True, null=True)
@@ -54,7 +55,7 @@ class Event(StatusModel):
     visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
 
     def __unicode__(self):
-        return self.name
+        return u'{0} №{1}'.format(self.name, self.number)
 
     @permalink
     def get_absolute_url(self):

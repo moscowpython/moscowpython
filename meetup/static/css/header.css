@@ -47,7 +47,8 @@
     left: 0px;
     display: none;
     white-space: nowrap;
-    background: rgba(0, 0, 0, 0.7)
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
 }
 .menu__item:hover .menu__subitems {
     display: block;
