@@ -4,13 +4,31 @@
 {% block title %}{{ talk }}{% endblock %}
 
 {% block page %}
-    <h1>{{ talk }}</h1>
-
-    {% if talk.presentation_data %}
-        {% if talk.presentation_data.type == 'link' %}
-            <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>
-        {% else %}
-            {{ talk.presentation_data.html|safe }}
-        {% endif %}
-    {% endif %}
+    <section class="talk">
+        <div class="wrapper">
+            <header class="talk__summary">
+                <img class="talk__speaker-avatar" src="http://placehold.it/150x150" />
+                <h1 class="talk__name">{{ talk }}</h1>
+                <div class="talk__speaker">
+                    {{ talk.speaker }},
+                    {{ talk.speaker.company_name }}
+                </div>
+                <div class="talk__description">
+                    {{ talk.description }}
+                </div>
+                <div class="talk__level">
+                    Advanced
+                </div>
+            </header>
+        </div>
+    </section>
+{#        <h1>{{ talk }}</h1>#}
+{#    #}
+{#        {% if talk.presentation_data %}#}
+{#            {% if talk.presentation_data.type == 'link' %}#}
+{#                <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>#}
+{#            {% else %}#}
+{#                {{ talk.presentation_data.html|safe }}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
 {% endblock %}

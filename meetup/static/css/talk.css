@@ -1,0 +1,46 @@
+/**
+ * Выступление
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Выступление
+ */
+
+.talk {
+    margin: 2em 0;
+}
+.talk__summary {
+    position: relative;
+    margin-bottom: 2em;
+    padding-left: 170px;
+    min-height: 150px;
+}
+.talk__speaker-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.talk__name {
+    margin: 0 0 0.2em;
+    font-size: 280%;
+}
+.talk__speaker {
+    margin-bottom: 1.5em;
+    font-size: 140%;
+    color: #777;
+}
+.talk__description {
+    margin-bottom: 1em;
+    font-size: 140%;
+}
+.talk__level {
+    font-size: 140%;
+    font-style: italic;
+    color: #07f;
+}
