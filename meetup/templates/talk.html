@@ -6,6 +6,19 @@
 {% block page %}
     <section class="talk">
         <div class="wrapper">
+            <aside class="event-card">
+                <a href="{{ talk.event.get_absolute_url }}">
+                    <div class="event-card__name">
+                        Moscow Django Meetup
+                        <div class="event-card__number">
+                            № 2
+                        </div>
+                    </div>
+                    <div class="event-card__date">
+                        5 апреля 2012 года
+                    </div>
+                </a>
+            </aside>
             <header class="talk__summary">
                 <img class="talk__speaker-avatar" src="http://placehold.it/150x150" />
                 <h1 class="talk__name">{{ talk }}</h1>
