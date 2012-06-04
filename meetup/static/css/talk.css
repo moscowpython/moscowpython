@@ -13,11 +13,11 @@
  */
 
 .talk {
-    margin: 2em 0;
+    margin: 3em 0;
 }
 .talk__summary {
     position: relative;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     padding-left: 170px;
     min-height: 150px;
 }
@@ -40,7 +40,26 @@
     font-size: 140%;
 }
 .talk__level {
+    margin-bottom: 1em;
     font-size: 140%;
     font-style: italic;
     color: #07d;
+}
+.talk__download {
+    font-size: 140%;
+}
+.talk__resources {
+    margin: 0 0 4em;
+}
+.talk__resource {
+    display: inline-block;
+    margin-right: 3em;
+}
+.talk__resource iframe {
+    width: 420px;
+    height: 315px;
+}
+.talk__comments {
+    min-height: 400px;
+    margin: 0 0 2em;
 }

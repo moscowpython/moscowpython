@@ -32,16 +32,42 @@
                 <div class="talk__level">
                     Advanced
                 </div>
+                <button class="talk__download">
+                    Download, 340 kb
+                </button>
             </header>
+            <section class="talk__resources">
+                <article class="talk__resource">
+                    <iframe width="420"
+                            height="315"
+                            src="http://www.youtube.com/embed/mUVCGsWhwHU"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </article>
+                <article class="talk__resource">
+                    {% if talk.presentation_data %}
+                        {% if talk.presentation_data.type == 'link' %}
+                            <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>
+                        {% else %}
+                            {{ talk.presentation_data.html|safe }}
+                        {% endif %}
+                    {% endif %}
+                </article>
+            </section>
+            <section class="talk__comments">
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-comments"
+                     data-href="http://example.com"
+                     data-num-posts="7"
+                     data-width="960"></div>
+            </section>
         </div>
     </section>
-{#        <h1>{{ talk }}</h1>#}
-{#    #}
-{#        {% if talk.presentation_data %}#}
-{#            {% if talk.presentation_data.type == 'link' %}#}
-{#                <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>#}
-{#            {% else %}#}
-{#                {{ talk.presentation_data.html|safe }}#}
-{#            {% endif %}#}
-{#        {% endif %}#}
 {% endblock %}
