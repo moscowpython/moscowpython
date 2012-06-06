@@ -80,7 +80,7 @@
     text-align: center;
 }
 .meetup__sponsor {
-    margin: 10px 5px;
+    margin: 10px 15px;
     vertical-align: middle;
 }
 
@@ -178,4 +178,19 @@
     text-align: center;
     color: #fffff0;
     font-size: 160%;
+}
+
+
+/**
+ * @section     Лайк митапа
+ */
+
+.like {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #ccb;
+}
+.like_item {
+    display: inline-block;
+    margin: 0 15px;
 }

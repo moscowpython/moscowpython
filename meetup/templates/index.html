@@ -6,8 +6,8 @@
 
 {% block page %}
     {% if next_event %}
-    <div class="wrapper">
-        <section class="meetup">
+    <section class="meetup">
+        <div class="wrapper">
             <header class="title">
                 <img class="title__logo" src="http://placehold.it/100x100" />
                 <h1 class="title__name">{{ next_event }}</h1>
@@ -38,18 +38,19 @@
                 <p>Если вы хотите сделать интересный доклад по Python/Django на каком-либо из будущих мероприятий или
                 как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com
                 {% include 'blocks/map.html' with event=next_event %}
-                <div class="meetup__sponsors">
-                    {% for sponsor in next_event.sponsors.all %}
-                        <a href="{{ sponsor.get_absolute_url }}">
-                            <img class="meetup__sponsor" src="{{ sponsor.logo.url }}" width="200" />
-                        </a>
-                    {% endfor %}
-                </div>
             </div>
             <div class="g-clear"></div>
-        </section>
-    </div>
+            <div class="meetup__sponsors">
+                {% for sponsor in next_event.sponsors.all %}
+                    <a href="{{ sponsor.get_absolute_url }}">
+                        <img class="meetup__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
+    {% include 'blocks/like.html' %}
     <section class="archive">
         <div class="wrapper">
             {% for event in events %}

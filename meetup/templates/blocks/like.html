@@ -1,0 +1,58 @@
+<section class="like">
+    <div class="wrapper">
+        <div class="like_item">
+            <!-- Google Plus -->
+            <!-- Разместите этот тег в теге head или непосредственно перед закрывающим тегом body -->
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+                {lang: 'ru'}
+            </script>
+            <!-- Разместите этот тег в том месте, где должна отображаться кнопка +1 -->
+            <g:plusone size="medium"></g:plusone>
+        </div>
+        <div class="like_item">
+            <!-- Facebook -->
+            <div id="fb-root"></div>
+            <script>
+                // Facebook async loading.
+                (function() {
+                    var e = document.createElement('script'); e.async = true;
+                    e.src = document.location.protocol +
+                            '//connect.facebook.net/en_US/all.js';
+                    document.getElementById('fb-root').appendChild(e);
+                }());
+
+                window.fbAsyncInit = function() {
+                    FB.init({appId: '341837582509763', status: true, cookie: true,
+                        xfbml: true});
+
+                    _ga.trackFacebook();
+                };
+            </script>
+            <fb:like send="false" href="http://5blades.panasonic.ru" layout="button_count" width="100" show_faces="true"></fb:like>
+        </div>
+        <div class="like_item">
+            <!-- Twitter -->
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ru" data-via="Panasonic_ru" data-url="http://5blades.panasonic.ru/" data-text="Мне понравилась бритва Panasonic ES-LV61: ">Tweet</a>
+            <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+        </div>
+        <div class="like_item">
+            <script type="text/javascript">
+                VK.init({apiId: 2728447, onlyWidgets: true});
+            </script>
+
+            <!-- Put this div tag to the place, where the Like block will be -->
+            <div id="vk_like"></div>
+
+            <script type="text/javascript">
+                VK.Widgets.Like("vk_like", {type: "button", height: 20,
+                    pageTitle: "Бритва Panasonic 5 Blades",
+                    pageDescription: "Мне понравилась новая бритва Panasonic ES-LV61. Это настоящий прорыв в технологии бритья!",
+                    pageUrl: "http://5blades.panasonic.ru/",
+                    pageImage: "http://5blades.panasonic.ru/images/icons/social_icon.png",
+                    text: "Мне понравилась новая бритва Panasonic ES-LV61. Это настоящий прорыв в технологии бритья!"
+                });
+            </script>
+        </div>
+    </div>
+</section>
