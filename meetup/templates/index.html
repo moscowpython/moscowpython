@@ -9,11 +9,28 @@
     <section class="meetup">
         <div class="wrapper">
             <header class="title">
+                <aside class="register">
+                    <a class="register__link" href="">
+                        <div class="register__finishing">
+                            Регистрация открыта до 2 апреля
+                        </div>
+                        <div class="register__text">
+                            Зарегистрироваться
+                        </div>
+                        <div class="register__registred">
+                            Идут 78 человек
+                        </div>
+                    </a>
+                </aside>
                 <img class="title__logo" src="http://placehold.it/100x100" />
                 <h1 class="title__name">{{ next_event }}</h1>
+                <div class="title__date" title="Осталось 17 дней">
+                    7 апреля 2012 г.
+                </div>
                 <div class="title__description">
                     {{ next_event.descripiton }}
                 </div>
+                <div class="g-clear"></div>
             </header>
             <ul class="meetup__talks">
                 {% for talk in next_event.talks.all %}

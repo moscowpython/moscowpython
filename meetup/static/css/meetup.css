@@ -21,7 +21,7 @@
     margin: 30px 0;
 }
 .title {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 .title__logo {
     float: left
@@ -35,6 +35,37 @@
     margin-left: 120px;
     font-size: 160%;
     color: #777;
+}
+.title__date {
+    margin-left: 120px;
+    font-size: 160%;
+}
+.register {
+    float: right;
+    margin: 15px 0 0 15px;
+    background: #170;
+    cursor: pointer;
+}
+.register__link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+}
+.register__finishing {
+    font-size: 140%;
+    font-style: italic;
+    color: #ded;
+}
+.register__text {
+    margin: 0.4em 0;
+    font-size: 180%;
+    color: white;
+}
+.register__registred {
+    font-size: 140%;
+    font-style: italic;
+    color: #ded;
 }
 .meetup__talks {
     list-style: none;
