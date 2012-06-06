@@ -96,6 +96,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'django.core.context_processors.request',
     'meetup.all_events_processor',
 )
 
@@ -116,6 +117,11 @@ WSGI_APPLICATION = 'moscowdjango.wsgi.application'
 TEMPLATE_DIRS = ('',)
 
 INSTALLED_APPS = (
+    'admintools_bootstrap',
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
