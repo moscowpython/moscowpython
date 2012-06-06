@@ -20,6 +20,9 @@
 .meetup {
     margin: 30px 0;
 }
+.meetup_with-dash {
+    margin-right: 15px;
+}
 .title {
     margin-bottom: 15px;
 }
@@ -224,4 +227,29 @@
 .like_item {
     display: inline-block;
     margin: 0 15px;
+}
+
+
+/**
+ * @section     Анонс даша
+ */
+
+.dash {
+    width: 25%;
+    padding: 15px;
+    vertical-align: top;
+    text-align: center;
+    border-left: 1px solid #ccb;
+    border-right: 1px solid #ccb;
+    background: #eee;
+}
+.dash__text {
+    margin: 1.5em 0;
+    line-height: 1.6;
+    font-size: 140%;
+    color: #333;
+}
+.dash__text_small {
+    font-size: 120%;
+    color: #555;
 }

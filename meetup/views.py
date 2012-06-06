@@ -20,7 +20,8 @@ class IndexPage(ListView):
         context = super(IndexPage, self).get_context_data(**kwargs)
 
         context.update({
-            'next_event': self.get_active_event()
+            'next_event': self.get_active_event(),
+            'with_dash': self.request.GET.get('with_dash', False)
         })
         return context
 
