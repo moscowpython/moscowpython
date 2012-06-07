@@ -13,15 +13,11 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(ROOT_PATH, 'moscowdjango.db'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+    'default': dj_database_url.config(default='sqlite:///{0}'.format(
+        os.path.join(ROOT_PATH, 'moscowdjango.db'))
+    )
 }
 
 # Local time zone for this installation. Choices can be found here:

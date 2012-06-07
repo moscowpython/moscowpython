@@ -8,3 +8,7 @@ pytils==0.2.3
 
 #development
 django-debug-toolbar==0.9.4
+
+#heroku
+psycopg2==2.4.5
+dj-database-url==0.2.0
