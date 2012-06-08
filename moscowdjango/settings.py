@@ -13,13 +13,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///{0}'.format(
-        os.path.join(ROOT_PATH, 'moscowdjango.db'))
-    )
-}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -176,6 +169,13 @@ COMPRESS_CSS_FILTERS = (
     'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter',
 )
+
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.config(default='sqlite:///{0}'.format(
+        os.path.join(ROOT_PATH, 'moscowdjango.db'))
+    )
+}
 
 try:
     LOCAL_SETTINGS
