@@ -177,6 +177,9 @@ DATABASES = {
     )
 }
 
+#heroku
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+
 try:
     LOCAL_SETTINGS
 except NameError:
