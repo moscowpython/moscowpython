@@ -6,8 +6,8 @@
 
 {% block page %}
     <div class="wrapper">
-        <section class="meetup">
-            <header class="title">
+        <section class="event">
+            <header class="event-title">
                 <aside class="register register_closed">
                     <a class="register__link" href="">
                         <div class="register__summary">
@@ -15,27 +15,27 @@
                         </div>
                     </a>
                 </aside>
-                <img class="title__logo" src="http://placehold.it/100x100" />
-                <h1 class="title__name">{{ object }}</h1>
-                <div class="title__date" title="Осталось 17 дней">
+                <img class="event-title__logo" src="http://placehold.it/100x100" />
+                <h1 class="event-title__name">{{ object }}</h1>
+                <div class="event-title__date" title="Осталось 17 дней">
                     7 апреля 2012 г.
                 </div>
-                <div class="title__description">
+                <div class="event-title__description">
                     {{ object.descripiton }}
                 </div>
                 <div class="g-clear"></div>
             </header>
-            <ul class="meetup__talks">
+            <ul class="event__talks">
                 {% for talk in object.talks.all %}
-                    <li class="meetup__talk">
-                        <a class="meetup__talk-title" href="{{ talk.get_absolute_url }}">
+                    <li class="event__talk">
+                        <a class="event__talk-title" href="{{ talk.get_absolute_url }}">
                             {{ talk }}
                         </a>
-                        <div class="meetup__talk-author">
+                        <div class="event__talk-author">
                             {{ talk.speaker }} {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}
                         </div>
-                        <img class="meetup__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
-                        <div class="meetup__talk-description">
+                        <img class="event__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
+                        <div class="event__talk-description">
                             {{ talk.description|truncatewords:"25" }}
                         </div>
                     </li>
@@ -49,31 +49,31 @@
                 {% include 'blocks/map.html' with event=object %}
             </div>
             {% endcomment %}
-            <ul class="meetup__links">
-                <li class="meetup__link">
-                    <a href="" class="meetup__link-link">
-                        <img class="meetup__link-icon" src="http://placehold.it/16x16" />
-                        <span class="meetup__link-name">Анонс митапа на Хабре</span>
+            <ul class="event__links">
+                <li class="event__link">
+                    <a href="" class="event__link-link">
+                        <img class="event__link-icon" src="http://placehold.it/16x16" />
+                        <span class="event__link-name">Анонс митапа на Хабре</span>
                     </a>
                 </li>
-                <li class="meetup__link">
-                    <a href="" class="meetup__link-link">
-                        <img class="meetup__link-icon" src="http://placehold.it/16x16" />
-                        <span class="meetup__link-name">Отчёт о происходившем в блоге Future Colors</span>
+                <li class="event__link">
+                    <a href="" class="event__link-link">
+                        <img class="event__link-icon" src="http://placehold.it/16x16" />
+                        <span class="event__link-name">Отчёт о происходившем в блоге Future Colors</span>
                     </a>
                 </li>
-                <li class="meetup__link">
-                    <a href="" class="meetup__link-link">
-                        <img class="meetup__link-icon" src="http://placehold.it/16x16" />
-                        <span class="meetup__link-name">Ещё одна ссылка. Илья, сколько их вообще может быть?</span>
+                <li class="event__link">
+                    <a href="" class="event__link-link">
+                        <img class="event__link-icon" src="http://placehold.it/16x16" />
+                        <span class="event__link-name">Ещё одна ссылка. Илья, сколько их вообще может быть?</span>
                     </a>
                 </li>
             </ul>
             <div class="g-clear"></div>
-            <div class="meetup__sponsors">
+            <div class="event__sponsors">
                 {% for sponsor in object.sponsors.all %}
                     <a href="{{ sponsor.get_absolute_url }}">
-                        <img class="meetup__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                        <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
                     </a>
                 {% endfor %}
             </div>
