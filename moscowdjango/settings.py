@@ -13,17 +13,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(ROOT_PATH, 'moscowdjango.db'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -96,6 +85,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'django.core.context_processors.request',
     'meetup.all_events_processor',
 )
 
@@ -116,6 +106,11 @@ WSGI_APPLICATION = 'moscowdjango.wsgi.application'
 TEMPLATE_DIRS = ('',)
 
 INSTALLED_APPS = (
+    'admintools_bootstrap',
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -174,6 +169,13 @@ COMPRESS_CSS_FILTERS = (
     'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter',
 )
+
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.config(default='sqlite:///{0}'.format(
+        os.path.join(ROOT_PATH, 'moscowdjango.db'))
+    )
+}
 
 try:
     LOCAL_SETTINGS
