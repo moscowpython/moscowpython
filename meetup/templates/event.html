@@ -36,19 +36,15 @@
                         </div>
                         <img class="event__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
                         <div class="event__talk-description">
-                            {{ talk.description|truncatewords:"25" }}
+                            {{ talk.description }}
                         </div>
                     </li>
                 {% endfor %}
             </ul>
-            {% comment %}
-            <div class="meetup__info">
-                <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
-                <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
-                {% include 'blocks/map.html' with event=object %}
+            <div class="event__info">
+                <p>Митап прошёл на Красной площади, 1 в бизнесцентре Кремль</p>
+                {% include 'blocks/map.html' with event=object small=1 %}
             </div>
-            {% endcomment %}
             <ul class="event__links">
                 <li class="event__link">
                     <a href="" class="event__link-link">
@@ -77,6 +73,13 @@
                     </a>
                 {% endfor %}
             </div>
+            <section class="event__gallery">
+                <img class="event__gallery-image" src="http://placehold.it/200x120" width="200" height="120" />
+                <img class="event__gallery-image" src="http://placehold.it/200x120" width="200" height="120" />
+                <img class="event__gallery-image" src="http://placehold.it/200x120" width="200" height="120" />
+                <img class="event__gallery-image" src="http://placehold.it/200x120" width="200" height="120" />
+                <img class="event__gallery-image" src="http://placehold.it/200x120" width="200" height="120" />
+            </section>
         </section>
     </div>
 {% endblock %}

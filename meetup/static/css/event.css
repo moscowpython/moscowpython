@@ -78,9 +78,12 @@
 }
 .event__map {
     margin: 1em 0;
-    height: 250px;
+    height: 300px;
     border: 2px solid #3a2;
     background: #e7f2b3;
+}
+.event__map_small {
+    height: 150px;
 }
 .event__links {
     margin: 1em 0 3em;
@@ -116,6 +119,17 @@
 .event__sponsor {
     margin: 10px 15px;
     vertical-align: middle;
+}
+.event__gallery {
+    margin: 2em 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.event__gallery-image {
+    position: relative;
+    padding: 4px;
+    border: 1px solid #ccb;
+    background: white;
 }
 
 
