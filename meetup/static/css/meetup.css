@@ -43,33 +43,6 @@
     margin-left: 120px;
     font-size: 160%;
 }
-.register {
-    float: right;
-    margin: 15px 0 0 15px;
-    background: #170;
-    cursor: pointer;
-}
-.register__link {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-}
-.register__finishing {
-    font-size: 140%;
-    font-style: italic;
-    color: #ded;
-}
-.register__text {
-    margin: 0.4em 0;
-    font-size: 180%;
-    color: white;
-}
-.register__registred {
-    font-size: 140%;
-    font-style: italic;
-    color: #ded;
-}
 .meetup__talks {
     list-style: none;
     width: 60%;
@@ -109,6 +82,33 @@
     border: 2px solid #3a2;
     background: #e7f2b3;
 }
+.meetup__links {
+    margin: 1em 0 3em;
+    float: right;
+    width: 35%;
+    list-style: none;
+}
+.meetup__link {
+    position: relative;
+    padding: 0 0 1.5em 2em;
+}
+.meetup__link-link {
+    text-decoration: none;
+}
+.meetup__link-icon {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    width: 16px;
+    height: 16px;
+    margin-left: -16px;
+    vertical-align: middle;
+}
+.meetup__link-name {
+    vertical-align: middle;
+    text-decoration: underline;
+    font-size: 150%;
+}
 .meetup__sponsors {
     margin: 1em 0;
     text-align: center;
@@ -116,6 +116,48 @@
 .meetup__sponsor {
     margin: 10px 15px;
     vertical-align: middle;
+}
+
+
+/**
+ * @subsection  Блок регистрации
+ */
+
+.register {
+    float: right;
+    margin: 15px 0 0 15px;
+    background: #170;
+    cursor: pointer;
+}
+.register_closed {
+    background: #aaa;
+}
+.register__link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+}
+.register__finishing {
+    font-size: 140%;
+    font-style: italic;
+    color: #ded;
+}
+.register__text {
+    margin: 0.4em 0;
+    font-size: 180%;
+    color: white;
+}
+.register__registred {
+    font-size: 140%;
+    font-style: italic;
+    color: #ded;
+}
+.register__summary {
+    margin: 1.5em 1em;
+    font-size: 140%;
+    font-style: italic;
+    color: #eee;
 }
 
 

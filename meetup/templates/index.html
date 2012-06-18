@@ -46,7 +46,7 @@
                     <div class="meetup__talk-author">
                         {{ talk.speaker }} {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}
                     </div>
-                    <img class="meetup__talk-avatar" src="http://placehold.it/50x50" />
+                    <img class="meetup__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
                     <div class="meetup__talk-description">
                         {{ talk.description|truncatewords:"25" }}
                     </div>
