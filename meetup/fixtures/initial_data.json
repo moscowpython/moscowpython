@@ -7,7 +7,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 1, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-11836862", 
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django",
             "event": 1, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWH8AAADQltGD0YDQvdCw0LvRjNC90LDRjyDQstGR0YDRgdGC0LrQsCDQlNC10LvQsNC10LwgItC60YDQsNGB0LjQstC+IiDRgSBEamFuZ28g0JDQu9C10LrRgdC10Lkg0JTRg9Cx0LrQvtCyIGFsZXhAZXZpZC5ydSBNb3Njb3dEamFucQVVDG9yaWdpbmFsX3VybHEGWDYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tMTE4MzY4NjJxB1gFAAAAdGl0bGVxCFgtAAAA0JbRg9GA0L3QsNC70YzQvdCw0Y8g0LLRkdGA0YHRgtC60LAg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjg2MiIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYWwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLW1hZy1sYXlvdXQtMTIwMzAyMTMyMTUxLXBocGFwcDAxLXRodW1ibmFpbC0yPzEzMzA3MTY4NTRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Журнальная вёрстка. Делаем “красиво” с Django"
@@ -35,10 +35,10 @@
             "video_data": "gAJVAC4=", 
             "speaker": 3, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-south", 
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-south",
             "event": 1, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWFsAAABEamFuZ28gU291dGgg0JzQuNCz0YDQsNGG0LjRjyDQsdCw0Lcg0LTQsNC90L3Ri9GFINCd0LjQutC+0LvQsNC5INCl0L7QtNC+0LIgW2VtYWlsX2FkZHJlc3NdcQVVDG9yaWdpbmFsX3VybHEGWDMAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tc291dGhxB1gFAAAAdGl0bGVxCFgzAAAARGphbmdvIFNvdXRoLiDQnNC40LPRgNCw0YbQuNGPINCx0LDQtyDQtNCw0L3QvdGL0YUucQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjkzOCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYTwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vc291dGgtMTIwMzAyMTMyODUxLXBocGFwcDAyLXRodW1ibmFpbC0yPzEzMzA3MTY3MjRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
-            "name": "Миграция баз данных на South"
+            "name": "Django South: миграция баз данных"
         }
     }, 
     {
@@ -133,7 +133,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 10, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-12897095", 
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-1",
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWCwAAADQoNCw0LHQvtGC0LAg0YHQviDRgdGC0LDRgtC40LrQvtC5INCyIERqYW5nb3EFVQxvcmlnaW5hbF91cmxxBlg2AAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vZGphbmdvLTEyODk3MDk1cQdYBQAAAHRpdGxlcQhYLAAAANCg0LDQsdC+0YLQsCDRgdC+INGB0YLQsNGC0LjQutC+0Lkg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzA5NSIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEyMTIxNS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2NzU2NDM2cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Работа со статикой в Django"
@@ -147,7 +147,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 11, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658", 
+            "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658",
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGYAAADQl9Cw0LzQtdGC0LrQuCDQuiDQv9GA0LXQt9C10L3RgtCw0YbQuNC4OiBodHRwOi8vZGwuZHJvcGJveC5jb20vdS8yMzc2NzIwOC9kamFuZ28tcGVyZm9tYW5jZS1ub3Rlcy5wZGZxBVUMb3JpZ2luYWxfdXJscQZYNgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby0xMjg5NzY1OHEHWAUAAAB0aXRsZXEIWC4AAADQn9GA0L7QuNC30LLQvtC00LjRgtC10LvRjNC90L7RgdGC0Ywg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzY1OCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEzMTQzNy1waHBhcHAwMi10aHVtYm5haWwtMj8xMzM2OTkyMjQycRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Производительность в Django"
@@ -161,7 +161,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 12, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-android", 
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-android",
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGwAAADQlNC70Y8g0L/RgNC+0YHQvNC+0YLRgNCwINC/0YDQtdC30LXQvdGC0LDRhtC40Lgg0LvRg9GH0YjQtSDQt9Cw0LPRgNGD0LfQuNGC0Ywg0LXRkSDQutC90L7Qv9C60L7QuSBkb3dubG9hZC5xBVUMb3JpZ2luYWxfdXJscQZYNQAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby1hbmRyb2lkcQdYBQAAAHRpdGxlcQhYEwAAAERqYW5nbyDQvdCwIEFuZHJvaWRxCVgLAAAAYXV0aG9yX25hbWVxClgMAAAATW9zY293RGphbmdvcQtYBgAAAGhlaWdodHEMTWMBWAUAAAB3aWR0aHENTakBWAQAAABodG1scQ5YuAAAADxpZnJhbWUgc3JjPSJodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L3NsaWRlc2hvdy9lbWJlZF9jb2RlLzEyODk3MTU2IiB3aWR0aD0iNDI1IiBoZWlnaHQ9IjM1NSIgZnJhbWVib3JkZXI9IjAiIG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT5xD1gPAAAAdGh1bWJuYWlsX3dpZHRocRBLeFgHAAAAdmVyc2lvbnERWAMAAAAxLjBxElgNAAAAcHJvdmlkZXJfbmFtZXETWAoAAABTbGlkZVNoYXJlcRRYDQAAAHRodW1ibmFpbF91cmxxFVhXAAAAaHR0cDovL2Nkbi5zbGlkZXNoYXJlY2RuLmNvbS9kamFuZ29hbmRyb2lkLTEyMDUxMTEyMTc0MS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2ODIzMDI1cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Django на Android"
