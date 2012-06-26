@@ -12,8 +12,8 @@
                 <tr>
                     <td>
         {% endif %}
-        <section class="meetup {% if with_dash %}meetup_with-dash{% endif %}">
-            <header class="title">
+        <section class="event {% if with_dash %}meetup_with-dash{% endif %}">
+            <header class="event-title">
                 <aside class="register">
                     <a class="register__link" href="">
                         <div class="register__finishing">
@@ -27,43 +27,43 @@
                         </div>
                     </a>
                 </aside>
-                <img class="title__logo" src="http://placehold.it/100x100" />
-                <h1 class="title__name">{{ next_event }}</h1>
-                <div class="title__date" title="Осталось 17 дней">
+                <img class="event-title__logo" src="http://placehold.it/100x100" />
+                <h1 class="event-title__name">{{ next_event }}</h1>
+                <div class="event-title__date" title="Осталось 17 дней">
                     7 апреля 2012 г.
                 </div>
-                <div class="title__description">
+                <div class="event-title__description">
                     {{ next_event.descripiton }}
                 </div>
                 <div class="g-clear"></div>
             </header>
-            <ul class="meetup__talks">
+            <ul class="event__talks">
                 {% for talk in next_event.talks.all %}
-                <li class="meetup__talk">
-                    <a class="meetup__talk-title" href="{{ talk.get_absolute_url }}">
+                <li class="event__talk">
+                    <a class="event__talk-title" href="{{ talk.get_absolute_url }}">
                         {{ talk }}
                     </a>
-                    <div class="meetup__talk-author">
+                    <div class="event__talk-author">
                         {{ talk.speaker }} {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}
                     </div>
-                    <img class="meetup__talk-avatar" src="http://placehold.it/50x50" />
-                    <div class="meetup__talk-description">
+                    <img class="event__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
+                    <div class="event__talk-description">
                         {{ talk.description|truncatewords:"25" }}
                     </div>
                 </li>
                 {% endfor %}
             </ul>
-            <div class="meetup__info">
+            <div class="event__info">
                 <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
                 <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
                 <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
                 {% include 'blocks/map.html' with event=next_event %}
             </div>
             <div class="g-clear"></div>
-            <div class="meetup__sponsors">
+            <div class="event__sponsors">
                 {% for sponsor in next_event.sponsors.all %}
                     <a href="{{ sponsor.get_absolute_url }}">
-                        <img class="meetup__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                        <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
                     </a>
                 {% endfor %}
             </div>

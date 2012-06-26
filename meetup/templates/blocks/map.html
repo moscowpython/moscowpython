@@ -15,6 +15,5 @@
     {% compress js %}
     <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
     {% endcompress %}
-    <div class="meetup__map" id="map">
-    </div>
+    <div class="event__map {% if small %}event__map_small{% endif %}" id="map"></div>
 {% endif %}
