@@ -59,7 +59,8 @@
     width: 420px;
     height: 315px;
 }
-.talk__comments {
+/* Disq.us forces this id */
+.disqus_thread {
     min-height: 400px;
     margin: 0 0 2em;
 }
