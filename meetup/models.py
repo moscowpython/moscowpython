@@ -97,6 +97,26 @@ class Speaker(models.Model):
         verbose_name_plural = u'Докладчики'
 
 
+class Photo(models.Model):
+    event = models.ForeignKey(Event, related_name='photos', blank=True, null=True)
+    url = models.URLField(u'Ссылка на внешнее фото', help_text=u'Временное поле')
+    image = models.ImageField(u'Фотография', upload_to='photos', blank=True)
+    caption = models.TextField(u'Подпись', blank=True)
+
+    def __unicode__(self):
+        return self.caption or u'Фото №%s' % self.id
+
+    def get_absolute_url(self):
+        if self.url:
+            return self.url
+        else:
+            return self.image.url
+
+    class Meta:
+        verbose_name = u'Фотография'
+        verbose_name_plural = u'Фотографии'
+
+
 class Sponsor(models.Model):
     name = models.CharField(u'Название компании', max_length=250)
     logo = models.ImageField(u'Логотип', upload_to='sponsors')

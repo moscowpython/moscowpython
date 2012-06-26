@@ -7,7 +7,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 1, 
             "video": "", 
-            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django",
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django", 
             "event": 1, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWH8AAADQltGD0YDQvdCw0LvRjNC90LDRjyDQstGR0YDRgdGC0LrQsCDQlNC10LvQsNC10LwgItC60YDQsNGB0LjQstC+IiDRgSBEamFuZ28g0JDQu9C10LrRgdC10Lkg0JTRg9Cx0LrQvtCyIGFsZXhAZXZpZC5ydSBNb3Njb3dEamFucQVVDG9yaWdpbmFsX3VybHEGWDYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tMTE4MzY4NjJxB1gFAAAAdGl0bGVxCFgtAAAA0JbRg9GA0L3QsNC70YzQvdCw0Y8g0LLRkdGA0YHRgtC60LAg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjg2MiIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYWwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLW1hZy1sYXlvdXQtMTIwMzAyMTMyMTUxLXBocGFwcDAxLXRodW1ibmFpbC0yPzEzMzA3MTY4NTRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Журнальная вёрстка. Делаем “красиво” с Django"
@@ -35,7 +35,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 3, 
             "video": "", 
-            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-south",
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-south", 
             "event": 1, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWFsAAABEamFuZ28gU291dGgg0JzQuNCz0YDQsNGG0LjRjyDQsdCw0Lcg0LTQsNC90L3Ri9GFINCd0LjQutC+0LvQsNC5INCl0L7QtNC+0LIgW2VtYWlsX2FkZHJlc3NdcQVVDG9yaWdpbmFsX3VybHEGWDMAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tc291dGhxB1gFAAAAdGl0bGVxCFgzAAAARGphbmdvIFNvdXRoLiDQnNC40LPRgNCw0YbQuNGPINCx0LDQtyDQtNCw0L3QvdGL0YUucQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjkzOCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYTwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vc291dGgtMTIwMzAyMTMyODUxLXBocGFwcDAyLXRodW1ibmFpbC0yPzEzMzA3MTY3MjRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Django South: миграция баз данных"
@@ -133,7 +133,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 10, 
             "video": "", 
-            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-1",
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-1", 
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWCwAAADQoNCw0LHQvtGC0LAg0YHQviDRgdGC0LDRgtC40LrQvtC5INCyIERqYW5nb3EFVQxvcmlnaW5hbF91cmxxBlg2AAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vZGphbmdvLTEyODk3MDk1cQdYBQAAAHRpdGxlcQhYLAAAANCg0LDQsdC+0YLQsCDRgdC+INGB0YLQsNGC0LjQutC+0Lkg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzA5NSIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEyMTIxNS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2NzU2NDM2cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Работа со статикой в Django"
@@ -147,7 +147,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 11, 
             "video": "", 
-            "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658",
+            "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658", 
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGYAAADQl9Cw0LzQtdGC0LrQuCDQuiDQv9GA0LXQt9C10L3RgtCw0YbQuNC4OiBodHRwOi8vZGwuZHJvcGJveC5jb20vdS8yMzc2NzIwOC9kamFuZ28tcGVyZm9tYW5jZS1ub3Rlcy5wZGZxBVUMb3JpZ2luYWxfdXJscQZYNgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby0xMjg5NzY1OHEHWAUAAAB0aXRsZXEIWC4AAADQn9GA0L7QuNC30LLQvtC00LjRgtC10LvRjNC90L7RgdGC0Ywg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzY1OCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEzMTQzNy1waHBhcHAwMi10aHVtYm5haWwtMj8xMzM2OTkyMjQycRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Производительность в Django"
@@ -161,7 +161,7 @@
             "video_data": "gAJVAC4=", 
             "speaker": 12, 
             "video": "", 
-            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-android",
+            "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-android", 
             "event": 3, 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGwAAADQlNC70Y8g0L/RgNC+0YHQvNC+0YLRgNCwINC/0YDQtdC30LXQvdGC0LDRhtC40Lgg0LvRg9GH0YjQtSDQt9Cw0LPRgNGD0LfQuNGC0Ywg0LXRkSDQutC90L7Qv9C60L7QuSBkb3dubG9hZC5xBVUMb3JpZ2luYWxfdXJscQZYNQAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby1hbmRyb2lkcQdYBQAAAHRpdGxlcQhYEwAAAERqYW5nbyDQvdCwIEFuZHJvaWRxCVgLAAAAYXV0aG9yX25hbWVxClgMAAAATW9zY293RGphbmdvcQtYBgAAAGhlaWdodHEMTWMBWAUAAAB3aWR0aHENTakBWAQAAABodG1scQ5YuAAAADxpZnJhbWUgc3JjPSJodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L3NsaWRlc2hvdy9lbWJlZF9jb2RlLzEyODk3MTU2IiB3aWR0aD0iNDI1IiBoZWlnaHQ9IjM1NSIgZnJhbWVib3JkZXI9IjAiIG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT5xD1gPAAAAdGh1bWJuYWlsX3dpZHRocRBLeFgHAAAAdmVyc2lvbnERWAMAAAAxLjBxElgNAAAAcHJvdmlkZXJfbmFtZXETWAoAAABTbGlkZVNoYXJlcRRYDQAAAHRodW1ibmFpbF91cmxxFVhXAAAAaHR0cDovL2Nkbi5zbGlkZXNoYXJlY2RuLmNvbS9kamFuZ29hbmRyb2lkLTEyMDUxMTEyMTc0MS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2ODIzMDI1cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Django на Android"
@@ -174,7 +174,7 @@
             "status": "active", 
             "description": "На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада. \r\n\r\nЕсли вы хотите сделать интересный доклад по Python/Django на каком-либо из будущих мероприятий или как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com", 
             "image": "", 
-            "number": 3,
+            "number": 3, 
             "longitude": "37.580193", 
             "sponsors": [
                 1, 
@@ -195,7 +195,7 @@
             "status": "archived", 
             "description": "Мы решили, что тем, кто работает на Django и ещё осваивает этот замечательный фреймворк для Python, пришло время встретиться, пообщаться и поделиться своими знаниями, методиками, инструментарием.\r\n\r\nПервая встреча показала, что идея эта была телло принята московским Django-сообществом.☺\r\n\r\nНу и конечно, после докладов у нас останется время на свободное общение о всех проблемах, которые волнуют начинающих и опытных разработчиков (поэтому вопросы также имеет смысл готовить заранее).", 
             "image": "", 
-            "number": 2,
+            "number": 2, 
             "longitude": "37.477067", 
             "sponsors": [
                 1, 
@@ -215,7 +215,7 @@
             "status": "archived", 
             "description": "1 марта в 19:00 в Москве пройдет неформальная встреча Django-разработчиков.\r\n\r\nМы решили, что тем, кто работает на Django и ещё осваивает этот замечательный фреймворк для Python, пришло время встретиться, пообщаться и поделиться своими знаниями, методиками, инструментарием.\r\n\r\nВ будущем, мы планируем сделать подобные встречи регулярными.\r\n\r\nВ аудитории будет вай-фай и проектор, так что докладчики могут подготовить презентации и практические кейсы.\r\n\r\nЕсли вы хотите сделать интересный доклад по Python/Django или как-то иначе помочь нам с организацией — напишите на dombrovsky.v@gmail.com или korneevm@gmail.com", 
             "image": "", 
-            "number": 1,
+            "number": 1, 
             "longitude": "37.64808", 
             "sponsors": [
                 1, 
@@ -334,6 +334,186 @@
             "photo": "", 
             "name": "Александр Шлемин", 
             "company_name": ""
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash4/392539_411054432262849_646706995_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979867255407_1189702514_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a5.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979870588740_1197680501_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979873922073_1492534080_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979877255406_1703361393_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980513922009_577636690_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-prn1/528587_294980517255342_1514208366_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980520588675_1791730445_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a6.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980523922008_1930301877_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a5.sphotos.ak.fbcdn.net/hphotos-ak-prn1/457544_294982667255127_1762933596_o.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/457544_294982670588460_1724054222_o.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a1.sphotos.ak.fbcdn.net/hphotos-ak-ash4/457544_294982673921793_10054068_o.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a7.sphotos.ak.fbcdn.net/hphotos-ak-snc7/457544_294982677255126_246385604_o.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a6.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528528_294982680588459_26538910_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-prn1/582514_294983077255086_1110137525_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a7.sphotos.ak.fbcdn.net/hphotos-ak-prn1/582514_294983087255085_1223886328_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash3/582514_294983083921752_396304278_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "meetup.photo", 
+        "fields": {
+            "url": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash3/582514_294983080588419_972693779_n.jpg", 
+            "caption": "", 
+            "image": "", 
+            "event": 3
         }
     }, 
     {

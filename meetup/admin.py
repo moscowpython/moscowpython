@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from meetup.models import Talk, Sponsor, Speaker, Event
+from models import Photo
 
 
 def oembed_presentation(obj):
@@ -25,6 +26,10 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'date']
 
 
+class PhotoAdmin(admin.ModelAdmin):
+    pass
+
+
 class SpeakerAdmin(admin.ModelAdmin):
     pass
 
@@ -36,4 +41,5 @@ class SponsorAdmin(admin.ModelAdmin):
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Speaker, SpeakerAdmin)
+admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Sponsor, SpeakerAdmin)

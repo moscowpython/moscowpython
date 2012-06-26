@@ -73,26 +73,14 @@
                     </a>
                 {% endfor %}
             </div>
+
+            {% if event.photos.exists %}
             <div class="gallery" data-width="700" data-height="467">
-                <img src="http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash4/392539_411054432262849_646706995_n.jpg">
-                <img src="http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979867255407_1189702514_n.jpg">
-                <img src="http://a5.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979870588740_1197680501_n.jpg">
-                <img src="http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979873922073_1492534080_n.jpg">
-                <img src="http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash4/319778_294979877255406_1703361393_n.jpg">
-                <img src="http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980513922009_577636690_n.jpg">
-                <img src="http://a2.sphotos.ak.fbcdn.net/hphotos-ak-prn1/528587_294980517255342_1514208366_n.jpg">
-                <img src="http://a4.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980520588675_1791730445_n.jpg">
-                <img src="http://a6.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528587_294980523922008_1930301877_n.jpg">
-                <img src="http://a5.sphotos.ak.fbcdn.net/hphotos-ak-prn1/457544_294982667255127_1762933596_o.jpg">
-                <img src="http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/457544_294982670588460_1724054222_o.jpg">
-                <img src="http://a1.sphotos.ak.fbcdn.net/hphotos-ak-ash4/457544_294982673921793_10054068_o.jpg">
-                <img src="http://a7.sphotos.ak.fbcdn.net/hphotos-ak-snc7/457544_294982677255126_246385604_o.jpg">
-                <img src="http://a6.sphotos.ak.fbcdn.net/hphotos-ak-ash3/528528_294982680588459_26538910_n.jpg">
-                <img src="http://a4.sphotos.ak.fbcdn.net/hphotos-ak-prn1/582514_294983077255086_1110137525_n.jpg">
-                <img src="http://a7.sphotos.ak.fbcdn.net/hphotos-ak-prn1/582514_294983087255085_1223886328_n.jpg">
-                <img src="http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash3/582514_294983083921752_396304278_n.jpg">
-                <img src="http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash3/582514_294983080588419_972693779_n.jpg">
+                {% for photo in event.photos.all %}
+                <img src="{{ photo.get_absolute_url }}">
+                {% endfor %}
             </div>
+            {% endif %}
 
 {# Закомментировал до момента появления дизайна #}
 {#            <section class="event__gallery">#}
