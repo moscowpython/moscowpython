@@ -3,8 +3,7 @@
 
 
 {% if event.latitude and event.longitude %}
-    {% get_settings_value "MAPS_DEBUG" as 'debug' %}
-    <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU{% if debug %}&mode=debug{% endif %}"
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU"
             type="text/javascript"></script>
     <script type="text/javascript">
         var event = {
