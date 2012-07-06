@@ -34,7 +34,7 @@
 .menu__item {
     position: relative;
     padding-right: 40px;
-    line-height: 30px;
+    line-height: 33px;
     float: left;
 }
 .menu__item:before {
@@ -42,7 +42,7 @@
     position: absolute;
     top: 0;
     right: 20px;
-    line-height: 30px;
+    line-height: 33px;
     color: #0a6629;
     cursor: default;
 }
@@ -51,13 +51,11 @@
 }
 .menu__link {
     text-transform: uppercase;
-    line-height: 30px;
     font-size: 14px;
     color: #0a6629;
 }
 .menu__coming-soon {
     text-transform: uppercase;
-    line-height: 30px;
     font-size: 14px;
     color: #888;
 }
@@ -68,17 +66,54 @@
  */
 
 .search {
-    float: left;
+    height: 33px;
+    padding: 40px 0;
+    float: right;
 }
 .search__query {
-    vertical-align: middle;
+    height: 31px;
+    width: 190px;
+    margin-right: -10px;
+    padding: 0 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #999;
+    background: white;
+    border: none;
+    border-top: 1px solid #cfcfcf;
+    border-radius: 5px;
 }
 .search__submit {
-    vertical-align: middle;
-    font-size: 140%;
+    width: 99px;
+    height: 33px;
+    padding: 0;
+    font-size: 14px;
+    background: rgb(12,126,51);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBjN2UzMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNzQ5MWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(12,126,51,1) 0%, rgba(7,73,29,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(12,126,51,1)), color-stop(100%,rgba(7,73,29,1)));
+    background: -webkit-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: -o-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: linear-gradient(to bottom,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c7e33', endColorstr='#07491d',GradientType=0 );
+    border: none;
+    border-radius: 5px;
 }
-.search__strut {
-    display: inline-block;
-    height: 35px;
-    vertical-align: middle;
+.search__submit:active {
+    background: rgb(7,73,29);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA3NDkxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwYzdlMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(7,73,29,1) 0%, rgba(12,126,51,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,73,29,1)), color-stop(100%,rgba(12,126,51,1)));
+    background: -webkit-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: -o-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: linear-gradient(to bottom,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07491d', endColorstr='#0c7e33',GradientType=0 );
+}
+.search__submit-text {
+    padding: 0 5px 0 24px;
+    line-height: 16px;
+    color: white;
+    background: url(../images/icons/search.png) 0px 0 no-repeat;
 }
