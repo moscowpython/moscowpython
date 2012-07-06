@@ -82,25 +82,3 @@
     height: 35px;
     vertical-align: middle;
 }
-
-
-
-/**
- * @subsection  Меню пользователя
- */
-
-.user-menu {
-    float: right;
-}
-.user-menu__avatar {
-    width: 35px;
-    height: 35px;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-.user-menu__name {
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: 140%;
-    color: #ccc;
-}
