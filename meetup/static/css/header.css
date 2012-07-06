@@ -13,8 +13,8 @@
  */
 
 .header {
-    height: 35px;
-    background: rgba(0, 0, 0, 0.8)
+    height: 110px;
+    background: url(../images/backgrounds/header.png) 0 0 repeat;
 }
 
 
@@ -23,8 +23,8 @@
  */
 
 .menu {
-    margin-right: 20px;
     float: left;
+    padding: 40px 0;
 }
 .menu__items {
     display: inline;
@@ -33,32 +33,33 @@
 }
 .menu__item {
     position: relative;
-    padding: 0 20px 0 10px;
+    padding-right: 40px;
+    line-height: 30px;
     float: left;
 }
-.menu__link {
-    line-height: 35px;
-    font-size: 160%;
-    color: white;
-}
-.menu__subitems {
+.menu__item:before {
+    content: "•";
     position: absolute;
-    top: 100%;
-    left: 0px;
+    top: 0;
+    right: 20px;
+    line-height: 30px;
+    color: #0a6629;
+    cursor: default;
+}
+.menu__item:last-of-type:before {
     display: none;
-    white-space: nowrap;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
 }
-.menu__item:hover .menu__subitems {
-    display: block;
+.menu__link {
+    text-transform: uppercase;
+    line-height: 30px;
+    font-size: 14px;
+    color: #0a6629;
 }
-.menu__subitem {
-    padding: 5px 10px;
-}
-.menu__subitem-link {
-    font-size: 140%;
-    color: white;
+.menu__coming-soon {
+    text-transform: uppercase;
+    line-height: 30px;
+    font-size: 14px;
+    color: #888;
 }
 
 

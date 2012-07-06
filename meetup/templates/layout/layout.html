@@ -14,22 +14,16 @@
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="">События</a>
-                        <ul class="menu__subitems">
-                            {% for event in all_events %}
-                            <li class="menu__subitem">
-                                <a class="menu__subitem-link" href="{{ event.get_absolute_url }}">{{ event }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="">О проекте</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="">Полезные ссылки</a>
+                        <span class="menu__coming-soon">Полезные ссылки</span>
                     </li>
                 </ul>
             </nav>
+            {% comment %}
             <aside class="search">
                 <form action="">
                     <input class="search__query" type="text" />
@@ -41,8 +35,10 @@
                 <img class="user-menu__avatar" src="https://si0.twimg.com/profile_images/1894545057/ilya_normal.jpg" />
                 <a class="user-menu__name" href="">Илья Барышев</a>
             </nav>
+            {% endcomment %}
         </div>
     </header>
+    {% comment %}
     {% block page %}{% endblock %}
     <footer class="footer">
         <div class="wrapper">
@@ -55,4 +51,5 @@
             </span>
         </div>
     </footer>
+    {% endcomment %}
 {% endblock %}

@@ -20,7 +20,7 @@
 .g-clear {
     clear: both;
     overflow: hidden;
-    height: 0px;
+    height: 0;
     font-size: 0;
 }
 .g-nobr {
@@ -75,9 +75,22 @@ input[type="submit"]::-moz-focus-inner {
 body {
     font-size: 62.5%;
     font-family: Helvetica, Arial, sans-serif;
+    border-top: 7px solid #0a6629;
 }
 .wrapper {
-    width: 960px;
+    max-width: 952px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+
+/**
+ * @section     Ссылки
+ */
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
