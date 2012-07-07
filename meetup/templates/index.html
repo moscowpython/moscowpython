@@ -5,97 +5,93 @@
 
 
 {% block page %}
-    {% comment %}
     {% if next_event %}
-    <div class="wrapper">
-        {% if with_dash %}
-            <table>
-                <tr>
-                    <td>
-        {% endif %}
-        <section class="event {% if with_dash %}meetup_with-dash{% endif %}">
-            <header class="event-title">
-                <aside class="register">
-                    <a class="register__link" href="">
-                        <div class="register__finishing">
-                            Регистрация открыта до 2 апреля
+        {% include 'blocks/share.html' %}
+        <section class="event">
+            <div class="wrapper">
+                <section class="event__talks">
+                    {% for talk in next_event.talks.all %}
+                        <article class="event__talk">
+                            <div class="event__talk-aside">
+                                <span class="event__talk-avatar"
+                                   style="background: url(http://placehold.it/68x68)"
+                                   href="{{ talk.get_absolute_url }}"></span>
+                                <div class="event__talk-author">
+                                    {{ talk.speaker }}
+                                    {% if talk.speaker.company_name %}
+                                        ({{ talk.speaker.company_name }})
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="event__talk-content">
+                                <h3 class="event__talk-title">
+                                    <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">
+                                        {{ talk }}
+                                    </a>
+                                </h3>
+                                <div class="event__talk-description">
+                                    {{ talk.description|truncatewords:"25" }}
+                                </div>
+                            </div>
+                            <div class="g-clear"></div>
+                        </article>
+                    {% endfor %}
+                </section>
+                <section class="event__sponsors">
+                    <h1 class="event__sponsors-header">
+                        <div class="event__sponsors-header-text">
+                            Партнёры и спонсоры
                         </div>
-                        <div class="register__text">
-                            Зарегистрироваться
-                        </div>
-                        <div class="register__registred">
-                            Идут 78 человек
-                        </div>
-                    </a>
-                </aside>
-                <img class="event-title__logo" src="http://placehold.it/100x100" />
-                <h1 class="event-title__name">{{ next_event }}</h1>
-                <div class="event-title__date" title="Осталось 17 дней">
-                    7 апреля 2012 г.
-                </div>
-                <div class="event-title__description">
-                    {{ next_event.descripiton }}
+                    </h1>
+                    {% for sponsor in next_event.sponsors.all %}
+                        <a href="{{ sponsor.get_absolute_url }}">
+                            <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
+                        </a>
+                    {% endfor %}
+                </section>
+                {% comment %}
+                <header class="event-title">
+                    <aside class="register">
+                        <a class="register__link" href="">
+                            <div class="register__finishing">
+                                Регистрация открыта до 2 апреля
+                            </div>
+                            <div class="register__text">
+                                Зарегистрироваться
+                            </div>
+                            <div class="register__registred">
+                                Идут 78 человек
+                            </div>
+                        </a>
+                    </aside>
+                    <img class="event-title__logo" src="http://placehold.it/100x100" />
+                    <h1 class="event-title__name">{{ next_event }}</h1>
+                    <div class="event-title__date" title="Осталось 17 дней">
+                        7 апреля 2012 г.
+                    </div>
+                    <div class="event-title__description">
+                        {{ next_event.descripiton }}
+                    </div>
+                    <div class="g-clear"></div>
+                </header>
+                <div class="event__info">
+                    <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
+                    <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
+                    <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
+                    {% include 'blocks/map.html' with event=next_event %}
                 </div>
                 <div class="g-clear"></div>
-            </header>
-            <ul class="event__talks">
-                {% for talk in next_event.talks.all %}
-                <li class="event__talk">
-                    <a class="event__talk-title" href="{{ talk.get_absolute_url }}">
-                        {{ talk }}
-                    </a>
-                    <div class="event__talk-author">
-                        {{ talk.speaker }} {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}
-                    </div>
-                    <img class="event__talk-avatar" src="http://placehold.it/50x50" width="50" height="50" />
-                    <div class="event__talk-description">
-                        {{ talk.description|truncatewords:"25" }}
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="event__info">
-                <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
-                <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
-                {% include 'blocks/map.html' with event=next_event %}
-            </div>
-            <div class="g-clear"></div>
-            <div class="event__sponsors">
-                {% for sponsor in next_event.sponsors.all %}
-                    <a href="{{ sponsor.get_absolute_url }}">
-                        <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
-                    </a>
-                {% endfor %}
+                <div class="event__sponsors">
+                    {% for sponsor in next_event.sponsors.all %}
+                        <a href="{{ sponsor.get_absolute_url }}">
+                            <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                        </a>
+                    {% endfor %}
+                </div>
+                {% endcomment %}
             </div>
         </section>
-        {% if with_dash %}
-                    </td>
-                    <td class="dash">
-                        <div class="dash__text">
-                            17 июня 2012 г.
-                        </div>
-                        <div class="dash__text">
-                            состоится первый московский <b>django-dash</b><br /><br />
-                        </div>
-                        <div class="dash__text dash__text_small">
-                            Django-dash — это шанс для любителей Django, чтобы продемонстрировать свои навыки
-                            программирования немного и положить тонкий момент на "перфекционисты со сроками",
-                            давая вам реальный срок. 48 часов от начала и до остановки, чтобы произвести лучшее
-                            приложение можно и немного развлечься в этом процессе.
-                            <br /><br />
-                        </div>
-                        <div class="dash__text">
-                            <a href="">Зарегистрируйся</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        {% endif %}
-    </div>
     {% endif %}
-    {% include 'blocks/share.html' %}
-    {% endcomment %}
     <section class="archive">
         <div class="wrapper">
             {% for event in events %}
@@ -112,8 +108,8 @@
                 <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}<!--
                      --><li class="archive-item__talk">
-                            <a class="archive-item__talk-avatar avatar"
-                               style="background: url({{ talk.speaker.avatar_url }})"
+                            <a class="archive-item__talk-avatar"
+                               style="background: url({{ talk.speaker.avatar_url }}"
                                href="{{ talk.get_absolute_url }}"></a>
                             <div class="archive-item__talk-wrapper">
                                 <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
