@@ -5,15 +5,11 @@
 
 
 {% block page %}
-    {% comment %}
     {% if next_event %}
     <div class="wrapper">
-        {% if with_dash %}
-            <table>
-                <tr>
-                    <td>
-        {% endif %}
-        <section class="event {% if with_dash %}meetup_with-dash{% endif %}">
+        {% include 'blocks/share.html' %}
+        <section class="event">
+            {% comment %}
             <header class="event-title">
                 <aside class="register">
                     <a class="register__link" href="">
@@ -68,34 +64,10 @@
                     </a>
                 {% endfor %}
             </div>
+            {% endcomment %}
         </section>
-        {% if with_dash %}
-                    </td>
-                    <td class="dash">
-                        <div class="dash__text">
-                            17 июня 2012 г.
-                        </div>
-                        <div class="dash__text">
-                            состоится первый московский <b>django-dash</b><br /><br />
-                        </div>
-                        <div class="dash__text dash__text_small">
-                            Django-dash — это шанс для любителей Django, чтобы продемонстрировать свои навыки
-                            программирования немного и положить тонкий момент на "перфекционисты со сроками",
-                            давая вам реальный срок. 48 часов от начала и до остановки, чтобы произвести лучшее
-                            приложение можно и немного развлечься в этом процессе.
-                            <br /><br />
-                        </div>
-                        <div class="dash__text">
-                            <a href="">Зарегистрируйся</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        {% endif %}
     </div>
     {% endif %}
-    {% include 'blocks/share.html' %}
-    {% endcomment %}
     <section class="archive">
         <div class="wrapper">
             {% for event in events %}

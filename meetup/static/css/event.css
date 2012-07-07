@@ -276,13 +276,13 @@
  */
 
 .like {
-    padding: 30px 0;
-    text-align: center;
-    border-top: 1px solid #ccb;
+    height: 20px;
+    padding: 20px 0 20px 160px;
+    border-bottom: 1px solid #e5e5e5;
 }
 .like_item {
     display: inline-block;
-    margin: 0 15px;
+    margin-right: 50px;
 }
 
 
