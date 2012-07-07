@@ -1,12 +1,12 @@
 {% load compress static %}
 
 
-{% if event.latitude and event.longitude %}
+{% if event.venue.latitude and event.venue.longitude %}
     <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU"
             type="text/javascript"></script>
     <script type="text/javascript">
         var event = {
-            'coords': [{{ event.latitude }}, {{ event.longitude }}],
+            'coords': [{{ event.venue.latitude }}, {{ event.venue.longitude }}],
             'baloonContent': '{{ event|escapejs }}'
         }
     </script>

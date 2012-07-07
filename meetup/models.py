@@ -70,9 +70,7 @@ class Event(StatusModel):
     description = models.TextField(u'Описание', blank=True)
     image = models.ImageField(u'Изображение', upload_to='events', null=True, blank=True)
     date = models.DateTimeField(u'Начало', blank=True, null=True)
-    address = models.TextField(u'Место проведения', blank=True)
-    latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
-    longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
+    venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
 
     objects = Manager()
@@ -93,6 +91,20 @@ class Event(StatusModel):
         verbose_name_plural = u'События'
         get_latest_by = 'id'
         ordering = ['-date']
+
+
+class Venue(models.Model):
+    name = models.CharField(u'Название места', max_length=100)
+    address = models.TextField(u'Адрес')
+    latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
+    longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'Место'
+        verbose_name_plural = u'Места'
 
 
 class Speaker(models.Model):

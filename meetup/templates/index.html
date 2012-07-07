@@ -28,7 +28,8 @@
                     <section class="event__registration">
                         <div class="event__registration-summary">
                             {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
-                            {{ next_event.address }}<br />
+                            {{ next_event.venue }}<br />
+                            {{ next_event.venue.address }}<br />
                         </div>
                         <form action="http://moscowdjango.timepad.ru/event/28685">
                             <button class="event__register-button" type="submit">

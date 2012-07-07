@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from meetup.models import Talk, Sponsor, Speaker, Event
-from models import Photo
+from models import Photo, Venue
 
 
 def oembed_presentation(obj):
@@ -23,9 +23,13 @@ class TalkAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'date', 'status']
+    list_display = ['__unicode__', 'date', 'venue', 'status']
     list_editable = ['status']
     exclude = ['status_changed']
+
+
+class VenueAdmin(admin.ModelAdmin):
+    list_display = ['__unicode__', 'address']
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -42,6 +46,7 @@ class SponsorAdmin(admin.ModelAdmin):
 
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Event, EventAdmin)
+admin.site.register(Venue, VenueAdmin)
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Sponsor, SpeakerAdmin)
