@@ -72,7 +72,12 @@ input[type="submit"]::-moz-focus-inner {
  * @section     Обёртка
  */
 
+html {
+    height: 100%;
+}
 body {
+    position: relative;
+    min-height: 100%;
     font-size: 62.5%;
     font-family: Helvetica, Arial, sans-serif;
     border-top: 7px solid #0a6629;

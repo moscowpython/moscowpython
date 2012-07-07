@@ -35,16 +35,20 @@
     </header>
     {% comment %}
     {% block page %}{% endblock %}
+    {% endcomment %}
     <footer class="footer">
         <div class="wrapper">
-            <nav class="footer__menu">
-                <a class="footer__menu-link" href="">О проекте</a>
-                <a class="footer__menu-link" href="">Обратная связь</a>
-            </nav>
+            <ul class="footer__menu">
+                <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="">О проекте</a>
+                </li>
+                <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="">Обратная связь</a>
+                </li>
+            </ul>
             <span class="footer__copyright">
-                &copy; 2012 <a class="footer__copyright-link" href="">Future Colors</a>
+                &copy; <a class="footer__copyright-link" href="">Future Colors</a>, 2012
             </span>
         </div>
     </footer>
-    {% endcomment %}
 {% endblock %}
