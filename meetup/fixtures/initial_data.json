@@ -3,12 +3,15 @@
         "pk": 1, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "Доклад посвящён проблеме всех WYSIWYG’ов, а именно, их примитивности в форматировании наполнения сайтов. Алексей предложил вариант построения админки проекта, которая по задумке автора позволяет получить на сайте вёрстку контента как в журнале, то есть красивую и сложную.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Доклад посвящён проблеме всех WYSIWYG’ов, а именно, их примитивности в форматировании наполнения сайтов. Алексей предложил вариант построения админки проекта, которая по задумке автора позволяет получить на сайте вёрстку контента как в журнале, то есть красивую и сложную.",
             "video_data": "gAJVAC4=", 
+            "event": 1, 
             "speaker": 1, 
             "video": "", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django", 
-            "event": 1, 
+            "slug": "journal-markup-making-django-sexy", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWH8AAADQltGD0YDQvdCw0LvRjNC90LDRjyDQstGR0YDRgdGC0LrQsCDQlNC10LvQsNC10LwgItC60YDQsNGB0LjQstC+IiDRgSBEamFuZ28g0JDQu9C10LrRgdC10Lkg0JTRg9Cx0LrQvtCyIGFsZXhAZXZpZC5ydSBNb3Njb3dEamFucQVVDG9yaWdpbmFsX3VybHEGWDYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tMTE4MzY4NjJxB1gFAAAAdGl0bGVxCFgtAAAA0JbRg9GA0L3QsNC70YzQvdCw0Y8g0LLRkdGA0YHRgtC60LAg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjg2MiIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYWwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLW1hZy1sYXlvdXQtMTIwMzAyMTMyMTUxLXBocGFwcDAxLXRodW1ibmFpbC0yPzEzMzA3MTY4NTRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Журнальная вёрстка. Делаем “красиво” с Django"
         }
@@ -17,12 +20,15 @@
         "pk": 2, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "О важности использования консоли и использовании нескольких командных оболочек, таких как: sh, bash, zsh. Всё началось с описания привычных даже не юниксоидам команд и их ключей, а закончилось введением в sed, awk. Далее были представлены алиасы, сокращения и трюки для часто используемых паттернов. Обязательно взгляните на презентацию, можете найти для себя много полезного.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "О важности использования консоли и использовании нескольких командных оболочек, таких как: sh, bash, zsh. Всё началось с описания привычных даже не юниксоидам команд и их ключей, а закончилось введением в sed, awk. Далее были представлены алиасы, сокращения и трюки для часто используемых паттернов. Обязательно взгляните на презентацию, можете найти для себя много полезного.",
             "video_data": "gAJVAC4=", 
+            "event": 1, 
             "speaker": 2, 
             "video": "", 
             "presentation": "http://voldmar.ru/talks/power-of-your-fingertips/", 
-            "event": 1, 
+            "slug": "power-of-your-fingertips", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgRAAAAaHR0cDovL3ZvbGRtYXIucnVxA1gLAAAAZGVzY3JpcHRpb25xBFhnAAAA0J4g0YfRkdC8INGA0LDRgdGB0LrQsNC3IHNoLCBiYXNoLCB6c2gg0KDQtdCz0YPQu9GP0YDQvdGL0LUg0LLRi9GA0LDQttC10L3QuNGPIHNlZCwgYXdrLCBmaW5kLCBncmVwIGV0Y3EFVQxvcmlnaW5hbF91cmxxBlgxAAAAaHR0cDovL3ZvbGRtYXIucnUvdGFsa3MvcG93ZXItb2YteW91ci1maW5nZXJ0aXBzL3EHWAMAAAB1cmxxCFgxAAAAaHR0cDovL3ZvbGRtYXIucnUvdGFsa3MvcG93ZXItb2YteW91ci1maW5nZXJ0aXBzL3EJWAUAAAB0aXRsZXEKWDMAAADQodC40LvQsCDQstCw0YjQuNGFINC60L7QvdGH0LjQutC+0LIg0L/QsNC70YzRhtC10LJxC1gHAAAAdmVyc2lvbnEMWAMAAAAxLjBxDVgNAAAAcHJvdmlkZXJfbmFtZXEOWAcAAABWb2xkbWFycQ9YBAAAAHR5cGVxEFgEAAAAbGlua3ERdS4=", 
             "name": "Сила ваших кончиков пальцев"
         }
@@ -31,12 +37,15 @@
         "pk": 3, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "На комплексном примере показывается, как производить миграции структуры БД и миграции данных. Неплохое введение для новичков, чтобы начать погружение в тему миграций, которую Django пока что обходит стороной.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "На комплексном примере показывается, как производить миграции структуры БД и миграции данных. Неплохое введение для новичков, чтобы начать погружение в тему миграций, которую Django пока что обходит стороной.",
             "video_data": "gAJVAC4=", 
+            "event": 1, 
             "speaker": 3, 
             "video": "", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-south", 
-            "event": 1, 
+            "slug": "django-south-database-migrations", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWFsAAABEamFuZ28gU291dGgg0JzQuNCz0YDQsNGG0LjRjyDQsdCw0Lcg0LTQsNC90L3Ri9GFINCd0LjQutC+0LvQsNC5INCl0L7QtNC+0LIgW2VtYWlsX2FkZHJlc3NdcQVVDG9yaWdpbmFsX3VybHEGWDMAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nby9kamFuZ28tc291dGhxB1gFAAAAdGl0bGVxCFgzAAAARGphbmdvIFNvdXRoLiDQnNC40LPRgNCw0YbQuNGPINCx0LDQtyDQtNCw0L3QvdGL0YUucQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMTgzNjkzOCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYTwAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vc291dGgtMTIwMzAyMTMyODUxLXBocGFwcDAyLXRodW1ibmFpbC0yPzEzMzA3MTY3MjRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Django South: миграция баз данных"
         }
@@ -45,12 +54,15 @@
         "pk": 4, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "С увеличением количества проектов встаёт проблема автоматизации создания каркаса под новые приложения. До недавнего времени новые проекты мы создавали путем копирования заготовленного шаблонного проекта и изменения различных настроек в разных местах проекта. Решение - модуль Paste Script, с помощью которого можно создавать шаблоны-заготовки и на основе них генерировать проекты.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "С увеличением количества проектов встаёт проблема автоматизации создания каркаса под новые приложения. До недавнего времени новые проекты мы создавали путем копирования заготовленного шаблонного проекта и изменения различных настроек в разных местах проекта. Решение - модуль Paste Script, с помощью которого можно создавать шаблоны-заготовки и на основе них генерировать проекты.",
             "video_data": "gAJVAC4=", 
+            "event": 2, 
             "speaker": 4, 
             "video": "", 
             "presentation": "http://digitaldemiurge.ru/slides/templates/", 
-            "event": 2, 
+            "slug": "project-templates-pastescript-django-14", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL2RpZ2l0YWxkZW1pdXJnZS5ydXEDWAsAAABkZXNjcmlwdGlvbnEEWLUBAAAxIGZyb20gc2V0dXB0b29scyBpbXBvcnQgc2V0dXAgLCBmaW5kX3BhY2thZ2VzIDIgMyBzZXR1cCAoIDQgbmFtZSA9ICdwYXN0ZXItdGVtcGxhdGVzJyAsIDUgdmVyc2lvbiA9ICIwLjEiICwgNiBwYWNrYWdlcyA9IGZpbmRfcGFja2FnZXMgKCksIDcgaW5zdGFsbF9yZXF1aXJlcyA9IFsgOCAnc2V0dXB0b29scycgLCA5ICdQYXN0ZVNjcmlwdCcgLCAxMCAnQ2hlZXRhaCcgLCAxMSBdLCAxMiBpbmNsdWRlX3BhY2thZ2VfZGF0YSA9IFRydWUgLCAxMyB6aXBfc2FmZSA9IEZhbHNlICwgMTQgZW50cnlfcG9pbnRzID0gIiIiIDE1IFtwYXN0ZS5wYXN0ZXJfY3JlYXRlX3RlbXBsYXRlXSAxNiBzaW1wbGU9dGVtcGxhdGVzLnBhc3RlcnRlbXBsYXRlczpTaW1wbGVUZW1wbGF0ZSAxNyBhcHA9dGVtcGxhdGVzLnBhc3RlcnRlbXBsYXRlczpBcHBUZW1wbGF0ZSAxOCAiIiIgMTkgKXEFVQxvcmlnaW5hbF91cmxxBlgrAAAAaHR0cDovL2RpZ2l0YWxkZW1pdXJnZS5ydS9zbGlkZXMvdGVtcGxhdGVzL3EHWAMAAAB1cmxxCFgrAAAAaHR0cDovL2RpZ2l0YWxkZW1pdXJnZS5ydS9zbGlkZXMvdGVtcGxhdGVzL3EJWAUAAAB0aXRsZXEKWEsAAADQqNCw0LHQu9C+0L3RiyDQv9GA0L7QtdC60YLQvtCyINC90LAg0L7RgdC90L7QstC1IFBhc3RlU2NyaXB0INC4IERqYW5nbyAxLjRxC1gPAAAAdGh1bWJuYWlsX3dpZHRocQxNYQJYDQAAAHRodW1ibmFpbF91cmxxDVg+AAAAaHR0cDovL2RpZ2l0YWxkZW1pdXJnZS5ydS9zbGlkZXMvdGVtcGxhdGVzL3NvdXJjZXMvc3RhcnRlZC5qcGdxDlgHAAAAdmVyc2lvbnEPWAMAAAAxLjBxEFgNAAAAcHJvdmlkZXJfbmFtZXERWA8AAABEaWdpdGFsZGVtaXVyZ2VxElgEAAAAdHlwZXETWAQAAABsaW5rcRRYEAAAAHRodW1ibmFpbF9oZWlnaHRxFUvqdS4=", 
             "name": "Шаблоны проектов на основе PasteScript и Django 1.4"
         }
@@ -59,12 +71,15 @@
         "pk": 5, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "Галопом по Европам об основных фичах релиза Django 1.4", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Галопом по Европам об основных фичах релиза Django 1.4",
             "video_data": "gAJVAC4=", 
+            "event": 2, 
             "speaker": 5, 
             "video": "", 
             "presentation": "https://speakerdeck.com/u/coagulant/p/django-14", 
-            "event": 2, 
+            "slug": "whats-new-in-django-14", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgYAAAAaHR0cHM6Ly9zcGVha2VyZGVjay5jb20vcQNYCwAAAGRlc2NyaXB0aW9ucQRYZwAAADEgUHJlc2VudGF0aW9uIFNoYXJlIEFub3RoZXIgQXBwIGJ5IEdpdEh1YiBPdGhlciBQcmVzZW50YXRpb25zIGluIFByb2dyYW1taW5nIEZhbnMgb2YgdGhpcyBQcmVzZW50YXRpb25xBVUMb3JpZ2luYWxfdXJscQZYLwAAAGh0dHBzOi8vc3BlYWtlcmRlY2suY29tL3UvY29hZ3VsYW50L3AvZGphbmdvLTE0cQdYBQAAAHRpdGxlcQhYIQAAANCn0YLQviDQvdC+0LLQvtCz0L4g0LIgRGphbmdvIDEuNHEJWAsAAABhdXRob3JfbmFtZXEKWA0AAABJbHlhIEJhcnlzaGV2cQtYBgAAAGhlaWdodHEMTVQCWAUAAAB3aWR0aHENTcYCWAQAAABodG1scQ5YMQEAADxpZnJhbWUgc3R5bGU9ImJvcmRlcjowOyBwYWRkaW5nOjA7IG1hcmdpbjowOyBiYWNrZ3JvdW5kOnRyYW5zcGFyZW50OyIgbW96YWxsb3dmdWxsc2NyZWVuPSJ0cnVlIiB3ZWJraXRhbGxvd2Z1bGxzY3JlZW49InRydWUiIGZyYW1lQm9yZGVyPSIwIiBhbGxvd1RyYW5zcGFyZW5jeT0idHJ1ZSIgaWQ9InByZXNlbnRhdGlvbl9mcmFtZV80ZjdlOTU4ZmU3MTFmNjAwMjIwMDI5YTAiIHNyYz0iLy9zcGVha2VyZGVjay5jb20vZW1iZWQvNGY3ZTk1OGZlNzExZjYwMDIyMDAyOWEwIiB3aWR0aD0iNzEwIiBoZWlnaHQ9IjU5NiI+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS9JYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gMAAAAU3BlYWtlciBEZWNrcRRYDQAAAHRodW1ibmFpbF91cmxxFVhaAAAAaHR0cHM6Ly9zcGVha2VyZC5zMy5hbWF6b25hd3MuY29tL3ByZXNlbnRhdGlvbnMvNGY3ZTk1OGZlNzExZjYwMDIyMDAyOWEwL3RodW1iX3NsaWRlXzAuanBncRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLnVgKAAAAYXV0aG9yX3VybHEaWCMAAABodHRwczovL3NwZWFrZXJkZWNrLmNvbS91L2NvYWd1bGFudHEbdS4=", 
             "name": "Что нового в Django 1.4"
         }
@@ -73,12 +88,15 @@
         "pk": 6, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "",
             "video_data": "gAJVAC4=", 
+            "event": 2, 
             "speaker": 6, 
             "video": "", 
             "presentation": "", 
-            "event": 2, 
+            "slug": "using-django-and-sqlalchemy", 
             "presentation_data": "gAJVAC4=", 
             "name": "Использование Django и SQLAlchemy"
         }
@@ -87,12 +105,15 @@
         "pk": 7, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "",
             "video_data": "gAJVAC4=", 
+            "event": 2, 
             "speaker": 7, 
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/deploy", 
-            "event": 2, 
+            "slug": "simple-useful-project-deployment", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWFwAAADQn9Cg0J7QodCi0J7QmSDQmNCj0JTQntCR0J3Qq9CZ0JTQldCf0JvQntCZ0JzQldCd0KLQn9Cg0J7QldCa0KLQkNCc0JjQpdCQ0JjQmyDQmtCe0KDQndCV0JXQknEFVQxvcmlnaW5hbF91cmxxBlgtAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vZGVwbG95cQdYBQAAAHRpdGxlcQhYRAAAANCf0YDQvtGB0YLQvtC5INC4INGD0LTQvtCx0L3Ri9C5INC00LXQv9C70L7QudC80LXQvdGCINC/0YDQvtC10LrRgtCwcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjMxMDI0NiIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGVwbG95LTEyMDQwNzE1NDkwNy1waHBhcHAwMS10aHVtYm5haWwtMj8xMzMzODMxODM1cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Простой и удобный деплоймент проекта"
         }
@@ -101,12 +122,15 @@
         "pk": 8, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "Тем кто до сих пор не пользуется вьюхами на классах, рекомендуем обратить на них внимание, порой они экономят очень много boilerplate-кода. Тем же, кто активно их применяет, неплохая ссылочка по рекомендации Александра: Classy CBV - замена официальной путаной и неудобной документации по видам на классах. Доставило обсуждение CBV vs functional views, когда уместно использовать тот или иной вариант и почему.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Тем кто до сих пор не пользуется вьюхами на классах, рекомендуем обратить на них внимание, порой они экономят очень много boilerplate-кода. Тем же, кто активно их применяет, неплохая ссылочка по рекомендации Александра: Classy CBV - замена официальной путаной и неудобной документации по видам на классах. Доставило обсуждение CBV vs functional views, когда уместно использовать тот или иной вариант и почему.",
             "video_data": "gAJVAC4=", 
+            "event": 3, 
             "speaker": 8, 
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/class-based-generic-views-django", 
-            "event": 3, 
+            "slug": "class-based-generic-views-in-django", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWJsAAAAi0JTQttCw0L3Qs9C+INGB0LTQtdC70LDQuyDQtNC70Y8g0LPQuNGC0LDRgNGLINCx0L7Qu9GM0YjQtSwg0YfQtdC80LrRgtC+LdC70LjQsdC+INCyINC00LbQsNC30LUuINCV0LPQviDRgdGC0LjQu9GMINC40LPRgNGLINCx0YvQuyDQvdC1INC/0L7RhdC+0LYg0L3QuCDQvXEFVQxvcmlnaW5hbF91cmxxBlhHAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vY2xhc3MtYmFzZWQtZ2VuZXJpYy12aWV3cy1kamFuZ29xB1gFAAAAdGl0bGVxCFgjAAAAQ2xhc3MgQmFzZWQgR2VuZXJpYyBWaWV3cyDQsiBEamFuZ29xCVgLAAAAYXV0aG9yX25hbWVxClgMAAAATW9zY293RGphbmdvcQtYBgAAAGhlaWdodHEMTWMBWAUAAAB3aWR0aHENTakBWAQAAABodG1scQ5YuAAAADxpZnJhbWUgc3JjPSJodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L3NsaWRlc2hvdy9lbWJlZF9jb2RlLzEyODk2OTkzIiB3aWR0aD0iNDI1IiBoZWlnaHQ9IjM1NSIgZnJhbWVib3JkZXI9IjAiIG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT5xD1gPAAAAdGh1bWJuYWlsX3dpZHRocRBLeFgHAAAAdmVyc2lvbnERWAMAAAAxLjBxElgNAAAAcHJvdmlkZXJfbmFtZXETWAoAAABTbGlkZVNoYXJlcRRYDQAAAHRodW1ibmFpbF91cmxxFVhmAAAAaHR0cDovL2Nkbi5zbGlkZXNoYXJlY2RuLmNvbS9jbGFzc2Jhc2VkZ2VuZXJpY3ZpZXdzZGphbmdvLTEyMDUxMTEyMDQzMS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2NzU2MDI1cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Class-based generic views в Django"
         }
@@ -115,12 +139,15 @@
         "pk": 9, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "На примере небольшой части интернет-магазина рассмотрели различные варианты реализации API для подключения плагинов к django-приложениям. Подробно, много кода, но всё понятно и логично выстроено. Хороший доклад, думаем, при разработке сложных систем со слабым связыванием компонентов всем придётся столкнуться с чем-либо подобным.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "На примере небольшой части интернет-магазина рассмотрели различные варианты реализации API для подключения плагинов к django-приложениям. Подробно, много кода, но всё понятно и логично выстроено. Хороший доклад, думаем, при разработке сложных систем со слабым связыванием компонентов всем придётся столкнуться с чем-либо подобным.",
             "video_data": "gAJVAC4=", 
+            "event": 3, 
             "speaker": 9, 
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897050", 
-            "event": 3, 
+            "slug": "development-of-reusable-apps", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGUAAADQoNCQ0JfQoNCQ0JHQntCi0JrQkCDQoNCQ0KHQqNCY0KDQr9CV0JzQq9ClREpBTkdPLdCf0KDQmNCb0J7QltCV0J3QmNCZ0JLQu9Cw0LTQuNC80LjRgCDQpNC40LvQvtC90L7QsnEFVQxvcmlnaW5hbF91cmxxBlg2AAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vZGphbmdvLTEyODk3MDUwcQdYBQAAAHRpdGxlcQhYTAAAANCg0LDQt9GA0LDQsdC+0YLQutCwINGA0LDRgdGI0LjRgNGP0LXQvNGL0YUg0L/RgNC40LvQvtC20LXQvdC40Lkg0L3QsCBEamFuZ29xCVgLAAAAYXV0aG9yX25hbWVxClgMAAAATW9zY293RGphbmdvcQtYBgAAAGhlaWdodHEMTWMBWAUAAAB3aWR0aHENTakBWAQAAABodG1scQ5YuAAAADxpZnJhbWUgc3JjPSJodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L3NsaWRlc2hvdy9lbWJlZF9jb2RlLzEyODk3MDUwIiB3aWR0aD0iNDI1IiBoZWlnaHQ9IjM1NSIgZnJhbWVib3JkZXI9IjAiIG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT5xD1gPAAAAdGh1bWJuYWlsX3dpZHRocRBLeFgHAAAAdmVyc2lvbnERWAMAAAAxLjBxElgNAAAAcHJvdmlkZXJfbmFtZXETWAoAAABTbGlkZVNoYXJlcRRYDQAAAHRodW1ibmFpbF91cmxxFVhQAAAAaHR0cDovL2Nkbi5zbGlkZXNoYXJlY2RuLmNvbS9kamFuZ28tMTIwNTExMTIwOTMzLXBocGFwcDAxLXRodW1ibmFpbC0yPzEzMzY3NTYyNTRxFlgEAAAAdHlwZXEXWAQAAAByaWNocRhYEAAAAHRodW1ibmFpbF9oZWlnaHRxGUtaWAoAAABhdXRob3JfdXJscRpYJgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvcRt1Lg==", 
             "name": "Разработка расширяемых приложений"
         }
@@ -129,12 +156,15 @@
         "pk": 10, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "Доклад можно было смело назвать django-gears, поскольку речь шла в основном об этой амбициозной билиотеке, которую разрабатывают ребята из Trilan. Она призвана заменить django-compressor и webassets, обладает большей частью их функциональности, к тому же хранит зависимости прямо в css/js (по аналогии с sprockets). Пока приложение ещё не в продакшене, но от этого не менее интересно.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Доклад можно было смело назвать django-gears, поскольку речь шла в основном об этой амбициозной билиотеке, которую разрабатывают ребята из Trilan. Она призвана заменить django-compressor и webassets, обладает большей частью их функциональности, к тому же хранит зависимости прямо в css/js (по аналогии с sprockets). Пока приложение ещё не в продакшене, но от этого не менее интересно.",
             "video_data": "gAJVAC4=", 
+            "event": 3, 
             "speaker": 10, 
             "video": "", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-1", 
-            "event": 3, 
+            "slug": "staticfiles-django", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWCwAAADQoNCw0LHQvtGC0LAg0YHQviDRgdGC0LDRgtC40LrQvtC5INCyIERqYW5nb3EFVQxvcmlnaW5hbF91cmxxBlg2AAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9Nb3Njb3dEamFuZ28vZGphbmdvLTEyODk3MDk1cQdYBQAAAHRpdGxlcQhYLAAAANCg0LDQsdC+0YLQsCDRgdC+INGB0YLQsNGC0LjQutC+0Lkg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzA5NSIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEyMTIxNS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2NzU2NDM2cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Работа со статикой в Django"
         }
@@ -143,12 +173,15 @@
         "pk": 11, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "По большей части речь шла об ORM. Иван объяснил, почему «db_index=True не творит чудеса», показал каким иногда непредсказуемым может быть генератор SQL, объяснил как нужно использовать «Defer()», а так же описал основные подходы к инвалидации кеша и оптимизации контекст процессоров в Django. Самое продвинутое выступление явно не для новичков, жаль, что всего лишь на 10 минут, такая тема достойна больших временных рамок. Обязательно посмотрите слайды, очень полезный и наиболее прикладной доклад.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "По большей части речь шла об ORM. Иван объяснил, почему «db_index=True не творит чудеса», показал каким иногда непредсказуемым может быть генератор SQL, объяснил как нужно использовать «Defer()», а так же описал основные подходы к инвалидации кеша и оптимизации контекст процессоров в Django. Самое продвинутое выступление явно не для новичков, жаль, что всего лишь на 10 минут, такая тема достойна больших временных рамок. Обязательно посмотрите слайды, очень полезный и наиболее прикладной доклад.",
             "video_data": "gAJVAC4=", 
+            "event": 3, 
             "speaker": 11, 
             "video": "", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658", 
-            "event": 3, 
+            "slug": "django-performance", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGYAAADQl9Cw0LzQtdGC0LrQuCDQuiDQv9GA0LXQt9C10L3RgtCw0YbQuNC4OiBodHRwOi8vZGwuZHJvcGJveC5jb20vdS8yMzc2NzIwOC9kamFuZ28tcGVyZm9tYW5jZS1ub3Rlcy5wZGZxBVUMb3JpZ2luYWxfdXJscQZYNgAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby0xMjg5NzY1OHEHWAUAAAB0aXRsZXEIWC4AAADQn9GA0L7QuNC30LLQvtC00LjRgtC10LvRjNC90L7RgdGC0Ywg0LIgRGphbmdvcQlYCwAAAGF1dGhvcl9uYW1lcQpYDAAAAE1vc2Nvd0RqYW5nb3ELWAYAAABoZWlnaHRxDE1jAVgFAAAAd2lkdGhxDU2pAVgEAAAAaHRtbHEOWLgAAAA8aWZyYW1lIHNyYz0iaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldC9zbGlkZXNob3cvZW1iZWRfY29kZS8xMjg5NzY1OCIgd2lkdGg9IjQyNSIgaGVpZ2h0PSIzNTUiIGZyYW1lYm9yZGVyPSIwIiBtYXJnaW53aWR0aD0iMCIgbWFyZ2luaGVpZ2h0PSIwIiBzY3JvbGxpbmc9Im5vIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+cQ9YDwAAAHRodW1ibmFpbF93aWR0aHEQS3hYBwAAAHZlcnNpb25xEVgDAAAAMS4wcRJYDQAAAHByb3ZpZGVyX25hbWVxE1gKAAAAU2xpZGVTaGFyZXEUWA0AAAB0aHVtYm5haWxfdXJscRVYUAAAAGh0dHA6Ly9jZG4uc2xpZGVzaGFyZWNkbi5jb20vZGphbmdvLTEyMDUxMTEzMTQzNy1waHBhcHAwMi10aHVtYm5haWwtMj8xMzM2OTkyMjQycRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Производительность в Django"
         }
@@ -157,14 +190,89 @@
         "pk": 12, 
         "model": "meetup.talk", 
         "fields": {
-            "description": "Докладчик наглядно показал, что Django это не только про Web и что его можно запускать в том числе на мобильных устройствах. Александр продемонстрировал нам это на примере мобильного телефона на базе Android.", 
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Докладчик наглядно показал, что Django это не только про Web и что его можно запускать в том числе на мобильных устройствах. Александр продемонстрировал нам это на примере мобильного телефона на базе Android.",
             "video_data": "gAJVAC4=", 
+            "event": 3, 
             "speaker": 12, 
             "video": "", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-android", 
-            "event": 3, 
+            "slug": "django-android", 
             "presentation_data": "gAJ9cQEoWAwAAABwcm92aWRlcl91cmxxAlgZAAAAaHR0cDovL3d3dy5zbGlkZXNoYXJlLm5ldHEDWAsAAABkZXNjcmlwdGlvbnEEWGwAAADQlNC70Y8g0L/RgNC+0YHQvNC+0YLRgNCwINC/0YDQtdC30LXQvdGC0LDRhtC40Lgg0LvRg9GH0YjQtSDQt9Cw0LPRgNGD0LfQuNGC0Ywg0LXRkSDQutC90L7Qv9C60L7QuSBkb3dubG9hZC5xBVUMb3JpZ2luYWxfdXJscQZYNQAAAGh0dHA6Ly93d3cuc2xpZGVzaGFyZS5uZXQvTW9zY293RGphbmdvL2RqYW5nby1hbmRyb2lkcQdYBQAAAHRpdGxlcQhYEwAAAERqYW5nbyDQvdCwIEFuZHJvaWRxCVgLAAAAYXV0aG9yX25hbWVxClgMAAAATW9zY293RGphbmdvcQtYBgAAAGhlaWdodHEMTWMBWAUAAAB3aWR0aHENTakBWAQAAABodG1scQ5YuAAAADxpZnJhbWUgc3JjPSJodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L3NsaWRlc2hvdy9lbWJlZF9jb2RlLzEyODk3MTU2IiB3aWR0aD0iNDI1IiBoZWlnaHQ9IjM1NSIgZnJhbWVib3JkZXI9IjAiIG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT5xD1gPAAAAdGh1bWJuYWlsX3dpZHRocRBLeFgHAAAAdmVyc2lvbnERWAMAAAAxLjBxElgNAAAAcHJvdmlkZXJfbmFtZXETWAoAAABTbGlkZVNoYXJlcRRYDQAAAHRodW1ibmFpbF91cmxxFVhXAAAAaHR0cDovL2Nkbi5zbGlkZXNoYXJlY2RuLmNvbS9kamFuZ29hbmRyb2lkLTEyMDUxMTEyMTc0MS1waHBhcHAwMS10aHVtYm5haWwtMj8xMzM2ODIzMDI1cRZYBAAAAHR5cGVxF1gEAAAAcmljaHEYWBAAAAB0aHVtYm5haWxfaGVpZ2h0cRlLWlgKAAAAYXV0aG9yX3VybHEaWCYAAABodHRwOi8vd3d3LnNsaWRlc2hhcmUubmV0L01vc2Nvd0RqYW5nb3EbdS4=", 
             "name": "Django на Android"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "meetup.talk", 
+        "fields": {
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Как надо реализовывать обработку HTTP запросов на Python'е, почему большинство фреймворков делают это неправильно и как, я считаю, это нужно делать правильно",
+            "video_data": "gAJVAC4=", 
+            "event": 4, 
+            "speaker": 6, 
+            "video": "", 
+            "presentation": "", 
+            "slug": "http-python", 
+            "presentation_data": "gAJVAC4=", 
+            "name": "Обработка HTTP запросов на Python"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "meetup.talk", 
+        "fields": {
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Как быстро и просто внедрить проект на Django непрерывную интеграцию.",
+            "video_data": "gAJVAC4=", 
+            "event": 4, 
+            "speaker": 5, 
+            "video": "", 
+            "presentation": "", 
+            "slug": "django-ci", 
+            "presentation_data": "gAJVAC4=", 
+            "name": "Django и Continuous Integration"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "meetup.talk", 
+        "fields": {
+            "status": "active",
+            "status_changed": "2012-07-07T12:32:26.665Z",
+            "description": "Настройка PyCharm для джанги:  пеп8 пайфлейкс пайлинты, гит, тесты.",
+            "video_data": "gAJVAC4=", 
+            "event": 4, 
+            "speaker": 13, 
+            "video": "", 
+            "presentation": "", 
+            "slug": "django-pycharm", 
+            "presentation_data": "gAJVAC4=", 
+            "name": "Настройка Django-проекта с нуля при использовании PyCharm IDE"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "meetup.event", 
+        "fields": {
+            "status": "draft", 
+            "description": "Тут будет описание", 
+            "image": "", 
+            "number": 4, 
+            "longitude": "37.580193", 
+            "sponsors": [
+                1, 
+                2, 
+                3
+            ], 
+            "latitude": "55.75824", 
+            "address": "Малый Конюшковский переулок, дом 2", 
+            "date": "2012-07-10T00:00:00Z", 
+            "status_changed": "2012-07-07T12:32:26.665Z", 
+            "name": "Moscow Django Meetup"
         }
     }, 
     {
@@ -333,6 +441,15 @@
         "fields": {
             "photo": "", 
             "name": "Александр Шлемин", 
+            "company_name": ""
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "meetup.speaker", 
+        "fields": {
+            "photo": "", 
+            "name": "Вадим Шандринов", 
             "company_name": ""
         }
     }, 

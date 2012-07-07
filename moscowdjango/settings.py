@@ -86,7 +86,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-    'meetup.all_events_processor',
+    'meetup.context.menu',
+    'meetup.context.all_events_processor',
 )
 
 MIDDLEWARE_CLASSES = (

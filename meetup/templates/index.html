@@ -1,7 +1,7 @@
 {% extends 'layout/layout.html' %}
 
 
-{% block title %}Прототип сайта Moscow Django Meetup{% endblock %}
+{% block title %}Moscow Django Meetup{% endblock %}
 
 
 {% block page %}
@@ -98,8 +98,8 @@
             <article class="archive-item">
                 <h1 class="archive-item__title">
                     <a class="archive-item__link" href="{{ event.get_absolute_url }}">
-                        {{ event }}
-                        <span class="archive-item__number">№ 2</span>
+                        {{ event.name }}
+                        {% if event.number %}<span class="archive-item__number">№ {{ event.number }}</span>{% endif %}
                     </a>
                 </h1>
                 <div class="archive-item__description">
