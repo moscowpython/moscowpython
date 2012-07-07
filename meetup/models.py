@@ -3,13 +3,16 @@ from django.conf import settings
 from django.db import models
 from django.db.models import permalink
 from embedly.client import Embedly
+from django.db.models.manager import Manager
 from model_utils import Choices
 from model_utils.managers import QueryManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
 
 
-class Talk(models.Model):
+class Talk(StatusModel):
+    STATUS = Choices('draft', 'active')
+
     name = models.CharField(u'Название', max_length=1024)
     speaker = models.ForeignKey('Speaker', verbose_name=u'Докладчик', related_name='talks')
     event = models.ForeignKey('Event', verbose_name=u'Событие', related_name='talks')
@@ -19,6 +22,8 @@ class Talk(models.Model):
     presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
     video = models.URLField(u'Адрес видео', blank=True)
     video_data = PickledObjectField(u'Meta-данные видео', blank=True)
+
+    objects = Manager()
 
     original_presentation = None
     original_video = None
@@ -69,6 +74,7 @@ class Event(StatusModel):
     longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
 
+    objects = Manager()
     visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
 
     def __unicode__(self):

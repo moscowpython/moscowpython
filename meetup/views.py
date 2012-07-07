@@ -21,16 +21,15 @@ class IndexPage(ListView):
 
         context.update({
             'next_event': self.get_active_event(),
-            'with_dash': self.request.GET.get('with_dash', False)
         })
         return context
 
 
 class EventPage(DetailView):
     template_name = 'event.html'
-    model = Event
+    queryset = Event.visible.all()
 
 
 class TalkPage(DetailView):
     template_name = 'talk.html'
-    model = Talk
+    queryset = Talk.active.all()
