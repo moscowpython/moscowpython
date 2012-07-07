@@ -33,9 +33,9 @@
                     {% for talk in next_event.talks.all %}
                         <article class="event__talk">
                             <div class="event__talk-aside">
-                                <span class="event__talk-avatar"
-                                   style="background: url({{ talk.speaker.avatar_url }})"
-                                   href="{{ talk.get_absolute_url }}"></span>
+                                <span class="event__talk-avatar">
+                                    <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
+                                </span>
                                 <div class="event__talk-author">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
@@ -88,9 +88,9 @@
                 <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}<!--
                      --><li class="archive-item__talk">
-                            <a class="archive-item__talk-avatar"
-                               style="background: url({{ talk.speaker.avatar_url }}"
-                               href="{{ talk.get_absolute_url }}"></a>
+                            <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
+                                <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
+                            </a>
                             <div class="archive-item__talk-wrapper">
                                 <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
                                     {{ talk }}
