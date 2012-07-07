@@ -1,6 +1,9 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load pytils_dt %}
+
+
 {% block title %}Moscow Django Meetup{% endblock %}
 
 
@@ -12,23 +15,17 @@
                 <section class="event__information">
                     <section class="event__registration">
                         <div class="event__registration-summary">
-                            10 мая, 12:00<br />
-                            Бизнес-центр “Романов Плаза”<br />
-                            Регистрация открыта до 2 апреля
+                            {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M"  }}<br />
+                            {{ next_event.address }}<br />
                         </div>
-                        <form action="http://далеко">
+                        <form action="http://moscowdjango.timepad.ru/event/28685">
                             <button class="event__register-button" type="submit">
                                 <span class="event__register-button-text">Я тоже буду!</span>
                             </button>
                         </form>
                     </section>
                     <section class="event__description">
-                        <p>
-                            Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                        </p>
-                        <p>
-                            Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
-                        </p>
+                        {{ next_event.description|linebreaks }}
                     </section>
                     {% include 'blocks/map.html' with event=next_event %}
                 </section>
