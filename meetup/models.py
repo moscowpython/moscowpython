@@ -13,6 +13,7 @@ class Talk(models.Model):
     name = models.CharField(u'Название', max_length=1024)
     speaker = models.ForeignKey('Speaker', verbose_name=u'Докладчик', related_name='talks')
     event = models.ForeignKey('Event', verbose_name=u'Событие', related_name='talks')
+    slug = models.SlugField(u'Код')
     description = models.TextField(u'Описание', blank=True)
     presentation = models.URLField(u'Адрес презентации', blank=True)
     presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
@@ -32,7 +33,7 @@ class Talk(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return 'talk', [self.pk]
+        return 'talk', [self.event_id, self.slug]
 
     def set_embedly_data(self, field_name):
         original_field_value = getattr(self, 'original_{0}'.format(field_name))
@@ -71,7 +72,10 @@ class Event(StatusModel):
     visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
 
     def __unicode__(self):
-        return u'{0} №{1}'.format(self.name, self.number)
+        if self.number:
+            return u'{0} №{1}'.format(self.name, self.number)
+        else:
+            return self.name
 
     @permalink
     def get_absolute_url(self):
