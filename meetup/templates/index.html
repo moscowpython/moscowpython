@@ -7,7 +7,7 @@
 {% block page %}
     {% if next_event %}
         <section class="event">
-            <header class="event__header">
+            <header class="event-header">
                 <div class="wrapper">
                     <div class="event__date">
                         7 апреля 2012
@@ -51,7 +51,7 @@
                                 <span class="event__talk-avatar"
                                    style="background: url({{ talk.speaker.avatar_url }})"
                                    href="{{ talk.get_absolute_url }}"></span>
-                                <div class="event__talk-author">
+                                <div class="event__talk-speaker">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
                                         <div>({{ talk.speaker.company_name }})</div>

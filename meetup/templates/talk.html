@@ -7,38 +7,59 @@
 {% block title %}{{ talk }}{% endblock %}
 
 {% block page %}
+    <div class="event-header">
+        <div class="wrapper">
+            <div class="event__date">
+                7 апреля 2012
+            </div>
+            <div class="event__title">
+                Moscow Django
+                <span class="event__type">MeetUp</span>
+                № 3
+            </div>
+        </div>
+    </div>
     <section class="talk">
         <div class="wrapper">
-            <aside class="event-card">
-                <a href="{{ talk.event.get_absolute_url }}">
-                    <div class="event-card__name">
-                        {{ talk.event.name }}
-                        <div class="event-card__number">
-                            № {{ talk.event.number }}
-                        </div>
+            <h1 class="talk__name">{{ talk }}</h1>
+            <section class="talk__about">
+                <div class="talk__about-aside">
+                    <span class="talk__avatar">
+                        <img class="" src="http://placehold.it/150x150" />
+                    </span>
+                    <div class="talk__speaker">
+                        {{ talk.speaker }}
+                        {% if talk.speaker.company_name %}
+                            <div>({{ talk.speaker.company_name }})</div>
+                        {% endif %}
                     </div>
-                    <div class="event-card__date">
-                        {{ talk.event.date|ru_strftime:"%d %B %Y" }}
+                </div>
+                <nav class="talk__navigation">
+                    <div class="talk__navigation-header">Доклады Moscow Django MeetUp №3</div>
+                    <ul class="talk__others">
+                        <li class="talk__others-item">
+                            <a class="talk__others-item-link" href="">Django на Android</a>
+                        </li>
+                        <li class="talk__others-item">
+                            <span class="talk__others-item-current">Производительность в Django</span>
+                        </li>
+                        <li class="talk__others-item">
+                            <a class="talk__others-item-link"  href="">Работа со статикой в Django</a>
+                        </li>
+                        <li class="talk__others-item">
+                            <a class="talk__others-item-link"  href="">Разработка расширяемых приложений</a>
+                        </li>
+                        <li class="talk__others-item">
+                            <a class="talk__others-item-link"  href="">Class-based generic views в Django</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="talk__description-wrapper">
+                    <div class="talk__description">
+                        {{ talk.description }}
                     </div>
-                </a>
-            </aside>
-            <header class="talk__summary">
-                <img class="talk__speaker-avatar" src="http://placehold.it/150x150" />
-                <h1 class="talk__name">{{ talk }}</h1>
-                <div class="talk__speaker">
-                    {{ talk.speaker }},
-                    {{ talk.speaker.company_name }}
                 </div>
-                <div class="talk__description">
-                    {{ talk.description }}
-                </div>
-                <div class="talk__level">
-                    Advanced
-                </div>
-                <button class="talk__download">
-                    Скачать слайды
-                </button>
-            </header>
+            </section>
             <section class="talk__resources">
                 <article class="talk__resource">
                     {% if talk.video_data %}
@@ -48,17 +69,24 @@
                 <article class="talk__resource">
                     {% if talk.presentation_data %}
                         {% if talk.presentation_data.type == 'link' %}
-                            <a href="{{ talk.presentation_data.url }}">{{ talk }}</a>
+                            <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>
                         {% else %}
                             {{ talk.presentation_data.html|safe }}
                         {% endif %}
                     {% endif %}
                 </article>
             </section>
-            <div id="disqus_thread"></div>
+            <section class="comments">
+                <div id="disqus_thread"></div>
+                <footer class="comments__copyright">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </footer>
+            </section>
         </div>
     </section>
 {% endblock %}
+
 
 {% block js %}
     {{ block.super }}
@@ -70,6 +98,4 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endblock %}
