@@ -22,6 +22,7 @@
 }
 .event__information {
     width: 304px;
+    padding-bottom: 20px;
     float: right;
 }
 .event__registration {

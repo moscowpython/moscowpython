@@ -67,9 +67,9 @@
                         </div>
                     </h1>
                     {% for sponsor in next_event.sponsors.all %}
-                        <a href="{{ sponsor.get_absolute_url }}">
-                            <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
-                        </a>
+                        <a class="event__sponsor" href="{{ sponsor.get_absolute_url }}"><!--
+                         --><img class="event__sponsor" src="{{ sponsor.logo.url }}" /><!--
+                     --></a>
                     {% endfor %}
                 </section>
             </div>
