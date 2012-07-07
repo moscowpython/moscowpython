@@ -7,7 +7,7 @@ def menu(request):
     menu_items = (
         {'title':u'Главная', 'url':'index'},
         {'title':u'События', 'url':'events'},
-        {'title':u'О проекте', 'url':'about'},
+        {'title':u'О проекте', 'url':None},
         {'title':u'Полезные ссылки', 'url':None}
     )
 
