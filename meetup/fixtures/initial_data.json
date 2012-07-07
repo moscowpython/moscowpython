@@ -258,7 +258,7 @@
         "pk": 4, 
         "model": "meetup.event", 
         "fields": {
-            "status": "draft", 
+            "status": "active",
             "description": "Тут будет описание", 
             "image": "", 
             "number": 4, 
@@ -637,7 +637,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://greenfield-project.ru/", 
-            "logo": "/media/sponsors/greenfield_project.jpg", 
+            "logo": "/media/sponsors/greenfield_project.png",
             "name": "Greenfield Project"
         }
     }, 
@@ -646,7 +646,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://sevenquark.com/", 
-            "logo": "/media/sponsors/sevenquark.png", 
+            "logo": "/media/sponsors/seven_quark.png",
             "name": "SevenQuark"
         }
     }, 
@@ -655,7 +655,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://futurecolors.ru", 
-            "logo": "/media/sponsors/futurecolors.png", 
+            "logo": "/media/sponsors/future_colors.png",
             "name": "Future Colors"
         }
     }

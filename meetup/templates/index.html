@@ -14,12 +14,12 @@
                         <article class="event__talk">
                             <div class="event__talk-aside">
                                 <span class="event__talk-avatar"
-                                   style="background: url(http://placehold.it/68x68)"
+                                   style="background: url({{ talk.speaker.avatar_url }})"
                                    href="{{ talk.get_absolute_url }}"></span>
                                 <div class="event__talk-author">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
-                                        ({{ talk.speaker.company_name }})
+                                        <div>({{ talk.speaker.company_name }})</div>
                                     {% endif %}
                                 </div>
                             </div>
