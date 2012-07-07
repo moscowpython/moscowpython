@@ -20,11 +20,83 @@
 .event {
     border-bottom: 4px solid #0a6629;
 }
+.event__information {
+    width: 304px;
+    float: right;
+}
+.event__registration {
+    padding: 15px 17px;
+    background: #f2f2f2;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+}
+.event__registration-summary {
+    padding-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+.event__register-button {
+    width: 100%;
+    height: 50px;
+    padding: 0 0 2px;
+    background: rgb(12,126,51);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBjN2UzMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNzQ5MWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(12,126,51,1) 0%, rgba(7,73,29,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(12,126,51,1)), color-stop(100%,rgba(7,73,29,1)));
+    background: -webkit-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: -o-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    background: linear-gradient(to bottom,  rgba(12,126,51,1) 0%,rgba(7,73,29,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c7e33', endColorstr='#07491d',GradientType=0 );
+    border: none;
+    border-radius: 5px;
+}
+.event__register-button:active {
+    background: rgb(7,73,29);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA3NDkxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwYzdlMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(7,73,29,1) 0%, rgba(12,126,51,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,73,29,1)), color-stop(100%,rgba(12,126,51,1)));
+    background: -webkit-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: -o-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    background: linear-gradient(to bottom,  rgba(7,73,29,1) 0%,rgba(12,126,51,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07491d', endColorstr='#0c7e33',GradientType=0 );
+}
+.event__register-button-text {
+    display: inline-block;
+    height: 35px;
+    padding: 0 12px 0 42px;
+    line-height: 40px;
+    font-size: 22px;
+    color: white;
+    background: url(../images/icons/beer.png) 0 50% no-repeat;
+}
+.event__description {
+    padding: 15px 17px;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #303030;
+    background: #f2f2f2 url(../images/backgrounds/event-description.png) 0 0 repeat-x;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+}
+.event__description p {
+    margin: 0;
+    padding-bottom: 5px;
+}
+.event__description p:last-child {
+    padding-bottom: 0;
+}
+.event__map {
+    height: 300px;
+    background: #bebebe;
+}
 .event__talks {
-    width: 628px;
-    float: left;
+    margin-right: 324px;
 }
 .event__talk {
+    display: inline-block;
+    width: 100%;
     padding: 23px 0 25px;
     background: url(../images/elements/talk-separator.png) 0 100% repeat-x;
 }
@@ -64,78 +136,6 @@
     font-size: 12px;
     color: #404040;
 }
-
-
-
-
-
-
-
-
-
-
-
-.event-title {
-    margin-bottom: 15px;
-}
-.event-title__logo {
-    float: left
-}
-.event-title__name {
-    margin: 0 0 0 120px;
-    line-height: 2;
-    font-size: 300%;
-}
-.event-title__description {
-    margin-left: 120px;
-    font-size: 160%;
-    color: #777;
-}
-.event-title__date {
-    margin-left: 120px;
-    font-size: 160%;
-}
-.event__info {
-    float: right;
-    width: 35%;
-    font-size: 140%;
-}
-.event__map {
-    margin: 1em 0;
-    height: 300px;
-    border: 2px solid #3a2;
-    background: #e7f2b3;
-}
-.event__map_small {
-    height: 150px;
-}
-.event__links {
-    margin: 1em 0 3em;
-    float: right;
-    width: 35%;
-    list-style: none;
-}
-.event__link {
-    position: relative;
-    padding: 0 0 1.5em 2em;
-}
-.event__link-link {
-    text-decoration: none;
-}
-.event__link-icon {
-    position: absolute;
-    top: 0;
-    left: 1em;
-    width: 16px;
-    height: 16px;
-    margin-left: -16px;
-    vertical-align: middle;
-}
-.event__link-name {
-    vertical-align: middle;
-    text-decoration: underline;
-    font-size: 150%;
-}
 .event__sponsors {
     position: relative;
     padding: 45px 0;
@@ -167,48 +167,6 @@
 }
 .event__sponsor:last-of-type {
     margin-right: 0;
-}
-
-
-/**
- * @subsection  Блок регистрации
- */
-
-.register {
-    float: right;
-    margin: 15px 0 0 15px;
-    background: #170;
-    cursor: pointer;
-}
-.register_closed {
-    background: #aaa;
-}
-.register__link {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-}
-.register__finishing {
-    font-size: 140%;
-    font-style: italic;
-    color: #ded;
-}
-.register__text {
-    margin: 0.4em 0;
-    font-size: 180%;
-    color: white;
-}
-.register__registred {
-    font-size: 140%;
-    font-style: italic;
-    color: #ded;
-}
-.register__summary {
-    margin: 1.5em 1em;
-    font-size: 140%;
-    font-style: italic;
-    color: #eee;
 }
 
 
