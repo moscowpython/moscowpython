@@ -17,10 +17,10 @@
  * @subsection  Анонс митапа
  */
 
-.event {
-}
+.event {}
 .event__talks {
     width: 628px;
+    float: left;
 }
 .event__talk {
     padding: 23px 0 25px;
@@ -135,23 +135,36 @@
     font-size: 150%;
 }
 .event__sponsors {
-    margin: 1em 0;
+    position: relative;
+    padding: 45px 0;
+    clear: both;
+    text-align: center;
+    border-top: 4px double #c3c3c3;
+}
+.event__sponsors-header {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    margin: 0;
     text-align: center;
 }
+.event__sponsors-header-text {
+    display: inline-block;
+    height: 24px;
+    padding: 0 20px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666666;
+    background: white;
+}
 .event__sponsor {
-    margin: 10px 15px;
+    margin-right: 70px;
     vertical-align: middle;
 }
-.event__gallery {
-    margin: 2em 0;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.event__gallery-image {
-    position: relative;
-    padding: 4px;
-    border: 1px solid #ccb;
-    background: white;
+.event__sponsor:last-of-type {
+    margin-right: 0;
 }
 
 
