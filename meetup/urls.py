@@ -6,6 +6,8 @@ from views import IndexPage
 
 urlpatterns = patterns('',
     url('^$', IndexPage.as_view(), name='index'),
+    url('^about/$', IndexPage.as_view(), name='about'),
+    url('^events/$', EventPage.as_view(), name='events'),
     url('^events/(?P<pk>\d+)/$', EventPage.as_view(), name='event'),
     url('^talks/(?P<pk>\d+)/$', TalkPage.as_view(), name='talk'),
 )

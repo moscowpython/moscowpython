@@ -9,18 +9,17 @@
         <div class="wrapper">
             <nav class="menu">
                 <ul class="menu__items">
+                {% for menu_item in menu_items %}
+                    {% if menu_item.url %}
                     <li class="menu__item">
-                        <a class="menu__link" href="{% url 'index' %}">Главная</a>
+                        <a class="menu__link" href="{{ menu_item.url }}">{{ menu_item.title }}</a>
                     </li>
+                    {% else %}
                     <li class="menu__item">
-                        <a class="menu__link" href="">События</a>
+                        <span class="menu__coming-soon">{{ menu_item.title }}</span>
                     </li>
-                    <li class="menu__item">
-                        <a class="menu__link" href="">О проекте</a>
-                    </li>
-                    <li class="menu__item">
-                        <span class="menu__coming-soon">Полезные ссылки</span>
-                    </li>
+                    {% endif %}
+                {% endfor %}
                 </ul>
             </nav>
             <aside class="search">
