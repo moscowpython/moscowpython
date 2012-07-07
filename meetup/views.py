@@ -32,4 +32,7 @@ class EventPage(DetailView):
 
 class TalkPage(DetailView):
     template_name = 'talk.html'
-    queryset = Talk.active.all()
+    slug_url_kwarg = 'talk_slug'
+
+    def get_queryset(self):
+        return Talk.active.filter(event_id=self.kwargs['event_id'])

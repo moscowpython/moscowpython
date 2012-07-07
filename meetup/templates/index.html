@@ -1,6 +1,9 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load pytils_dt %}
+
+
 {% block title %}Moscow Django Meetup{% endblock %}
 
 
@@ -10,12 +13,12 @@
             <header class="event-header">
                 <div class="wrapper">
                     <div class="event__date">
-                        7 апреля 2012
+                        {{ next_event.date|ru_strftime:"%d %B %Y" }}
                     </div>
                     <div class="event__title">
                         Moscow Django
                         <span class="event__type">MeetUp</span>
-                        № 3
+                        № {{ next_event.number }}
                     </div>
                 </div>
             </header>
@@ -24,23 +27,18 @@
                 <section class="event__information">
                     <section class="event__registration">
                         <div class="event__registration-summary">
-                            10 мая, 12:00<br />
-                            Бизнес-центр “Романов Плаза”<br />
-                            Регистрация открыта до 2 апреля
+                            {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
+                            {{ next_event.venue }}<br />
+                            {{ next_event.venue.address }}<br />
                         </div>
-                        <form action="http://далеко">
+                        <form action="http://moscowdjango.timepad.ru/event/28685">
                             <button class="event__register-button" type="submit">
                                 <span class="event__register-button-text">Я тоже буду!</span>
                             </button>
                         </form>
                     </section>
                     <section class="event__description">
-                        <p>
-                            Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                        </p>
-                        <p>
-                            Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
-                        </p>
+                        {{ next_event.description|linebreaks }}
                     </section>
                     {% include 'blocks/map.html' with event=next_event %}
                 </section>
@@ -48,9 +46,9 @@
                     {% for talk in next_event.talks.all %}
                         <article class="event__talk">
                             <div class="event__talk-aside">
-                                <span class="event__talk-avatar"
-                                   style="background: url({{ talk.speaker.avatar_url }})"
-                                   href="{{ talk.get_absolute_url }}"></span>
+                                <span class="event__talk-avatar">
+                                    <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
+                                </span>
                                 <div class="event__talk-speaker">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
@@ -103,9 +101,9 @@
                 <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}<!--
                      --><li class="archive-item__talk">
-                            <a class="archive-item__talk-avatar"
-                               style="background: url({{ talk.speaker.avatar_url }}"
-                               href="{{ talk.get_absolute_url }}"></a>
+                            <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
+                                <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
+                            </a>
                             <div class="archive-item__talk-wrapper">
                                 <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
                                     {{ talk }}
