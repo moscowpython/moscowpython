@@ -13,12 +13,12 @@
             <header class="event__header">
                 <div class="wrapper">
                     <div class="event__date">
-                        7 апреля 2012
+                        {{ next_event.date|ru_strftime:"%d %B %Y" }}
                     </div>
                     <div class="event__title">
                         Moscow Django
                         <span class="event__type">MeetUp</span>
-                        № 3
+                        № {{ next_event.number }}
                     </div>
                 </div>
             </header>
@@ -27,7 +27,7 @@
                 <section class="event__information">
                     <section class="event__registration">
                         <div class="event__registration-summary">
-                            {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M"  }}<br />
+                            {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
                             {{ next_event.address }}<br />
                         </div>
                         <form action="http://moscowdjango.timepad.ru/event/28685">
