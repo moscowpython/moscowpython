@@ -100,6 +100,11 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'admin_sso.auth.DjangoSSOAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 ROOT_URLCONF = 'moscowdjango.urls'
 
 WSGI_APPLICATION = 'moscowdjango.wsgi.application'
@@ -119,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'admin_sso',
     'compressor',
     'pytils',
     'meetup',
