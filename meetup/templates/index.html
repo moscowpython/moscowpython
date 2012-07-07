@@ -6,8 +6,20 @@
 
 {% block page %}
     {% if next_event %}
-        {% include 'blocks/share.html' %}
         <section class="event">
+            <header class="event__header">
+                <div class="wrapper">
+                    <div class="event__date">
+                        7 апреля 2012
+                    </div>
+                    <div class="event__title">
+                        Moscow Django
+                        <span class="event__type">MeetUp</span>
+                        № 3
+                    </div>
+                </div>
+            </header>
+            {% include 'blocks/share.html' %}
             <div class="wrapper">
                 <section class="event__information">
                     <section class="event__registration">
