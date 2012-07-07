@@ -45,7 +45,7 @@
     color: #603913;
 }
 .talk__description-wrapper {
-    margin: 0 324px 30px 160px;
+    margin: 0 330px 30px 160px;
 }
 .talk__description {
     line-height: 1.5;
@@ -54,6 +54,7 @@
 }
 .talk__navigation {
     width: 304px;
+    padding-bottom: 20px;
     float: right;
 }
 .talk__navigation-header {

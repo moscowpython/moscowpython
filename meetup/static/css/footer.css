@@ -48,6 +48,10 @@
     font-size: 12px;
     color: #2e2e2e;
 }
+.footer__menu-coming-soon {
+    font-size: 12px;
+    color: #888;
+}
 .footer__copyright {
     padding-top: 34px;
     float: right;
