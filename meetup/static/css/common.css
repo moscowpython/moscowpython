@@ -72,7 +72,12 @@ input[type="submit"]::-moz-focus-inner {
  * @section     Обёртка
  */
 
+html {
+    height: 100%;
+}
 body {
+    position: relative;
+    min-height: 100%;
     font-size: 62.5%;
     font-family: Helvetica, Arial, sans-serif;
     border-top: 7px solid #0a6629;
@@ -81,6 +86,9 @@ body {
     max-width: 952px;
     margin: 0 auto;
     padding: 0 20px;
+}
+.content-wrapper {
+    padding-bottom: 105px;
 }
 
 
@@ -93,4 +101,15 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+
+
+/**
+ * @section     Аватар докладчика
+ */
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
 }
