@@ -18,10 +18,33 @@
  */
 
 .event {
+    clear: both;
     border-bottom: 4px solid #0a6629;
+}
+.event__header {
+    height: 103px;
+    background: #0a6629;
+    border-bottom: 10px solid #085221;
+}
+.event__date {
+    width: 150px;
+    float: left;
+    line-height: 124px;
+    font-size: 20px;
+    color: #92cc47;
+}
+.event__title {
+    margin-left: 160px;
+    line-height: 110px;
+    font-size: 47px;
+    color: #92cc47;
+}
+.event__type {
+    color: white;
 }
 .event__information {
     width: 304px;
+    padding-bottom: 30px;
     float: right;
 }
 .event__registration {
