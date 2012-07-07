@@ -6,91 +6,91 @@
 
 {% block page %}
     {% if next_event %}
-    <div class="wrapper">
         {% include 'blocks/share.html' %}
         <section class="event">
-            <section class="event__talks">
-                {% for talk in next_event.talks.all %}
-                    <article class="event__talk">
-                        <div class="event__talk-aside">
-                            <span class="event__talk-avatar"
-                               style="background: url(http://placehold.it/68x68)"
-                               href="{{ talk.get_absolute_url }}"></span>
-                            <div class="event__talk-author">
-                                {{ talk.speaker }}
-                                {% if talk.speaker.company_name %}
-                                    ({{ talk.speaker.company_name }})
-                                {% endif %}
+            <div class="wrapper">
+                <section class="event__talks">
+                    {% for talk in next_event.talks.all %}
+                        <article class="event__talk">
+                            <div class="event__talk-aside">
+                                <span class="event__talk-avatar"
+                                   style="background: url(http://placehold.it/68x68)"
+                                   href="{{ talk.get_absolute_url }}"></span>
+                                <div class="event__talk-author">
+                                    {{ talk.speaker }}
+                                    {% if talk.speaker.company_name %}
+                                        ({{ talk.speaker.company_name }})
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
-                        <div class="event__talk-content">
-                            <h3 class="event__talk-title">
-                                <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">
-                                    {{ talk }}
-                                </a>
-                            </h3>
-                            <div class="event__talk-description">
-                                {{ talk.description|truncatewords:"25" }}
+                            <div class="event__talk-content">
+                                <h3 class="event__talk-title">
+                                    <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">
+                                        {{ talk }}
+                                    </a>
+                                </h3>
+                                <div class="event__talk-description">
+                                    {{ talk.description|truncatewords:"25" }}
+                                </div>
                             </div>
+                            <div class="g-clear"></div>
+                        </article>
+                    {% endfor %}
+                </section>
+                <section class="event__sponsors">
+                    <h1 class="event__sponsors-header">
+                        <div class="event__sponsors-header-text">
+                            Партнёры и спонсоры
                         </div>
-                        <div class="g-clear"></div>
-                    </article>
-                {% endfor %}
-            </section>
-            <section class="event__sponsors">
-                <h1 class="event__sponsors-header">
-                    <div class="event__sponsors-header-text">
-                        Партнёры и спонсоры
+                    </h1>
+                    {% for sponsor in next_event.sponsors.all %}
+                        <a href="{{ sponsor.get_absolute_url }}">
+                            <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
+                        </a>
+                    {% endfor %}
+                </section>
+                {% comment %}
+                <header class="event-title">
+                    <aside class="register">
+                        <a class="register__link" href="">
+                            <div class="register__finishing">
+                                Регистрация открыта до 2 апреля
+                            </div>
+                            <div class="register__text">
+                                Зарегистрироваться
+                            </div>
+                            <div class="register__registred">
+                                Идут 78 человек
+                            </div>
+                        </a>
+                    </aside>
+                    <img class="event-title__logo" src="http://placehold.it/100x100" />
+                    <h1 class="event-title__name">{{ next_event }}</h1>
+                    <div class="event-title__date" title="Осталось 17 дней">
+                        7 апреля 2012 г.
                     </div>
-                </h1>
-                {% for sponsor in next_event.sponsors.all %}
-                    <a href="{{ sponsor.get_absolute_url }}">
-                        <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
-                    </a>
-                {% endfor %}
-            </section>
-            {% comment %}
-            <header class="event-title">
-                <aside class="register">
-                    <a class="register__link" href="">
-                        <div class="register__finishing">
-                            Регистрация открыта до 2 апреля
-                        </div>
-                        <div class="register__text">
-                            Зарегистрироваться
-                        </div>
-                        <div class="register__registred">
-                            Идут 78 человек
-                        </div>
-                    </a>
-                </aside>
-                <img class="event-title__logo" src="http://placehold.it/100x100" />
-                <h1 class="event-title__name">{{ next_event }}</h1>
-                <div class="event-title__date" title="Осталось 17 дней">
-                    7 апреля 2012 г.
-                </div>
-                <div class="event-title__description">
-                    {{ next_event.descripiton }}
+                    <div class="event-title__description">
+                        {{ next_event.descripiton }}
+                    </div>
+                    <div class="g-clear"></div>
+                </header>
+                <div class="event__info">
+                    <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
+                    <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
+                    <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
+                    {% include 'blocks/map.html' with event=next_event %}
                 </div>
                 <div class="g-clear"></div>
-            </header>
-            <div class="event__info">
-                <p>Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                <p>Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2, метро Баррикадная.
-                <p>На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
-                {% include 'blocks/map.html' with event=next_event %}
+                <div class="event__sponsors">
+                    {% for sponsor in next_event.sponsors.all %}
+                        <a href="{{ sponsor.get_absolute_url }}">
+                            <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
+                        </a>
+                    {% endfor %}
+                </div>
+                {% endcomment %}
             </div>
-            <div class="g-clear"></div>
-            <div class="event__sponsors">
-                {% for sponsor in next_event.sponsors.all %}
-                    <a href="{{ sponsor.get_absolute_url }}">
-                        <img class="event__sponsor" src="{{ sponsor.logo.url }}" width="200" />
-                    </a>
-                {% endfor %}
-            </div>
-            {% endcomment %}
         </section>
-    </div>
     {% endif %}
     <section class="archive">
         <div class="wrapper">

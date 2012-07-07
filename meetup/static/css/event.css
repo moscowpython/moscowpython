@@ -17,7 +17,9 @@
  * @subsection  Анонс митапа
  */
 
-.event {}
+.event {
+    border-bottom: 4px solid #0a6629;
+}
 .event__talks {
     width: 628px;
     float: left;
@@ -313,7 +315,8 @@
  * @section     Лайк митапа
  */
 
-.like {
+.like {}
+.like__wrapper {
     height: 20px;
     padding: 20px 0 20px 160px;
     border-bottom: 1px solid #e5e5e5;
