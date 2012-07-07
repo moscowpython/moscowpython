@@ -1,0 +1,15 @@
+{% load pytils_dt %}
+
+
+<header class="event-header">
+    <div class="wrapper">
+        <div class="event__date">
+            {{ event.date|ru_strftime:"%d %B %Y" }}
+        </div>
+        <div class="event__title">
+            Moscow Django
+            <span class="event__type">MeetUp</span>
+            № {{ event.number }}
+        </div>
+    </div>
+</header>

@@ -7,25 +7,14 @@
 {% block title %}{{ talk }} @ {{ talk.event }}{% endblock %}
 
 {% block page %}
-    <div class="event-header">
-        <div class="wrapper">
-            <div class="event__date">
-                7 апреля 2012
-            </div>
-            <div class="event__title">
-                Moscow Django
-                <span class="event__type">MeetUp</span>
-                № 3
-            </div>
-        </div>
-    </div>
+    {% include 'blocks/event_header.html' with event=talk.event %}
     <section class="talk">
         <div class="wrapper">
             <h1 class="talk__name">{{ talk }}</h1>
             <section class="talk__about">
                 <div class="talk__about-aside">
                     <span class="talk__avatar">
-                        <img class="" src="http://placehold.it/150x150" />
+                        <img src="{{ talk.speaker.avatar_url }}" />
                     </span>
                     <div class="talk__speaker">
                         {{ talk.speaker }}
@@ -35,23 +24,19 @@
                     </div>
                 </div>
                 <nav class="talk__navigation">
-                    <div class="talk__navigation-header">Доклады Moscow Django MeetUp №3</div>
+                    <div class="talk__navigation-header">Доклады {{ talk.event }}</div>
                     <ul class="talk__others">
+                        {% for other_talk in talk.event.talks.all %}
+                        {% if other_talk.pk != talk.pk %}
                         <li class="talk__others-item">
-                            <a class="talk__others-item-link" href="">Django на Android</a>
+                            <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>
                         </li>
+                        {% else %}
                         <li class="talk__others-item">
-                            <span class="talk__others-item-current">Производительность в Django</span>
+                            <span class="talk__others-item-current">{{ other_talk }}</span>
                         </li>
-                        <li class="talk__others-item">
-                            <a class="talk__others-item-link"  href="">Работа со статикой в Django</a>
-                        </li>
-                        <li class="talk__others-item">
-                            <a class="talk__others-item-link"  href="">Разработка расширяемых приложений</a>
-                        </li>
-                        <li class="talk__others-item">
-                            <a class="talk__others-item-link"  href="">Class-based generic views в Django</a>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                 </nav>
                 <div class="talk__description-wrapper">
