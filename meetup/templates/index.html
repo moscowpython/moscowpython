@@ -10,7 +10,7 @@
 {% block page %}
     {% if next_event %}
         <section class="event">
-            <header class="event__header">
+            <header class="event-header">
                 <div class="wrapper">
                     <div class="event__date">
                         {{ next_event.date|ru_strftime:"%d %B %Y" }}
@@ -49,7 +49,7 @@
                                 <span class="event__talk-avatar">
                                     <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
                                 </span>
-                                <div class="event__talk-author">
+                                <div class="event__talk-speaker">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
                                         <div>({{ talk.speaker.company_name }})</div>

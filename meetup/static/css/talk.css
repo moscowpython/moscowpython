@@ -13,51 +13,97 @@
  */
 
 .talk {
-    margin: 3em 0;
-}
-.talk__summary {
-    position: relative;
-    margin-bottom: 4em;
-    padding-left: 170px;
-    min-height: 150px;
-}
-.talk__speaker-avatar {
-    position: absolute;
-    top: 0;
-    left: 0;
+    padding-top: 31px;
 }
 .talk__name {
-    margin: 0 0 0.2em;
-    font-size: 280%;
+    margin: 0 0 20px 160px;
+    font-size: 31px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.talk__about {}
+.talk__about-aside {
+    width: 136px;
+    float: left;
+    text-align: center;
+}
+.talk__avatar {
+    display: inline-block;
+    width: 114px;
+    height: 114px;
+    overflow: hidden;
+    margin-bottom: 3px;
+    border-radius: 57px;
+}
+.talk__avatar img {
+    width: 114px;
+    height: 114px;
 }
 .talk__speaker {
-    margin-bottom: 1.5em;
-    font-size: 140%;
-    color: #777;
+    line-height: 1.3;
+    font-size: 12px;
+    color: #603913;
+}
+.talk__description-wrapper {
+    margin: 0 324px 30px 160px;
 }
 .talk__description {
-    margin-bottom: 1em;
-    font-size: 140%;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #404040;
 }
-.talk__level {
-    margin-bottom: 1em;
-    font-size: 140%;
-    font-style: italic;
-    color: #07d;
+.talk__navigation {
+    width: 304px;
+    float: right;
 }
-.talk__download {
-    font-size: 140%;
+.talk__navigation-header {
+    padding: 3px 0 14px;
+    font-size: 14px;
+    color: #404040;
+}
+.talk__others {
+    margin: 0;
+    list-style: disc;
+}
+.talk__others-item {
+    margin: 0 0 12px 15px;
+}
+.talk__others-item-link {
+    font-size: 14px;
+    color: #0a6629;
+}
+.talk__others-item-current {
+    font-size: 14px;
+    color: #999
 }
 .talk__resources {
-    margin: 0 0 4em;
+    margin: 0 324px 0 160px;
 }
 .talk__resource {
-    display: inline-block;
-    margin-right: 3em;
+    margin-bottom: 40px;
 }
 .talk__resource iframe {
-    width: 420px;
-    height: 315px;
+    width: 468px;
+}
+.talk__resource-link {
+    font-size: 14px;
+    color: #0a6629;
+}
+
+
+/**
+ * @section     Коментарии
+ */
+
+.comments {
+    margin: 0 0 30px 160px;
+}
+.comments__copyright {
+    font-size: 12px;
+    color: #ddd;
+}
+.comments__copyright a {
+    color: #ddd;
 }
 /* Disq.us forces this id */
 .disqus_thread {
