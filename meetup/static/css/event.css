@@ -180,62 +180,62 @@
  */
 
 .archive {
-    border-top: 1px solid #ccb;
-    padding-top: 30px;
+    padding: 15px 0;
+    background: url(../images/backgrounds/archive.png) 0 0 repeat;
 }
 .archive-item {
-    margin-bottom: 40px;
+    margin-bottom: 5px;
 }
 .archive-item__title {
-    margin: 0 0 0.5em;
-    line-height: 1.4;
-    font-size: 240%;
+    margin: 0 0 26px;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: normal;
+    border-bottom: 4px double #c3c3c3;
 }
-.archive-item__gallery {
-    position: relative;
+.archive-item__link {
+    color: black;
+}
+.archive-item__number {
+    color: #0a6629;
+}
+.archive-item__description {
     float: left;
-    padding: 0 0 0 10px;
+    width: 304px;
+    line-height: 1.2;
+    font-size: 12px;
+    color: #303030;
 }
-.archive-item__image {
-    position: relative;
-    padding: 4px;
-    border: 1px solid #ccb;
-    background: white;
-}
-.archive-item__image_second {
-    position: absolute;
-    top: 10px;
-    left: 0px;
+.archive-item__description p {
+    margin: 0 0 8px;
 }
 .archive-item__talks {
-    margin: 0 0 0 250px;
+    margin: 0 -20px 0 324px;
     list-style: none;
 }
 .archive-item__talk {
     display: inline-block;
-    width: 45%;
-    margin: 0 3% 20px 0;
+    width: 50%;
+    margin-bottom: 30px;
     vertical-align: top;
+}
+.archive-item__talk-avatar {
+    float: left;
+}
+.archive-item__talk-wrapper {
+    margin: 0 20px 0 70px;
 }
 .archive-item__talk-title {
     display: block;
-    margin-bottom: 0.2em;
-    font-size: 140%;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    font-size: 14px;
+    color: #0a6629;
 }
 .archive-item__talk-author {
-    margin-right: 15px;
-    font-size: 130%;
-    color: #777;
-}
-.archive-item__talk-comments {
-    display: inline-block;
-    height: 16px;
-    padding-left: 20px;
-    line-height: 16px;
-    text-decoration: none;
-    font-size: 130%;
-    color: #777;
-    background: url(../images/icons/comment.png) 0 0 no-repeat;
+    line-height: 1.2;
+    font-size: 12px;
+    color: #603913;
 }
 
 

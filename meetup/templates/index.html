@@ -5,6 +5,7 @@
 
 
 {% block page %}
+    {% comment %}
     {% if next_event %}
     <div class="wrapper">
         {% if with_dash %}
@@ -94,26 +95,48 @@
     </div>
     {% endif %}
     {% include 'blocks/share.html' %}
+    {% endcomment %}
     <section class="archive">
         <div class="wrapper">
             {% for event in events %}
             <article class="archive-item">
-                <h1 class="archive-item__title"><a href="{{ event.get_absolute_url }}">{{ event }}</a></h1>
-                <figure class="archive-item__gallery">
-                    <img class="archive-item__image" src="http://placehold.it/200x120" />
-                    <img class="archive-item__image archive-item__image_second" src="http://placehold.it/200x120" />
-                </figure>
+                <h1 class="archive-item__title">
+                    <a class="archive-item__link" href="{{ event.get_absolute_url }}">
+                        {{ event }}
+                        <span class="archive-item__number">№ 2</span>
+                    </a>
+                </h1>
+                <div class="archive-item__description">
+                    <p>
+                        Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
+                    </p>
+                    <p>
+                        Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2,
+                        метро Баррикадная.
+                    </p>
+                    <p>
+                        На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
+                    </p>
+                </div>
                 <ul class="archive-item__talks">
-                    {% for talk in event.talks.all %}
-                    <li class="archive-item__talk">
-                        <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
-                            {{ talk }}
-                        </a>
-                        <span class="archive-item__talk-author">{{ talk.speaker }}
-                            {% if talk.speaker.company_name %}({{ talk.speaker.company_name }}){% endif %}</span>
-                        <a class="archive-item__talk-comments" href="">376</a>
-                    </li>
-                    {% endfor %}
+                    {% for talk in event.talks.all %}<!--
+                     --><li class="archive-item__talk">
+                            <a class="archive-item__talk-avatar avatar"
+                               style="background: url(http://placehold.it/50x50)"
+                               href="{{ talk.get_absolute_url }}"></a>
+                            <div class="archive-item__talk-wrapper">
+                                <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
+                                    {{ talk }}
+                                </a>
+                                <div class="archive-item__talk-author">
+                                    {{ talk.speaker }}
+                                    {% if talk.speaker.company_name %}
+                                        ({{ talk.speaker.company_name }})
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li><!--
+                 -->{% endfor %}
                 </ul>
                 <div class="g-clear"></div>
             </article>
