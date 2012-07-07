@@ -37,12 +37,12 @@
                         <article class="event__talk">
                             <div class="event__talk-aside">
                                 <span class="event__talk-avatar"
-                                   style="background: url(http://placehold.it/68x68)"
+                                   style="background: url({{ talk.speaker.avatar_url }})"
                                    href="{{ talk.get_absolute_url }}"></span>
                                 <div class="event__talk-author">
                                     {{ talk.speaker }}
                                     {% if talk.speaker.company_name %}
-                                        ({{ talk.speaker.company_name }})
+                                        <div>({{ talk.speaker.company_name }})</div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -86,22 +86,13 @@
                     </a>
                 </h1>
                 <div class="archive-item__description">
-                    <p>
-                        Django-движение в Москве набирает обороты. 3-й Django Meetup состоится 10-го мая в Москве.
-                    </p>
-                    <p>
-                        Встреча пройдёт в центре MOD Design по адресу Малый Конюшковский переулок, дом 2,
-                        метро Баррикадная.
-                    </p>
-                    <p>
-                        На мероприятии нас ждут 3 20-минутных и 2 10-минутных доклада.
-                    </p>
+                    {{ event.description|linebreaks }}
                 </div>
                 <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}<!--
                      --><li class="archive-item__talk">
                             <a class="archive-item__talk-avatar"
-                               style="background: url(http://placehold.it/50x50)"
+                               style="background: url({{ talk.speaker.avatar_url }}"
                                href="{{ talk.get_absolute_url }}"></a>
                             <div class="archive-item__talk-wrapper">
                                 <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">

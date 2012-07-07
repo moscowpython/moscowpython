@@ -24,6 +24,7 @@ class TalkAdmin(admin.ModelAdmin):
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'date', 'status']
+    list_editable = ['status']
     exclude = ['status_changed']
 
 

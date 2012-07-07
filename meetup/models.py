@@ -8,6 +8,7 @@ from model_utils import Choices
 from model_utils.managers import QueryManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
+from django.conf import settings
 
 
 class Talk(StatusModel):
@@ -101,6 +102,13 @@ class Speaker(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @property
+    def avatar_url(self):
+        if self.photo:
+            return self.photo.url
+        else:
+            return settings.STATIC_URL + 'images/avatars/reinhardt.png'
 
     class Meta:
         verbose_name = u'Докладчик'
