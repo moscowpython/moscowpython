@@ -259,7 +259,7 @@
         "model": "meetup.event", 
         "fields": {
             "status": "active", 
-            "description": "Тут будет описание", 
+            "description": "Спустя 2 месяца, митап возращается в приятном MOD Design. Приходите, будет интересно.\r\n\r\nВо время встречи будет работать `прямая трансляция <http://futurecolors.ru/live/>`_.", 
             "image": "", 
             "venue": 3, 
             "number": 4, 
@@ -361,115 +361,115 @@
         "pk": 1, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexey_dubkov.png",
-            "name": "Алексей Дубков",
+            "photo": "speakers/alexey_dubkov.png", 
+            "name": "Алексей Дубков", 
             "company_name": ""
         }
-    },
+    }, 
     {
-        "pk": 2,
-        "model": "meetup.speaker",
+        "pk": 2, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vladimir_epifanov.png",
-            "name": "Владимир Епифанов",
+            "photo": "speakers/vladimir_epifanov.png", 
+            "name": "Владимир Епифанов", 
             "company_name": "Островок"
         }
-    },
+    }, 
     {
-        "pk": 3,
-        "model": "meetup.speaker",
+        "pk": 3, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "",
-            "name": "Николай Ходов",
+            "photo": "", 
+            "name": "Николай Ходов", 
             "company_name": ""
         }
-    },
+    }, 
     {
-        "pk": 4,
-        "model": "meetup.speaker",
+        "pk": 4, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vitaly_korobkin.png",
-            "name": "Виталий Коробкин",
+            "photo": "speakers/vitaly_korobkin.png", 
+            "name": "Виталий Коробкин", 
             "company_name": "SevenQuark"
         }
-    },
+    }, 
     {
-        "pk": 5,
-        "model": "meetup.speaker",
+        "pk": 5, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/ilya_baryshev.png",
-            "name": "Илья Барышев",
+            "photo": "speakers/ilya_baryshev.png", 
+            "name": "Илья Барышев", 
             "company_name": "Future Colors"
         }
-    },
+    }, 
     {
-        "pk": 6,
-        "model": "meetup.speaker",
+        "pk": 6, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/andrey_popp.png",
-            "name": "Андрей Попп",
+            "photo": "speakers/andrey_popp.png", 
+            "name": "Андрей Попп", 
             "company_name": ""
         }
-    },
+    }, 
     {
-        "pk": 7,
-        "model": "meetup.speaker",
+        "pk": 7, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_korneev.png",
-            "name": "Михаил Корнеев",
+            "photo": "speakers/mikhail_korneev.png", 
+            "name": "Михаил Корнеев", 
             "company_name": "Greenfield Project"
         }
-    },
+    }, 
     {
-        "pk": 8,
-        "model": "meetup.speaker",
+        "pk": 8, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexander_emelin.png",
-            "name": "Александр Емелин",
+            "photo": "speakers/alexander_emelin.png", 
+            "name": "Александр Емелин", 
             "company_name": "Mail.ru Group"
         }
-    },
+    }, 
     {
-        "pk": 9,
-        "model": "meetup.speaker",
+        "pk": 9, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_filonov.png",
-            "name": "Владимир Филонов",
+            "photo": "speakers/mikhail_filonov.png", 
+            "name": "Владимир Филонов", 
             "company_name": "WebCanFly"
         }
-    },
+    }, 
     {
-        "pk": 10,
-        "model": "meetup.speaker",
+        "pk": 10, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_yumatov.png",
-            "name": "Михаил Юматов",
+            "photo": "speakers/mikhail_yumatov.png", 
+            "name": "Михаил Юматов", 
             "company_name": "Trilan"
         }
-    },
+    }, 
     {
-        "pk": 11,
-        "model": "meetup.speaker",
+        "pk": 11, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/ivan_vyrabyan.png",
-            "name": "Иван Вирабян",
+            "photo": "speakers/ivan_vyrabyan.png", 
+            "name": "Иван Вирабян", 
             "company_name": "Kanobu.ru"
         }
-    },
+    }, 
     {
-        "pk": 12,
-        "model": "meetup.speaker",
+        "pk": 12, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexander_shlemin.png",
-            "name": "Александр Шлемин",
+            "photo": "speakers/alexander_shlemin.png", 
+            "name": "Александр Шлемин", 
             "company_name": ""
         }
-    },
+    }, 
     {
-        "pk": 13,
-        "model": "meetup.speaker",
+        "pk": 13, 
+        "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vadim_shandrinov.png",
+            "photo": "speakers/vadim_shandrinov.png", 
             "name": "Вадим Шандринов", 
             "company_name": ""
         }
@@ -659,7 +659,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://greenfield-project.ru/", 
-            "logo": "sponsors/greenfield_project.png",
+            "logo": "sponsors/greenfield_project.png", 
             "name": "Greenfield Project"
         }
     }, 
@@ -668,7 +668,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://sevenquark.com/", 
-            "logo": "sponsors/seven_quark.png",
+            "logo": "sponsors/seven_quark.png", 
             "name": "SevenQuark"
         }
     }, 
@@ -677,7 +677,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://futurecolors.ru", 
-            "logo": "sponsors/future_colors.png",
+            "logo": "sponsors/future_colors.png", 
             "name": "Future Colors"
         }
     }
