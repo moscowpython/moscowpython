@@ -26,4 +26,4 @@ COMPRESS_ENABLED = True
 COMPRESS_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
 COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 COMPRESS_ROOT = '/static/'
-COMPRESS_OUTPUT_DIR = 'static/CACHE'
+COMPRESS_OUTPUT_DIR = 'CACHE'
