@@ -5,8 +5,8 @@ django-compressor==1.1.2
 django-picklefield==0.2.1
 embedly==0.4.3
 pytils==0.2.3
-django-admin-tools==0.4.1
--e hg+https://bitbucket.org/salvator/django-admintools-bootstrap@ed02c7a7391a5ba82c44f191185ddceea2c83c4d#egg=django_admintools_bootstrap
+#django-admin-tools==0.4.1
+#-e hg+https://bitbucket.org/salvator/django-admintools-bootstrap@ed02c7a7391a5ba82c44f191185ddceea2c83c4d#egg=django_admintools_bootstrap
 barrel==0.1.3
 django-admin-sso==0.1.1
 django-storages==1.1.4
