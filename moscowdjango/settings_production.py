@@ -3,9 +3,11 @@ from settings import *
 
 DEBUG = False
 
+EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
+
 # Amazon credentials
-AWS_ACCESS_KEY_ID = 'AKIAJVOIXG4RWCO2UFCQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'moscowdjango'
 AWS_QUERYSTRING_AUTH = False
 
