@@ -1,3 +1,6 @@
+{% load markup %}
+
+
 <section class="archive">
     <div class="wrapper">
         {% for event in events %}
@@ -9,7 +12,7 @@
                     </a>
                 </h1>
                 <div class="archive-item__description">
-                    {{ event.description|linebreaks }}
+                    {{ event.description|restructuredtext }}
                 </div>
                 <ul class="archive-item__talks">
                     {% for talk in event.talks.all %}<!--
