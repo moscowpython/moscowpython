@@ -3,9 +3,12 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.base import TemplateView
 from settings import STATIC_ROOT
 
 admin.autodiscover()
+
+handler500 = TemplateView.as_view(template_name="500.html")
 
 urlpatterns = patterns('',
     url(r'^(favicon.ico)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
