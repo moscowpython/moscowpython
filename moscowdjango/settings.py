@@ -124,6 +124,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'storages',
+    's3_folder_storage',
     'admin_sso',
     'compressor',
     'pytils',
