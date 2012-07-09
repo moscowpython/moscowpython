@@ -29,6 +29,33 @@
 
 
 /**
+ * @subsection  Логотип
+ */
+
+.logo {
+    float: left;
+    display: block;
+    margin: 24px 45px 0 0;
+    width: 170px;
+    height: 60px;
+    background: url(../images/elements/logo.png) 0 0 no-repeat;
+}
+@media screen and (max-width: 770px) {
+    .logo {
+        width: 85px;
+        height: 30px;
+        background: url(../images/elements/logo-small.png) 0 0 no-repeat;
+    }
+}
+@media screen and (max-width: 640px) {
+    .logo {
+        margin: 5px 50% 0 0;
+        clear: both;
+    }
+}
+
+
+/**
  * @subsection  Меню
  */
 

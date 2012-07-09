@@ -5,7 +5,6 @@ from models import Event
 
 def menu(request):
     menu_items = (
-        {'title':u'Главная', 'url':'index'},
         {'title':u'События', 'url':'events'},
         {'title':u'Группа на Фейсбуке', 'url':'http://www.facebook.com/groups/MoscowDjango/'},
         {'title':u'О проекте', 'url':None},

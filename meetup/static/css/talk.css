@@ -79,8 +79,9 @@
 }
 .talk__navigation-compact {
     display: none;
+    max-width: 90%;
     vertical-align: middle;
-    font-size: 12px;
+    font-size: 11px;
 }
 .talk__resources {
     margin: 0 324px 0 160px;
@@ -96,7 +97,19 @@
     font-size: 14px;
     color: #0a6629;
 }
+/**
+ * @css-for     Touch devices
+ */
+.touch .talk__others {
+    display: none;
+}
+.touch .talk__navigation-compact {
+    display: inline;
+}
 @media screen and (max-width: 770px) {
+    .talk {
+        padding-top: 10px;
+    }
     .talk__navigation {
         width: auto;
         margin-left: 160px;
@@ -107,12 +120,6 @@
         font-size: 12px;
         color: #603913;
     }
-    .talk__others {
-        display: none;
-    }
-    .talk__navigation-compact {
-        display: inline;
-    }
     .talk__description-wrapper {
         margin-right: 0;
     }
@@ -122,6 +129,9 @@
     }
 }
 @media screen and (max-width: 640px) {
+    .talk {
+        padding-top: 0;
+    }
     .talk__name {
         margin-left: 0;
         font-size: 22px;

@@ -19,7 +19,6 @@
 
 .event {
     clear: both;
-    border-bottom: 4px solid #0a6629;
 }
 .event-header {
     height: 103px;
@@ -101,8 +100,8 @@
     font-size: 14px;
     color: #303030;
     background: #f2f2f2 url(../images/backgrounds/event-description.png) 0 0 repeat-x;
-    border-left: 1px solid #e4e4e4;
-    border-right: 1px solid #e4e4e4;
+    border: 1px solid #e4e4e4;
+    border-top: none;
 }
 .event__description p {
     margin: 0;
@@ -326,6 +325,7 @@
 
 .archive {
     padding: 15px 0;
+    border-top: 4px solid #0a6629;
     background: url(../images/backgrounds/archive.png) 0 0 repeat;
 }
 .archive-item {
