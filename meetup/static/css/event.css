@@ -25,6 +25,7 @@
     height: 103px;
     background: #0a6629;
     border-bottom: 10px solid #085221;
+    overflow: hidden;
 }
 .event__date {
     width: 150px;
@@ -166,7 +167,7 @@
 }
 .event__sponsors {
     position: relative;
-    padding: 45px 0;
+    padding: 35px 0;
     clear: both;
     text-align: center;
     border-top: 4px double #c3c3c3;
@@ -190,11 +191,37 @@
     background: white;
 }
 .event__sponsor {
-    margin-right: 70px;
+    margin: 5px 35px;
     vertical-align: middle;
 }
-.event__sponsor:last-of-type {
-    margin-right: 0;
+@media screen and (max-width: 770px) {
+    .event__talk-aside {
+        width: 120px;
+    }
+    .event__talk-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+    .event__talk-avatar img {
+        width: 50px;
+        height: 50px;
+    }
+    .event__talk-content {
+        margin-left: 135px;
+    }
+    .event__talk-title-link {
+        font-size: 20px;
+    }
+    .event__register-button {
+        height: 35px;
+    }
+    .event__register-button-text {
+        height: auto;
+        padding: 0;
+        font-size: 18px;
+        background: none;
+    }
 }
 
 
@@ -268,6 +295,22 @@
     font-size: 12px;
     color: #603913;
 }
+@media screen and (max-width: 770px) {
+    .archive-item__talks {
+        margin-left: 50%;
+    }
+    .archive-item__talk {
+        width: auto;
+    }
+    .archive-item__description {
+        width: 45%;
+    }
+    .archive-item__title {
+        margin: 0 0 15px;
+        line-height: 40px;
+        font-size: 20px;
+    }
+}
 
 
 /**
@@ -317,6 +360,11 @@
     min-width: 90px;
     margin-right: 40px;
     vertical-align: top;
+}
+@media screen and (max-width: 770px) {
+    .like {
+        display: none;
+    }
 }
 
 
