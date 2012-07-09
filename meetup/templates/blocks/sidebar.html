@@ -1,0 +1,26 @@
+{% load pytils_dt markup %}
+
+
+<section class="event__information">
+    <section class="event__registration">
+        <div class="event__registration-summary">
+            {{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
+            {{ event.venue }}<br />
+            {{ event.venue.address }}<br />
+        </div>
+        {% if event.is_active %}
+        <form action="http://moscowdjango.timepad.ru/event/28685">
+            <button class="event__register-button" type="submit">
+                <span class="event__register-button-text">Я тоже буду!</span>
+            </button>
+        </form>
+        {% endif %}
+        <div class="g-clear"></div>
+    </section>
+    <section class="event__description">
+        {{ event.description|restructuredtext }}
+    </section>
+    {% if event.is_active %}
+    {% include 'blocks/map.html' %}
+    {% endif %}
+</section>

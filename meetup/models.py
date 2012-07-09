@@ -86,6 +86,10 @@ class Event(StatusModel):
     def get_absolute_url(self):
         return 'event', [self.pk]
 
+    @property
+    def is_active(self):
+        return self.status == self.STATUS.active
+
     class Meta:
         verbose_name = u'Событие'
         verbose_name_plural = u'События'

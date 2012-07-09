@@ -1,9 +1,6 @@
 {% extends 'layout/layout.html' %}
 
 
-{% load pytils_dt markup %}
-
-
 {% block title %}Moscow Django Meetup{% endblock %}
 
 
@@ -13,65 +10,9 @@
             {% include 'blocks/event_header.html' with event=next_event %}
             {% include 'blocks/share.html' %}
             <div class="wrapper">
-                <section class="event__information">
-                    <section class="event__registration">
-                        <div class="event__registration-summary">
-                            {{ next_event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
-                            {{ next_event.venue }}<br />
-                            {{ next_event.venue.address }}<br />
-                        </div>
-                        <form action="http://moscowdjango.timepad.ru/event/28685">
-                            <button class="event__register-button" type="submit">
-                                <span class="event__register-button-text">Я тоже буду!</span>
-                            </button>
-                        </form>
-                        <div class="g-clear"></div>
-                    </section>
-                    <section class="event__description">
-                        {{ next_event.description|restructuredtext }}
-                    </section>
-                    {% include 'blocks/map.html' with event=next_event %}
-                </section>
-                <section class="event__talks">
-                    {% for talk in next_event.talks.all %}
-                        <article class="event__talk">
-                            <div class="event__talk-aside">
-                                <span class="event__talk-avatar">
-                                    <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
-                                </span>
-                                <div class="event__talk-speaker">
-                                    {{ talk.speaker }}
-                                    {% if talk.speaker.company_name %}
-                                        <div>({{ talk.speaker.company_name }})</div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="event__talk-content">
-                                <h3 class="event__talk-title">
-                                    <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">
-                                        {{ talk }}
-                                    </a>
-                                </h3>
-                                <div class="event__talk-description">
-                                    {{ talk.description|truncatewords:"25" }}
-                                </div>
-                            </div>
-                            <div class="g-clear"></div>
-                        </article>
-                    {% endfor %}
-                </section>
-                <section class="event__sponsors">
-                    <h1 class="event__sponsors-header">
-                        <div class="event__sponsors-header-text">
-                            Партнёры и спонсоры
-                        </div>
-                    </h1>
-                    {% for sponsor in next_event.sponsors.all %}
-                        <a class="event__sponsor" href="{{ sponsor.get_absolute_url }}"><!--
-                         --><img class="event__sponsor" src="{{ sponsor.logo.url }}" /><!--
-                     --></a>
-                    {% endfor %}
-                </section>
+                {% include 'blocks/sidebar.html' with event=next_event %}
+                {% include 'blocks/event_talks.html' with event=next_event %}
+                {% include 'blocks/sponsors.html' with event=next_event %}
             </div>
         </section>
     {% endif %}

@@ -1,0 +1,12 @@
+<section class="event__sponsors">
+    <h1 class="event__sponsors-header">
+        <div class="event__sponsors-header-text">
+            Партнёры и спонсоры
+        </div>
+    </h1>
+    {% for sponsor in event.sponsors.all %}
+        <a class="event__sponsor" href="{{ sponsor.get_absolute_url }}"><!--
+                         --><img class="event__sponsor" src="{{ sponsor.logo.url }}" /><!--
+                     --></a>
+    {% endfor %}
+</section>
