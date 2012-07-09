@@ -1,0 +1,26 @@
+/**
+ * Контентные страницы
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Контентные страницы
+ */
+
+.content-page {
+    margin: 20px 0;
+    clear: both;
+    font-size: 14px;
+    line-height: 22px;
+}
+.content-page p {
+    margin: 0 0 10px;
+}
+.content-page a {
+    color: #0a6629;
+}
