@@ -62,3 +62,25 @@
 .footer__copyright-link {
     color: #2e2e2e;
 }
+@media screen and (max-width: 770px) {
+    .footer {
+        height: 65px;
+    }
+    .footer__menu {
+        padding-top: 25px;
+    }
+    .footer__copyright {
+        padding-top: 25px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .footer {
+        height: 40px;
+    }
+    .footer__menu {
+        padding-top: 12px;
+    }
+    .footer__copyright {
+        padding-top: 12px;
+    }
+}

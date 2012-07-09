@@ -91,6 +91,16 @@ body {
 .content-wrapper {
     padding-bottom: 105px;
 }
+@media screen and (max-width: 770px) {
+    .content-wrapper {
+        padding-bottom: 65px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .content-wrapper {
+        padding-bottom: 40px;
+    }
+}
 
 
 /**
@@ -101,5 +111,8 @@ a {
     text-decoration: none;
 }
 a:hover {
+    text-decoration: underline;
+}
+.touch a {
     text-decoration: underline;
 }

@@ -111,6 +111,9 @@
 .event__description p:last-child {
     padding-bottom: 0;
 }
+.event__description a {
+    color: #0a6629;
+}
 .event__map {
     height: 300px;
     background: #bebebe;
@@ -236,6 +239,72 @@
         background: none;
     }
 }
+@media screen and (max-width: 600px) {
+    .event-header {
+        height: auto;
+        padding: 10px 20px;
+    }
+    .event__date {
+        float: none;
+        line-height: 18px;
+        font-size: 14px;
+    }
+    .event__title {
+        margin-left: 0;
+        line-height: 24px;
+        font-size: 26px;
+    }
+    .event .wrapper {
+        padding: 0;
+    }
+    .event__information {
+        width: auto;
+        padding-bottom: 0;
+        float: none;
+    }
+    .event__registration-summary {
+        width: 45%;
+        float: left;
+        padding-bottom: 0;
+    }
+    .event__register-button {
+        width: 50%;
+        float: right;
+    }
+    .event__registration,
+    .event__description {
+        padding: 10px 15px;
+    }
+    .event__talks {
+        margin-right: 0;
+        padding: 0 20px;
+    }
+    .event__talk {
+        padding: 13px 0 17px
+    }
+    .event__talk-title-link {
+        font-size: 16px;
+    }
+    .event__talk-aside {
+        width: auto;
+        padding-bottom: 5px;
+        float: none;
+        text-align: left;
+    }
+    .event__talk-avatar {
+        display: none;
+    }
+    .event__talk-speaker,
+    .event__talk-speaker div {
+        display: inline;
+    }
+    .event__talk-content {
+        margin-left: 0;
+    }
+    .event__sponsors {
+        padding: 15px 0;
+    }
+}
 
 
 /**
@@ -271,6 +340,9 @@
 }
 .archive-item__description p {
     margin: 0 0 8px;
+}
+.archive-item__description a {
+    color: #0a6629;
 }
 .archive-item__talks {
     margin: 0 -20px 0 324px;
@@ -313,7 +385,7 @@
         margin-left: 50%;
     }
     .archive-item__talk {
-        width: auto;
+        width: 100%;
     }
     .archive-item__description {
         width: 45%;
@@ -322,6 +394,21 @@
         margin: 0 0 15px;
         line-height: 40px;
         font-size: 20px;
+    }
+    .archive-item__talk {
+        margin-bottom: 22px;
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .archive-item__talks {
+        margin-left: 0;
+    }
+    .archive-item__description {
+        display: none;
+    }
+    .archive-item__talk {
+        margin-bottom: 15px;
     }
 }
 
