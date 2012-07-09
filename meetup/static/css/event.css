@@ -200,6 +200,7 @@
 @media screen and (max-width: 770px) {
     .event-header {
         height: 80px;
+        clear: both;
     }
     .event__date {
         width: 120px;

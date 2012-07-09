@@ -6,6 +6,7 @@
 
 {% block title %}{{ talk }} @ {{ talk.event }}{% endblock %}
 
+
 {% block page %}
     {% include 'blocks/event_header.html' with event=talk.event %}
     <section class="talk">
@@ -27,17 +28,25 @@
                     <div class="talk__navigation-header">Доклады {{ talk.event }}</div>
                     <ul class="talk__others">
                         {% for other_talk in talk.event.talks.all %}
-                        {% if other_talk.pk != talk.pk %}
-                        <li class="talk__others-item">
-                            <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>
-                        </li>
-                        {% else %}
-                        <li class="talk__others-item">
-                            <span class="talk__others-item-current">{{ other_talk }}</span>
-                        </li>
-                        {% endif %}
+                            {% if other_talk.pk != talk.pk %}
+                                <li class="talk__others-item">
+                                    <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>
+                                </li>
+                            {% else %}
+                                <li class="talk__others-item">
+                                    <span class="talk__others-item-current">{{ other_talk }}</span>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
+                    <select class="talk__navigation-compact js-talk-navigation">
+                        {% for other_talk in talk.event.talks.all %}
+                            <option value="{{ other_talk.get_absolute_url }}"
+                                    {% if other_talk.pk == talk.pk %}selected="selected"{% endif %}>
+                                {{ other_talk }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </nav>
                 <div class="talk__description-wrapper">
                     <div class="talk__description">
@@ -82,6 +91,19 @@
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <script type="text/javascript">
+        (function(){
+            if (document.getElementsByClassName) {
+                var navigation = document.getElementsByClassName('js-talk-navigation');
+
+                if (navigation.length && navigation[0].addEventListener) {
+                    navigation[0].addEventListener('change', function(e){
+                        location.href = this.value;
+                    });
+                }
+            }
         })();
     </script>
 {% endblock %}

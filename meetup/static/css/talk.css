@@ -77,6 +77,11 @@
     font-size: 14px;
     color: #999
 }
+.talk__navigation-compact {
+    display: none;
+    vertical-align: middle;
+    font-size: 12px;
+}
 .talk__resources {
     margin: 0 324px 0 160px;
 }
@@ -90,6 +95,53 @@
 .talk__resource-link {
     font-size: 14px;
     color: #0a6629;
+}
+@media screen and (max-width: 770px) {
+    .talk__navigation {
+        width: auto;
+        margin-left: 160px;
+        float: none;
+    }
+    .talk__navigation-header {
+        display: inline;
+        font-size: 12px;
+        color: #603913;
+    }
+    .talk__others {
+        display: none;
+    }
+    .talk__navigation-compact {
+        display: inline;
+    }
+    .talk__description-wrapper {
+        margin-right: 0;
+    }
+    .talk__resources {
+        clear: both;
+        margin-right: 0
+    }
+}
+@media screen and (max-width: 600px) {
+    .talk__name {
+        margin-left: 0;
+        font-size: 22px;
+    }
+    .talk__resources {
+        margin-left: 0;
+        text-align: center;
+    }
+    .talk__about-aside {
+        width: 110px;
+        margin: 0 0 20px 10px;
+        float: right;
+    }
+    .talk__navigation,
+    .talk__description-wrapper {
+        margin-left: 0;
+    }
+    .talk__description-wrapper {
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -111,4 +163,9 @@
 .disqus_thread {
     min-height: 400px;
     margin: 0 0 2em;
+}
+@media screen and (max-width: 600px) {
+    .comments {
+        margin-left: 0;
+    }
 }
