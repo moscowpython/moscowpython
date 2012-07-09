@@ -166,12 +166,13 @@
     margin-left: 160px;
 }
 .event__talk-title {
-    font-family: 'SansusWebissimoRegular', sans-serif;
-    margin: 0 0 5px;
+    font-family: 'PT Sans', sans-serif;
+    margin: 0 0 8px;
 }
 .event__talk-title-link {
     font-size: 26px;
     font-weight: normal;
+    line-height: 30px;
     color: #0a6629;
 }
 .event__talk-description {
@@ -240,6 +241,7 @@
     }
     .event__talk-title-link {
         font-size: 20px;
+        line-height: 22px;
     }
     .event__register-button {
         height: 35px;
@@ -304,6 +306,7 @@
     }
     .event__talk-title-link {
         font-size: 16px;
+        line-height: 18px;
     }
     .event__talk-aside {
         width: auto;
@@ -346,7 +349,7 @@
 .archive-item__title {
     margin: 0 0 26px;
     line-height: 60px;
-    font-family: 'SansusWebissimoRegular', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-size: 24px;
     font-weight: normal;
     border-bottom: 4px double #c3c3c3;
