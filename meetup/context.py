@@ -7,7 +7,7 @@ def menu(request):
     menu_items = (
         {'title':u'События', 'url':'events'},
         {'title':u'Группа на Фейсбуке', 'url':'http://www.facebook.com/groups/MoscowDjango/'},
-        {'title':u'О проекте', 'url':None},
+        {'title':u'О проекте', 'url':'about'},
     )
 
     for item in menu_items:

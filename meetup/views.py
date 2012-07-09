@@ -1,3 +1,4 @@
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from meetup.models import Talk
@@ -42,3 +43,7 @@ class TalkPage(DetailView):
 
     def get_queryset(self):
         return Talk.active.filter(event_id=self.kwargs['event_id'])
+
+
+class AboutPage(TemplateView):
+    template_name = 'about.html'
