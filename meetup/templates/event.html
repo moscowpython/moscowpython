@@ -20,9 +20,16 @@
 {% endblock %}
 
 
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/colorbox.css' %}" type="text/css" />
+{% endblock %}
+
+
 {% block js %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/libs/jquery-1.7.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/libs/jquery-1.7.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/jquery.colorbox-min.js' %}"></script>
     <script type="text/javascript">
         $(function(){
             $('.gallery__show-items').on('click', function(){
@@ -33,5 +40,11 @@
                     .show();
             });
         });
+        if ($('html').hasClass('no-touch')) {
+            $('.gallery__item-link').colorbox({
+                maxWidth: $(window).width() * 0.9,
+                maxHeight: $(window).height() * 0.9
+            });
+        }
     </script>
 {% endblock %}

@@ -11,6 +11,7 @@
 
     <title>{% block title %}{% endblock %}</title>
 
+    {% block css %}
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css" />
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="{% static 'css/talk.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/gallery.css' %}" type="text/css" />
     {% endcompress %}
+    {% endblock %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </head>

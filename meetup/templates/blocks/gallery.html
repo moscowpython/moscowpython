@@ -4,7 +4,9 @@
         <div class="gallery__wrapper">
             {% for photo in event.photos.all %}
                 <article class="gallery__item">
-                    <img src="{{ photo.get_absolute_url }}">
+                    <a class="gallery__item-link" rel="gallery" href="{{ photo.get_absolute_url }}">
+                        <img src="{{ photo.get_absolute_url }}">
+                    </a>
                 </article>
             {% endfor %}
         </div>
