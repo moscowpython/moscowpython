@@ -22,6 +22,7 @@
 }
 .event-header {
     height: 103px;
+    font-family: 'SansusWebissimoRegular', sans-serif;
     background: #0a6629;
     border-bottom: 10px solid #085221;
     overflow: hidden;
@@ -155,6 +156,7 @@
     margin-left: 160px;
 }
 .event__talk-title {
+    font-family: 'SansusWebissimoRegular', sans-serif;
     margin: 0 0 5px;
 }
 .event__talk-title-link {
@@ -334,6 +336,7 @@
 .archive-item__title {
     margin: 0 0 26px;
     line-height: 60px;
+    font-family: 'SansusWebissimoRegular', sans-serif;
     font-size: 24px;
     font-weight: normal;
     border-bottom: 4px double #c3c3c3;
