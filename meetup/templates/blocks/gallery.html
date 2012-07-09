@@ -1,0 +1,13 @@
+{% if event.photos.exists %}
+    <section class="gallery">
+        <span class="gallery__show-items">Показать</span>
+        <div class="gallery__wrapper">
+            {% for photo in event.photos.all %}
+                <article class="gallery__item">
+                    <img src="{{ photo.get_absolute_url }}">
+                </article>
+            {% endfor %}
+        </div>
+        <div class="g-clear"></div>
+    </section>
+{% endif %}

@@ -1,6 +1,9 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load static from staticfiles %}
+
+
 {% block title %}{{ event }}{% endblock %}
 
 
@@ -11,7 +14,24 @@
             {% include 'blocks/sidebar.html' %}
             {% include 'blocks/event_talks.html'  %}
             {% include 'blocks/sponsors.html' %}
+            {% include 'blocks/gallery.html' %}
         </div>
     </section>
 {% endblock %}
 
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/libs/jquery-1.7.1.js' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.gallery__show-items').on('click', function(){
+                $(this)
+                    .hide()
+                    .closest('.gallery')
+                    .find('.gallery__wrapper')
+                    .show();
+            });
+        });
+    </script>
+{% endblock %}
