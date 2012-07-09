@@ -292,11 +292,15 @@
         text-align: left;
     }
     .event__talk-avatar {
-        display: none;
+        width: 68px;
+        height: 68px;
+        margin: 0 0 20px 10px;
+        float: right;
+        border-radius: 34px;
     }
-    .event__talk-speaker,
-    .event__talk-speaker div {
-        display: inline;
+    .event__talk-avatar img {
+        width: 68px;
+        height: 68px;
     }
     .event__talk-content {
         margin-left: 0;
