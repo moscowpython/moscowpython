@@ -21,7 +21,7 @@
         height: 74px;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .header {
         height: auto;
     }
@@ -75,7 +75,7 @@
         padding: 20px 0;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .menu {
         padding: 5px 0;
     }

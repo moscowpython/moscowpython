@@ -73,14 +73,27 @@
         padding-top: 25px;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .footer {
         height: 40px;
     }
     .footer__menu {
         padding-top: 12px;
     }
+    .footer__menu-item {
+        padding-right: 10px;
+    }
+    .footer__menu-item:before {
+        display: none;
+    }
+    .footer__menu-link {
+        font-size: 11px;
+    }
+    .footer__menu-coming-soon {
+        font-size: 11px;
+    }
     .footer__copyright {
         padding-top: 12px;
+        font-size: 11px;
     }
 }

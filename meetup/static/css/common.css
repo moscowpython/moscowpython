@@ -96,9 +96,12 @@ body {
         padding-bottom: 65px;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .content-wrapper {
         padding-bottom: 40px;
+    }
+    .wrapper {
+        padding: 0 10px;
     }
 }
 
