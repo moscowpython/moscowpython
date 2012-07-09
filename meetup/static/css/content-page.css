@@ -13,14 +13,25 @@
  */
 
 .content-page {
-    margin: 20px 0;
+    margin: 25px 0;
     clear: both;
+}
+.content-page .g-content {
+    max-width: 600px;
+}
+
+
+/**
+ * @section     Произвольный контент
+ */
+
+.g-content {
     font-size: 14px;
     line-height: 22px;
 }
-.content-page p {
+.g-content p {
     margin: 0 0 10px;
 }
-.content-page a {
+.g-content a {
     color: #0a6629;
 }
