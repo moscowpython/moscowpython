@@ -45,7 +45,7 @@
     color: #603913;
 }
 .talk__description-wrapper {
-    margin: 0 330px 30px 160px;
+    margin: 0 330px 10px 160px;
 }
 .talk__description {
     line-height: 1.5;
@@ -54,7 +54,7 @@
 }
 .talk__navigation {
     width: 304px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     float: right;
 }
 .talk__navigation-header {
@@ -121,7 +121,7 @@
         margin-right: 0
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .talk__name {
         margin-left: 0;
         font-size: 22px;
@@ -164,7 +164,7 @@
     min-height: 400px;
     margin: 0 0 2em;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .comments {
         margin-left: 0;
     }

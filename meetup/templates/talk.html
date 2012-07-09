@@ -13,17 +13,6 @@
         <div class="wrapper">
             <h1 class="talk__name">{{ talk }}</h1>
             <section class="talk__about">
-                <div class="talk__about-aside">
-                    <span class="talk__avatar">
-                        <img src="{{ talk.speaker.avatar_url }}" />
-                    </span>
-                    <div class="talk__speaker">
-                        {{ talk.speaker }}
-                        {% if talk.speaker.company_name %}
-                            <div>({{ talk.speaker.company_name }})</div>
-                        {% endif %}
-                    </div>
-                </div>
                 <nav class="talk__navigation">
                     <div class="talk__navigation-header">Доклады {{ talk.event }}</div>
                     <ul class="talk__others">
@@ -48,12 +37,24 @@
                         {% endfor %}
                     </select>
                 </nav>
+                <div class="talk__about-aside">
+                    <span class="talk__avatar">
+                        <img src="{{ talk.speaker.avatar_url }}" />
+                    </span>
+                    <div class="talk__speaker">
+                        {{ talk.speaker }}
+                        {% if talk.speaker.company_name %}
+                            <div>({{ talk.speaker.company_name }})</div>
+                        {% endif %}
+                    </div>
+                </div>
                 <div class="talk__description-wrapper">
                     <div class="talk__description">
                         {{ talk.description }}
                     </div>
                 </div>
             </section>
+            <div class="g-clear"></div>
             <section class="talk__resources">
                 <article class="talk__resource">
                     {% if talk.video_data %}

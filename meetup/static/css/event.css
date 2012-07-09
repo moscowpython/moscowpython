@@ -240,10 +240,10 @@
         background: none;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .event-header {
         height: auto;
-        padding: 10px 20px;
+        padding: 10px;
     }
     .event__date {
         float: none;
@@ -260,25 +260,33 @@
     }
     .event__information {
         width: auto;
-        padding-bottom: 0;
+        padding-bottom: 10px;
         float: none;
+        background: #f2f2f2;
     }
     .event__registration-summary {
-        width: 45%;
+        width: 56%;
         float: left;
         padding-bottom: 0;
     }
     .event__register-button {
-        width: 50%;
+        width: 40%;
         float: right;
+    }
+    .event__register-button-text {
+        font-size: 13px;
+        line-height: 15px;
     }
     .event__registration,
     .event__description {
-        padding: 10px 15px;
+        padding: 10px;
+    }
+    .event__map {
+        margin: 0 10px;
     }
     .event__talks {
         margin-right: 0;
-        padding: 0 20px;
+        padding: 0 10px;
     }
     .event__talk {
         padding: 13px 0 17px
@@ -404,8 +412,14 @@
         margin-bottom: 22px;
         margin-right: 0;
     }
+    .archive-item__link {
+        text-decoration: none !important;
+    }
+    .archive-item__number {
+        text-decoration: underline !important;
+    }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .archive-item__talks {
         margin-left: 0;
     }
