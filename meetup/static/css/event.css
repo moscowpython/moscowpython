@@ -195,6 +195,19 @@
     vertical-align: middle;
 }
 @media screen and (max-width: 770px) {
+    .event-header {
+        height: 80px;
+    }
+    .event__date {
+        width: 120px;
+        line-height: 100px;
+        font-size: 16px;
+    }
+    .event__title {
+        margin-left: 135px;
+        line-height: 90px;
+        font-size: 38px;
+    }
     .event__talk-aside {
         width: 120px;
     }
