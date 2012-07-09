@@ -173,7 +173,7 @@
 }
 .event__sponsors-header {
     position: absolute;
-    top: -10px;
+    top: -13px;
     left: 0;
     width: 100%;
     margin: 0;
@@ -314,7 +314,9 @@
 }
 .like_item {
     display: inline-block;
-    margin-right: 50px;
+    min-width: 90px;
+    margin-right: 40px;
+    vertical-align: top;
 }
 
 
