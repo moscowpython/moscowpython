@@ -1,7 +1,7 @@
 {% extends 'layout/layout.html' %}
 
 
-{% load pytils_dt %}
+{% load pytils_dt markup %}
 
 
 {% block title %}Moscow Django Meetup{% endblock %}
@@ -10,18 +10,7 @@
 {% block page %}
     {% if next_event %}
         <section class="event">
-            <header class="event-header">
-                <div class="wrapper">
-                    <div class="event__date">
-                        {{ next_event.date|ru_strftime:"%d %B %Y" }}
-                    </div>
-                    <div class="event__title">
-                        Moscow Django
-                        <span class="event__type">MeetUp</span>
-                        № {{ next_event.number }}
-                    </div>
-                </div>
-            </header>
+            {% include 'blocks/event_header.html' with event=next_event %}
             {% include 'blocks/share.html' %}
             <div class="wrapper">
                 <section class="event__information">
@@ -38,7 +27,7 @@
                         </form>
                     </section>
                     <section class="event__description">
-                        {{ next_event.description|linebreaks }}
+                        {{ next_event.description|restructuredtext }}
                     </section>
                     {% include 'blocks/map.html' with event=next_event %}
                 </section>
@@ -85,42 +74,5 @@
             </div>
         </section>
     {% endif %}
-    <section class="archive">
-        <div class="wrapper">
-            {% for event in events %}
-            <article class="archive-item">
-                <h1 class="archive-item__title">
-                    <a class="archive-item__link" href="{{ event.get_absolute_url }}">
-                        {{ event.name }}
-                        {% if event.number %}<span class="archive-item__number">№ {{ event.number }}</span>{% endif %}
-                    </a>
-                </h1>
-                <div class="archive-item__description">
-                    {{ event.description|linebreaks }}
-                </div>
-                <ul class="archive-item__talks">
-                    {% for talk in event.talks.all %}<!--
-                     --><li class="archive-item__talk">
-                            <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
-                                <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
-                            </a>
-                            <div class="archive-item__talk-wrapper">
-                                <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
-                                    {{ talk }}
-                                </a>
-                                <div class="archive-item__talk-author">
-                                    {{ talk.speaker }}
-                                    {% if talk.speaker.company_name %}
-                                        ({{ talk.speaker.company_name }})
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </li><!--
-                 -->{% endfor %}
-                </ul>
-                <div class="g-clear"></div>
-            </article>
-            {% endfor %}
-        </div>
-    </section>
+    {% include 'blocks/archive.html' %}
 {% endblock %}

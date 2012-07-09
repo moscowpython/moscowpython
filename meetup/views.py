@@ -25,6 +25,12 @@ class IndexPage(ListView):
         return context
 
 
+class EventsList(ListView):
+    template_name = 'event_list.html'
+    queryset = Event.visible.all()
+    context_object_name = 'events'
+
+
 class EventPage(DetailView):
     template_name = 'event.html'
     queryset = Event.visible.all()
