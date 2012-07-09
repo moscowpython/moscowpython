@@ -118,6 +118,16 @@
     height: 300px;
     background: #bebebe;
 }
+.event__map-wrapper {
+    position: relative;
+}
+.touch .event__map-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 .event__talks {
     margin-right: 324px;
 }
@@ -474,7 +484,7 @@
 .like {}
 .like__wrapper {
     height: 20px;
-    padding: 20px 0 20px 160px;
+    padding: 20px 0 20px 180px;
     border-bottom: 1px solid #e5e5e5;
 }
 .like_item {

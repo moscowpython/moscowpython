@@ -95,16 +95,10 @@
         })();
     </script>
     <script type="text/javascript">
-        (function(){
-            if (document.getElementsByClassName) {
-                var navigation = document.getElementsByClassName('js-talk-navigation');
-
-                if (navigation.length && navigation[0].addEventListener) {
-                    navigation[0].addEventListener('change', function(e){
-                        location.href = this.value;
-                    });
-                }
-            }
-        })();
+        $(function(){
+            $('.js-talk-navigation').on('change', function(){
+                location.href = $(this).val();
+            });
+        });
     </script>
 {% endblock %}

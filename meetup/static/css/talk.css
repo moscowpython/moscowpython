@@ -152,6 +152,10 @@
     .talk__description-wrapper {
         margin-bottom: 10px;
     }
+    .talk__resource iframe {
+        width: 94%;
+        height: auto;
+    }
 }
 
 

@@ -18,3 +18,13 @@
     {% endif %}
     {% include 'blocks/archive.html' %}
 {% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.event__map-placeholder').on('click', function(){
+            $(this).remove();
+        });
+    </script>
+{% endblock %}
