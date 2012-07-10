@@ -38,11 +38,13 @@
     width: 176px;
     height: 132px;
     float: left;
+    text-align: center;
     overflow: hidden;
+    background: black;
 }
 .gallery__item img {
-    width: 176px;
-    min-height: 132px;
+    max-width: 176px;
+    max-height: 132px;
     cursor: pointer;
 }
 @media screen and (max-width: 640px) {
