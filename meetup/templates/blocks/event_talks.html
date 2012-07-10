@@ -2,17 +2,17 @@
     <section class="event__talks">
         {% for talk in event.talks.all %}
             <article class="event__talk">
-                <div class="event__talk-aside">
-                                <span class="event__talk-avatar">
-                                    <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
-                                </span>
+                <a class="event__talk-speaker-link" href="{{ talk.get_absolute_url }}">
+                    <span class="event__talk-avatar">
+                        <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
+                    </span>
                     <div class="event__talk-speaker">
                         {{ talk.speaker }}
                         {% if talk.speaker.company_name %}
                             <div>({{ talk.speaker.company_name }})</div>
                         {% endif %}
                     </div>
-                </div>
+                </a>
                 <div class="event__talk-content">
                     <h3 class="event__talk-title">
                         <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">

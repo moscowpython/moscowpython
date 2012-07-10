@@ -140,10 +140,13 @@
 .event__talk:last-of-type {
     background: none;
 }
-.event__talk-aside {
+.event__talk-speaker-link {
     width: 136px;
     float: left;
     text-align: center;
+}
+.event__talk-speaker-link:hover {
+    text-decoration: none;
 }
 .event__talk-avatar {
     display: inline-block;
@@ -224,7 +227,7 @@
         line-height: 90px;
         font-size: 38px;
     }
-    .event__talk-aside {
+    .event__talk-speaker-link {
         width: 120px;
     }
     .event__talk-avatar {
@@ -308,7 +311,7 @@
         font-size: 16px;
         line-height: 18px;
     }
-    .event__talk-aside {
+    .event__talk-speaker-link {
         width: auto;
         padding-bottom: 5px;
         float: none;
