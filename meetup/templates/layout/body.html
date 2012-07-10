@@ -26,6 +26,7 @@
     {% endblock %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    {% include 'blocks/ga.html' %}
 </head>
 <body>
     {% block layout %}{% endblock %}
@@ -33,5 +34,6 @@
     {% block js %}
         <script type="text/javascript" src="{% static 'js/libs/jquery-1.7.2.min.js' %}"></script>
     {% endblock %}
+    {% include 'blocks/metrika.html' %}
 </body>
 </html>
