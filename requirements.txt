@@ -5,7 +5,6 @@ django-compressor==1.1.2
 django-picklefield==0.2.1
 embedly==0.4.3
 pytils==0.2.3
-#django-admin-tools==0.4.1
 django-admin-sso==0.1.1
 django-storages==1.1.4
 django-s3-folder-storage==0.1
@@ -13,6 +12,9 @@ docutils==0.9.1
 
 #development
 django-debug-toolbar==0.9.4
+nose==1.1.2
+django-nose==1.1
+mock==0.8.0
 
 #heroku
 psycopg2==2.4.5
