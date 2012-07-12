@@ -1,0 +1,21 @@
+Moscow Django site is developed and maintained by Future Colors.
+
+
+Original site authors:
+
+* Artem Golikov (backend, frontend and design)
+* Ilya Baryshev (backend and design)
+* Dmitry Zuev (design)
+
+
+Meetup original organizers:
+
+* Valentin Dombrovsky
+* Mikhael Korneev
+* Vitaliy Korobkin
+
+
+Special thanks:
+
+* Pavel Vorob'ev
+* Alex Zhebrak
