@@ -1,11 +1,16 @@
 import os
-from barrel.basic import BasicAuth
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djangodocs.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moscowdjango.settings")
 
 from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+_application = get_wsgi_application()
 
-# hurray, we're on air!
-#logins = [('django', 'uncha!ned')]
-#application = BasicAuth(application, users=logins)
+
+def application(environ, start_response):
+    """ Redirecting all requests to canonical domain for additional ones"""
+    domain = os.environ.get('DOMAIN')
+    if domain and environ['HTTP_HOST'] != domain:
+        path = environ.get('PATH_INFO')
+        start_response('301 Redirect', [('Location', 'http://%s%s' % (domain, path)),])
+        return []
+    return _application(environ, start_response)
