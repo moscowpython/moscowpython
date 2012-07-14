@@ -112,11 +112,6 @@ WSGI_APPLICATION = 'moscowdjango.wsgi.application'
 TEMPLATE_DIRS = ('',)
 
 INSTALLED_APPS = (
-#    'admintools_bootstrap',
-#    'admin_tools',
-#    'admin_tools.theming',
-#    'admin_tools.menu',
-#    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -125,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'south',
     'storages',
     's3_folder_storage',
     'admin_sso',
