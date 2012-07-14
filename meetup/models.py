@@ -23,6 +23,7 @@ class Talk(StatusModel):
     presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
     video = models.URLField(u'Адрес видео', blank=True)
     video_data = PickledObjectField(u'Meta-данные видео', blank=True)
+    position = models.SmallIntegerField(u'Порядок выступления на событии', default=0)
 
     objects = Manager()
 
@@ -60,6 +61,7 @@ class Talk(StatusModel):
     class Meta:
         verbose_name = u'Выступление'
         verbose_name_plural = u'Выступления'
+        ordering = ('position',)
 
 
 class Event(StatusModel):

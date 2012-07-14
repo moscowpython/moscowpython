@@ -17,9 +17,11 @@ oembed_video.boolean = True
 
 
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
+    list_display = ['__unicode__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
+    list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
+    ordering = ['event__pk', 'position']
 
 
 class EventAdmin(admin.ModelAdmin):
