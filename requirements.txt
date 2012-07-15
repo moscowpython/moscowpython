@@ -20,3 +20,4 @@ mock==0.8.0
 #heroku
 psycopg2==2.4.5
 dj-database-url==0.2.0
+gunicorn==0.14.5
