@@ -15,6 +15,10 @@ def oembed_video(obj):
 oembed_video.short_description = u'Видео'
 oembed_video.boolean = True
 
+def preview(obj):
+    return '<img src=%s height=100>' % obj.get_absolute_url()
+preview.allow_tags = True
+
 
 class TalkAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
@@ -24,10 +28,15 @@ class TalkAdmin(admin.ModelAdmin):
     ordering = ['event__pk', 'position']
 
 
+class PhotoInline(admin.TabularInline):
+    model = Photo
+
+
 class EventAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'date', 'venue', 'status']
     list_editable = ['status']
     exclude = ['status_changed']
+    inlines = [PhotoInline]
 
 
 class VenueAdmin(admin.ModelAdmin):
@@ -35,7 +44,10 @@ class VenueAdmin(admin.ModelAdmin):
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__unicode__', preview, 'event', 'caption']
+    list_editable = ['caption']
+    list_per_page = 10
+    ordering = ['-id']
 
 
 class SpeakerAdmin(admin.ModelAdmin):

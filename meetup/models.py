@@ -135,7 +135,7 @@ class Speaker(models.Model):
 
 class Photo(models.Model):
     event = models.ForeignKey(Event, related_name='photos', blank=True, null=True)
-    url = models.URLField(u'Ссылка на внешнее фото', help_text=u'Временное поле')
+    url = models.URLField(u'Ссылка на внешнее фото', help_text=u'Временное поле', blank=True)
     image = models.ImageField(u'Фотография', upload_to='photos', blank=True)
     caption = models.TextField(u'Подпись', blank=True)
 
