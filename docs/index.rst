@@ -17,4 +17,4 @@ virtualenv ../moscowdjango.env
 Useful dev commands
 -------------------
 
-python manage.py dumpdata meetup --format=json-pretty --indent=4 > meetup/fixtures/initial_data.json
+python manage.py dumpdata meetup --format=json-pretty --indent=4 > meetup/fixtures/development.json
