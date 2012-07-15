@@ -9,4 +9,9 @@ function init () {
     });
     myMap.geoObjects.add(myPlacemark);
     myMap.controls.add('smallZoomControl');
+
+    $('.event__map-placeholder').on('click', function(){
+        $(this).remove();
+    });
 }
+

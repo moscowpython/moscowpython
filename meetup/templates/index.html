@@ -5,26 +5,16 @@
 
 
 {% block page %}
-    {% if next_event %}
+    {% if main_event %}
         <section class="event">
-            {% include 'blocks/event_header.html' with event=next_event %}
+            {% include 'blocks/event_header.html' with event=main_event %}
             {% include 'blocks/share.html' %}
             <div class="wrapper">
-                {% include 'blocks/sidebar.html' with event=next_event %}
-                {% include 'blocks/event_talks.html' with event=next_event %}
-                {% include 'blocks/sponsors.html' with event=next_event %}
+                {% include 'blocks/sidebar.html' with event=main_event %}
+                {% include 'blocks/event_talks.html' with event=main_event %}
+                {% include 'blocks/sponsors.html' with event=main_event %}
             </div>
         </section>
     {% endif %}
     {% include 'blocks/archive.html' %}
-{% endblock %}
-
-
-{% block js %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('.event__map-placeholder').on('click', function(){
-            $(this).remove();
-        });
-    </script>
 {% endblock %}
