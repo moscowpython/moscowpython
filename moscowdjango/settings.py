@@ -126,7 +126,6 @@ INSTALLED_APPS = (
     'admin_sso',
     'compressor',
     'pytils',
-    'gunicorn',
     'meetup',
 )
 
