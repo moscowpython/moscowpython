@@ -62,6 +62,15 @@
 .footer__copyright-link {
     color: #2e2e2e;
 }
+.footer__partners {
+    padding-top: 34px;
+    margin-left: 40px;
+    float: left;
+    line-height: 20px;
+    font-size: 12px;
+    color: #2e2e2e;
+}
+
 @media screen and (max-width: 770px) {
     .footer {
         height: 65px;
