@@ -8,7 +8,7 @@
     {% if main_event %}
         <section class="event">
             {% include 'blocks/event_header.html' with event=main_event %}
-            {% include 'blocks/share.html' %}
+            {% include 'blocks/share.html' with page='main' %}
             <div class="wrapper">
                 {% include 'blocks/sidebar.html' with event=main_event %}
                 {% include 'blocks/event_talks.html' with event=main_event %}

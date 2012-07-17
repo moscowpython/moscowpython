@@ -494,10 +494,21 @@
  */
 
 .like {}
+.like_page_archive {
+    border-top: 4px solid #0a6629;
+    background: url(../images/backgrounds/archive.png) 0 0 repeat;
+}
 .like__wrapper {
     height: 20px;
-    padding: 20px 0 20px 180px;
+    padding: 20px 0 20px 160px;
     border-bottom: 1px solid #e5e5e5;
+}
+.like_page_main .like__wrapper  {
+    padding-left: 180px;
+}
+.like_page_archive .like__wrapper,
+.like_page_about .like__wrapper {
+    padding-left: 0;
 }
 .like_item {
     display: inline-block;
