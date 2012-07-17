@@ -12,6 +12,7 @@ handler500 = TemplateView.as_view(template_name="500.html")
 
 urlpatterns = patterns('',
     url(r'^(favicon.ico)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
+    url(r'^(robots.txt)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
     url(r'^humans.txt$', 'django.views.static.serve', {'document_root': ROOT_PATH, 'path': 'AUTHORS.txt'}),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin_tools/', include('admin_tools.urls')),
