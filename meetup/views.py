@@ -47,3 +47,15 @@ class TalkPage(DetailView):
 
 class AboutPage(TemplateView):
     template_name = 'about.html'
+
+
+class LivePage(TemplateView):
+    template_name = 'live.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LivePage, self).get_context_data(**kwargs)
+
+        context.update({
+            'event': Event.objects.upcoming(),
+        })
+        return context

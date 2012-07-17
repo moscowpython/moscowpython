@@ -1,0 +1,42 @@
+/**
+ * Meetup live
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Ilya
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section Live version
+ */
+
+.live {
+    margin: 50px auto;
+    width: 720px;
+}
+.live__header {
+    font-size: 26px;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 5px;
+}
+.live__subheader {
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
+    color: grey;
+    margin-bottom: 10px;
+}
+.live__copyright {
+    padding: 2px 0px 4px;
+    background: #ffffff;
+    display: block;
+    color: #000000;
+    font-weight: normal;
+    font-size: 10px;
+    text-decoration: underline;
+    text-align: left;
+}
+.live__disqus {
+    margin-top: 50px;
+}

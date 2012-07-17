@@ -5,7 +5,7 @@ from django.db.models import permalink
 from embedly.client import Embedly
 from django.db.models.manager import Manager
 from model_utils import Choices
-from model_utils.managers import QueryManager
+from model_utils.managers import QueryManager, PassThroughManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
 from django.conf import settings
@@ -64,6 +64,14 @@ class Talk(StatusModel):
         ordering = ('position',)
 
 
+class EventQuerySet(models.query.QuerySet):
+    def upcoming(self):
+        try:
+            return self.filter(status=Event.STATUS.active).latest()
+        except Event.DoesNotExist:
+            return None
+
+
 class Event(StatusModel):
     STATUS = Choices('draft', 'active', 'archived')
 
@@ -75,7 +83,7 @@ class Event(StatusModel):
     venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
 
-    objects = Manager()
+    objects = PassThroughManager.for_queryset_class(EventQuerySet)()
     visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
 
     def __unicode__(self):
