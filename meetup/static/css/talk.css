@@ -84,14 +84,13 @@
     font-size: 11px;
 }
 .talk__resources {
-    margin: 0 324px 0 160px;
+    margin-left: 160px;
 }
 .talk__resource {
     margin-bottom: 40px;
 }
 .talk__resource iframe {
-    width: 468px;
-    height: 412px;
+    max-width: 792px
 }
 .talk__resource-link {
     font-size: 14px;
@@ -125,7 +124,9 @@
     }
     .talk__resources {
         clear: both;
-        margin-right: 0
+    }
+    .talk__resource iframe {
+        max-width: 550px
     }
 }
 @media screen and (max-width: 640px) {
@@ -137,8 +138,11 @@
         font-size: 22px;
     }
     .talk__resources {
-        margin-left: 0;
+        margin: 0;
         text-align: center;
+    }
+    .talk__resource iframe {
+        max-width: 300px
     }
     .talk__about-aside {
         width: 110px;
