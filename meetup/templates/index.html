@@ -10,8 +10,12 @@
             {% include 'blocks/event_header.html' with event=main_event %}
             {% include 'blocks/share.html' with page='main' %}
             <div class="wrapper">
-                {% include 'blocks/sidebar.html' with event=main_event %}
-                {% include 'blocks/event_talks.html' with event=main_event %}
+                {% if main_event.status == 'planning' %}
+                    {% include 'blocks/message.html' with event=main_event %}
+                {% else %}
+                    {% include 'blocks/sidebar.html' with event=main_event %}
+                    {% include 'blocks/event_talks.html' with event=main_event %}
+                {% endif %}
                 {% include 'blocks/sponsors.html' with event=main_event %}
             </div>
         </section>

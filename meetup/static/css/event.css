@@ -218,6 +218,15 @@
     margin: 5px 35px;
     vertical-align: middle;
 }
+.event__message {
+    font-size: 14px;
+    width: 600px;
+    margin: 20px auto 30px;
+}
+.event__message a {
+    color: #0a6629;
+}
+
 @media screen and (max-width: 770px) {
     .event-header {
         height: 80px;

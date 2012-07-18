@@ -73,7 +73,7 @@ class EventQuerySet(models.query.QuerySet):
 
 
 class Event(StatusModel):
-    STATUS = Choices('draft', 'active', 'archived')
+    STATUS = Choices('draft', 'planning', 'active', 'archived')
 
     name = models.CharField(u'Название', max_length=1024)
     number = models.SmallIntegerField(u'Номер', blank=True, null=True)
@@ -84,7 +84,7 @@ class Event(StatusModel):
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
 
     objects = PassThroughManager.for_queryset_class(EventQuerySet)()
-    visible = QueryManager(status__in=[STATUS.active, STATUS.archived])
+    visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
 
     def __unicode__(self):
         if self.number:
