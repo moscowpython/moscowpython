@@ -5,7 +5,7 @@
     <section class="event__registration">
         <div class="event__registration-summary">
             {{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
-            {{ event.venue }}<br />
+            {{ event.venue|default_if_none:"" }}<br />
             {{ event.venue.address }}<br />
         </div>
         {% if event.is_active %}

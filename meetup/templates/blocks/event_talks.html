@@ -26,5 +26,15 @@
                 <div class="g-clear"></div>
             </article>
         {% endfor %}
+        {% if event.status == 'planning' %}
+            <article class="event__talk">
+                <div class="event__talk-content">
+                    <div class="event__talk-description">
+                        Пока список докладчиков формируется. Если хотите выступить - напишите организаторам.
+                        Мы с удовольствием рассмотрим вашу заявку.
+                    </div>
+                </div>
+            </article>
+        {% endif %}
     </section>
 </div>
