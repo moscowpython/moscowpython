@@ -9,6 +9,7 @@
             "video_data": "gAJVAC4=", 
             "event": 1, 
             "speaker": 1, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django", 
             "slug": "journal-markup-making-django-sexy", 
@@ -26,6 +27,7 @@
             "video_data": "gAJVAC4=", 
             "event": 1, 
             "speaker": 2, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://voldmar.ru/talks/power-of-your-fingertips/", 
             "slug": "power-of-your-fingertips", 
@@ -43,6 +45,7 @@
             "video_data": "gAJVAC4=", 
             "event": 1, 
             "speaker": 3, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-south", 
             "slug": "django-south-database-migrations", 
@@ -60,6 +63,7 @@
             "video_data": "gAJVAC4=", 
             "event": 2, 
             "speaker": 4, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://digitaldemiurge.ru/slides/templates/", 
             "slug": "project-templates-pastescript-django-14", 
@@ -77,6 +81,7 @@
             "video_data": "gAJVAC4=", 
             "event": 2, 
             "speaker": 5, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "https://speakerdeck.com/u/coagulant/p/django-14", 
             "slug": "whats-new-in-django-14", 
@@ -94,6 +99,7 @@
             "video_data": "gAJVAC4=", 
             "event": 2, 
             "speaker": 6, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "", 
             "slug": "using-django-and-sqlalchemy", 
@@ -111,6 +117,7 @@
             "video_data": "gAJVAC4=", 
             "event": 2, 
             "speaker": 7, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://www.slideshare.net/MoscowDjango/deploy", 
             "slug": "simple-useful-project-deployment", 
@@ -128,6 +135,7 @@
             "video_data": "gAJVAC4=", 
             "event": 3, 
             "speaker": 8, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://www.slideshare.net/MoscowDjango/class-based-generic-views-django", 
             "slug": "class-based-generic-views-in-django", 
@@ -145,6 +153,7 @@
             "video_data": "gAJVAC4=", 
             "event": 3, 
             "speaker": 9, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897050", 
             "slug": "development-of-reusable-apps", 
@@ -162,6 +171,7 @@
             "video_data": "gAJVAC4=", 
             "event": 3, 
             "speaker": 10, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-1", 
             "slug": "staticfiles-django", 
@@ -179,6 +189,7 @@
             "video_data": "gAJVAC4=", 
             "event": 3, 
             "speaker": 11, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "http://www.slideshare.net/MoscowDjango/django-12897658", 
             "slug": "django-performance", 
@@ -196,6 +207,7 @@
             "video_data": "gAJVAC4=", 
             "event": 3, 
             "speaker": 12, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "https://speakerdeck.com/u/moscowdjango/p/django-android", 
             "slug": "django-android", 
@@ -213,6 +225,7 @@
             "video_data": "gAJVAC4=", 
             "event": 4, 
             "speaker": 6, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "", 
             "slug": "http-python", 
@@ -230,6 +243,7 @@
             "video_data": "gAJVAC4=", 
             "event": 4, 
             "speaker": 5, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "", 
             "slug": "django-ci", 
@@ -247,6 +261,7 @@
             "video_data": "gAJVAC4=", 
             "event": 4, 
             "speaker": 13, 
+            "position": 0, 
             "status_changed": "2012-07-07T12:32:26.665", 
             "presentation": "", 
             "slug": "django-pycharm", 
@@ -255,11 +270,30 @@
         }
     }, 
     {
+        "pk": 5, 
+        "model": "meetup.event", 
+        "fields": {
+            "status": "planning", 
+            "description": "5-й Meetup состоится уже 9-го августа и мы начинаем `принимать заявки на доклады <http://www.facebook.com/groups/MoscowDjango/permalink/475260902502887/>`_. Регистрация откроется чуть позднее.\r\n\r\nУже скоро 18-19 августа состоится всемирный `Django Dash <http://djangodash.com/>`_. Пока организаторы готовят сайт к открытию и регистрации команд (которая начнётся 4-го августа), мы предлагаем собрать команды (не более 3-х человек) и подумать над тем, что вы хотели бы поделать. Мы надеемся, что 18, 19-го августа у нас получится собрать всех в одном месте с плюшками и кофе, чтобы кодить было веселей.", 
+            "image": "", 
+            "venue": null, 
+            "number": 5, 
+            "sponsors": [
+                1, 
+                2, 
+                3
+            ], 
+            "date": "2012-08-09T19:00:00", 
+            "status_changed": "2012-07-18T18:52:20.739", 
+            "name": "Moscow Django Meetup"
+        }
+    }, 
+    {
         "pk": 4, 
         "model": "meetup.event", 
         "fields": {
-            "status": "active", 
-            "description": "Спустя 2 месяца, митап возращается в приятном MOD Design. Приходите, будет интересно.\r\n\r\nВо время встречи будет работать `прямая трансляция <http://futurecolors.ru/live/>`_.", 
+            "status": "archived", 
+            "description": "Тут будет описание", 
             "image": "", 
             "venue": 3, 
             "number": 4, 
@@ -269,7 +303,7 @@
                 3
             ], 
             "date": "2012-07-09T19:00:00", 
-            "status_changed": "2012-07-07T12:32:26.665", 
+            "status_changed": "2012-07-17T18:58:38.995", 
             "name": "Moscow Django Meetup"
         }
     }, 
@@ -361,7 +395,7 @@
         "pk": 1, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexey_dubkov.png", 
+            "photo": "/media/speakers/alexey_dubkov.png", 
             "name": "Алексей Дубков", 
             "company_name": ""
         }
@@ -370,7 +404,7 @@
         "pk": 2, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vladimir_epifanov.png", 
+            "photo": "/media/speakers/vladimir_epifanov.png", 
             "name": "Владимир Епифанов", 
             "company_name": "Островок"
         }
@@ -388,7 +422,7 @@
         "pk": 4, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vitaly_korobkin.png", 
+            "photo": "/media/speakers/vitaly_korobkin.png", 
             "name": "Виталий Коробкин", 
             "company_name": "SevenQuark"
         }
@@ -397,7 +431,7 @@
         "pk": 5, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/ilya_baryshev.png", 
+            "photo": "/media/speakers/ilya_baryshev.png", 
             "name": "Илья Барышев", 
             "company_name": "Future Colors"
         }
@@ -406,7 +440,7 @@
         "pk": 6, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/andrey_popp.png", 
+            "photo": "/media/speakers/andrey_popp.png", 
             "name": "Андрей Попп", 
             "company_name": ""
         }
@@ -415,7 +449,7 @@
         "pk": 7, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_korneev.png", 
+            "photo": "/media/speakers/mikhail_korneev.png", 
             "name": "Михаил Корнеев", 
             "company_name": "Greenfield Project"
         }
@@ -424,7 +458,7 @@
         "pk": 8, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexander_emelin.png", 
+            "photo": "/media/speakers/alexander_emelin.png", 
             "name": "Александр Емелин", 
             "company_name": "Mail.ru Group"
         }
@@ -433,7 +467,7 @@
         "pk": 9, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_filonov.png", 
+            "photo": "/media/speakers/mikhail_filonov.png", 
             "name": "Владимир Филонов", 
             "company_name": "WebCanFly"
         }
@@ -442,7 +476,7 @@
         "pk": 10, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/mikhail_yumatov.png", 
+            "photo": "/media/speakers/mikhail_yumatov.png", 
             "name": "Михаил Юматов", 
             "company_name": "Trilan"
         }
@@ -451,7 +485,7 @@
         "pk": 11, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/ivan_vyrabyan.png", 
+            "photo": "/media/speakers/ivan_vyrabyan.png", 
             "name": "Иван Вирабян", 
             "company_name": "Kanobu.ru"
         }
@@ -460,7 +494,7 @@
         "pk": 12, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/alexander_shlemin.png", 
+            "photo": "/media/speakers/alexander_shlemin.png", 
             "name": "Александр Шлемин", 
             "company_name": ""
         }
@@ -469,7 +503,7 @@
         "pk": 13, 
         "model": "meetup.speaker", 
         "fields": {
-            "photo": "speakers/vadim_shandrinov.png", 
+            "photo": "/media/speakers/vadim_shandrinov.png", 
             "name": "Вадим Шандринов", 
             "company_name": ""
         }
@@ -659,7 +693,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://greenfield-project.ru/", 
-            "logo": "sponsors/greenfield_project.png", 
+            "logo": "/media/sponsors/greenfield_project.png", 
             "name": "Greenfield Project"
         }
     }, 
@@ -668,7 +702,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://sevenquark.com/", 
-            "logo": "sponsors/seven_quark.png", 
+            "logo": "/media/sponsors/seven_quark.png", 
             "name": "SevenQuark"
         }
     }, 
@@ -677,7 +711,7 @@
         "model": "meetup.sponsor", 
         "fields": {
             "url": "http://futurecolors.ru", 
-            "logo": "sponsors/future_colors.png", 
+            "logo": "/media/sponsors/future_colors.png", 
             "name": "Future Colors"
         }
     }
