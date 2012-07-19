@@ -20,17 +20,22 @@
     <section class="event__description">
         {{ event.description|restructuredtext }}
     </section>
-    <section class="media-coverage">
-        <h1 class="media-coverage__header">Упоминания</h1>
-        <ul class="media-coverage__list">
-            <li class="media-coverage__item" style="background-image: url(http://blog.futurecolors.ru/favicon.ico)">
-                <a class="media-coverage__link" href="http://blog.futurecolors.ru/2012/07/moscow-django-meetup-4-done.html">Moscow Django Meetup #4. Done.</a>
-            </li>
-            <li class="media-coverage__item" style="background-image: url(https://github.com/favicon.ico)">
-                <a class="media-coverage__link" href="http://blog.futurecolors.ru/2012/07/moscow-django-meetup-4-done.html">Сказ о том, как я побывал на славном Moscow Django Meetup #4</a>
-            </li>
-        </ul>
-    </section>
+    {% with event.media_coverages.all as media_coverages %}
+        {% if media_coverages %}
+            <section class="media-coverage">
+                <h1 class="media-coverage__header">Упоминания</h1>
+                <ul class="media-coverage__list">
+                    {% for media_coverage in media_coverages %}
+                        <li class="media-coverage__item" style="background-image: url({{ media_coverage.ico }})">
+                            <a class="media-coverage__link"
+                               href="{{ media_coverage.url }}"
+                               target="_blank">{{ media_coverage }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    {% endwith %}
     {% if event.is_active %}
         {% include 'blocks/map.html' %}
     {% endif %}

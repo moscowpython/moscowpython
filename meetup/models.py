@@ -175,3 +175,20 @@ class Sponsor(models.Model):
     class Meta:
         verbose_name = u'Спонсор'
         verbose_name_plural = u'Спонсоры'
+
+
+class MediaCoverage(models.Model):
+    event = models.ForeignKey(Event, related_name='media_coverages')
+    name = models.CharField(u'Название упоминания', max_length=250)
+    url = models.URLField(u'Адрес страницы с упоминанием')
+    ico = models.CharField(u'Ссылка на .ico сайта', max_length=250, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return self.url
+
+    class Meta:
+        verbose_name = u'Упоминание'
+        verbose_name_plural = u'Упоминания'
