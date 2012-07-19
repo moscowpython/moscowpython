@@ -10,7 +10,6 @@
 
 {% block page %}
     {% include 'blocks/event_header.html' with event=talk.event %}
-    {% include 'blocks/share.html' %}
     <section class="talk">
         <div class="wrapper">
             <h1 class="talk__name">{{ talk }}</h1>
@@ -74,6 +73,7 @@
                 </article>
             </section>
             <div class="g-clear"></div>
+            {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}
             <section class="comments">
                 <div id="disqus_thread"></div>
                 <footer class="comments__copyright">
