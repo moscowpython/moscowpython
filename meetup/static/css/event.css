@@ -504,19 +504,31 @@
 
 .like {}
 .like_page_archive {
-    border-top: 4px solid #0a6629;
     background: url(../images/backgrounds/archive.png) 0 0 repeat;
+}
+.like_page_talk {
+    padding-left: 160px;
 }
 .like__wrapper {
     height: 20px;
     padding: 20px 0 20px 160px;
+    border-top: 1px solid #e5e5e5;
+}
+.like_page_main .like__wrapper {
+    border-top: none;
     border-bottom: 1px solid #e5e5e5;
+}
+.like_page_talk .like__wrapper {
+    position: relative;
+    top: -20px;
+    border-top: none;
 }
 .like_page_main .like__wrapper  {
     padding-left: 180px;
 }
 .like_page_archive .like__wrapper,
-.like_page_about .like__wrapper {
+.like_page_about .like__wrapper,
+.like_page_talk .like__wrapper {
     padding-left: 0;
 }
 .like_item {

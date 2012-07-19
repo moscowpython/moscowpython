@@ -13,12 +13,16 @@
 
 {% block page %}
 <div class="live">
-    <h1 class="live__header">Трансляция {{ event|default_if_none:'следующего события' }}</h1>
+    <h1 class="live__header">
+        Трансляция {{ event|default_if_none:'следующего события' }}
+    </h1>
+
     {% if event %}
         <h2 class="live__subheader">{{ event.date|ru_strftime:"%d %B, %H:%M" }}</h2>
     {% else %}
         <h2 class="live__subheader" title="Будет объявлено">TBA</h2>
     {% endif %}
+
     <iframe width="720" height="431" src="http://www.ustream.tv/embed/11478750?ub=234900&amp;lc=4E9E00&amp;oc=ffffff&amp;uc=ffffff" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>
     <br /><a href="http://www.ustream.tv/" class="live__copyright" target="_blank">Live stream videos at Ustream</a>
 

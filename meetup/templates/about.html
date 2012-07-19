@@ -1,9 +1,9 @@
 {% extends 'layout/layout.html' %}
 
 {% block page %}
-    {% include 'blocks/share.html' with page='about' %}
     <section class="content-page">
         <div class="wrapper">
+            <h1 class="content-page__header">О проекте</h1>
             <div class="g-content">
                 <p>
                     Moscow Django Meetup &mdash; это ежемесячные встречи разработчиков на Джанго.
@@ -30,4 +30,5 @@
             </div>
         </div>
     </section>
+    {% include 'blocks/share.html' with page='about' %}
 {% endblock %}

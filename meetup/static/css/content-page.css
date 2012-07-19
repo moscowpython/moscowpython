@@ -19,6 +19,12 @@
 .content-page .g-content {
     max-width: 600px;
 }
+.content-page__header {
+    margin: 0 0 20px;
+    font-size: 31px;
+    font-weight: normal;
+    color: #0a6629;
+}
 
 
 /**

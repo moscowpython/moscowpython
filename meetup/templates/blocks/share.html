@@ -1,5 +1,7 @@
 <section class="like {% if page %}like_page_{{ page }}{% endif %}">
+    {% if not without_wrapper %}
     <div class="wrapper">
+    {% endif %}
         <div class="like__wrapper">
             <div class="like_item">
                 <!-- Github unofficial -->
@@ -24,5 +26,7 @@
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </div>
         </div>
+    {% if not without_wrapper %}
     </div>
+    {% endif %}
 </section>
