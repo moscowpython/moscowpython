@@ -215,7 +215,7 @@
     background: white;
 }
 .event__sponsor {
-    margin: 5px 35px;
+    margin: 5px 30px;
     vertical-align: middle;
 }
 .event__message {
@@ -348,6 +348,47 @@
     }
     .event__sponsors {
         padding: 15px 0;
+    }
+}
+
+
+/**
+ * @section     Упоминания
+ */
+
+.media-coverage {
+    padding: 15px 17px 5px;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #303030;
+    background: #f2f2f2 url(../images/backgrounds/event-description.png) 0 0 repeat-x;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+}
+.media-coverage__header {
+    margin: 0;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #603913;
+}
+.media-coverage__list {
+    margin: 0;
+    list-style: none;
+}
+.media-coverage__item {
+    margin: 15px 0;
+    padding: 0 0 0 20px;
+    line-height: 18px;
+    font-size: 14px;
+    background: 0 0 no-repeat;
+}
+.media-coverage__link {
+    color: #0a6629;
+}
+@media screen and (max-width: 640px) {
+    .media-coverage {
+        padding: 10px 10px 0;
     }
 }
 
