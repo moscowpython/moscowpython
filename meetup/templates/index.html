@@ -12,6 +12,7 @@
             <div class="wrapper">
                 {% if main_event.status == 'planning' %}
                     {% include 'blocks/message.html' with event=main_event %}
+                    {% include 'blocks/subscription.html' %}
                 {% else %}
                     {% include 'blocks/sidebar.html' with event=main_event %}
                     {% include 'blocks/event_talks.html' with event=main_event %}
