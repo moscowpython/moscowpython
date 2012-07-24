@@ -10,6 +10,7 @@ django-storages==1.1.4
 django-s3-folder-storage==0.1
 docutils==0.9.1
 south==0.7.5
+requests==0.13.3
 
 #development
 django-debug-toolbar==0.9.4

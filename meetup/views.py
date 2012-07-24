@@ -1,8 +1,10 @@
+from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from meetup.models import Talk
 from models import Event
+from .utils import subscribe_mail
 
 
 class IndexPage(ListView):
@@ -59,3 +61,10 @@ class LivePage(TemplateView):
             'event': Event.objects.upcoming(),
         })
         return context
+
+
+def ajax_subscribe(request):
+    if subscribe_mail(request.POST['email']):
+        return HttpResponse('OK')
+    else:
+        return HttpResponse('Failed')
