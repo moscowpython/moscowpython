@@ -1,5 +1,9 @@
+{% load url from future %}
+
+
 <div class="subscription">
-    <form method="POST" action="http://moscowdjango.timepad.ru/org/subscribe" class="subscription__form">
+    <form method="POST" action="{% url 'subscribe' %}" class="js-subscription">
+        {% csrf_token %}
         <h3 class="subscription__header">
             Подписаться на рассылку
         </h3>
@@ -8,4 +12,10 @@
             <span class="subscription__submit-text">Подписаться</span>
         </button>
     </form>
+    <div class="subscription__ok g-hide js-subscription-ok">
+        Вы подписаны на рассылку
+    </div>
+    <div class="subscription__fail g-hide js-subscription-fail">
+        Не удалось подписать вас на рассылку
+    </div>
 </div>

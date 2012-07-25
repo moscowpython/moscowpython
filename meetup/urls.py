@@ -2,10 +2,12 @@
 from django.conf.urls import patterns, url
 from django.views.generic.base import TemplateView
 from meetup.views import EventPage, TalkPage
-from views import IndexPage, EventsList, AboutPage, LivePage
+from views import IndexPage, EventsList, AboutPage, LivePage, ajax_subscribe
+
 
 urlpatterns = patterns('',
     url('^$', IndexPage.as_view(), name='index'),
+    url('^subscribe/$', ajax_subscribe, name='subscribe'),
     url('^about/$', AboutPage.as_view(), name='about'),
     url('^live/$', LivePage.as_view(), name='live'),
     url('^meetups/$', EventsList.as_view(), name='events'),
