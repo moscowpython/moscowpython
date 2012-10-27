@@ -2,6 +2,8 @@
 import logging
 import os
 import requests
+import sys
+
 logger = logging.getLogger('subscribe')
 
 
@@ -12,8 +14,8 @@ def subscribe_mail(email):
     """
     try:
         payload = {
-            'id': os.environ['TIMEPAD_API_KEY'],
-            'code': os.environ['TIMEPAD_ORG_ID'],
+            'code': os.environ['TIMEPAD_API_KEY'],
+            'id': os.environ['TIMEPAD_ORG_ID'],
             'm_id': os.environ['TIMEPAD_MAILLIST_ID'],
             'i0_email': email
         }
@@ -22,7 +24,8 @@ def subscribe_mail(email):
         return False
 
     try:
-        response = requests.get('http://timepad.ru/api/maillist_add_items/', params=payload)
+        my_config = {'verbose': sys.stderr}
+        response = requests.get('http://timepad.ru/api/maillist_add_items/', params=payload, config=my_config)
     except requests.RequestException:
         logger.error('Timepad is unavailable')
         return False
