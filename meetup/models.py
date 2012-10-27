@@ -8,7 +8,6 @@ from model_utils import Choices
 from model_utils.managers import QueryManager, PassThroughManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
-from django.conf import settings
 
 
 class Talk(StatusModel):
@@ -82,6 +81,7 @@ class Event(StatusModel):
     date = models.DateTimeField(u'Начало', blank=True, null=True)
     venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
+    timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
 
     objects = PassThroughManager.for_queryset_class(EventQuerySet)()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
@@ -99,6 +99,10 @@ class Event(StatusModel):
     @property
     def is_active(self):
         return self.status == self.STATUS.active
+
+    def get_timepad_url(self):
+        if self.timepad_id:
+            return 'http://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
 
     class Meta:
         verbose_name = u'Событие'

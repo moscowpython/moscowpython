@@ -2,44 +2,41 @@
 
 
 <section class="event__information">
-    {% if main_event.status != 'planning' %}
-        <section class="event__registration">
-            <div class="event__registration-summary">
-                {{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
-                {{ event.venue|default_if_none:"" }}<br />
-                {{ event.venue.address }}<br />
-            </div>
-            {% if event.is_active %}
-            <form action="http://moscowdjango.timepad.ru/event/28685">
+    <section class="event__registration">
+        <div class="event__registration-summary">
+            {{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
+            {{ event.venue|default_if_none:"" }}<br />
+            {{ event.venue.address }}<br />
+        </div>
+        {% if event.is_active %}
+            <form action="{{ event.get_timepad_url }}">
                 <button class="event__register-button" type="submit">
                     <span class="event__register-button-text">Я тоже буду!</span>
                 </button>
             </form>
-            {% endif %}
-            <div class="g-clear"></div>
-        </section>
-        <section class="event__description">
-            {{ event.description|restructuredtext }}
-        </section>
-        {% with event.media_coverages.all as media_coverages %}
-            {% if media_coverages %}
-                <section class="media-coverage">
-                    <h1 class="media-coverage__header">Упоминания</h1>
-                    <ul class="media-coverage__list">
-                        {% for media_coverage in media_coverages %}
-                            <li class="media-coverage__item" style="background-image: url({{ media_coverage.ico }})">
-                                <a class="media-coverage__link"
-                                   href="{{ media_coverage.url }}"
-                                   target="_blank">{{ media_coverage }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-            {% endif %}
-        {% endwith %}
-        {% if event.is_active %}
-            {% include 'blocks/map.html' %}
         {% endif %}
+        <div class="g-clear"></div>
+    </section>
+    <section class="event__description">
+        {{ event.description|restructuredtext }}
+    </section>
+    {% with event.media_coverages.all as media_coverages %}
+        {% if media_coverages %}
+            <section class="media-coverage">
+                <h1 class="media-coverage__header">Упоминания</h1>
+                <ul class="media-coverage__list">
+                    {% for media_coverage in media_coverages %}
+                        <li class="media-coverage__item" style="background-image: url({{ media_coverage.ico }})">
+                            <a class="media-coverage__link"
+                               href="{{ media_coverage.url }}"
+                               target="_blank">{{ media_coverage }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    {% endwith %}
+    {% if event.is_active %}
+        {% include 'blocks/map.html' %}
     {% endif %}
-    {% include 'blocks/subscription.html' %}
 </section>
