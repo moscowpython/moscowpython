@@ -1,5 +1,5 @@
 <section class="event__talks">
-    {% for talk in event.talks.all %}
+    {% for talk in event.talks.active %}
         <article class="event__talk">
             <a class="event__talk-speaker-link" href="{{ talk.get_absolute_url }}">
                 <span class="event__talk-avatar">
