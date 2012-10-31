@@ -83,15 +83,6 @@
     vertical-align: middle;
     font-size: 11px;
 }
-.talk__resources {
-    margin-left: 160px;
-}
-.talk__resource {
-    margin-bottom: 20px;
-}
-.talk__resource iframe {
-    max-width: 792px
-}
 .talk__resource-link {
     font-size: 14px;
     color: #0a6629;
@@ -122,12 +113,6 @@
     .talk__description-wrapper {
         margin-right: 0;
     }
-    .talk__resources {
-        clear: both;
-    }
-    .talk__resource iframe {
-        max-width: 550px
-    }
 }
 @media screen and (max-width: 640px) {
     .talk {
@@ -136,13 +121,6 @@
     .talk__name {
         margin-left: 0;
         font-size: 22px;
-    }
-    .talk__resources {
-        margin: 0;
-        text-align: center;
-    }
-    .talk__resource iframe {
-        max-width: 300px
     }
     .talk__about-aside {
         width: 110px;
@@ -156,8 +134,41 @@
     .talk__description-wrapper {
         margin-bottom: 10px;
     }
-    .talk__resource iframe {
+}
+
+
+/**
+ * @section     Ресурсы доклада
+ */
+
+.talk-resources {
+    margin-left: 160px;
+}
+.speaker-talks .talk-resources {
+    margin-left: 0;
+}
+.talk-resources__item {
+    margin-bottom: 20px;
+}
+.talk-resources__item iframe {
+    max-width: 792px
+}
+@media screen and (max-width: 770px) {
+    .talk-resources {
+        clear: both;
+    }
+    .talk-resources__item iframe {
+        max-width: 550px
+    }
+}
+@media screen and (max-width: 640px) {
+    .talk-resources {
+        margin: 0;
+        text-align: center;
+    }
+    .talk-resources__item iframe {
         width: 94%;
+        max-width: 300px;
         height: auto;
     }
 }

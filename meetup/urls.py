@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url('^meetups/$', EventsList.as_view(), name='events'),
     url('^meetups/(?P<pk>\d+)/$', EventPage.as_view(), name='event'),
     url('^meetups/(?P<event_id>\d+)/(?P<talk_slug>[\w-]+)/$', TalkPage.as_view(), name='talk'),
+    url('^speaker/$', TemplateView.as_view(template_name='speaker.html'), name='speaker'),
 )
