@@ -39,15 +39,15 @@
                     </select>
                 </nav>
                 <div class="talk__about-aside">
-                    <span class="talk__avatar">
+                    <a href="{{ talk.speaker.get_absolute_url }}" class="talk__avatar">
                         <img src="{{ talk.speaker.avatar_url }}" />
-                    </span>
-                    <div class="talk__speaker">
+                    </a>
+                    <a href="{{ talk.speaker.get_absolute_url }}" class="talk__speaker">
                         {{ talk.speaker }}
                         {% if talk.speaker.company_name %}
                             <div>({{ talk.speaker.company_name }})</div>
                         {% endif %}
-                    </div>
+                    </a>
                 </div>
                 <div class="talk__description-wrapper">
                     <div class="talk__description">

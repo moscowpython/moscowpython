@@ -133,6 +133,10 @@ class Speaker(models.Model):
     def __unicode__(self):
         return self.name
 
+    @permalink
+    def get_absolute_url(self):
+        return 'speaker', [self.pk]
+
     @property
     def avatar_url(self):
         if self.photo:

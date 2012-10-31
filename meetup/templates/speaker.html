@@ -1,7 +1,7 @@
 {% extends 'layout/layout.html' %}
 
 
-{% block title %}Константин Самизнаетекакой{% endblock %}
+{% block title %}{{ speaker }} @ Moscow Django{% endblock %}
 {% block facebook %}{{ speaker.avatar_url }}{% endblock %}
 
 
@@ -9,76 +9,49 @@
     <header class="speaker">
         <div class="wrapper">
             <span class="speaker__photo">
-                <img src="https://moscowdjango.s3.amazonaws.com/media/speakers/ilya_baryshev.jpg" alt="">
+                <img src="{{ speaker.avatar_url }}" alt="{{ speaker }}">
             </span>
             <div class="speaker__name">
-                Константин Самизнаетекакой
-                <span class="speaker__company-name">Future Colors</span>
+                {{ speaker }}
+                {% if speaker.company_name %}
+                <span class="speaker__company-name">{{ speaker.company_name }}</span>
+                {% endif %}
             </div>
         </div>
     </header>
     <section class="speaker-talks">
         <div class="wrapper">
+            {% for talk in speaker.talks.all %}
             <article class="speaker-talks__item">
                 <header class="speaker-talks__item-header">
-                    <a href="" class="speaker-talks__item-event">
-                        Moscow Django MeetUp № 6
+                    <a href="{{ talk.event.get_absolute_url }}" class="speaker-talks__item-event">
+                        {{ talk.event }}
                     </a>
                     <h1 class="speaker-talks__item-name">
-                        <a href="" class="speaker-talks__item-name-link">Тестирование и Django</a>
+                        <a href="{{ talk.get_absolute_url }}" class="speaker-talks__item-name-link">{{ talk }}</a>
                     </h1>
                 </header>
                 <div class="speaker-talks__item-description">
-                    Когда тестировать, что тестировать, как тестировать, Как ускорить тесты и упростить их написание.
-                    Отказываемся от классических фикстур в пользу динамически создаваемых моделей.
+                    {{ talk.description }}
                 </div>
                 <section class="talk-resources">
                     <article class="talk-resources__item">
-                        <iframe width="640" height="360" src="http://www.youtube.com/embed/bGrj71Ht_aI?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
+                        {% if talk.video_data %}
+                            {{ talk.video_data.html|safe }}
+                        {% endif %}
+                        {% if not talk.video_data and talk.presentation_data %}
+                            {% if talk.presentation_data %}
+                                {% if talk.presentation_data.type == 'link' %}
+                                    <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>
+                                {% else %}
+                                    {{ talk.presentation_data.html|safe }}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
                     </article>
                 </section>
             </article>
-            <article class="speaker-talks__item">
-                <header class="speaker-talks__item-header">
-                    <a href="" class="speaker-talks__item-event">
-                        Moscow Django MeetUp № 4
-                    </a>
-                    <h1 class="speaker-talks__item-name">
-                        <a href="" class="speaker-talks__item-name-link">Django и Continuous Integration</a>
-                    </h1>
-                </header>
-                <div class="speaker-talks__item-description">
-                    Как быстро и просто внедрить проект на Django непрерывную интеграцию. Чтобы упростить процесс
-                    разработки недостаточно писать тесты, нужно их как минимум регулярно запускать. А лучше всего,
-                    ещё и регулярно интегрировать код из разных веток. О том, как в этом помогает Jenkins CI, как
-                    можно упросить себе жизнь с помощью Shining Panda и даже Travis CI.
-                </div>
-                <section class="talk-resources">
-                    <article class="talk-resources__item">
-                        <iframe width="640" height="360" src="http://www.youtube.com/embed/8F1n3SjPbto?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    </article>
-                </section>
-            </article>
-            <article class="speaker-talks__item">
-                <header class="speaker-talks__item-header">
-                    <a href="" class="speaker-talks__item-event">
-                        Moscow Django MeetUp № 2
-                    </a>
-                    <h1 class="speaker-talks__item-name">
-                        <a href="" class="speaker-talks__item-name-link">Что нового в Django 1.4</a>
-                    </h1>
-                </header>
-                <div class="speaker-talks__item-description">
-                    Галопом по Европам об основных фичах релиза Django 1.4. Обзорный доклад освещает самые "вкусные"
-                    новинки: поддержку таймзон, python 2.5+, улучшения по ORM, новую структуру проекта,
-                    шаблоны и многое другое.
-                </div>
-                <section class="talk-resources">
-                    <article class="talk-resources__item">
-                        <iframe width="640" height="360" src="http://www.youtube.com/embed/AhRVaJRMCFc?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    </article>
-                </section>
-            </article>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
