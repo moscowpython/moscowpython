@@ -1,0 +1,94 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block title %}Константин Самизнаетекакой{% endblock %}
+{% block facebook %}{{ speaker.avatar_url }}{% endblock %}
+
+
+{% block page %}
+    <header class="speaker">
+        <div class="wrapper">
+            <span class="speaker__photo">
+                <img src="https://moscowdjango.s3.amazonaws.com/media/speakers/ilya_baryshev.jpg" alt="">
+            </span>
+            <div class="speaker__name">
+                Константин Самизнаетекакой
+                <span class="speaker__company-name">Future Colors</span>
+            </div>
+        </div>
+    </header>
+
+{#    <section class="talk">#}
+{#        <div class="wrapper">#}
+{#            <h1 class="talk__name">{{ talk }}</h1>#}
+{#            <section class="talk__about">#}
+{#                <nav class="talk__navigation">#}
+{#                    <div class="talk__navigation-header">Доклады {{ talk.event }}</div>#}
+{#                    <ul class="talk__others">#}
+{#                        {% for other_talk in talk.event.talks.all %}#}
+{#                            {% if other_talk.pk != talk.pk %}#}
+{#                                <li class="talk__others-item">#}
+{#                                    <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>#}
+{#                                </li>#}
+{#                            {% else %}#}
+{#                                <li class="talk__others-item">#}
+{#                                    <span class="talk__others-item-current">{{ other_talk }}</span>#}
+{#                                </li>#}
+{#                            {% endif %}#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                    <select class="talk__navigation-compact js-talk-navigation">#}
+{#                        {% for other_talk in talk.event.talks.all %}#}
+{#                            <option value="{{ other_talk.get_absolute_url }}"#}
+{#                                    {% if other_talk.pk == talk.pk %}selected="selected"{% endif %}>#}
+{#                                {{ other_talk }}#}
+{#                            </option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+{#                </nav>#}
+{#                <div class="talk__about-aside">#}
+{#                    <span class="talk__avatar">#}
+{#                        <img src="{{ talk.speaker.avatar_url }}" />#}
+{#                    </span>#}
+{#                    <div class="talk__speaker">#}
+{#                        {{ talk.speaker }}#}
+{#                        {% if talk.speaker.company_name %}#}
+{#                            <div>({{ talk.speaker.company_name }})</div>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="talk__description-wrapper">#}
+{#                    <div class="talk__description">#}
+{#                        {{ talk.description }}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+{#            <div class="g-clear"></div>#}
+{#            <section class="talk__resources">#}
+{#                <article class="talk__resource">#}
+{#                    {% if talk.video_data %}#}
+{#                        {{ talk.video_data.html|safe }}#}
+{#                    {% endif %}#}
+{#                </article>#}
+{#                <article class="talk__resource">#}
+{#                    {% if talk.presentation_data %}#}
+{#                        {% if talk.presentation_data.type == 'link' %}#}
+{#                            <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>#}
+{#                        {% else %}#}
+{#                            {{ talk.presentation_data.html|safe }}#}
+{#                        {% endif %}#}
+{#                    {% endif %}#}
+{#                </article>#}
+{#            </section>#}
+{#            <div class="g-clear"></div>#}
+{#            {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}#}
+{#            <section class="comments">#}
+{#                <div id="disqus_thread"></div>#}
+{#                <footer class="comments__copyright">#}
+{#                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>#}
+{#                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>#}
+{#                </footer>#}
+{#            </section>#}
+{#        </div>#}
+{#    </section>#}
+{% endblock %}

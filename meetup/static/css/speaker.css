@@ -1,0 +1,83 @@
+/**
+ * Страница докладчика
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Страница докладчика
+ */
+
+
+/**
+ * @subsection  Summary докладчика
+ */
+
+.speaker {
+    height: 140px;
+    font-family: 'SansusWebissimoRegular', sans-serif;
+    background: #0a6629;
+    border-bottom: 10px solid #085221;
+    overflow: hidden;
+}
+.speaker__photo {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+    overflow: hidden;
+    float: left;
+    border-radius: 57px;
+}
+.speaker__photo img {
+    width: 120px;
+    height: 120px;
+}
+.speaker__name {
+    margin-left: 160px;
+    line-height: 140px;
+    font-size: 33px;
+    color: white;
+}
+.speaker__company-name {
+    color: #92cc47;
+}
+@media screen and (max-width: 770px) {
+    .speaker {
+        height: 80px;
+        clear: both;
+    }
+    .speaker__photo,
+    .speaker__photo img {
+        width: 60px;
+        height: 60px;
+    }
+    .speaker__name {
+        margin-left: 80px;
+        line-height: 78px;
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .speaker {
+        height: auto;
+        padding: 10px;
+    }
+    .speaker__photo {
+        margin: 0;
+    }
+    .speaker__photo,
+    .speaker__photo img {
+        width: 40px;
+        height: 40px;
+    }
+    .speaker__name {
+        margin-left: 60px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+}
