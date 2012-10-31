@@ -56,13 +56,13 @@
                 </div>
             </section>
             <div class="g-clear"></div>
-            <section class="talk__resources">
-                <article class="talk__resource">
+            <section class="talk-resources">
+                <article class="talk-resources__item">
                     {% if talk.video_data %}
                         {{ talk.video_data.html|safe }}
                     {% endif %}
                 </article>
-                <article class="talk__resource">
+                <article class="talk-resources__item">
                     {% if talk.presentation_data %}
                         {% if talk.presentation_data.type == 'link' %}
                             <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>

@@ -17,78 +17,68 @@
             </div>
         </div>
     </header>
-
-{#    <section class="talk">#}
-{#        <div class="wrapper">#}
-{#            <h1 class="talk__name">{{ talk }}</h1>#}
-{#            <section class="talk__about">#}
-{#                <nav class="talk__navigation">#}
-{#                    <div class="talk__navigation-header">Доклады {{ talk.event }}</div>#}
-{#                    <ul class="talk__others">#}
-{#                        {% for other_talk in talk.event.talks.all %}#}
-{#                            {% if other_talk.pk != talk.pk %}#}
-{#                                <li class="talk__others-item">#}
-{#                                    <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>#}
-{#                                </li>#}
-{#                            {% else %}#}
-{#                                <li class="talk__others-item">#}
-{#                                    <span class="talk__others-item-current">{{ other_talk }}</span>#}
-{#                                </li>#}
-{#                            {% endif %}#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                    <select class="talk__navigation-compact js-talk-navigation">#}
-{#                        {% for other_talk in talk.event.talks.all %}#}
-{#                            <option value="{{ other_talk.get_absolute_url }}"#}
-{#                                    {% if other_talk.pk == talk.pk %}selected="selected"{% endif %}>#}
-{#                                {{ other_talk }}#}
-{#                            </option>#}
-{#                        {% endfor %}#}
-{#                    </select>#}
-{#                </nav>#}
-{#                <div class="talk__about-aside">#}
-{#                    <span class="talk__avatar">#}
-{#                        <img src="{{ talk.speaker.avatar_url }}" />#}
-{#                    </span>#}
-{#                    <div class="talk__speaker">#}
-{#                        {{ talk.speaker }}#}
-{#                        {% if talk.speaker.company_name %}#}
-{#                            <div>({{ talk.speaker.company_name }})</div>#}
-{#                        {% endif %}#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="talk__description-wrapper">#}
-{#                    <div class="talk__description">#}
-{#                        {{ talk.description }}#}
-{#                    </div>#}
-{#                </div>#}
-{#            </section>#}
-{#            <div class="g-clear"></div>#}
-{#            <section class="talk__resources">#}
-{#                <article class="talk__resource">#}
-{#                    {% if talk.video_data %}#}
-{#                        {{ talk.video_data.html|safe }}#}
-{#                    {% endif %}#}
-{#                </article>#}
-{#                <article class="talk__resource">#}
-{#                    {% if talk.presentation_data %}#}
-{#                        {% if talk.presentation_data.type == 'link' %}#}
-{#                            <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>#}
-{#                        {% else %}#}
-{#                            {{ talk.presentation_data.html|safe }}#}
-{#                        {% endif %}#}
-{#                    {% endif %}#}
-{#                </article>#}
-{#            </section>#}
-{#            <div class="g-clear"></div>#}
-{#            {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}#}
-{#            <section class="comments">#}
-{#                <div id="disqus_thread"></div>#}
-{#                <footer class="comments__copyright">#}
-{#                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>#}
-{#                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>#}
-{#                </footer>#}
-{#            </section>#}
-{#        </div>#}
-{#    </section>#}
+    <section class="speaker-talks">
+        <div class="wrapper">
+            <article class="speaker-talks__item">
+                <header class="speaker-talks__item-header">
+                    <a href="" class="speaker-talks__item-event">
+                        Moscow Django MeetUp № 6
+                    </a>
+                    <h1 class="speaker-talks__item-name">
+                        <a href="" class="speaker-talks__item-name-link">Тестирование и Django</a>
+                    </h1>
+                </header>
+                <div class="speaker-talks__item-description">
+                    Когда тестировать, что тестировать, как тестировать, Как ускорить тесты и упростить их написание.
+                    Отказываемся от классических фикстур в пользу динамически создаваемых моделей.
+                </div>
+                <section class="talk-resources">
+                    <article class="talk-resources__item">
+                        <iframe width="640" height="360" src="http://www.youtube.com/embed/bGrj71Ht_aI?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    </article>
+                </section>
+            </article>
+            <article class="speaker-talks__item">
+                <header class="speaker-talks__item-header">
+                    <a href="" class="speaker-talks__item-event">
+                        Moscow Django MeetUp № 4
+                    </a>
+                    <h1 class="speaker-talks__item-name">
+                        <a href="" class="speaker-talks__item-name-link">Django и Continuous Integration</a>
+                    </h1>
+                </header>
+                <div class="speaker-talks__item-description">
+                    Как быстро и просто внедрить проект на Django непрерывную интеграцию. Чтобы упростить процесс
+                    разработки недостаточно писать тесты, нужно их как минимум регулярно запускать. А лучше всего,
+                    ещё и регулярно интегрировать код из разных веток. О том, как в этом помогает Jenkins CI, как
+                    можно упросить себе жизнь с помощью Shining Panda и даже Travis CI.
+                </div>
+                <section class="talk-resources">
+                    <article class="talk-resources__item">
+                        <iframe width="640" height="360" src="http://www.youtube.com/embed/8F1n3SjPbto?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    </article>
+                </section>
+            </article>
+            <article class="speaker-talks__item">
+                <header class="speaker-talks__item-header">
+                    <a href="" class="speaker-talks__item-event">
+                        Moscow Django MeetUp № 2
+                    </a>
+                    <h1 class="speaker-talks__item-name">
+                        <a href="" class="speaker-talks__item-name-link">Что нового в Django 1.4</a>
+                    </h1>
+                </header>
+                <div class="speaker-talks__item-description">
+                    Галопом по Европам об основных фичах релиза Django 1.4. Обзорный доклад освещает самые "вкусные"
+                    новинки: поддержку таймзон, python 2.5+, улучшения по ORM, новую структуру проекта,
+                    шаблоны и многое другое.
+                </div>
+                <section class="talk-resources">
+                    <article class="talk-resources__item">
+                        <iframe width="640" height="360" src="http://www.youtube.com/embed/AhRVaJRMCFc?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    </article>
+                </section>
+            </article>
+        </div>
+    </section>
 {% endblock %}

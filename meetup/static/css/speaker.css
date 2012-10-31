@@ -44,6 +44,7 @@
     color: white;
 }
 .speaker__company-name {
+    padding-left: 10px;
     color: #92cc47;
 }
 @media screen and (max-width: 770px) {
@@ -79,5 +80,52 @@
         margin-left: 60px;
         line-height: 40px;
         font-size: 18px;
+    }
+}
+
+
+/**
+ * @subsection  Список выступлений
+ */
+
+.speaker-talks {
+    padding-top: 20px;
+}
+.speaker-talks__item {
+    margin: 0 0 50px 160px;
+}
+.speaker-talks__item-header {
+    margin-bottom: 20px;
+}
+.speaker-talks__item-name {
+    margin: 0;
+    font-size: 31px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.speaker-talks__item-name-link {
+    text-decoration: none;
+    color: #0a6629;
+}
+.speaker-talks__item-event {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #603913;
+    font-size: 14px;
+}
+.speaker-talks__item-description {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #404040;
+}
+@media screen and (max-width: 770px) {
+    .speaker-talks__item {
+        margin: 0 0 25px 0;
+    }
+}
+@media screen and (max-width: 640px) {
+    .speaker-talks__item-name {
+        font-size: 22px;
     }
 }
