@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -36,6 +37,8 @@ class EventsList(ListView):
 
 class EventPage(DetailView):
     template_name = 'event.html'
+    slug_url_kwarg = 'number'
+    slug_field = 'number'
     queryset = Event.visible.all()
 
     def get_context_data(self, **kwargs):
@@ -49,9 +52,15 @@ class EventPage(DetailView):
 class TalkPage(DetailView):
     template_name = 'talk.html'
     slug_url_kwarg = 'talk_slug'
+    queryset = Talk.active.all()
 
-    def get_queryset(self):
-        return Talk.active.filter(event_id=self.kwargs['event_id'])
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.get_absolute_url() != request.path:
+            return redirect(self.object)
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 
 class SpeakerPage(DetailView):

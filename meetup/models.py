@@ -39,7 +39,7 @@ class Talk(StatusModel):
 
     @permalink
     def get_absolute_url(self):
-        return 'talk', [self.event_id, self.slug]
+        return 'talk', [self.event.number, self.slug]
 
     def set_embedly_data(self, field_name):
         original_field_value = getattr(self, 'original_{0}'.format(field_name))
@@ -94,7 +94,7 @@ class Event(StatusModel):
 
     @permalink
     def get_absolute_url(self):
-        return 'event', [self.pk]
+        return 'event', [self.number]
 
     @property
     def is_active(self):
