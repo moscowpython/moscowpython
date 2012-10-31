@@ -1,0 +1,34 @@
+{% extends 'layout/layout.html' %}
+
+
+{% load static from staticfiles %}
+
+
+{% block copyright %}
+    {% if photos %}
+        <span class="footer__partners">
+            На странице работает <a href="http://fotoramajs.com" class="footer__copyright-link">Фоторама</a>.
+        </span>
+    {% endif %}
+{% endblock %}
+
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/fotorama.css' %}" type="text/css" />
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/libs/fotorama.js' %}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.gallery__wrapper').fotorama({
+                fullscreenIcon: true,
+                hash: true,
+                caption: 'overlay'
+            });
+        });
+    </script>
+{% endblock %}

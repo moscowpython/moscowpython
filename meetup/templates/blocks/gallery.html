@@ -1,7 +1,7 @@
-{% if event.photos.exists %}
+{% if photos %}
     <div class="gallery">
         <div class="gallery__wrapper" data-width="960" data-height="717">
-        {% for photo in event.photos.all %}
+        {% for photo in photos %}
             <img src="{{ photo.get_absolute_url }}" {% if photo.caption %}alt="{{ photo.caption }}"{% endif %}>
         {% endfor %}
         </div>

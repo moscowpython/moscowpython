@@ -1,4 +1,8 @@
-{% extends 'layout/layout.html' %}
+{% extends 'layout/fotorama.html' %}
+
+
+{% load url from future %}
+
 
 {% block page %}
     <section class="content-page">
@@ -15,19 +19,19 @@
                 </p>
                 <p>
                     Благодаря организаторам, встречи проходят в тёплой компании
-                    проектора и вай-фая. Последние два митапа
-                   были в чудесном <a href="http://modmoscow.com/">MOD Design</a>.
+                    проектора и вай-фая. Следующий митап пройдёт в офисе Mail.ru Group.
                 </p>
                 <p>
                     Для тех, кто не может приехать, мы будем стараться проводить
-                    <a href="http://futurecolors.ru/live/">онлайн-трансляции</a>
-                   и выкладывать видео-записи выступлений.
+                    <a href="{% url 'live' %}">онлайн-трансляции</a>
+                    и выкладывать <a href="http://www.youtube.com/moscowdjangoru">видео-записи выступлений</a>.
                 </p>
                 <p>
                     Участие во встречах бесплатное, надо только
-                    <a href="http://moscowdjango.timepad.ru/events">зарегистрироваться на событие</a>.
+                    <a href="http://moscowdjango.timepad.ru/events/">зарегистрироваться на событие</a>.
                 </p>
             </div>
+            {% include 'blocks/gallery.html' %}
         </div>
     </section>
     {% include 'blocks/share.html' with page='about' %}

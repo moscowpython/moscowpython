@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from meetup.models import Talk
+from meetup.models import Talk, Photo
 from models import Event
 from .utils import subscribe_mail
 
@@ -38,6 +38,13 @@ class EventPage(DetailView):
     template_name = 'event.html'
     queryset = Event.visible.all()
 
+    def get_context_data(self, **kwargs):
+        context = super(EventPage, self).get_context_data(**kwargs)
+        context.update({
+            'photos': context['event'].photos.all()
+        })
+        return context
+
 
 class TalkPage(DetailView):
     template_name = 'talk.html'
@@ -49,6 +56,13 @@ class TalkPage(DetailView):
 
 class AboutPage(TemplateView):
     template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutPage, self).get_context_data(**kwargs)
+        context.update({
+            'photos': Photo.objects.all().order_by('-pk')[:10]
+        })
+        return context
 
 
 class LivePage(TemplateView):
