@@ -7,12 +7,16 @@ def menu(request):
     menu_items = (
         {'title':u'События', 'url':'events'},
         {'title':u'Группа на Фейсбуке', 'url':'http://www.facebook.com/groups/MoscowDjango/'},
+        {'title':u'Видео', 'url':'http://www.youtube.com/moscowdjangoru'},
         {'title':u'О проекте', 'url':'about'},
     )
 
     for item in menu_items:
         if item['url'] is not None:
-            if not item['url'].startswith('http'):
+            if item['url'].startswith('http'):
+                item['external'] = True
+            else:
+                item['external'] = False
                 item['url'] = reverse_lazy(item['url'])
 
     return {'menu_items': menu_items}
