@@ -1,11 +1,20 @@
 # -*- coding: utf-8 -*-
 import logging
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email as _validate_email
 import os
 import requests
 import sys
 
 logger = logging.getLogger('subscribe')
 
+
+def validate_email(email):
+    try:
+        _validate_email(email)
+        return True
+    except ValidationError:
+        return False
 
 def subscribe_mail(email):
     """ Subscribe user via Timepad
