@@ -9,6 +9,11 @@ from model_utils.managers import QueryManager, PassThroughManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
 
+class TalkManager(Manager):
+
+    def active(self):
+        qs = self.get_query_set()
+        return qs.filter(status="active")
 
 class Talk(StatusModel):
     STATUS = Choices('draft', 'active')
@@ -24,7 +29,7 @@ class Talk(StatusModel):
     video_data = PickledObjectField(u'Meta-данные видео', blank=True)
     position = models.SmallIntegerField(u'Порядок выступления на событии', default=0)
 
-    objects = Manager()
+    objects = TalkManager()
 
     original_presentation = None
     original_video = None
