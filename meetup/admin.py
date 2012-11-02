@@ -54,8 +54,14 @@ class PhotoAdmin(admin.ModelAdmin):
     ordering = ['-id']
 
 
+def photo_preview(obj):
+    return '<img src=%s height=50>' % obj.avatar_url
+photo_preview.allow_tags = True
+
+
 class SpeakerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__unicode__', photo_preview, 'slug',]
+    list_editable = ['slug']
 
 
 class SponsorAdmin(admin.ModelAdmin):
@@ -73,5 +79,5 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(Venue, VenueAdmin)
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Photo, PhotoAdmin)
-admin.site.register(Sponsor, SpeakerAdmin)
+admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(MediaCoverage, MediaCoverageAdmin)

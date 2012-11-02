@@ -132,6 +132,7 @@ class Venue(models.Model):
 
 class Speaker(models.Model):
     name = models.CharField(u'Имя', max_length=100)
+    slug = models.SlugField(u'Слаг', default='')
     photo = models.ImageField(u'Фотография', upload_to='speakers', null=True, blank=True)
     company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
 
@@ -140,7 +141,7 @@ class Speaker(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return 'speaker', [self.pk]
+        return 'speaker', [self.slug]
 
     @property
     def avatar_url(self):
