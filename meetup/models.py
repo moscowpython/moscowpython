@@ -65,7 +65,7 @@ class Talk(StatusModel):
     class Meta:
         verbose_name = u'Выступление'
         verbose_name_plural = u'Выступления'
-        ordering = ('position',)
+        ordering = ('-event__number', 'position',)
 
 
 class EventQuerySet(models.query.QuerySet):
