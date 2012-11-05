@@ -3,9 +3,9 @@ from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from meetup.models import Talk, Photo, Speaker
+from .models import Talk, Photo, Speaker
 from models import Event
-from .utils import subscribe_mail
+from .utils import subscribe_mail, validate_email
 
 
 class IndexPage(ListView):
@@ -92,7 +92,8 @@ class LivePage(TemplateView):
 
 
 def ajax_subscribe(request):
-    if subscribe_mail(request.POST['email']):
-        return HttpResponse('OK')
-    else:
-        return HttpResponse('Failed')
+    if "email" in request.POST:
+        email = request.POST['email']
+        if validate_email(email) and subscribe_mail(email):
+            return HttpResponse('OK')
+    return HttpResponse('Failed')
