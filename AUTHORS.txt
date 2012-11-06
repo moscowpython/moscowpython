@@ -7,6 +7,9 @@ Original site authors:
 * Ilya Baryshev (backend and design)
 * Dmitry Zuev (design)
 
+Contributors:
+
+* Vladimir Filonov 
 
 Meetup original organizers:
 
