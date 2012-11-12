@@ -7,51 +7,21 @@
 {% block page %}
     <section class="speakers">
         <div class="wrapper">
+            {% for speaker in speakers %}
             <article class="speaker speaker_size_small">
-                <a class="speaker__link" href="">
+                <a class="speaker__link" href="{{ speaker.get_absolute_url }}">
                     <span class="speaker__photo">
-                        <img src="http://cs862.userapi.com/u27253/a_0227ea38.jpg" alt="">
+                        <img src="{{ speaker.avatar_url }}" alt="{{ speaker }}">
                     </span>
                     <h2 class="speaker__name">
-                        Артём Голиков
+                        {{ speaker }}
                     </h2>
                     <div class="speaker__description">
-                        Изучал теологию в сибири.
-                        Верстает методом прогрессивного wtf'а.
-                        Бла бла бла бла бла бла бла бла бла бла бла бла.
+                        {{ speaker.description }}
                     </div>
                 </a>
             </article>
-            <article class="speaker speaker_size_small">
-                <a class="speaker__link" href="">
-                    <span class="speaker__photo">
-                        <img src="http://cs862.userapi.com/u27253/a_0227ea38.jpg" alt="">
-                    </span>
-                    <h2 class="speaker__name">
-                        Артём Голиков
-                    </h2>
-                    <div class="speaker__description">
-                        Изучал теологию в сибири.
-                        Верстает методом прогрессивного wtf'а.
-                        Бла бла бла бла бла бла бла бла бла бла бла бла.
-                    </div>
-                </a>
-            </article>
-            <article class="speaker speaker_size_small">
-                <a class="speaker__link" href="">
-                    <span class="speaker__photo">
-                        <img src="http://cs862.userapi.com/u27253/a_0227ea38.jpg" alt="">
-                    </span>
-                    <h2 class="speaker__name">
-                        Артём Голиков
-                    </h2>
-                    <div class="speaker__description">
-                        Изучал теологию в сибири.
-                        Верстает методом прогрессивного wtf'а.
-                        Бла бла бла бла бла бла бла бла бла бла бла бла.
-                    </div>
-                </a>
-            </article>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

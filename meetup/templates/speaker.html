@@ -21,6 +21,12 @@
     </header>
     <section class="speaker-talks">
         <div class="wrapper">
+            {% if speaker.description %}
+            <p class="speaker-talks__description">
+                {{ speaker.description }}
+            </p>
+            {% endif %}
+
             {% for talk in speaker.talks.all %}
             <article class="speaker-talks__item">
                 <header class="speaker-talks__item-header">

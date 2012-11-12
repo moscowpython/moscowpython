@@ -135,6 +135,7 @@ class Speaker(models.Model):
     slug = models.SlugField(u'Слаг', default='')
     photo = models.ImageField(u'Фотография', upload_to='speakers', null=True, blank=True)
     company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
+    description = models.TextField(u'Описание', blank=True)
 
     def __unicode__(self):
         return self.name
