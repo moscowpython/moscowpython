@@ -69,8 +69,14 @@
     line-height: 30px;
     font-size: 22px;
 }
+.speaker__link:hover {
+    text-decoration: none;
+}
 .speaker__link .speaker__name {
     color: #0a6629;
+}
+.speaker__link:hover .speaker__name {
+    text-decoration: underline;
 }
 .speaker__company-name {
     padding-left: 10px;

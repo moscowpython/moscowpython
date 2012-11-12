@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^(robots.txt)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
     url(r'^humans.txt$', 'django.views.static.serve', {'document_root': ROOT_PATH, 'path': 'AUTHORS.txt'}),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^admin_tools/', include('admin_tools.urls')),
+#    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'', include('meetup.urls')),
 )
 
