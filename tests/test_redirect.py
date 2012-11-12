@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from unittest.case import TestCase
+from unittest import TestCase
 from mock import Mock
 import os
 from moscowdjango.wsgi import force_domain
