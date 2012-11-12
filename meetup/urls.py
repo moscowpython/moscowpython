@@ -2,6 +2,7 @@
 from django.conf.urls import patterns, url, include
 from meetup.views import EventPage, TalkPage, SpeakerPage
 from views import IndexPage, EventsList, AboutPage, LivePage, ajax_subscribe
+from django.views.generic.base import TemplateView
 
 
 urlpatterns = patterns('',
@@ -12,6 +13,7 @@ urlpatterns = patterns('',
     url('^meetup/$', EventsList.as_view(), name='events'),
     url('^meetup/(?P<number>\d+)/$', EventPage.as_view(), name='event'),
     url('^meetup/(?P<event_number>\d+)/(?P<talk_slug>[\w-]+)/$', TalkPage.as_view(), name='talk'),
+    url('^speakers/$', TemplateView.as_view(template_name='speakers.html'), name='speakers'),
     url('^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
     url('', include('meetup.legacy.urls')),
 )
