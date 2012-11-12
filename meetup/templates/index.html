@@ -15,6 +15,7 @@
                     {% include 'blocks/subscription.html' %}
                 {% else %}
                     {% include 'blocks/event_talks.html' with event=main_event %}
+                    {% include 'blocks/sidebar.html' with event=main_event %}
                 {% endif %}
                 {% include 'blocks/sponsors.html' with event=main_event %}
             </div>
