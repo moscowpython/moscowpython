@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+from forms import EventAdminForm
 from meetup.models import Talk, Sponsor, Speaker, Event
 from models import Photo, Venue, MediaCoverage
 
@@ -37,6 +38,7 @@ class MediaCoverageInline(admin.TabularInline):
 
 
 class EventAdmin(admin.ModelAdmin):
+    form = EventAdminForm
     list_display = ['__unicode__', 'date', 'venue', 'status']
     list_editable = ['status']
     exclude = ['status_changed']

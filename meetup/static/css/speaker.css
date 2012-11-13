@@ -136,6 +136,10 @@
 .speaker-talks {
     padding-top: 20px;
 }
+.speaker-talks__description {
+    font-size: 14px;
+    margin: 0 0 40px 160px;
+}
 .speaker-talks__item {
     margin: 0 0 50px 160px;
 }

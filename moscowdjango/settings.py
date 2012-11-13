@@ -179,6 +179,8 @@ COMPRESS_CSS_FILTERS = (
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+NOSE_ARGS = ['--nologcapture']
+
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///{0}'.format(
