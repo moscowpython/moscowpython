@@ -17,4 +17,12 @@ virtualenv ../moscowdjango.env
 Useful dev commands
 -------------------
 
-python manage.py dumpdata meetup --format=json-pretty --indent=4 > meetup/fixtures/development.json
+python manage.py dumpdata meetup --format=json-pretty --indent=4 > meetup/fixtures/development.json\
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
