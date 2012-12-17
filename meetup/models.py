@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 from django.conf import settings
 from django.db import models
 from django.db.models import permalink
@@ -87,6 +88,9 @@ class Event(StatusModel):
     venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
     timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
+    manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
+                    help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
+                              u' Нужно, для тестирования в другое время.')
 
     objects = PassThroughManager.for_queryset_class(EventQuerySet)()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
@@ -104,6 +108,14 @@ class Event(StatusModel):
     @property
     def is_active(self):
         return self.status == self.STATUS.active
+
+    @property
+    def on_air(self):
+        if self.manual_on_air is not None:
+            return self.manual_on_air
+        datetime_start = self.date - datetime.timedelta(minutes=30)
+        datetime_stop = self.date + datetime.timedelta(hours=4) # Actually meetups are not that long
+        return datetime_start <= datetime.datetime.now() <= datetime_stop
 
     def get_timepad_url(self):
         if self.timepad_id:
@@ -135,6 +147,7 @@ class Speaker(models.Model):
     slug = models.SlugField(u'Слаг', default='')
     photo = models.ImageField(u'Фотография', upload_to='speakers', null=True, blank=True)
     company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
+    description = models.TextField(u'Описание', blank=True)
 
     def __unicode__(self):
         return self.name

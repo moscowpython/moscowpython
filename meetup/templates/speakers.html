@@ -1,0 +1,27 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block title %}Докладчики @ Moscow Django{% endblock %}
+
+
+{% block page %}
+    <section class="speakers">
+        <div class="wrapper">
+            {% for speaker in speakers %}
+            <article class="speaker speaker_size_small">
+                <a class="speaker__link" href="{{ speaker.get_absolute_url }}">
+                    <span class="speaker__photo">
+                        <img src="{{ speaker.avatar_url }}" alt="{{ speaker }}">
+                    </span>
+                    <h2 class="speaker__name">
+                        {{ speaker }}
+                    </h2>
+                    <div class="speaker__description">
+                        {{ speaker.description }}
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

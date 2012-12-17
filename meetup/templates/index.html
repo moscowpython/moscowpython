@@ -9,13 +9,18 @@
         <section class="event">
             {% include 'blocks/event_header.html' with event=main_event %}
             {% include 'blocks/share.html' with page='main' %}
+            {% if main_event.on_air %}
+                <div class="event__live">
+                    {% include 'blocks/live-mailru.html' %}
+                </div>
+            {% endif %}
             <div class="wrapper">
                 {% if main_event.status == 'planning' %}
                     {% include 'blocks/message.html' with event=main_event %}
                     {% include 'blocks/subscription.html' %}
                 {% else %}
-                    {% include 'blocks/event_talks.html' with event=main_event %}
                     {% include 'blocks/sidebar.html' with event=main_event %}
+                    {% include 'blocks/event_talks.html' with event=main_event %}
                 {% endif %}
                 {% include 'blocks/sponsors.html' with event=main_event %}
             </div>

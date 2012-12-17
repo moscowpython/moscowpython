@@ -24,6 +24,18 @@
     border-bottom: 10px solid #085221;
     overflow: hidden;
 }
+.speaker_size_small {
+    display: inline-block;
+    width: 48%;
+    height: auto;
+    vertical-align: top;
+    background: none;
+    border-bottom: none;
+}
+.speaker__link {
+    text-decoration: none;
+    color: #0a6629;
+}
 .speaker__photo {
     display: inline-block;
     width: 120px;
@@ -33,24 +45,57 @@
     float: left;
     border-radius: 57px;
 }
+.speaker_size_small .speaker__photo {
+    width: 80px;
+    height: 80px;
+}
 .speaker__photo img {
     width: 120px;
     height: 120px;
+}
+.speaker_size_small .speaker__photo img {
+    width: 80px;
+    height: 80px;
 }
 .speaker__name {
     margin-left: 160px;
     line-height: 140px;
     font-size: 33px;
+    font-weight: normal;
     color: white;
+}
+.speaker_size_small .speaker__name {
+    margin: 15px 0 5px 100px;
+    line-height: 30px;
+    font-size: 22px;
+}
+.speaker__link:hover {
+    text-decoration: none;
+}
+.speaker__link .speaker__name {
+    color: #0a6629;
+}
+.speaker__link:hover .speaker__name {
+    text-decoration: underline;
 }
 .speaker__company-name {
     padding-left: 10px;
     color: #92cc47;
 }
+.speaker__description {
+    margin: 5px 10px 10px 100px;
+    font-size: 13px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #603913;
+}
 @media screen and (max-width: 770px) {
     .speaker {
         height: 80px;
         clear: both;
+    }
+    .speaker_size_small {
+        display: block;
+        width: 100%;
     }
     .speaker__photo,
     .speaker__photo img {
@@ -91,6 +136,10 @@
 .speaker-talks {
     padding-top: 20px;
 }
+.speaker-talks__description {
+    font-size: 14px;
+    margin: 0 0 40px 160px;
+}
 .speaker-talks__item {
     margin: 0 0 50px 160px;
 }
@@ -128,4 +177,15 @@
     .speaker-talks__item-name {
         font-size: 22px;
     }
+}
+
+
+/**
+ * @section     Страница всех доклвадчиков
+ */
+
+.speakers {
+    padding: 15px 0;
+    border-top: 4px solid #0a6629;
+    background: url(../images/backgrounds/archive.png) 0 0 repeat;
 }

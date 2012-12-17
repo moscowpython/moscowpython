@@ -63,6 +63,12 @@ class TalkPage(DetailView):
         return self.render_to_response(context)
 
 
+class SpeakerList(ListView):
+    template_name = 'speakers.html'
+    queryset = Speaker.objects.all().order_by('name')
+    context_object_name = 'speakers'
+
+
 class SpeakerPage(DetailView):
     template_name = 'speaker.html'
     model = Speaker

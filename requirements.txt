@@ -17,7 +17,7 @@ django-admin-tools==0.4.1
 django-debug-toolbar==0.9.4
 nose==1.1.2
 django-nose==1.1
-mock==0.8.0
+mock==1.0.1
 
 #heroku
 psycopg2==2.4.5
