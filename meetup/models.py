@@ -109,6 +109,15 @@ class Event(StatusModel):
     def is_active(self):
         return self.status == self.STATUS.active
 
+    def days_delta(self):
+        if not self.date:
+            return None
+        delta = (self.date.date() - datetime.datetime.today().date()).days
+        if delta < 0:
+            return None # passed
+        if delta >= 0:
+            return delta
+
     @property
     def on_air(self):
         if self.manual_on_air is not None:

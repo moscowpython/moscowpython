@@ -8,6 +8,7 @@
     {% if main_event %}
         <section class="event">
             {% include 'blocks/event_header.html' with event=main_event %}
+            {% include 'blocks/announcement.html' %}
             {% include 'blocks/share.html' with page='main' %}
             {% if main_event.on_air %}
                 <div class="event__live">

@@ -180,3 +180,18 @@
     color: white;
     background: url(../images/icons/search.png) 0px 0 no-repeat;
 }
+
+
+/**
+ * @subsection  Announcement
+ */
+.announcement {
+    padding: 5px 0;
+    font-size: 16px;
+    text-align: center;
+    background-color: #f4c430;
+}
+
+.announcement a {
+    color: green;
+}

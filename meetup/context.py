@@ -3,6 +3,9 @@ from django.core.urlresolvers import reverse_lazy
 from models import Event
 
 
+ANNOUNCEMENT_THRESHOLD = 14
+
+
 def menu(request):
     menu_items = (
         {'title':u'События', 'url':'events'},
@@ -24,6 +27,15 @@ def menu(request):
 
 
 def all_events_processor(request):
+    show_announcement = False
+    try:
+        days_to_next_event = Event.visible.all().latest().days_delta()
+        if days_to_next_event <= ANNOUNCEMENT_THRESHOLD:
+            show_announcement = True
+    except Event.DoesNotExist:
+        days_to_next_event = None
     return {
-        'all_events': Event.visible.all()
+        'all_events': Event.visible.all(),
+        'show_announcement': show_announcement,
+        'days_to_next_event': days_to_next_event
     }
