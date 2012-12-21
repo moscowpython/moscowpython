@@ -1,4 +1,4 @@
-django==1.4.1
+django==1.4.3
 pillow==1.7.7
 django-model-utils==1.1.0
 django-compressor==1.1.2
