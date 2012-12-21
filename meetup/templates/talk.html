@@ -6,7 +6,12 @@
 
 {% block title %}{{ talk }} @ {{ talk.event }}{% endblock %}
 {% block facebook %}{{ talk.speaker.avatar_url }}{% endblock %}
-
+{% block twitter %}
+    {{ block.super }}
+    <meta name="twitter:title" content="{{ talk }}">
+    <meta name="twitter:description" content="{{ talk.description }}">
+    <meta name="twitter:image" content="{{ talk.speaker.avatar_url }}">
+{% endblock %}
 
 {% block page %}
     {% include 'blocks/event_header.html' with event=talk.event %}

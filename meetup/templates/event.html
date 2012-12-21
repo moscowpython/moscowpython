@@ -7,6 +7,14 @@
 {% block title %}{{ event }}{% endblock %}
 
 
+{% block twitter %}
+    {{ block.super }}
+    <meta name="twitter:title" content="{{ event }}">
+    <meta name="twitter:description" content="{{ event.description }}">
+    <meta name="twitter:image" content="{% static 'images/elements/logo.png' %}">
+{% endblock %}
+
+
 {% block page %}
     <section class="event">
         {% include 'blocks/event_header.html' %}

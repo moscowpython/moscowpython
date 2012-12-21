@@ -1,7 +1,20 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load static from staticfiles %}
+
+
 {% block title %}Moscow Django Meetup{% endblock %}
+
+
+{% block twitter %}
+    {{ block.super }}
+    <meta name="twitter:title" content="Moscow Django Meetup">
+    <meta name="twitter:description" content="Moscow Django Meetup — это ежемесячные встречи разработчиков на Джанго.
+Несколько человек выступают перед публикой с докладами, так или иначе связанными с веб-разработкой, Python и Django.
+Не обходится и без самого интересного: общения в кулуарах.">
+    <meta name="twitter:image" content="{% static 'images/elements/logo.png' %}">
+{% endblock %}
 
 
 {% block page %}
