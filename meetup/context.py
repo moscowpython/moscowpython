@@ -8,11 +8,11 @@ ANNOUNCEMENT_THRESHOLD = 14
 
 def menu(request):
     menu_items = (
-        {'title':u'События', 'url':'events'},
-        {'title':u'Видео', 'url':'http://www.youtube.com/moscowdjangoru'},
-        {'title':u'Группа Facebook', 'url':'http://www.facebook.com/groups/MoscowDjango/'},
-        {'title':u'Люди', 'url':'speakers'},
-        {'title':u'О проекте', 'url':'about'},
+        {'title': u'События', 'url': 'events'},
+        {'title': u'Видео', 'url': 'http://www.youtube.com/moscowdjangoru'},
+        {'title': u'Группа Facebook', 'url': 'http://www.facebook.com/groups/MoscowDjango/'},
+        {'title': u'Люди', 'url': 'speakers'},
+        {'title': u'О проекте', 'url': 'about'},
     )
 
     for item in menu_items:
@@ -30,7 +30,7 @@ def all_events_processor(request):
     show_announcement = False
     try:
         days_to_next_event = Event.visible.all().latest().days_delta()
-        if days_to_next_event <= ANNOUNCEMENT_THRESHOLD:
+        if days_to_next_event is not None and days_to_next_event <= ANNOUNCEMENT_THRESHOLD:
             show_announcement = True
     except Event.DoesNotExist:
         days_to_next_event = None
