@@ -1,0 +1,24 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block title %}Обучающие материалы @ Moscow Django{% endblock %}
+
+
+{% block page %}
+    <section class="tutorials">
+        <div class="wrapper">
+            {% for tutorial in tutorials %}
+            <article class="tutorial tutorial_size_small">
+                <a class="tutorial__link" href="{{ tutorial.get_absolute_url }}">
+                    <h2 class="tutorial__title">
+                        {{ tutorial }}
+                    </h2>
+                    <div class="tutorial__description">
+                        {{ tutorial.description }}
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

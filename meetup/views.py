@@ -3,8 +3,7 @@ from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from .models import Talk, Photo, Speaker
-from models import Event
+from .models import Talk, Photo, Speaker, Event, Tutorial
 from .utils import subscribe_mail, validate_email
 
 
@@ -97,9 +96,20 @@ class LivePage(TemplateView):
         return context
 
 
+class TutorialList(ListView):
+    template_name = 'tutorials.html'
+    queryset = Tutorial.objects.all().order_by('title')
+    context_object_name = 'tutorials'
+
+
+class TutorialPage(DetailView):
+    template_name = 'tutorial.html'
+    model = Tutorial
+
 def ajax_subscribe(request):
     if "email" in request.POST:
         email = request.POST['email']
         if validate_email(email) and subscribe_mail(email):
             return HttpResponse('OK')
     return HttpResponse('Failed')
+

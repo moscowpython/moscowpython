@@ -1,0 +1,10 @@
+{% extends 'layout/layout.html' %}
+{% load markup %}
+
+{% block title %}{{ tutorial.title }} @ Moscow Django{% endblock %}
+
+{% block page %}
+    <h3>{{ tutorial.title }}</h3>
+    {% if tutorial.author %}<a href="{{ tutorial.get_absolute_url }}">{{ tutorial.author }}</a>{% endif %}
+    {{ tutorial.content|restructuredtext }}
+{% endblock %}

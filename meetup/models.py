@@ -228,3 +228,26 @@ class MediaCoverage(models.Model):
     class Meta:
         verbose_name = u'Упоминание'
         verbose_name_plural = u'Упоминания'
+
+
+class Tutorial(models.Model):
+
+    title = models.CharField(u'Название обучающего материала', max_length=250)
+    slug = models.SlugField(u'Слаг', default='')
+
+    author = models.ForeignKey(Speaker, blank=True, null=True,
+        verbose_name=u'Автор')
+
+    description = models.TextField(u'Краткое описание')
+    content = models.TextField(u'Содержание')
+
+    def __unicode__(self):
+        return self.title
+
+    @permalink
+    def get_absolute_url(self):
+        return 'tutorial', [self.slug]
+
+    class Meta:
+        verbose_name = u'Обучающий материал'
+        verbose_name_plural = u'Обучающие материалы'
