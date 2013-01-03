@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -11,11 +11,11 @@ from .utils import subscribe_mail, validate_email
 class IndexPage(ListView):
     template_name = 'index.html'
     context_object_name = 'events'
-    queryset = Event.archived.all().prefetch_related('talks', 'talks__speaker')
+    queryset = Event.archived.prefetch_related('talks', 'talks__speaker', 'talks__event')
 
     def get_last_event(self):
         try:
-            active_event = Event.visible.all().prefetch_related('talks', 'talks__speaker').latest()
+            active_event = Event.visible.latest()
         except Event.DoesNotExist:
             active_event = None
         return active_event
@@ -31,7 +31,7 @@ class IndexPage(ListView):
 
 class EventsList(ListView):
     template_name = 'event_list.html'
-    queryset = Event.visible.all()
+    queryset = Event.visible.prefetch_related('talks', 'talks__speaker', 'talks__event')
     context_object_name = 'events'
 
 
@@ -52,7 +52,7 @@ class EventPage(DetailView):
 class TalkPage(DetailView):
     template_name = 'talk.html'
     slug_url_kwarg = 'talk_slug'
-    queryset = Talk.active.all()
+    queryset = Talk.active.select_related('event', 'speaker')
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -71,7 +71,12 @@ class SpeakerList(ListView):
 
 class SpeakerPage(DetailView):
     template_name = 'speaker.html'
-    model = Speaker
+
+    def get_object(self):
+        return get_object_or_404(
+            Speaker.objects.prefetch_related('talks', 'talks__event'),
+            slug=self.kwargs['slug']
+        )
 
 
 class AboutPage(TemplateView):
