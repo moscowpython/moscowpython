@@ -70,7 +70,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -97,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -121,16 +120,15 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-    'storages',
-    's3_folder_storage',
+#    'storages',
+#    's3_folder_storage',
     'admin_sso',
-    'compressor',
     'pytils',
     'meetup',
 )
 
-if DEBUG:
-    INSTALLED_APPS += ('debug_toolbar',)
+#if DEBUG:
+#    INSTALLED_APPS += ('debug_toolbar',)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -171,11 +169,6 @@ SERIALIZATION_MODULES = {
     'json-pretty': 'moscowdjango.serializers.json_pretty',
 }
 
-COMPRESS_CSS_FILTERS = (
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-)
-
 TEST_RUNNER = 'discover_runner.DiscoverRunner'
 TEST_DISCOVER_TOP_LEVEL = os.path.dirname(os.path.dirname(__file__))
 TEST_DISCOVER_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
@@ -186,6 +179,8 @@ DATABASES = {
         os.path.join(ROOT_PATH, 'moscowdjango.db'))
     )
 }
+
+SECRET_KEY = 'moscowdjango'
 
 try:
     LOCAL_SETTINGS

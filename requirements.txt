@@ -1,24 +1,21 @@
-django==1.4.3
-pillow==1.7.7
-django-model-utils==1.1.0
-django-compressor==1.1.2
-django-picklefield==0.2.1
-embedly==0.4.3
-pytils==0.2.3
-django-admin-sso==0.1.1
-django-storages==1.1.4
-django-s3-folder-storage==0.1
+-e git+https://github.com/django/django.git@1.5b2#egg=django
+-e git+https://github.com/fluggo/Pillow.git#egg=Pillow
+django-model-utils==1.1.0 # FIXME
+django-picklefield==0.3.0
+-e git+https://github.com/coagulant/embedly-python.git@py3k#egg=embedly
+-e git+https://github.com/kmike/pytils.git@py3#egg=pytils
+django-admin-sso==0.1.1 # FIXME
+##django-storages==1.1.4
+##django-s3-folder-storage==0.1
 docutils==0.9.1
-south==0.7.5
-requests==0.13.3
-django-admin-tools==0.4.1
+-e hg+https://bitbucket.org/aaugustin/south-python3#egg=south
+requests==1.0.4
 
 #development
-django-debug-toolbar==0.9.4
--e git+https://github.com/coagulant/django-discover-runner.git#egg=django-discover-runner
+##django-debug-toolbar==0.9.4
+-e git+https://github.com/coagulant/django-discover-runner.git@py3-support#egg=django-discover-runner
 mock==1.0.1
 
 #heroku
 psycopg2==2.4.5
-dj-database-url==0.2.0
-gunicorn==0.14.5
+-e git+https://github.com/kennethreitz/dj-database-url.git#egg=dj-database-url

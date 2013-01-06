@@ -4,6 +4,7 @@ from settings import *
 DEBUG = False
 
 EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Amazon credentials
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
