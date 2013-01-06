@@ -177,9 +177,9 @@ COMPRESS_CSS_FILTERS = (
     'compressor.filters.cssmin.CSSMinFilter',
 )
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-NOSE_ARGS = ['--nologcapture']
+TEST_RUNNER = 'discover_runner.DiscoverRunner'
+TEST_DISCOVER_TOP_LEVEL = os.path.dirname(os.path.dirname(__file__))
+TEST_DISCOVER_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
 
 import dj_database_url
 DATABASES = {

@@ -3,8 +3,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from .models import Talk, Photo, Speaker
-from models import Event
+from .models import Talk, Photo, Speaker, Event
 from .utils import subscribe_mail, validate_email
 
 
@@ -13,18 +12,11 @@ class IndexPage(ListView):
     context_object_name = 'events'
     queryset = Event.archived.prefetch_related('talks', 'talks__speaker', 'talks__event')
 
-    def get_last_event(self):
-        try:
-            active_event = Event.visible.latest()
-        except Event.DoesNotExist:
-            active_event = None
-        return active_event
-
     def get_context_data(self, **kwargs):
         context = super(IndexPage, self).get_context_data(**kwargs)
 
         context.update({
-            'main_event': self.get_last_event(),
+            'main_event': Event.objects.upcoming(),
         })
         return context
 
@@ -56,6 +48,8 @@ class TalkPage(DetailView):
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
+
+        # Redirect for non-canonic urls (meetup.legacy.urls)
         if self.object.get_absolute_url() != request.path:
             return redirect(self.object)
 
@@ -72,7 +66,7 @@ class SpeakerList(ListView):
 class SpeakerPage(DetailView):
     template_name = 'speaker.html'
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         return get_object_or_404(
             Speaker.objects.prefetch_related('talks', 'talks__event'),
             slug=self.kwargs['slug']
