@@ -15,8 +15,7 @@ django-admin-tools==0.4.1
 
 #development
 django-debug-toolbar==0.9.4
-nose==1.1.2
-django-nose==1.1
+-e git+https://github.com/coagulant/django-discover-runner.git#egg=django-discover-runner
 mock==1.0.1
 
 #heroku
