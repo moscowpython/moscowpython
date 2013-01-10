@@ -7,7 +7,7 @@ django-picklefield==0.3.0
 ##django-admin-sso==0.1.1 # FIXME
 ##django-storages==1.1.4 # FIXME
 ##django-s3-folder-storage==0.1 # FIXME
-docutils==0.9.1
+docutils==0.10
 -e hg+https://bitbucket.org/aaugustin/south-python3#egg=south
 requests==1.0.4
 
