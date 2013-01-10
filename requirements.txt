@@ -1,12 +1,12 @@
 -e git+https://github.com/django/django.git@1.5b2#egg=django
 -e git+https://github.com/fluggo/Pillow.git#egg=Pillow
-django-model-utils==1.1.0 # FIXME
+-e hg+https://bitbucket.org/coagulant/django-model-utils/@py3#egg=django-model-utils
 django-picklefield==0.3.0
 -e git+https://github.com/coagulant/embedly-python.git@py3k#egg=embedly
 -e git+https://github.com/kmike/pytils.git@py3#egg=pytils
-django-admin-sso==0.1.1 # FIXME
-##django-storages==1.1.4
-##django-s3-folder-storage==0.1
+##django-admin-sso==0.1.1 # FIXME
+##django-storages==1.1.4 # FIXME
+##django-s3-folder-storage==0.1 # FIXME
 docutils==0.9.1
 -e hg+https://bitbucket.org/aaugustin/south-python3#egg=south
 requests==1.0.4

@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'admin_sso.auth.DjangoSSOAuthBackend',
+#    'admin_sso.auth.DjangoSSOAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -122,7 +122,7 @@ INSTALLED_APPS = (
     'south',
 #    'storages',
 #    's3_folder_storage',
-    'admin_sso',
+#    'admin_sso',
     'pytils',
     'meetup',
 )
