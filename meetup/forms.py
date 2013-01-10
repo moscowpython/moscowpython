@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.forms import ModelForm
-from models import Event
+from .models import Event
 
 
 class EventAdminForm(ModelForm):

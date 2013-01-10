@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from forms import EventAdminForm
-from meetup.models import Talk, Sponsor, Speaker, Event
-from models import Photo, Venue, MediaCoverage
+from .forms import EventAdminForm
+from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, Event
 
 
 def oembed_presentation(obj):

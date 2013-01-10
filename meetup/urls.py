@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url, include
-from meetup.views import EventPage, TalkPage, SpeakerPage, SpeakerList
-from views import IndexPage, EventsList, AboutPage, LivePage, ajax_subscribe
-from django.views.generic.base import TemplateView
+from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, EventsList, AboutPage, LivePage, ajax_subscribe
 
 
 urlpatterns = patterns('',

@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 
-from unittest import TestCase
 from mock import patch, MagicMock
-
 from django.core.urlresolvers import reverse
-from django.test import RequestFactory
+from django.test import TestCase, RequestFactory
 
 from meetup.views import ajax_subscribe
 
@@ -31,7 +29,7 @@ class SubscribeTest(TestCase):
     def test_email_ok(self, requests_mock):
         requests_mock.return_value = FakeResponse(200, "ok")
         response = ajax_subscribe(self.request)
-        self.assertEquals(response.content, 'OK')
+        self.assertContains(response, 'OK')
 
     @patch('meetup.utils.requests.get')
     def test_email_fail(self, requests_mock):
@@ -39,7 +37,7 @@ class SubscribeTest(TestCase):
             'error': "wrong_code"
         })
         response = ajax_subscribe(self.request)
-        self.assertEquals(response.content, 'Failed')
+        self.assertContains(response, 'Failed')
 
     def test_validate_email(self):
         from meetup.utils import validate_email
@@ -76,7 +74,7 @@ class AjaxSubscribeTest(TestCase):
         no_email_request = self.request.post(reverse("subscribe"))
         no_email_response = ajax_subscribe(no_email_request)
         self.assertEqual(no_email_response.status_code, 200)
-        self.assertEquals(no_email_response.content, "Failed")
+        self.assertContains(no_email_response, "Failed")
         self.assertFalse(requests_mock.called)
 
     def test_invalid_email(self, requests_mock):
@@ -86,7 +84,7 @@ class AjaxSubscribeTest(TestCase):
             {"email": invalid_email})
         invalid_email_response = ajax_subscribe(invalid_email_request)
         self.assertEqual(invalid_email_response.status_code, 200)
-        self.assertEquals(invalid_email_response.content, "Failed")
+        self.assertContains(invalid_email_response, "Failed")
         self.assertFalse(requests_mock.called)
 
     def test_valid_email(self, requests_mock):
@@ -96,5 +94,5 @@ class AjaxSubscribeTest(TestCase):
             {"email": valid_email})
         valid_email_response = ajax_subscribe(valid_email_request)
         self.assertEqual(valid_email_response.status_code, 200)
-        self.assertEquals(valid_email_response.content, "OK")
+        self.assertContains(valid_email_response, "OK")
         self.assertTrue(requests_mock.called)

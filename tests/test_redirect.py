@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+import os
+
 from unittest import TestCase
 from mock import Mock
-import os
+
 from moscowdjango.wsgi import force_domain
 
 

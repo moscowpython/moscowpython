@@ -2,7 +2,6 @@
 import contextlib
 import datetime
 from django.test import TestCase
-from requests import patch
 from meetup.models import Event
 
 

@@ -37,7 +37,7 @@ class EventList(TestCase):
     def test_event_list(self):
         act, drf, pln, arc = create_events()
         response = self.client.get(reverse('events'))
-        self.assertQuerysetEqual(response.context['events'], map(repr, [act, pln, arc]))
+        self.assertQuerysetEqual(response.context['events'], [repr(event) for event in [act, pln, arc]])
 
 
 class EventsPage(TestCase):
@@ -84,7 +84,7 @@ class SpeakerList(TestCase):
         speaker1 = Speaker.objects.create(name='Speaker1', slug='slug1')
         speaker2 = Speaker.objects.create(name='Speaker2', slug='slug2')
         response = self.client.get(reverse('speakers'))
-        self.assertQuerysetEqual(response.context['speakers'], map(repr, [speaker1, speaker2]))
+        self.assertQuerysetEqual(response.context['speakers'], [repr(speaker) for speaker in [speaker1, speaker2]])
 
 
 class SpeakerDetail(TestCase):
@@ -104,7 +104,7 @@ class AboutPage(TestCase):
         photo2 = Photo.objects.create(image='^', caption='2')
         response = self.client.get(reverse('about'))
         self.assertTemplateUsed(response, 'about.html')
-        self.assertQuerysetEqual(response.context['photos'], map(repr, [photo2, photo1]))
+        self.assertQuerysetEqual(response.context['photos'], [repr(photo) for photo in [photo2, photo1]])
 
 
 class LivePage(TestCase):

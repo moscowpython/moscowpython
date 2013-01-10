@@ -120,7 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-    'django_nose',
+#    'django_sso',
 #    'storages',
 #    's3_folder_storage',
 #    'admin_sso',
@@ -171,8 +171,7 @@ SERIALIZATION_MODULES = {
 }
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-TEST_DISCOVER_TOP_LEVEL = os.path.dirname(os.path.dirname(__file__))
-TEST_DISCOVER_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
+NOSE_ARGS = ['--failed', '--nologcapture']
 
 import dj_database_url
 DATABASES = {

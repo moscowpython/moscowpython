@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse_lazy
-from models import Event
+from .models import Event
 
 
 ANNOUNCEMENT_THRESHOLD = 14
