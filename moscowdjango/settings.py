@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
+    'django_nose',
 #    'storages',
 #    's3_folder_storage',
 #    'admin_sso',
@@ -169,7 +170,7 @@ SERIALIZATION_MODULES = {
     'json-pretty': 'moscowdjango.serializers.json_pretty',
 }
 
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 TEST_DISCOVER_TOP_LEVEL = os.path.dirname(os.path.dirname(__file__))
 TEST_DISCOVER_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
 

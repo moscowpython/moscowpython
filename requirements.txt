@@ -1,4 +1,4 @@
--e git+https://github.com/django/django.git@1.5b2#egg=django
+-e git+https://github.com/django/django.git@f23d3c#egg=django
 -e git+https://github.com/fluggo/Pillow.git#egg=Pillow
 -e hg+https://bitbucket.org/coagulant/django-model-utils/@py3#egg=django-model-utils
 django-picklefield==0.3.0
@@ -15,6 +15,7 @@ requests==1.0.4
 ##django-debug-toolbar==0.9.4
 -e git+https://github.com/coagulant/django-discover-runner.git@py3-support#egg=django-discover-runner
 mock==1.0.1
+-e git+https://github.com/jonashaag/django-nose/@python3#egg=django-nose
 
 #heroku
 psycopg2==2.4.5

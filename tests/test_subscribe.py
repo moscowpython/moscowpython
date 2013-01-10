@@ -41,7 +41,6 @@ class SubscribeTest(TestCase):
         response = ajax_subscribe(self.request)
         self.assertEquals(response.content, 'Failed')
 
-
     def test_validate_email(self):
         from meetup.utils import validate_email
         valid_email = "This-is_valid.email@valid.domain-name.tld"

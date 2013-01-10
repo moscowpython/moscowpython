@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.base import TemplateView
-from settings import STATIC_ROOT, ROOT_PATH
+from .settings import STATIC_ROOT, ROOT_PATH
 
 admin.autodiscover()
 
