@@ -1,0 +1,93 @@
+/**
+ * Вакансии
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Вакансии
+ */
+
+.vacancies {
+    display: inline-block;
+}
+.vacancy {
+    margin-bottom: 20px;
+}
+.vacancy_weight_bold {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    background: url(../images/elements/talk-separator.png) 0 100% repeat-x;
+}
+.vacancy__link {
+    display: block;
+    padding: 10px 0;
+}
+.vacancy__link:hover {
+    text-decoration: none;
+}
+.vacancy__company {
+    display: block;
+    font-size: 18px;
+    color: #0a6629;
+    line-height: 1.2;
+}
+.vacancy_weight_bold .vacancy__company {
+    font-size: 22px;
+}
+.vacancy__name {
+    padding-right: 10px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #603913;
+}
+.vacancy_weight_bold .vacancy__name {
+    font-size: 16px;
+}
+.vacancy__link:hover .vacancy__company,
+.vacancy__link:hover .vacancy__name {
+    text-decoration: underline;
+}
+.vacancy__date {
+    display: block;
+    padding: 3px 0 3px 10px;
+    float: right;
+    font-size: 14px;
+    font-style: italic;
+    color: #bbb;
+}
+.vacancy_weight_bold .vacancy__date {
+    display: none;
+}
+.vacancy__type {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: black;
+}
+.vacancy__type_fulltime_yes {
+    background: #e7e7e7;
+    border: 1px solid #bbb;
+}
+.vacancy__type_fulltime_no {
+    background: #f6f6f6;
+    border: 1px dashed #aaa;
+}
+.vacancy__meetup {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: black;
+    background: #bfd9bf;
+    border: 1px solid rgba(87, 133, 87, 0.57);
+}
