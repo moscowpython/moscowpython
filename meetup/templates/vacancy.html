@@ -1,0 +1,54 @@
+{% extends 'layout/fotorama.html' %}
+
+
+{% load url from future %}
+
+
+{% block page %}
+    <section class="vacancy-page">
+        <div class="wrapper">
+            <header class="vacancy-page__header">
+                <h1 class="vacancy-page__company">Future Colors</h1>
+                <h2 class="vacancy-page__name">Программист Python (Django)</h2>
+                <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">11 января 2013</time>
+            </header>
+            <aside class="vacancy-page__contacts">
+                <h3 class="vacancy-page__contacts-header">Контакты</h3>
+                <div class="vacancy-page__contacts-content g-content">
+                    <ul>
+                        <li>по телефону (495) 123-45-67</li>
+                        <li>по имейлу <a href="mailto:info@futurecolors.ru">info@futurecolors.ru</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="g-content">
+                <p>Если вы уже имеете опыт или только начинаете работать с Django, у вас есть реализованные веб-проекты, которые вы можете показать, а желание научиться чему-то новому переполняет вас, то скорее всего, вы тот, кто нам нужен.</p>
+                <p>Мы ожидаем от вас:</p>
+                <ul>
+                    <li>наличие опыта разработки веб-проектов;</li>
+                    <li>знание Python или других скриптовых языков;</li>
+                    <li>опыт работы с Django, либо подобными веб-фреймворками;</li>
+                    <li>знание английского на уровне, достаточного для чтения документации;</li>
+                    <li>организованность, ответственность, желание развиваться и изучать новые технологии.</li>
+                </ul>
+                <p>Будет большим плюсом, если вы:</p>
+                <ul>
+                    <li>работали в команде;</li>
+                    <li>хорошо знакомы с Linux, консолью;</li>
+                    <li>используете git;</li>
+                    <li>имеете опенсорс-проекты;</li>
+                    <li>знакомы или дружите с javascript.</li>
+                </ul>
+            </div>
+            <footer class="vacancy-page__footer">
+                &larr;
+                <a class="vacancy-page__back" href="{% url 'vacancies' %}">
+                    Назад к вакансиям (34)
+                </a>
+            </footer>
+        </div>
+    </section>
+    {% include 'blocks/share.html' with page='vacancies' %}
+{% endblock %}

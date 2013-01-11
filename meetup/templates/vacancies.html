@@ -7,101 +7,103 @@
 {% block page %}
     <section class="content-page">
         <div class="wrapper">
-            <h1 class="content-page__header">Вакансии</h1>
+            <h1 class="content-page__header">
+                Вакансии <span class="content-page__header-counter">34</span>
+            </h1>
             <section class="vacancies">
                 <article class="vacancy vacancy_weight_bold">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Future Colors</span>
                         <span class="vacancy__name">Программист Python (Django)</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">11 января 2013</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">11 января 2013</time>
                     </a>
                 </article>
                 <article class="vacancy vacancy_weight_bold">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Future Colors</span>
                         <span class="vacancy__name">Сеньор программист Python (Django)</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">5 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">5 декабря 2012</time>
                     </a>
                 </article>
                 <article class="vacancy vacancy_weight_bold">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Seven Quark</span>
                         <span class="vacancy__name">Программист на Django</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">1 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">1 декабря 2012</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Mail.Ru Group</span>
                         <span class="vacancy__name">Cекретарь приемной руководителя</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">8 января 2013</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">8 января 2013</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Mail.Ru Group</span>
                         <span class="vacancy__name">Персональный ассистент руководителя</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">8 января 2013</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">8 января 2013</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Mail.Ru Group</span>
                         <span class="vacancy__name">Инженер по автоматизации тестирования</span>
-                        <span class="vacancy__type vacancy__type_fulltime_no">Контракт</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">7 января 2013</time>
+                        <span class="vacancy-type vacancy-type_fulltime_no">Контракт</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">7 января 2013</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Wargaming.net</span>
                         <span class="vacancy__name">Python-разработчик</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">1 января 2013</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">1 января 2013</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">ISsoft Solutions</span>
                         <span class="vacancy__name">Python разработчик</span>
-                        <span class="vacancy__type vacancy__type_fulltime_no">Контракт</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">28 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_no">Контракт</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">28 декабря 2012</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Wargaming.net</span>
                         <span class="vacancy__name">Ведущий Python разработчик</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">27 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">27 декабря 2012</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">IPONWEB Ltd</span>
                         <span class="vacancy__name">Lead Python Developer</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <span class="vacancy__meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">5 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <span class="vacancy-on-meetup" title="Представителей [Компания] можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">5 декабря 2012</time>
                     </a>
                 </article>
                 <article class="vacancy">
                     <a class="vacancy__link" href="{% url 'vacancy' %}">
                         <span class="vacancy__company">Полисбук, Страховой брокер</span>
                         <span class="vacancy__name">Web-программист</span>
-                        <span class="vacancy__type vacancy__type_fulltime_yes">Фултайм</span>
-                        <time class="vacancy__date" datetime="2013-01-11" title="Опубликовано [число]">2 декабря 2012</time>
+                        <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                        <time class="vacancy-date" datetime="2013-01-11" title="Опубликовано [число]">2 декабря 2012</time>
                     </a>
                 </article>
             </section>

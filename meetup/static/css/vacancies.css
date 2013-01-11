@@ -9,7 +9,7 @@
 
 
 /**
- * @section     Вакансии
+ * @section     Вакансии в списке
  */
 
 .vacancies {
@@ -52,7 +52,13 @@
 .vacancy__link:hover .vacancy__name {
     text-decoration: underline;
 }
-.vacancy__date {
+
+
+/**
+ * @subsection  Элементы вакансий
+ */
+
+.vacancy-date {
     display: block;
     padding: 3px 0 3px 10px;
     float: right;
@@ -60,10 +66,16 @@
     font-style: italic;
     color: #bbb;
 }
-.vacancy_weight_bold .vacancy__date {
+.vacancy_weight_bold .vacancy-date {
     display: none;
 }
-.vacancy__type {
+.vacancy-page .vacancy-date {
+    display: inline-block;
+    padding: 5px 0 1px 10px;
+    float: none;
+    vertical-align: middle;
+}
+.vacancy-type {
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
@@ -72,15 +84,15 @@
     font-size: 13px;
     color: black;
 }
-.vacancy__type_fulltime_yes {
+.vacancy-type_fulltime_yes {
     background: #e7e7e7;
     border: 1px solid #bbb;
 }
-.vacancy__type_fulltime_no {
+.vacancy-type_fulltime_no {
     background: #f6f6f6;
     border: 1px dashed #aaa;
 }
-.vacancy__meetup {
+.vacancy-on-meetup {
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
@@ -90,4 +102,56 @@
     color: black;
     background: #bfd9bf;
     border: 1px solid rgba(87, 133, 87, 0.57);
+}
+
+
+/**
+ * @section     Вакансии на отдельных страницах
+ */
+
+.vacancy-page {
+    margin: 25px 0;
+    clear: both;
+}
+.vacancy-page__header {
+    margin-bottom: 25px;
+}
+.vacancy-page__company {
+    margin: 0;
+    font-size: 31px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.vacancy-page__name {
+    margin: 0 0 10px;
+    font-size: 23px;
+    font-weight: normal;
+    color: #603913;
+}
+.vacancy-page .g-content {
+    max-width: 600px;
+}
+.vacancy-page__contacts {
+    width: 274px;
+    padding: 15px 17px 5px;
+    float: right;
+    background: #f2f2f2;
+    border: 1px solid #e4e4e4;
+}
+.vacancy-page__contacts-header {
+    margin: 0 0 25px;
+    font-size: 17px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.vacancy-page__contacts-content {
+    color: #603913;
+}
+.vacancy-page__footer {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 15px;
+}
+.vacancy-page__back {
+    color: #0a6629;
 }
