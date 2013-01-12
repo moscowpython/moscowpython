@@ -12,6 +12,7 @@ docutils==0.9.1
 south==0.7.5
 requests==0.13.3
 django-admin-tools==0.4.1
+Markdown==2.2.1
 
 #development
 django-debug-toolbar==0.9.4

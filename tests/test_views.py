@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from meetup.models import Event, Talk, Speaker, Photo
+from vacancies.models import Vacancy
 
 
 def create_events():
@@ -88,12 +89,31 @@ class SpeakerList(TestCase):
 
 
 class SpeakerDetail(TestCase):
-    """Integration tests for speaker list page"""
+    """Integration tests for speaker detail page"""
 
     def test_speaker(self):
         speaker = Speaker.objects.create(name='Speaker1', slug='slug')
         response = self.client.get(reverse('speaker', args=['slug']))
         self.assertEqual(response.context['speaker'], speaker)
+
+
+class VacancyList(TestCase):
+    """Integration tests for vacancy list page"""
+
+    def test_vacancies(self):
+        vacancy1 = Vacancy.objects.create(name='XXX', company='a')
+        vacancy2 = Vacancy.objects.create(name='YYY', company='b')
+        response = self.client.get(reverse('vacancies'))
+        self.assertQuerysetEqual(response.context['vacancies'], list(map(repr, [vacancy1, vacancy2])))
+
+
+class VacancyDetail(TestCase):
+    """Integration tests for vacancy detail page"""
+
+    def test_vacancy(self):
+        vacancy = Vacancy.objects.create(name='Vacancy1', company='slug')
+        response = self.client.get(reverse('vacancy', args=[1]))
+        self.assertEqual(response.context['vacancy'], vacancy)
 
 
 class AboutPage(TestCase):

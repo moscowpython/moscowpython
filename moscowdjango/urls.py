@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 #    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'', include('meetup.urls')),
+    url(r'', include('vacancies.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
