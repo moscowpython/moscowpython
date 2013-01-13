@@ -1,8 +1,11 @@
+import django
 from django.http import HttpResponse
 from django.shortcuts import redirect, get_object_or_404
+from django.utils import six
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+import sys
 from .models import Talk, Photo, Speaker, Event
 from .utils import subscribe_mail, validate_email
 
@@ -92,6 +95,20 @@ class LivePage(TemplateView):
 
         context.update({
             'event': Event.objects.upcoming(),
+        })
+        return context
+
+
+class Py3Page(TemplateView):
+    template_name = 'py3.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Py3Page, self).get_context_data(**kwargs)
+
+        context.update({
+            'django': django.get_version(),
+            'python': sys.version,
+            'py3': six.PY3,
         })
         return context
 
