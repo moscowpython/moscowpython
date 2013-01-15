@@ -11,6 +11,7 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'moscowdjango-staging'
 AWS_QUERYSTRING_AUTH = False
+AWS_CALLING_FORMAT = 2  # SUBDOMAIN
 
 # Media & static
 DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
