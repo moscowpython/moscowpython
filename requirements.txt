@@ -5,8 +5,7 @@ django-picklefield==0.3.0
 -e git+https://github.com/coagulant/embedly-python.git@py3k#egg=embedly
 -e git+https://github.com/kmike/pytils.git@py3#egg=pytils
 ##django-admin-sso==0.1.1 # FIXME
-##django-storages==1.1.4 # FIXME
-##django-s3-folder-storage==0.1 # FIXME
+-e git+https://github.com/coagulant/django-storages-py3@py3#egg=django-storages
 docutils==0.10
 https://bitbucket.org/aaugustin/south-python3/get/a23d01c06065.zip#egg=south
 requests==1.0.4
