@@ -13,6 +13,8 @@ AWS_STORAGE_BUCKET_NAME = 'moscowdjango-staging'
 AWS_QUERYSTRING_AUTH = False
 
 # Media & static
+DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
 #DEFAULT_FILE_STORAGE = 'moscowdjango.amazon.DefaultStorage'
 #STATICFILES_STORAGE = 'moscowdjango.amazon.StaticStorage'
 DEFAULT_S3_PATH = "media"
