@@ -14,8 +14,10 @@ AWS_QUERYSTRING_AUTH = False
 AWS_CALLING_FORMAT = 2  # SUBDOMAIN
 
 # Media & static
-DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
+DEFAULT_FILE_STORAGE = 'moscowdjango.amazon.DefaultStorage'
+STATICFILES_STORAGE = 'moscowdjango.amazon.s3.StaticStorage'
 DEFAULT_S3_PATH = "media"
 STATIC_S3_PATH = "static"
 MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
