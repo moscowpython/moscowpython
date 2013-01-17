@@ -65,8 +65,14 @@ class SpeakerAdmin(admin.ModelAdmin):
     list_editable = ['slug']
 
 
+def logo_preview(obj):
+    return '<img src=%s width=150>' % obj.logo.url
+logo_preview.allow_tags = True
+
+
 class SponsorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__unicode__', logo_preview, 'url',]
+    list_editable = ['url']
 
 
 class MediaCoverageAdmin(admin.ModelAdmin):
