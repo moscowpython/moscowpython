@@ -19,6 +19,11 @@
 .content-page .g-content {
     max-width: 600px;
 }
+.g-huge {
+    max-width: inherit;
+    font-size: 300%;
+    line-height: 2;
+}
 .content-page__header {
     margin: 0 0 20px;
     font-size: 31px;

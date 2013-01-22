@@ -9,13 +9,18 @@
             {% else %}
                 <h1 class="content-page__header">Сайт пока не работает на Python 3</h1>
             {% endif %}
-            <div class="g-content">
+            <div class="g-huge">
                 <p>
                     Django {{ django }}
                 </p>
                 <p>
                     Python {{ python }}
                 </p>
+                {% if py3 %}
+                <p>
+                    <a href="https://travis-ci.org/futurecolors/moscowdjango/jobs/4305634">Proof link (Travis CI tests)</a>
+                </p>
+                {% endif %}
             </div>
         </div>
     </section>
