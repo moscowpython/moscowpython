@@ -26,4 +26,4 @@ class Vacancy(StatusModel, TimeStampedModel):
     class Meta:
         verbose_name = u'Вакансия'
         verbose_name_plural = u'Вакансии'
-        ordering = ['-is_priority', '-modified']
+        ordering = ['-is_priority', '-modified', '-pk']

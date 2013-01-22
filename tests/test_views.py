@@ -104,7 +104,7 @@ class VacancyList(TestCase):
         vacancy1 = Vacancy.objects.create(name='XXX', company='a')
         vacancy2 = Vacancy.objects.create(name='YYY', company='b')
         response = self.client.get(reverse('vacancies'))
-        self.assertQuerysetEqual(response.context['vacancies'], list(map(repr, [vacancy1, vacancy2])))
+        self.assertQuerysetEqual(response.context['vacancies'], list(map(repr, [vacancy2, vacancy1])))
 
 
 class VacancyDetail(TestCase):
@@ -134,5 +134,3 @@ class LivePage(TestCase):
         response = self.client.get(reverse('live'))
         self.assertTemplateUsed(response, 'live.html')
         self.assertEqual(response.context['event'], None)
-
-
