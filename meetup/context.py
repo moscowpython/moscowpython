@@ -11,6 +11,7 @@ def menu(request):
         {'title': u'События', 'url': 'events'},
         {'title': u'Видео', 'url': 'http://www.youtube.com/moscowdjangoru'},
         {'title': u'Группа Facebook', 'url': 'http://www.facebook.com/groups/MoscowDjango/'},
+        {'title': u'Вакансии', 'url': 'vacancies'},
         {'title': u'Люди', 'url': 'speakers'},
         {'title': u'О проекте', 'url': 'about'},
     )

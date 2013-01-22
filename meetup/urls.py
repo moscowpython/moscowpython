@@ -16,7 +16,4 @@ urlpatterns = patterns('',
     url('^speakers/$', SpeakerList.as_view(), name='speakers'),
     url('^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
     url('', include('meetup.legacy.urls')),
-
-    url('^vacancies/$', TemplateView.as_view(template_name='vacancies.html'), name='vacancies'),
-    url('^vacancies/item/$', TemplateView.as_view(template_name='vacancy.html'), name='vacancy'),
 )
