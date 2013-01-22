@@ -124,7 +124,9 @@ INSTALLED_APPS = (
     'storages',
 #    'admin_sso',
     'pytils',
+
     'meetup',
+    'vacancies',
 )
 
 #if DEBUG:

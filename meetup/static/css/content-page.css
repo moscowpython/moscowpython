@@ -25,6 +25,17 @@
     font-weight: normal;
     color: #0a6629;
 }
+.content-page__header-counter {
+    padding-left: 10px;
+    font-size: 23px;
+    color: #aaa;
+}
+.content-page__sub-header {
+    margin: -15px 0 20px;
+    font-size: 23px;
+    font-weight: normal;
+    color: #603913;
+}
 
 
 /**
@@ -40,4 +51,21 @@
 }
 .g-content a {
     color: #0a6629;
+}
+.g-content ul {
+    margin: 0 0 20px 20px;
+    list-style: none;
+}
+.g-content ol {
+    margin: 0 0 20px 20px;
+}
+.g-content li {
+    position: relative;
+    margin-bottom: 5px;
+}
+.g-content ul li:before {
+    position: absolute;
+    left: -20px;
+    content: "—";
+    color: #464683;
 }
