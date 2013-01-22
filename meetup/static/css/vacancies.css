@@ -18,14 +18,17 @@
 .vacancy {
     margin-bottom: 20px;
 }
-.vacancy_weight_bold {
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    background: url(../images/elements/talk-separator.png) 0 100% repeat-x;
-}
+.vacancy_weight_bold {}
 .vacancy__link {
     display: block;
     padding: 10px 0;
+}
+.vacancy_weight_bold .vacancy__link {
+    padding: 15px;
+    margin: 0 -15px;
+    background: #ffffe7;
+    box-shadow: inset 0 0 10px rgba(10, 102, 41, 0.2);
+    border-radius: 2px;
 }
 .vacancy__link:hover {
     text-decoration: none;
