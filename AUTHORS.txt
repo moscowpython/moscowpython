@@ -9,7 +9,8 @@ Original site authors:
 
 Contributors:
 
-* Vladimir Filonov 
+* Vladimir Filonov
+* Alexandr Emelin
 
 Meetup original organizers:
 

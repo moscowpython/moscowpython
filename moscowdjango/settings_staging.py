@@ -1,7 +1,7 @@
 # Django settings for moscowdjango project.
 from .settings import *
 
-DEBUG = False
+DEBUG = True
 
 EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Amazon credentials
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'moscowdjango'
+AWS_STORAGE_BUCKET_NAME = 'moscowdjango-staging'
 AWS_QUERYSTRING_AUTH = False
 AWS_CALLING_FORMAT = 2  # SUBDOMAIN
 
@@ -25,7 +25,3 @@ STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
 
 # Django compressor
 COMPRESS_ENABLED = False
-COMPRESS_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
-COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-COMPRESS_ROOT = '/static/'
-COMPRESS_OUTPUT_DIR = 'CACHE'

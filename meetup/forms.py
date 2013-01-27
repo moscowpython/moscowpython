@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+from django import forms
 from django.forms import ModelForm
-from models import Event
+from .models import Event, Sponsor
 
 
 class EventAdminForm(ModelForm):
+    sponsors = forms.ModelMultipleChoiceField(queryset=Sponsor.objects.all(), widget=forms.CheckboxSelectMultiple())
 
     def __init__(self, *args, **kwargs):
         super(EventAdminForm, self).__init__(*args, **kwargs)

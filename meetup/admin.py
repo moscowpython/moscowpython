@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from forms import EventAdminForm
-from meetup.models import Talk, Sponsor, Speaker, Event, Tutorial, \
-    Photo, Venue, MediaCoverage
+from .forms import EventAdminForm
+from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, \
+    Event, Tutorial
 
 
 def oembed_presentation(obj):
@@ -66,8 +66,14 @@ class SpeakerAdmin(admin.ModelAdmin):
     list_editable = ['slug']
 
 
+def logo_preview(obj):
+    return '<img src=%s width=150>' % obj.logo.url
+logo_preview.allow_tags = True
+
+
 class SponsorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__unicode__', logo_preview, 'url',]
+    list_editable = ['url']
 
 
 class TutorialAdmin(admin.ModelAdmin):

@@ -1,4 +1,4 @@
-{% load staticfiles compress %}<!doctype html>
+{% load staticfiles %}<!doctype html>
 <!--[if lt IE 7 ]><html class="ie6 ie67 ie no-js" lang="ru"><![endif]-->
 <!--[if IE 7 ]>   <html class="ie7 ie67 ie no-js" lang="ru"><![endif]-->
 <!--[if IE 8 ]>   <html class="ie8 ie no-js" lang="ru"><![endif]-->
@@ -18,7 +18,6 @@
 
     {% block css %}
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-        {% compress css %}
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
@@ -29,7 +28,7 @@
         <link rel="stylesheet" href="{% static 'css/content-page.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/subscription.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/speaker.css' %}" type="text/css" />
-        {% endcompress %}
+        <link rel="stylesheet" href="{% static 'css/vacancies.css' %}" type="text/css" />
     {% endblock %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />

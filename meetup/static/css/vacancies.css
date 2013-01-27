@@ -1,0 +1,160 @@
+/**
+ * Вакансии
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Вакансии в списке
+ */
+
+.vacancies {
+    display: inline-block;
+}
+.vacancy {
+    margin-bottom: 20px;
+}
+.vacancy_weight_bold {}
+.vacancy__link {
+    display: block;
+    padding: 10px 0;
+}
+.vacancy_weight_bold .vacancy__link {
+    padding: 15px;
+    margin: 0 -15px;
+    background: #ffffe7;
+    box-shadow: inset 0 0 10px rgba(10, 102, 41, 0.2);
+    border-radius: 2px;
+}
+.vacancy__link:hover {
+    text-decoration: none;
+}
+.vacancy__company {
+    display: block;
+    font-size: 18px;
+    color: #0a6629;
+    line-height: 1.2;
+}
+.vacancy_weight_bold .vacancy__company {
+    font-size: 22px;
+}
+.vacancy__name {
+    padding-right: 10px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #603913;
+}
+.vacancy_weight_bold .vacancy__name {
+    font-size: 16px;
+}
+.vacancy__link:hover .vacancy__company,
+.vacancy__link:hover .vacancy__name {
+    text-decoration: underline;
+}
+
+
+/**
+ * @subsection  Элементы вакансий
+ */
+
+.vacancy-date {
+    display: block;
+    padding: 3px 0 3px 10px;
+    float: right;
+    font-size: 14px;
+    font-style: italic;
+    color: #bbb;
+}
+.vacancy_weight_bold .vacancy-date {
+    display: none;
+}
+.vacancy-page .vacancy-date {
+    display: inline-block;
+    padding: 5px 0 1px 10px;
+    float: none;
+    vertical-align: middle;
+}
+.vacancy-type {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: black;
+}
+.vacancy-type_fulltime_yes {
+    background: #e7e7e7;
+    border: 1px solid #bbb;
+}
+.vacancy-type_fulltime_no {
+    background: #f6f6f6;
+    border: 1px dashed #aaa;
+}
+.vacancy-on-meetup {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: black;
+    background: #bfd9bf;
+    border: 1px solid rgba(87, 133, 87, 0.57);
+}
+
+
+/**
+ * @section     Вакансии на отдельных страницах
+ */
+
+.vacancy-page {
+    margin: 25px 0;
+    clear: both;
+}
+.vacancy-page__header {
+    margin-bottom: 25px;
+}
+.vacancy-page__company {
+    margin: 0;
+    font-size: 31px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.vacancy-page__name {
+    margin: 0 0 10px;
+    font-size: 23px;
+    font-weight: normal;
+    color: #603913;
+}
+.vacancy-page .g-content {
+    max-width: 600px;
+}
+.vacancy-page__contacts {
+    width: 274px;
+    padding: 15px 17px 5px;
+    float: right;
+    background: #f2f2f2;
+    border: 1px solid #e4e4e4;
+}
+.vacancy-page__contacts-header {
+    margin: 0 0 25px;
+    font-size: 17px;
+    font-weight: normal;
+    color: #0a6629;
+}
+.vacancy-page__contacts-content {
+    color: #603913;
+}
+.vacancy-page__footer {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 15px;
+}
+.vacancy-page__back {
+    color: #0a6629;
+}

@@ -23,7 +23,7 @@
 .event-header {
     height: 103px;
     font-family: 'SansusWebissimoRegular', sans-serif;
-    background: #0a6629;
+    background: #0a6629 url(../images/backgrounds/ornament.png) 0 -2px repeat;
     border-bottom: 10px solid #085221;
     overflow: hidden;
 }

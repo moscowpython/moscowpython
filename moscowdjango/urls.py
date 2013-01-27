@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.base import TemplateView
-from settings import STATIC_ROOT, ROOT_PATH
+from .settings import STATIC_ROOT, ROOT_PATH
 
 admin.autodiscover()
 
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 #    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'', include('meetup.urls')),
+    url(r'', include('vacancies.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,45 @@
+{% extends 'layout/layout.html' %}
+
+
+{% load url from future %}
+{% load pytils_dt markup %}
+
+{% block title %}Работа в {{ vacancy.company }} @ Moscow Django {% endblock %}
+
+
+{% block page %}
+    <section class="vacancy-page">
+        <div class="wrapper">
+            <header class="vacancy-page__header">
+                <h1 class="vacancy-page__company">{{ vacancy.company }}</h1>
+                <h2 class="vacancy-page__name">{{ vacancy.name }}</h2>
+                {% if vacancy.type == 'fulltime' %}
+                    <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
+                {% endif %}
+                {% if vacancy.type == 'contract' %}
+                    <span class="vacancy-type vacancy-type_fulltime_no">Фултайм</span>
+                {% endif %}
+                {% if vacancy.is_participant %}
+                    <span class="vacancy-on-meetup" title="Представителей {{ vacancy.company }} можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                {% endif %}
+                <time class="vacancy-date" datetime="{{ vacancy.modified }}" title="Обновлено {{ vacancy.modified }}">{{ vacancy.modified|ru_strftime:"%d %B" }}</time>
+            </header>
+            <aside class="vacancy-page__contacts">
+                <h3 class="vacancy-page__contacts-header">Контакты</h3>
+                <div class="vacancy-page__contacts-content g-content">
+                    {{ vacancy.contacts|markdown:"safe" }}
+                </div>
+            </aside>
+            <div class="g-content">
+                {{ vacancy.description|markdown:"safe" }}
+            </div>
+            <footer class="vacancy-page__footer">
+                &larr;
+                <a class="vacancy-page__back" href="{% url 'vacancies' %}">
+                    Назад к вакансиям ({{ vacancy_count }})
+                </a>
+            </footer>
+        </div>
+    </section>
+    {% include 'blocks/share.html' with page='vacancies' %}
+{% endblock %}

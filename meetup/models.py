@@ -10,14 +10,15 @@ from model_utils.managers import QueryManager, PassThroughManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
 
-class TalkManager(Manager):
 
+class TalkManager(Manager):
     def active(self):
         qs = self.get_query_set()
         return qs.filter(status="active")
 
+
 class Talk(StatusModel):
-    STATUS = Choices('draft', 'active')
+    STATUS = Choices('active', 'draft')
 
     name = models.CharField(u'Название', max_length=1024)
     speaker = models.ForeignKey('Speaker', verbose_name=u'Докладчик', related_name='talks')
@@ -78,7 +79,13 @@ class EventQuerySet(models.query.QuerySet):
 
 
 class Event(StatusModel):
-    STATUS = Choices('draft', 'planning', 'active', 'archived')
+    """ Events
+        * draft - totally invisible
+        * planning - only event description is shown
+        * active - event is scheduled, speakers also visible
+        * archived - event passed, registration is disabled
+    """
+    STATUS = Choices('planning', 'active', 'archived', 'draft',)
 
     name = models.CharField(u'Название', max_length=1024)
     number = models.SmallIntegerField(u'Номер', blank=True, null=True)
@@ -89,8 +96,8 @@ class Event(StatusModel):
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
     timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
     manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
-                    help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
-                              u' Нужно, для тестирования в другое время.')
+                                            help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
+                                                      u' Нужно, для тестирования в другое время.')
 
     objects = PassThroughManager.for_queryset_class(EventQuerySet)()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
@@ -114,7 +121,7 @@ class Event(StatusModel):
             return None
         delta = (self.date.date() - datetime.datetime.today().date()).days
         if delta < 0:
-            return None # passed
+            return None  # passed
         if delta >= 0:
             return delta
 
