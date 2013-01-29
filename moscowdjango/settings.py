@@ -8,7 +8,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+# ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -60,9 +60,9 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+# Put strings here, like "/home/html/static" or "C:/www/django/static".
+# Always use forward slashes, even on Windows.
+# Don't forget to use absolute paths, not relative paths.
 )
 
 # List of finder classes that know how to find static files in
@@ -96,11 +96,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
-#    'admin_sso.auth.DjangoSSOAuthBackend',
+    #    'admin_sso.auth.DjangoSSOAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -120,9 +120,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-#    'django_sso',
+    #    'django_sso',
     'storages',
-#    'admin_sso',
+    #    'admin_sso',
     'pytils',
 
     'meetup',
@@ -175,6 +175,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--failed', '--nologcapture']
 
 import dj_database_url
+
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///{0}'.format(
         os.path.join(ROOT_PATH, 'moscowdjango.db'))
@@ -182,6 +183,7 @@ DATABASES = {
 }
 
 SECRET_KEY = 'moscowdjango'
+EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 
 try:
     LOCAL_SETTINGS
