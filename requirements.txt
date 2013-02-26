@@ -2,7 +2,7 @@
 -e git+https://github.com/fluggo/Pillow.git#egg=Pillow
 -e git+https://github.com/coagulant/django-model-utils@py3#egg=django-model-utils
 django-picklefield==0.3.0
--e git+https://github.com/coagulant/embedly-python.git@py3k#egg=embedly
+-e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly
 -e git+https://github.com/kmike/pytils.git@py3#egg=pytils
 ##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@py3#egg=storages
@@ -16,6 +16,7 @@ Markdown==2.2.1
 -e git+https://github.com/coagulant/django-discover-runner.git@py3-support#egg=django-discover-runner
 mock==1.0.1
 -e git+https://github.com/jonashaag/django-nose/@python3#egg=django-nose
+coveralls
 
 #heroku
 psycopg2==2.4.5
