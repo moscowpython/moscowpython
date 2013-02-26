@@ -30,6 +30,9 @@
     font-weight: normal;
     color: #0a6629;
 }
+.content-page__header_page_tutorials {
+    margin: 30px 0 20px 160px;
+}
 .content-page__header-counter {
     padding-left: 10px;
     font-size: 23px;

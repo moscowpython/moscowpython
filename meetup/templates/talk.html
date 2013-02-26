@@ -79,13 +79,7 @@
             </section>
             <div class="g-clear"></div>
             {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}
-            <section class="comments">
-                <div id="disqus_thread"></div>
-                <footer class="comments__copyright">
-                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                </footer>
-            </section>
+            {% include 'blocks/comments.html' %}
         </div>
     </section>
 {% endblock %}
@@ -93,14 +87,7 @@
 
 {% block js %}
     {{ block.super }}
-    <script type="text/javascript">
-        var disqus_shortname = 'moscowdjango';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
+    {% include 'blocks/disqus.html' %}
     <script type="text/javascript">
         $(function(){
             $('.js-talk-navigation').on('change', function(){

@@ -1,10 +1,46 @@
 {% extends 'layout/layout.html' %}
+
+
 {% load markup %}
+
 
 {% block title %}{{ tutorial.title }} @ Moscow Django{% endblock %}
 
+
 {% block page %}
-    <h3>{{ tutorial.title }}</h3>
-    {% if tutorial.author %}<a href="{{ tutorial.get_absolute_url }}">{{ tutorial.author }}</a>{% endif %}
-    {{ tutorial.content|restructuredtext }}
+    <section class="content-page tutorial">
+        <div class="wrapper">
+            <h1 class="tutorial__name">{{ tutorial.title }}</h1>
+            <section class="tutorial__about">
+                {% if tutorial.author %}
+                    <div class="tutorial__about-aside">
+                        <a href="{{ tutorial.author.get_absolute_url }}" class="tutorial__avatar">
+                            <img src="{{ tutorial.author.avatar_url }}" />
+                        </a>
+                        <a href="{{ tutorial.author.get_absolute_url }}" class="tutorial__speaker">
+                            {{ tutorial.author }}
+                            {% if tutorial.author.company_name %}
+                                <div>({{ tutorial.author.company_name }})</div>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="tutorial__description-wrapper">
+                    <div class="tutorial__description">
+                        {{ tutorial.content|restructuredtext }}
+                    </div>
+                </div>
+            </section>
+            <div class="g-clear"></div>
+            {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}
+            {% include 'blocks/comments.html' %}
+        </div>
+    </section>
+    {% include 'blocks/share.html' with page='tutorial' %}
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    {% include 'blocks/disqus.html' %}
 {% endblock %}
