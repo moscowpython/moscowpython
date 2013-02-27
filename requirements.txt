@@ -1,4 +1,4 @@
--e git+https://github.com/django/django.git@f23d3c#egg=django
+django==1.5
 -e git+https://github.com/fluggo/Pillow.git#egg=Pillow
 -e git+https://github.com/coagulant/django-model-utils@py3#egg=django-model-utils
 django-picklefield==0.3.0
