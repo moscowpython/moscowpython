@@ -13,6 +13,13 @@
             <h1 class="content-page__header">
                 Вакансии <span class="content-page__header-counter">{{ vacancies|length }}</span>
             </h1>
+
+            <div class="g-content">
+                Здесь публикуются вакансии питонистов, интересные нашему сообществу.<br>
+                Присылайте свои вакансии <a href="mailto:meet@moscowdjango.ru">на почту</a> или
+                <a href="http://www.facebook.com/groups/MoscowDjango/">публикуйте в группе на фейсбуке</a>.<br><br>
+            </div>
+
             <section class="vacancies">
                 {% for vacancy in vacancies %}
                 <article class="vacancy{% if vacancy.is_priority %} vacancy_weight_bold{% endif %}">
