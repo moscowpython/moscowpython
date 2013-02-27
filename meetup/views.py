@@ -1,12 +1,14 @@
 import django
+import sys
+
 from django.http import HttpResponse
 from django.shortcuts import redirect, get_object_or_404
 from django.utils import six
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-import sys
-from .models import Talk, Photo, Speaker, Event
+
+from .models import Talk, Photo, Speaker, Event, Tutorial
 from .utils import subscribe_mail, validate_email
 
 
@@ -99,6 +101,17 @@ class LivePage(TemplateView):
         return context
 
 
+class TutorialList(ListView):
+    template_name = 'tutorials.html'
+    queryset = Tutorial.objects.all().order_by('title')
+    context_object_name = 'tutorials'
+
+
+class TutorialPage(DetailView):
+    template_name = 'tutorial.html'
+    model = Tutorial
+
+
 class Py3Page(TemplateView):
     template_name = 'py3.html'
 
@@ -119,3 +132,4 @@ def ajax_subscribe(request):
         if validate_email(email) and subscribe_mail(email):
             return HttpResponse('OK')
     return HttpResponse('Failed')
+

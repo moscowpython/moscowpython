@@ -1,0 +1,44 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block title %}Обучающие материалы @ Moscow Django{% endblock %}
+
+
+{% block page %}
+    <section class="content-page">
+        <div class="wrapper">
+            <h1 class="content-page__header content-page__header_page_tutorials">
+                Обучающие материалы
+            </h1>
+            {% for tutorial in tutorials %}
+                <article class="tutorial-teaser">
+                    {% if tutorial.author %}
+                        <a class="tutorial-teaser__speaker-link" href="{{ tutorial.get_absolute_url }}">
+                            <span class="tutorial-teaser__avatar">
+                                <img src="{{ tutorial.author.avatar_url }}" width="68" height="68">
+                            </span>
+                            <div class="tutorial-teaser__speaker">
+                                {{ tutorial.author }}
+                                {% if tutorial.author.company_name %}
+                                    <div>({{ tutorial.author.company_name }})</div>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% endif %}
+                    <div class="tutorial-teaser__content">
+                        <h3 class="tutorial-teaser__title">
+                            <a class="tutorial-teaser__title-link" href="{{ tutorial.get_absolute_url }}">
+                                {{ tutorial }}
+                            </a>
+                        </h3>
+                        <div class="tutorial-teaser__description">
+                            {{ tutorial.description }}
+                        </div>
+                    </div>
+                    <div class="g-clear"></div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+    {% include 'blocks/share.html' with page='tutorials' %}
+{% endblock %}

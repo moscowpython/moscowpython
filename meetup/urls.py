@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url, include
-from django.views.generic import TemplateView
-from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, EventsList, AboutPage, LivePage, ajax_subscribe, Py3Page
+from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, \
+    EventsList, AboutPage, LivePage, ajax_subscribe, Py3Page, \
+    TutorialPage, TutorialList
 
 
 urlpatterns = patterns('',
@@ -15,5 +16,7 @@ urlpatterns = patterns('',
     url('^meetup/(?P<event_number>\d+)/(?P<talk_slug>[\w-]+)/$', TalkPage.as_view(), name='talk'),
     url('^speakers/$', SpeakerList.as_view(), name='speakers'),
     url('^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
+    url('^tutorials/$', TutorialList.as_view(), name='tutorials'),
+    url('^tutorials/(?P<slug>[\w-]+)/$', TutorialPage.as_view(), name='tutorial'),
     url('', include('meetup.legacy.urls')),
 )

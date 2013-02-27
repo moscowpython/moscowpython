@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from .forms import EventAdminForm
-from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, Event
+from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, \
+    Event, Tutorial
 
 
 def oembed_presentation(obj):
@@ -75,6 +76,10 @@ class SponsorAdmin(admin.ModelAdmin):
     list_editable = ['url']
 
 
+class TutorialAdmin(admin.ModelAdmin):
+    pass
+
+
 class MediaCoverageAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'event']
     list_filter = ['event']
@@ -88,3 +93,4 @@ admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(MediaCoverage, MediaCoverageAdmin)
+admin.site.register(Tutorial, TutorialAdmin)
