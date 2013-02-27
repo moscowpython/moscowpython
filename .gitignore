@@ -12,6 +12,8 @@ var
 sdist
 develop-eggs
 .installed.cfg
+.noseids
+moscowdjango.db
 
 # Installer logs
 pip-log.txt
