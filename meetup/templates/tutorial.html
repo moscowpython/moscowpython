@@ -10,6 +10,7 @@
 {% block page %}
     <section class="content-page tutorial">
         <div class="wrapper">
+            <div class="tutorial__home"><a href="{% url 'tutorials' %}">Полезные материалы</a>:</div>
             <h1 class="tutorial__name">{{ tutorial.title }}</h1>
             <section class="tutorial__about">
                 {% if tutorial.author %}
@@ -36,7 +37,6 @@
             {% include 'blocks/comments.html' %}
         </div>
     </section>
-    {% include 'blocks/share.html' with page='tutorial' %}
 {% endblock %}
 
 

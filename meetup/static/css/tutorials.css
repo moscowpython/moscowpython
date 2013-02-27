@@ -77,6 +77,14 @@
  */
 
 .tutorial {}
+.tutorial__home {
+    margin: 0 0 5px 160px;
+    font-size: 15px;
+    color: #603913;
+}
+.tutorial__home a {
+    color: #603913;
+}
 .tutorial__name {
     margin: 0 0 20px 160px;
     font-size: 31px;
