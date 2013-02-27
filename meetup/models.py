@@ -256,5 +256,5 @@ class Tutorial(models.Model):
         return 'tutorial', [self.slug]
 
     class Meta:
-        verbose_name = u'Обучающий материал'
-        verbose_name_plural = u'Обучающие материалы'
+        verbose_name = u'Полезный материал'
+        verbose_name_plural = u'Полезные материалы'
