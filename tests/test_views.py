@@ -31,6 +31,12 @@ class IndexSystem(TestCase):
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['events'], [repr(arc)])
 
+    def test_planning_event(self):
+        pln = Event.objects.create(number=3, name='Planning', status=Event.STATUS.planning)
+        Event.objects.create(number=4, name='Archived', status=Event.STATUS.archived)
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.context['main_event'], pln)
+
 
 class EventList(TestCase):
     """Integration tests for events list page"""

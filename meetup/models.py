@@ -73,8 +73,10 @@ class Talk(StatusModel):
 class EventQuerySet(models.query.QuerySet):
     def upcoming(self):
         try:
-            return self.filter(status=Event.STATUS.active).latest()
-        except Event.DoesNotExist:
+            return self.filter(
+                status__in=[Event.STATUS.active, Event.STATUS.planning])\
+                .order_by('status', '-id')[0]
+        except IndexError:
             return None
 
 
