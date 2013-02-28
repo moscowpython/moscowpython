@@ -7,7 +7,7 @@ django-picklefield==0.3.0
 ##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@py3#egg=storages
 docutils==0.10
-https://bitbucket.org/aaugustin/south-python3/get/a23d01c06065.zip#egg=south
+https://bitbucket.org/aaugustin/south-python3-achive/get/a23d01c06065.zip#egg=south
 requests==1.0.4
 Markdown==2.2.1
 
