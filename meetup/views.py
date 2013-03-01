@@ -21,7 +21,7 @@ class IndexPage(ListView):
         context = super(IndexPage, self).get_context_data(**kwargs)
 
         context.update({
-            'main_event': Event.objects.upcoming(),
+            'main_event': Event.spotlight(),
         })
         return context
 
@@ -96,7 +96,7 @@ class LivePage(TemplateView):
         context = super(LivePage, self).get_context_data(**kwargs)
 
         context.update({
-            'event': Event.objects.upcoming(),
+            'event': Event.spotlight(),
         })
         return context
 

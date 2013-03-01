@@ -11,6 +11,7 @@ Contributors:
 
 * Vladimir Filonov
 * Alexandr Emelin
+* @st4lk
 
 Meetup original organizers:
 

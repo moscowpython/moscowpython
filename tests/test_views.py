@@ -16,8 +16,8 @@ class IndexSystem(TestCase):
     """Integration tests for index page"""
 
     def test_main_event(self):
-        self.main_event = Event.objects.create(pk=1, name='Upcoming Meetup', status=Event.STATUS.active)
-        self.passed_event = Event.objects.create(pk=2, name='Passed Meetup', status=Event.STATUS.archived)
+        self.main_event = Event.objects.create(pk=1, number=1, name='Upcoming Meetup', status=Event.STATUS.active)
+        self.passed_event = Event.objects.create(pk=2, number=2, name='Passed Meetup', status=Event.STATUS.archived)
 
         response = self.client.get(reverse('index'))
         self.assertEqual(response.context['main_event'], self.main_event)
@@ -25,6 +25,12 @@ class IndexSystem(TestCase):
     def test_no_active_event(self):
         response = self.client.get(reverse('index'))
         self.assertEqual(response.context['main_event'], None)
+
+    def test_planning_event(self):
+        Event.objects.create(number=2, name='Archived', status=Event.STATUS.archived)
+        pln = Event.objects.create(number=3, name='Planning', status=Event.STATUS.planning)
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.context['main_event'], pln)
 
     def test_archived_events(self):
         act, drf, pln, arc = create_events()

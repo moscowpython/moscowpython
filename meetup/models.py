@@ -70,14 +70,6 @@ class Talk(StatusModel):
         ordering = ('-event__number', 'position',)
 
 
-class EventQuerySet(models.query.QuerySet):
-    def upcoming(self):
-        try:
-            return self.filter(status=Event.STATUS.active).latest()
-        except Event.DoesNotExist:
-            return None
-
-
 class Event(StatusModel):
     """ Events
         * draft - totally invisible
@@ -99,7 +91,7 @@ class Event(StatusModel):
                                             help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
                                                       u' Нужно, для тестирования в другое время.')
 
-    objects = PassThroughManager.for_queryset_class(EventQuerySet)()
+    objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
 
     def __unicode__(self):
@@ -107,6 +99,9 @@ class Event(StatusModel):
             return u'{0} №{1}'.format(self.name, self.number)
         else:
             return self.name
+
+    def __repr__(self):
+        return '<Event №%s>' % self.number
 
     @permalink
     def get_absolute_url(self):
@@ -130,17 +125,26 @@ class Event(StatusModel):
         if self.manual_on_air is not None:
             return self.manual_on_air
         datetime_start = self.date - datetime.timedelta(minutes=30)
-        datetime_stop = self.date + datetime.timedelta(hours=4) # Actually meetups are not that long
+        datetime_stop = self.date + datetime.timedelta(hours=4)  # Actually meetups are not that long
         return datetime_start <= datetime.datetime.now() <= datetime_stop
 
     def get_timepad_url(self):
         if self.timepad_id:
             return 'http://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
 
+    @classmethod
+    def spotlight(cls):
+        try:
+            return (cls.objects.filter(status__in=[Event.STATUS.active,
+                                                   Event.STATUS.planning])
+                               .order_by('status', '-id')[0])
+        except (Event.DoesNotExist, IndexError):
+            return None
+
     class Meta:
         verbose_name = u'Событие'
         verbose_name_plural = u'События'
-        get_latest_by = 'id'
+        get_latest_by = 'number'
         ordering = ['-date']
 
 
