@@ -24,7 +24,7 @@ TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 SITE_ID = 1
 
@@ -111,6 +111,7 @@ WSGI_APPLICATION = 'moscowdjango.wsgi.application'
 TEMPLATE_DIRS = ('',)
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
