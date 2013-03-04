@@ -134,11 +134,11 @@ class Event(StatusModel):
 
     @classmethod
     def spotlight(cls):
+        """ Last active or last planned or last archived
+        """
         try:
-            return (cls.objects.filter(status__in=[Event.STATUS.active,
-                                                   Event.STATUS.planning])
-                               .order_by('status', '-id')[0])
-        except (Event.DoesNotExist, IndexError):
+            return Event.visible.latest()
+        except Event.DoesNotExist:
             return None
 
     class Meta:

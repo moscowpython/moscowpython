@@ -16,8 +16,8 @@ class IndexSystem(TestCase):
     """Integration tests for index page"""
 
     def test_main_event(self):
-        self.main_event = Event.objects.create(pk=1, number=1, name='Upcoming Meetup', status=Event.STATUS.active)
-        self.passed_event = Event.objects.create(pk=2, number=2, name='Passed Meetup', status=Event.STATUS.archived)
+        self.main_event = Event.objects.create(pk=1, number=2, name='Upcoming Meetup', status=Event.STATUS.active)
+        self.passed_event = Event.objects.create(pk=2, number=1, name='Passed Meetup', status=Event.STATUS.archived)
 
         response = self.client.get(reverse('index'))
         self.assertEqual(response.context['main_event'], self.main_event)
