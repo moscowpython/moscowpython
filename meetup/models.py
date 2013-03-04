@@ -6,7 +6,7 @@ from django.db.models import permalink
 from embedly.client import Embedly
 from django.db.models.manager import Manager
 from model_utils import Choices
-from model_utils.managers import QueryManager, PassThroughManager
+from model_utils.managers import QueryManager
 from model_utils.models import StatusModel
 from picklefield.fields import PickledObjectField
 
@@ -29,7 +29,7 @@ class Talk(StatusModel):
     presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
     video = models.URLField(u'Адрес видео', blank=True)
     video_data = PickledObjectField(u'Meta-данные видео', blank=True)
-    position = models.SmallIntegerField(u'Порядок выступления на событии', default=0)
+    position = models.SmallIntegerField(u'Порядок', help_text=u'Порядок выступления на событии', default=0)
 
     objects = TalkManager()
 

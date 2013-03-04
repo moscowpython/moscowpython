@@ -16,8 +16,9 @@ def oembed_video(obj):
 oembed_video.short_description = u'Видео'
 oembed_video.boolean = True
 
+
 def preview(obj):
-    return '<img src=%s height=100>' % obj.get_absolute_url()
+    return '<img src=%s style="height:100px">' % obj.get_absolute_url()
 preview.allow_tags = True
 
 
@@ -57,7 +58,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 
 def photo_preview(obj):
-    return '<img src=%s height=50>' % obj.avatar_url
+    return '<img src=%s style="height:50px">' % obj.avatar_url
 photo_preview.allow_tags = True
 
 
