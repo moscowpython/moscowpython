@@ -10,7 +10,7 @@ docutils==0.10
 https://bitbucket.org/aaugustin/south-python3-achive/get/a23d01c06065.zip#egg=south
 requests==1.0.4
 Markdown==2.2.1
-django-suit==0.1.4
+-e git+https://github.com/coagulant/django-suit#egg=suit
 
 #development
 ##django-debug-toolbar==0.9.4
