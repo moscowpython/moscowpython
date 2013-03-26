@@ -6,7 +6,7 @@
             type="text/javascript"></script>
     <script type="text/javascript">
         var event = {
-            'coords': [{{ event.venue.latitude }}, {{ event.venue.longitude }}],
+            'coords': [{{ event.venue.latitude|escapejs }}, {{ event.venue.longitude|escapejs }}],
             'baloonContent': '{{ event|escapejs }}'
         }
     </script>
