@@ -209,9 +209,12 @@ class Photo(models.Model):
 
 
 class Sponsor(models.Model):
+    STATUSES = Choices('organizer', 'sponsor')
+
     name = models.CharField(u'Название компании', max_length=250)
     logo = models.ImageField(u'Логотип', upload_to='sponsors')
     url = models.URLField(u'Адрес сайта', blank=True)
+    status = models.CharField(u'Тип', choices=STATUSES, max_length=10)
 
     def __unicode__(self):
         return self.name
@@ -242,7 +245,6 @@ class MediaCoverage(models.Model):
 
 
 class Tutorial(models.Model):
-
     title = models.CharField(u'Название обучающего материала', max_length=250)
     slug = models.SlugField(u'Слаг', default='')
 
