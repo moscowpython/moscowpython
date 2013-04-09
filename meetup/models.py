@@ -209,7 +209,7 @@ class Photo(models.Model):
 
 
 class Sponsor(models.Model):
-    STATUSES = Choices('organizer', 'sponsor')
+    STATUSES = Choices('organizer', 'partner')
 
     name = models.CharField(u'Название компании', max_length=250)
     logo = models.ImageField(u'Логотип', upload_to='sponsors')
