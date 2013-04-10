@@ -1,0 +1,76 @@
+/**
+ * Голосовалка
+ *
+ * @package     moscowdjango
+ * @version     0.1
+ * @author      Golikov Artem <art@futurecolors.ru>
+ * @copyright   Future Colors
+ */
+
+
+/**
+ * @section     Кнопка для голосования
+ */
+
+.vote {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+    height: 26px;
+    padding: 0 10px;
+    border: 1px solid #cc9d0e;
+    border-radius: 5px;
+    background: rgb(237,183,23);
+    background: -moz-linear-gradient(top,  rgba(237,183,23,1) 0%, rgba(244,196,48,1) 50%, rgba(237,183,23,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,183,23,1)), color-stop(50%,rgba(244,196,48,1)), color-stop(100%,rgba(237,183,23,1)));
+    background: -webkit-linear-gradient(top,  rgba(237,183,23,1) 0%,rgba(244,196,48,1) 50%,rgba(237,183,23,1) 100%);
+    background: -o-linear-gradient(top,  rgba(237,183,23,1) 0%,rgba(244,196,48,1) 50%,rgba(237,183,23,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(237,183,23,1) 0%,rgba(244,196,48,1) 50%,rgba(237,183,23,1) 100%);
+    background: linear-gradient(to bottom,  rgba(237,183,23,1) 0%,rgba(244,196,48,1) 50%,rgba(237,183,23,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edb717', endColorstr='#edb717',GradientType=0 );
+    box-shadow: 0 0 4px rgba(100, 100, 0, 0.2);
+    cursor: pointer;
+}
+.vote:hover {
+    color: #593f00;
+    background: rgb(244,196,48);
+    box-shadow: 0 0 6px rgba(100, 100, 0, 0.1);
+}
+.vote:active {
+    color: #593f00;
+    background: rgb(237,183,23);
+    box-shadow: none;
+}
+.no-js .vote,
+.no-js .vote:hover,
+.no-js .vote:active {
+    color: #777;
+    background: #eee;
+    border-color: #999;
+    box-shadow: none;
+    cursor: default;
+}
+.vote__wrapper {
+    display: inline-block;
+    line-height: 27px;
+    font-size: 13px;
+    color: #422f00;
+}
+.vote__success,
+.vote__error {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    display: inline-block;
+    line-height: 27px;
+    white-space: nowrap;
+    font-size: 13px;
+    font-style: italic;
+}
+.vote__success {
+    color: #090;
+}
+.vote__error {
+    color: #a00;
+}
+

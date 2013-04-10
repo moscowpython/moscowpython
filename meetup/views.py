@@ -9,6 +9,7 @@ from django.utils import six
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Talk, Photo, Speaker, Event, Tutorial, Vote
 from .utils import subscribe_mail, validate_email
@@ -148,6 +149,7 @@ def ajax_subscribe(request):
     return HttpResponse('Failed')
 
 
+@csrf_exempt
 def ajax_vote(request, *args, **kwargs):
     cookie_name = 'moscowdjango_vote'
     if request.method == 'POST':

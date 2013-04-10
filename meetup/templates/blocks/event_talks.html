@@ -22,7 +22,12 @@
                     {{ talk.description|truncatewords:"25" }}
                 </div>
                 {% if talk.event.votable %}
-                    <a href="{% url 'vote' talk.id %}">Проголосовать за доклад</a>
+                    <span class="vote js-vote" data-href="{% url 'vote' talk.id %}">
+                        <span class="vote__wrapper">
+                            Проголосовать за доклад
+                        </span>
+                        <span class="vote__error"></span>
+                    </span>
                 {% endif %}
             </div>
             <div class="g-clear"></div>
