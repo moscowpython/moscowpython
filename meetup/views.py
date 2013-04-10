@@ -1,5 +1,6 @@
 import django
 import sys
+from django.core.urlresolvers import reverse
 from django.db import DatabaseError
 from django.db.models import Count
 
@@ -163,7 +164,7 @@ def ajax_vote(request, *args, **kwargs):
                                 event=event,
                                 ua=request.META.get('HTTP_USER_AGENT'),
                                 ip=request.META.get('REMOTE_ADDR'))
-            response = HttpResponse('OK')
+            response = HttpResponse(reverse('vote-results'))
             response.set_cookie(cookie_name, 'done')
             return response
         except DatabaseError:
