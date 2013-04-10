@@ -7,24 +7,37 @@
 {% block page %}
     <section class="content-page">
         <div class="wrapper">
-            <div class="g-huge">Результаты голосования</div>
+            <h1 class="content-page__header">Результаты голосования</h1>
 
-            <div id="out"></div>
-            {% googlecharts %}
-                {% data values "out_data" %}
-                    {% col "string" "Name" %}"{{ val }}"{% endcol %}
-                    {% col "number" "Value" %}{{ val }}{% endcol %}
-                {% enddata %}
-                {% options "out_options" %}
-                    kind: "PieChart",
-                    options: {
-                        width: 900,
-                        height: 700
-                    }
-                {% endoptions %}
-                {% graph "out" "out_data" "out_options" %}
-            {% endgooglecharts %}
-
+            <section class="event__talks">
+                {% for talk in talks %}
+                    <article class="event__talk">
+                        <a class="event__talk-speaker-link" href="{{ talk.get_absolute_url }}">
+                            <span class="event__talk-avatar">
+                                <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
+                            </span>
+                            <div class="event__talk-speaker">
+                                {{ talk.speaker }}
+                                {% if talk.speaker.company_name %}
+                                    <div>({{ talk.speaker.company_name }})</div>
+                                {% endif %}
+                            </div>
+                        </a>
+                        <div class="event__talk-content">
+                            <h3 class="event__talk-title">
+                                <a class="event__talk-title-link" href="{{ talk.get_absolute_url }}">
+                                    {{ talk }}
+                                </a>
+                            </h3>
+                            <div class="event__talk-votes {% if talk.is_leader %}event__talk-votes_leader_yes{% endif %}"
+                                 style="width: {{ talk.votes_percent }}%">
+                                <span class="event__talk-votes-count">{{ talk.num_votes }}</span>
+                            </div>
+                        </div>
+                        <div class="g-clear"></div>
+                    </article>
+                {% endfor %}
+            </section>
         </div>
     </section>
 {% endblock %}

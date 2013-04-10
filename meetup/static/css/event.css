@@ -189,6 +189,27 @@
     line-height: 30px;
     color: #0a6629;
 }
+.event__talk-votes {
+    position: relative;
+    width: 0;
+    height: 20px;
+    margin: 20px 0;
+    padding-left: 5px;
+    background: #777;
+    border-radius: 3px;
+}
+.event__talk-votes-count {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    padding-left: 10px;
+    line-height: 22px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.event__talk-votes_leader_yes {
+    background: #086822;
+}
 .event__talk-description {
     line-height: 1.5;
     font-size: 12px;

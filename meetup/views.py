@@ -135,10 +135,20 @@ class VoteResults(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(VoteResults, self).get_context_data(**kwargs)
+        talks = Talk.objects.filter(event=Event.spotlight()).annotate(num_votes=Count("votes"))
+
+        talks_votes = [talk.num_votes for talk in talks]
+        votes_total = sum(talks_votes)
+        votes_max = max(talks_votes)
+        if votes_total:
+            for talk in talks:
+                talk.votes_percent = int(talk.num_votes * 100 / votes_total)
+                if talk.num_votes == votes_max:
+                    talk.is_leader = True
         context.update({
-            'values': Talk.objects.filter(event=Event.spotlight())
-                                  .annotate(num_votes=Count("votes")).values_list('name', 'num_votes'),
+            'talks': talks,
         })
+
         return context
 
 
