@@ -1,5 +1,7 @@
 import django
 import sys
+from django.db import DatabaseError
+from django.db.models import Count
 
 from django.http import HttpResponse
 from django.shortcuts import redirect, get_object_or_404
@@ -8,7 +10,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from .models import Talk, Photo, Speaker, Event, Tutorial
+from .models import Talk, Photo, Speaker, Event, Tutorial, Vote
 from .utils import subscribe_mail, validate_email
 
 
@@ -126,6 +128,17 @@ class Py3Page(TemplateView):
         return context
 
 
+class VoteResults(TemplateView):
+    template_name = 'vote_results.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(VoteResults, self).get_context_data(**kwargs)
+        context.update({
+            'results': Talk.objects.filter(event=Event.spotlight()).annotate(num_votes=Count("votes"))
+        })
+        return context
+
+
 def ajax_subscribe(request):
     if "email" in request.POST:
         email = request.POST['email']
@@ -133,3 +146,23 @@ def ajax_subscribe(request):
             return HttpResponse('OK')
     return HttpResponse('Failed')
 
+
+def ajax_vote(request, *args, **kwargs):
+    cookie_name = 'moscowdjango_vote'
+    if request.method == 'GET':
+        if request.COOKIES.get(cookie_name, None):
+            return HttpResponse('Only one vote, man', status=409)
+        try:
+            event = Talk.objects.get(pk=kwargs['talk_id']).event
+            if not event.votable:
+                return HttpResponse('Voting is closed, sorry', status=409)
+            Vote.objects.create(talk_id=kwargs['talk_id'],
+                                event=event,
+                                ua=request.META.get('HTTP_USER_AGENT'),
+                                ip=request.META.get('REMOTE_ADDR'))
+            response = HttpResponse('OK')
+            response.set_cookie(cookie_name, 'done')
+            return response
+        except DatabaseError:
+            return HttpResponse('DB error, sorry', status=402)
+    return HttpResponse('Only POST', status=402)

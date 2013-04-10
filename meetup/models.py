@@ -7,7 +7,7 @@ from embedly.client import Embedly
 from django.db.models.manager import Manager
 from model_utils import Choices
 from model_utils.managers import QueryManager
-from model_utils.models import StatusModel
+from model_utils.models import StatusModel, TimeStampedModel
 from picklefield.fields import PickledObjectField
 
 
@@ -90,6 +90,7 @@ class Event(StatusModel):
     manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
                                             help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
                                                       u' Нужно, для тестирования в другое время.')
+    votable = models.BooleanField(u'Включить голосование', default=False)
 
     objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
@@ -264,3 +265,14 @@ class Tutorial(models.Model):
     class Meta:
         verbose_name = u'Полезный материал'
         verbose_name_plural = u'Полезные материалы'
+
+
+class Vote(TimeStampedModel):
+    talk = models.ForeignKey(Talk, related_name='votes')
+    event = models.ForeignKey(Event, related_name='votes')
+    ua = models.TextField(u'User Agent')
+    ip = models.TextField(u'IP')
+
+    class Meta:
+        verbose_name = u'Голос'
+        verbose_name_plural = u'Голос'

@@ -1,0 +1,14 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block page %}
+    <section class="content-page">
+        <div class="wrapper">
+            <div class="g-huge">
+            {% for result in results %}
+                {{ result }} ({{ result.num_votes }})<br>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

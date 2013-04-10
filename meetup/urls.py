@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, url, include
 from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, \
     EventsList, AboutPage, LivePage, ajax_subscribe, Py3Page, \
-    TutorialPage, TutorialList
+    TutorialPage, TutorialList, ajax_vote, VoteResults
 
 
 urlpatterns = patterns('',
@@ -18,5 +18,9 @@ urlpatterns = patterns('',
     url('^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
     url('^tutorials/$', TutorialList.as_view(), name='tutorials'),
     url('^tutorials/(?P<slug>[\w-]+)/$', TutorialPage.as_view(), name='tutorial'),
+    url('^vote/(?P<talk_id>\d+)/$', ajax_vote, name='vote'),
+    url('^prize/$', VoteResults.as_view(), name='vote-results'),
+
+    # legacy
     url('', include('meetup.legacy.urls')),
 )
