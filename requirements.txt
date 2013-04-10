@@ -11,6 +11,7 @@ https://bitbucket.org/aaugustin/south-python3-achive/get/a23d01c06065.zip#egg=so
 requests==1.0.4
 Markdown==2.2.1
 django-suit==0.1.9
+-e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
 
 #development
 ##django-debug-toolbar==0.9.4

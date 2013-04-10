@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'storages',
     #    'admin_sso',
     'pytils',
+    'googlecharts',
 
     'meetup',
     'vacancies',

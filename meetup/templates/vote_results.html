@@ -1,14 +1,30 @@
 {% extends 'layout/layout.html' %}
 
 
+{% load googlecharts %}
+
+
 {% block page %}
     <section class="content-page">
         <div class="wrapper">
-            <div class="g-huge">
-            {% for result in results %}
-                {{ result }} ({{ result.num_votes }})<br>
-            {% endfor %}
-            </div>
+            <div class="g-huge">Результаты голосования</div>
+
+            <div id="out"></div>
+            {% googlecharts %}
+                {% data values "out_data" %}
+                    {% col "string" "Name" %}"{{ val }}"{% endcol %}
+                    {% col "number" "Value" %}{{ val }}{% endcol %}
+                {% enddata %}
+                {% options "out_options" %}
+                    kind: "PieChart",
+                    options: {
+                        width: 900,
+                        height: 700
+                    }
+                {% endoptions %}
+                {% graph "out" "out_data" "out_options" %}
+            {% endgooglecharts %}
+
         </div>
     </section>
 {% endblock %}

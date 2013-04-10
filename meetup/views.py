@@ -134,7 +134,8 @@ class VoteResults(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(VoteResults, self).get_context_data(**kwargs)
         context.update({
-            'results': Talk.objects.filter(event=Event.spotlight()).annotate(num_votes=Count("votes"))
+            'values': Talk.objects.filter(event=Event.spotlight())
+                                  .annotate(num_votes=Count("votes")).values_list('name', 'num_votes'),
         })
         return context
 
@@ -149,7 +150,7 @@ def ajax_subscribe(request):
 
 def ajax_vote(request, *args, **kwargs):
     cookie_name = 'moscowdjango_vote'
-    if request.method == 'GET':
+    if request.method == 'POST':
         if request.COOKIES.get(cookie_name, None):
             return HttpResponse('Only one vote, man', status=409)
         try:
