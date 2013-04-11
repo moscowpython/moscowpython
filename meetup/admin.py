@@ -2,7 +2,7 @@
 from django.contrib import admin
 from .forms import EventAdminForm
 from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, \
-    Event, Tutorial
+    Event, Tutorial, Vote
 
 
 def oembed_presentation(obj):
@@ -95,3 +95,4 @@ admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(MediaCoverage, MediaCoverageAdmin)
 admin.site.register(Tutorial, TutorialAdmin)
+admin.site.register(Vote)
