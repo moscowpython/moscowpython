@@ -46,3 +46,15 @@ def subscribe_mail(email):
         return response.status_code == 200 and response.json['result'] == 'ok'
     except KeyError:
         return False
+
+
+cookie_name = 'moscowdjango_vote'
+
+
+def can_vote(request):
+    return not request.COOKIES.get(cookie_name, None)
+
+
+def set_vote_cookie(response):
+    response.set_cookie(cookie_name, 'done')
+    return response

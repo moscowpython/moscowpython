@@ -22,17 +22,28 @@
                     {{ talk.description|truncatewords:"25" }}
                 </div>
                 {% if talk.event.votable %}
+                    {% if can_vote %}
                     <span class="vote js-vote" data-href="{% url 'vote' talk.id %}">
                         <span class="vote__wrapper">
                             Проголосовать за доклад
                         </span>
                         <span class="vote__error"></span>
                     </span>
+                    {% endif %}
                 {% endif %}
             </div>
             <div class="g-clear"></div>
         </article>
     {% endfor %}
+    {% if event.votable and not can_vote %}
+    <div style="text-align: center">
+        <a href="{% url 'vote-results' %}" class="vote">
+            <span class="vote__wrapper">
+                Результаты голосования
+            </span>
+        </a>
+    </div>
+    {% endif %}
     {% if event.status == 'planning' %}
         <article class="event__talk">
             <div class="event__talk-content">

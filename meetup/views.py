@@ -1,3 +1,4 @@
+# coding=utf-8
 import django
 import sys
 from django.core.urlresolvers import reverse
@@ -13,7 +14,7 @@ from django.views.generic.list import ListView
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Talk, Photo, Speaker, Event, Tutorial, Vote
-from .utils import subscribe_mail, validate_email
+from .utils import subscribe_mail, validate_email, set_vote_cookie, can_vote
 
 
 class IndexPage(ListView):
@@ -26,6 +27,7 @@ class IndexPage(ListView):
 
         context.update({
             'main_event': Event.spotlight(),
+            'can_vote': can_vote(self.request)
         })
         return context
 
@@ -45,7 +47,8 @@ class EventPage(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EventPage, self).get_context_data(**kwargs)
         context.update({
-            'photos': context['event'].photos.all()
+            'photos': context['event'].photos.all(),
+            'can_vote': can_vote(self.request),
         })
         return context
 
@@ -162,10 +165,9 @@ def ajax_subscribe(request):
 
 @csrf_exempt
 def ajax_vote(request, *args, **kwargs):
-    cookie_name = 'moscowdjango_vote'
     if request.method == 'POST':
-        if request.COOKIES.get(cookie_name, None):
-            return HttpResponse('Only one vote, man', status=409)
+        if not can_vote(request):
+            return HttpResponse(u'Можно голосовать только за один доклад', status=409)
         try:
             event = Talk.objects.get(pk=kwargs['talk_id']).event
             if not event.votable:
@@ -175,7 +177,7 @@ def ajax_vote(request, *args, **kwargs):
                                 ua=request.META.get('HTTP_USER_AGENT'),
                                 ip=request.META.get('REMOTE_ADDR'))
             response = HttpResponse(reverse('vote-results'))
-            response.set_cookie(cookie_name, 'done')
+            response = set_vote_cookie(response)
             return response
         except DatabaseError:
             return HttpResponse('DB error, sorry', status=402)
