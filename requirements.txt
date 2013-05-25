@@ -18,7 +18,7 @@ django-suit==0.1.9
 -e git+https://github.com/coagulant/django-discover-runner.git@py3-support#egg=django-discover-runner
 mock==1.0.1
 -e git+https://github.com/jonashaag/django-nose/@python3#egg=django-nose
-coveralls
+coveralls==dev
 
 #heroku
 psycopg2==2.4.5
