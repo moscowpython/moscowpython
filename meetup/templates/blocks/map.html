@@ -5,12 +5,11 @@
     <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU"
             type="text/javascript"></script>
     <script type="text/javascript">
-        var event = {
+        var eventMapParams = {
             'coords': [{{ event.venue.latitude|escapejs }}, {{ event.venue.longitude|escapejs }}],
             'baloonContent': '{{ event|escapejs }}'
         }
     </script>
-    <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
     <div class="event__map-wrapper">
         <div class="event__map {% if small %}event__map_small{% endif %}" id="map"></div>
         <div class="event__map-placeholder"></div>
