@@ -1,8 +1,8 @@
-django==1.5
--e git+https://github.com/fluggo/Pillow.git#egg=Pillow
--e git+https://github.com/coagulant/django-model-utils@py3#egg=django-model-utils
-django-picklefield==0.3.0
--e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly
+django==1.6
+Pillow==2.2.1
+django-model-utils==1.5.0
+django-picklefield==0.3.1
+-e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
 -e git+https://github.com/kmike/pytils.git@py3#egg=pytils
 ##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@py3#egg=storages
@@ -10,16 +10,15 @@ docutils==0.10
 https://bitbucket.org/aaugustin/south-python3-achive/get/a23d01c06065.zip#egg=south
 requests==1.0.4
 Markdown==2.2.1
-django-suit==0.1.9
+-e git+https://github.com/darklow/django-suit@e7e91329e5f5ddc6ad452df22befec6440dfa13c#egg=suit
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
 
 #development
-##django-debug-toolbar==0.9.4
--e git+https://github.com/coagulant/django-discover-runner.git@py3-support#egg=django-discover-runner
+django-debug-toolbar==0.11.0
 mock==1.0.1
--e git+https://github.com/jonashaag/django-nose/@python3#egg=django-nose
+django-nose==1.2
 coveralls
 
 #heroku
-psycopg2==2.4.5
--e git+https://github.com/kennethreitz/dj-database-url.git#egg=dj-database-url
+psycopg2==2.5.1
+dj-database-url==0.2.2

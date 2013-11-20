@@ -27,11 +27,11 @@
             <aside class="vacancy-page__contacts">
                 <h3 class="vacancy-page__contacts-header">Контакты</h3>
                 <div class="vacancy-page__contacts-content g-content">
-                    {{ vacancy.contacts|markdown:"safe" }}
+                    {{ vacancy.contacts|markdown }}
                 </div>
             </aside>
             <div class="g-content">
-                {{ vacancy.description|markdown:"safe" }}
+                {{ vacancy.description|markdown }}
             </div>
             <footer class="vacancy-page__footer">
                 &larr;
