@@ -6,10 +6,10 @@ django-picklefield==0.3.1
 -e git+https://github.com/kmike/pytils.git@py3#egg=pytils
 ##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@py3#egg=storages
-docutils==0.10
-https://bitbucket.org/aaugustin/south-python3-achive/get/a23d01c06065.zip#egg=south
-requests==1.0.4
-Markdown==2.2.1
+docutils==0.11
+South==0.8.3
+requests==2.0.1
+Markdown==2.3.1
 -e git+https://github.com/darklow/django-suit@e7e91329e5f5ddc6ad452df22befec6440dfa13c#egg=suit
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
 
