@@ -5,7 +5,7 @@ django-picklefield==0.3.1
 -e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
 pytils==0.3
 ##django-admin-sso==0.1.1 # FIXME
--e git+https://github.com/coagulant/django-storages-py3@py3#egg=storages
+-e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
 South==0.8.3
 requests==2.0.1
