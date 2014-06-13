@@ -1,24 +1,24 @@
 Django>=1.6,<1.7
-Pillow==2.2.1
-django-model-utils==1.5.0
+Pillow==2.4.0
+django-model-utils==2.0.3
 django-picklefield==0.3.1
 -e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
 pytils==0.3
 ##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
-South==0.8.3
-requests==2.0.1
-Markdown==2.3.1
+South==0.8.4
+requests==2.3.0
+Markdown==2.4.1
 -e git+https://github.com/darklow/django-suit@e7e91329e5f5ddc6ad452df22befec6440dfa13c#egg=suit
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
 
 #development
-django-debug-toolbar==0.11.0
+django-debug-toolbar==1.2.1
 mock==1.0.1
 django-nose==1.2
 coveralls
 
 #heroku
-psycopg2==2.5.1
-dj-database-url==0.2.2
+psycopg2==2.5.3
+dj-database-url==0.3.0
