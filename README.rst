@@ -12,3 +12,26 @@ Sources of http://moscowdjango.ru
 .. image:: https://requires.io/github/futurecolors/moscowdjango/requirements.png?branch=master
     :target: https://requires.io/github/futurecolors/moscowdjango/requirements/?branch=master
     :alt: Requirements Status
+
+
+Running locally
+---------------
+
+Python 3.3+ required
+
+::
+
+    git clone https://github.com/futurecolors/moscowdjango/
+    cd moscowdjango
+    pip install -r requiremets.txt  # virtualenv is advised
+    python manage.py syncdb
+    python manage.py migrate
+    python manage.py loaddata development.json  # convenient
+    python manage.py runserver
+
+
+Tests
+-----
+::
+
+    python manage.py test
