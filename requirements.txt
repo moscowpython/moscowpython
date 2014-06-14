@@ -15,7 +15,6 @@ Markdown==2.4.1
 
 #development
 django-debug-toolbar==1.2.1
-mock==1.0.1
 django-nose==1.2
 coveralls
 

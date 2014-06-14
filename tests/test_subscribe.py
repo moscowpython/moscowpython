@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import os
 
-from mock import patch, MagicMock
+from unittest.mock import patch, MagicMock
 from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 from apps.meetup.views import ajax_subscribe
