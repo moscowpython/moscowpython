@@ -10,7 +10,7 @@ docutils==0.11
 South==0.8.4
 requests==2.3.0
 Markdown==2.4.1
--e git+https://github.com/darklow/django-suit@e7e91329e5f5ddc6ad452df22befec6440dfa13c#egg=suit
+django-suit==0.2.8
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
 
 #development
