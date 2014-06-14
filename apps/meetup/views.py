@@ -1,10 +1,10 @@
 # coding=utf-8
-import django
 import sys
+
+import django
 from django.core.urlresolvers import reverse
 from django.db import DatabaseError
 from django.db.models import Count
-
 from django.http import HttpResponse
 from django.shortcuts import redirect, get_object_or_404
 from django.utils import six

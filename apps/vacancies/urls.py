@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from django.conf.urls import patterns, url
-from vacancies.views import VacancyList, VacancyPage
+from .views import VacancyList, VacancyPage
 
 
 urlpatterns = patterns('',

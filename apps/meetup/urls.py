@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from django.conf.urls import patterns, url, include
 from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, \
     EventsList, AboutPage, LivePage, ajax_subscribe, Py3Page, \
@@ -22,5 +22,5 @@ urlpatterns = patterns('',
     url('^prize/$', VoteResults.as_view(), name='vote-results'),
 
     # legacy
-    url('', include('meetup.legacy.urls')),
+    url('', include('apps.meetup.legacy.urls')),
 )

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from django.contrib import admin
 from .forms import EventAdminForm
 from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, \

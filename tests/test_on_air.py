@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import contextlib
+
 import datetime
+
 from django.test import TestCase
-from meetup.models import Event
+from apps.meetup.models import Event
 
 
 @contextlib.contextmanager

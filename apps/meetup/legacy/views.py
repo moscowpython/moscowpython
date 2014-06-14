@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from django.shortcuts import get_object_or_404
 from django.views.generic import RedirectView
 from ..models import Event, Talk

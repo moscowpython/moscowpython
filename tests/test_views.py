@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from meetup.models import Event, Talk, Speaker, Photo
-from vacancies.models import Vacancy
+from apps.meetup.models import Event, Talk, Speaker, Photo
+from apps.vacancies.models import Vacancy
 
 
 def create_events():

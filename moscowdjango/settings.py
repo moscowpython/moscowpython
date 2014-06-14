@@ -85,8 +85,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-    'meetup.context.menu',
-    'meetup.context.all_events_processor',
+    'apps.meetup.context.menu',
+    'apps.meetup.context.all_events_processor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,8 +126,8 @@ INSTALLED_APPS = (
     'pytils',
     'googlecharts',
 
-    'meetup',
-    'vacancies',
+    'apps.meetup',
+    'apps.vacancies',
 )
 
 #if DEBUG:

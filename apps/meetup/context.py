@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from django.core.urlresolvers import reverse_lazy
 from .models import Event
 

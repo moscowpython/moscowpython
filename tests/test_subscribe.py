@@ -4,8 +4,7 @@ import os
 from mock import patch, MagicMock
 from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
-
-from meetup.views import ajax_subscribe
+from apps.meetup.views import ajax_subscribe
 
 
 def FakeResponse(status_code, result, duplicate=0, wrong=0, added=1):
@@ -25,13 +24,13 @@ class SubscribeTest(TestCase):
         self.request.POST.__getitem__.return_value = 'foo@bar.buz'
         self.request.POST.__contains__.return_value = True
 
-    @patch('meetup.utils.requests.get')
+    @patch('apps.meetup.utils.requests.get')
     def test_email_ok(self, requests_mock):
         requests_mock.return_value = FakeResponse(200, "ok")
         response = ajax_subscribe(self.request)
         self.assertContains(response, 'OK')
 
-    @patch('meetup.utils.requests.get')
+    @patch('apps.meetup.utils.requests.get')
     def test_email_fail(self, requests_mock):
         requests_mock.return_value = MagicMock(status_code=200, json={
             'error': "wrong_code"
@@ -40,7 +39,7 @@ class SubscribeTest(TestCase):
         self.assertContains(response, 'Failed')
 
     def test_validate_email(self):
-        from meetup.utils import validate_email
+        from apps.meetup.utils import validate_email
         valid_email = "This-is_valid.email@valid.domain-name.tld"
         invalid_emails = ["email with spaces@valid.domain-name.tld",
                           "email@wrong-domain", "AbraCadabra"]
@@ -49,9 +48,9 @@ class SubscribeTest(TestCase):
         for invalid in invalid_emails:
             self.assertFalse(validate_email(invalid), "Email '{0}' shouldn't be valid".format(invalid))
 
-    @patch('meetup.utils.requests.get')
+    @patch('apps.meetup.utils.requests.get')
     def test_subscribe_mail_envfail(self, requests_mock):
-        from meetup.utils import subscribe_mail
+        from apps.meetup.utils import subscribe_mail
 
         requests_mock.return_value = FakeResponse(500, "fail")
 
@@ -63,7 +62,7 @@ class SubscribeTest(TestCase):
         self.assertFalse(requests_mock.called)
 
 
-@patch('meetup.utils.requests.get')
+@patch('apps.meetup.utils.requests.get')
 @patch.dict('os.environ', TIMEPAD_API_KEY='xxx', TIMEPAD_ORG_ID='123', TIMEPAD_MAILLIST_ID='1')
 class AjaxSubscribeTest(TestCase):
     def setUp(self):
