@@ -1,2 +1,2 @@
 [report]
-omit=*/migrations/*
+omit=*/migrations/*,*/tests/*,*/tests.py
