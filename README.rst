@@ -23,7 +23,9 @@ Python 3.3+ required
 
     git clone https://github.com/futurecolors/moscowdjango/
     cd moscowdjango
-    pip install -r requiremets.txt  # virtualenv is advised
+    pyenv env
+    source env/bin/activate
+    pip install -r requiremets.txt
     python manage.py syncdb
     python manage.py migrate
     python manage.py loaddata development.json  # convenient

@@ -14,6 +14,8 @@ develop-eggs
 .installed.cfg
 .noseids
 moscowdjango.db
+.idea
+env
 
 # Installer logs
 pip-log.txt
