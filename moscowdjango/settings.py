@@ -1,5 +1,6 @@
 # Django settings for moscowdjango project.
 import os
+from celery.schedules import crontab
 
 ROOT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -186,6 +187,15 @@ DATABASES = {
 
 SECRET_KEY = 'moscowdjango'
 EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
+
+CELERY_ACCEPT_CONTENT = ['pickle', 'json']  # forward-compatible
+CELERYBEAT_SCHEDULE = {
+    'update_vacancies': {
+        'task': 'apps.vacancies.tasks.update_vacancies',
+        'schedule': crontab(hour='*/2', minute=0),
+    },
+}
+
 
 try:
     LOCAL_SETTINGS

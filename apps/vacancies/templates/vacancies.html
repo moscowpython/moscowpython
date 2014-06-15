@@ -16,14 +16,14 @@
 
             <div class="g-content">
                 Здесь публикуются вакансии питонистов, интересные нашему сообществу.<br>
-                Присылайте свои вакансии <a href="mailto:meet@moscowdjango.ru">на почту</a> или
-                <a href="http://www.facebook.com/groups/MoscowDjango/">публикуйте в группе на фейсбуке</a>.<br><br>
+                Ещё мы приветствуем посты от работодателей
+                <a href="http://www.facebook.com/groups/MoscowDjango/">в группе на фейсбуке</a>.<br><br>
             </div>
 
             <section class="vacancies">
                 {% for vacancy in vacancies %}
                 <article class="vacancy{% if vacancy.is_priority %} vacancy_weight_bold{% endif %}">
-                    <a class="vacancy__link" href="{{ vacancy.get_absolute_url }}">
+                    <a class="vacancy__link" href="{{ vacancy.url }}" target="_blank">
                         <span class="vacancy__company">{{ vacancy.company }}</span>
                         <span class="vacancy__name">{{ vacancy.name }}</span>
                         {% if vacancy.type == 'fulltime' %}
@@ -35,7 +35,7 @@
                         {% if vacancy.is_participant %}
                             <span class="vacancy-on-meetup" title="Представителей {{ vacancy.company }} можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
                         {% endif %}
-                        <time class="vacancy-date" datetime="{{ vacancy.modified }}" title="Обновлено {{ vacancy.modified }}">{{ vacancy.modified|ru_strftime:"%d %B" }}</time>
+                        <time class="vacancy-date" datetime="{{ vacancy.published_at }}" title="Опубликовано {{ vacancy.published_at }}">{{ vacancy.published_at|ru_strftime:"%d %B" }}</time>
                     </a>
                 </article>
                 {% endfor %}
@@ -43,4 +43,11 @@
         </div>
     </section>
     {% include 'blocks/share.html' with page='vacancies' %}
+{% endblock %}
+
+
+{% block copyright %}
+    <span class="footer__partners">
+        Вакансии подтягиваются с <a href="http://rabota.yandex.ru/search.xml/?top_days=7&text=python+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&strict=false&currency=RUR" class="footer__copyright-link">Яндекс.Работы</a>.
+    </span>
 {% endblock %}
