@@ -17,7 +17,7 @@ Sources of http://moscowdjango.ru
 Running locally
 ---------------
 
-Python 3.3+ required
+Python 3.4+ required
 
 ::
 
