@@ -26,9 +26,6 @@
                     <a class="vacancy__link" href="{{ vacancy.url }}" target="_blank">
                         <span class="vacancy__company">{{ vacancy.company }}</span>
                         <span class="vacancy__name">{{ vacancy.name }}</span>
-                        {% if vacancy.type == 'fulltime' %}
-                            <span class="vacancy-type vacancy-type_fulltime_yes">Фултайм</span>
-                        {% endif %}
                         {% if vacancy.type == 'contract' %}
                             <span class="vacancy-type vacancy-type_fulltime_no">Контракт</span>
                         {% endif %}
