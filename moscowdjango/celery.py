@@ -9,8 +9,8 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'moscowdjango.settings')
 
 app = Celery('moscowdjango',
-             backend=os.environ.get('REDISCLOUD_URL', 'redis://localhost'),
-             broker=os.environ.get('REDISCLOUD_URL', 'redis://localhost'))
+             backend=os.environ.get('CLOUDAMQP_URL', 'redis://localhost'),
+             broker=os.environ.get('CLOUDAMQP_URL', 'redis://localhost'))
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.

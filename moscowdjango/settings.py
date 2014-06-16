@@ -188,14 +188,15 @@ DATABASES = {
 SECRET_KEY = 'moscowdjango'
 EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 
-CELERY_ACCEPT_CONTENT = ['pickle', 'json']  # forward-compatible
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
 CELERYBEAT_SCHEDULE = {
     'update_vacancies': {
         'task': 'apps.vacancies.tasks.update_vacancies',
-        'schedule': crontab(hour='*/2', minute=0),
+        'schedule': crontab(hour='*/1', minute=0),
     },
 }
-BROKER_POOL_LIMIT = 0
+BROKER_POOL_LIMIT = 3
 
 try:
     LOCAL_SETTINGS

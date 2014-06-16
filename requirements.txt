@@ -23,7 +23,6 @@ billiard==3.3.0.17
 pytz==2014.4
 amqp==1.4.5
 anyjson==0.3.3
-redis==2.10.1
 
 #development
 httpretty==0.8.0
