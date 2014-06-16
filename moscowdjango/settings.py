@@ -195,7 +195,7 @@ CELERYBEAT_SCHEDULE = {
         'schedule': crontab(hour='*/2', minute=0),
     },
 }
-
+BROKER_POOL_LIMIT = 0
 
 try:
     LOCAL_SETTINGS
