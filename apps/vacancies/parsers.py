@@ -17,6 +17,8 @@ class VacancySync:
         self.parsers = parsers or [YandexRabotaParser()]
 
     def sync(self):
+        created_count = 0
+        updated_count = 0
         for parser in self.parsers:
             for vacancy_dict in parser.get_vacancies():
                 vacancy_dict['published_at'] = make_naive(vacancy_dict['published_at'], tzoffset(None, 14400))
@@ -27,8 +29,14 @@ class VacancySync:
                     for key, value in vacancy_dict.items():
                         setattr(obj, key, value)
                     obj.save()
+                    updated_count += 1
                 except Vacancy.DoesNotExist:
                     Vacancy.objects.create(**vacancy_dict)
+                    created_count += 1
+        return {
+            'created_count': created_count,
+            'updated_count': updated_count
+        }
 
 
 class YandexRabotaParser:
@@ -53,7 +61,7 @@ class YandexRabotaParser:
 
     @staticmethod
     def extract_title(title):
-        title_match = re.match('(?P<position>.+?)\((?P<salary>.+?)\)', title)
+        title_match = re.match('(?P<position>.+?)\((?P<salary>[^(]+?руб\.?)\)', title)
         if title_match:
             name = title_match.group('position')
             salary = title_match.group('salary')

@@ -51,7 +51,8 @@ class ParserTest(TestCase):
         httpretty.register_uri(httpretty.GET, "http://rabota.yandex.ru/rss.xml",
                                body=xml_content)
 
-        self.assertEqual(list(YandexRabotaParser().get_vacancies())[:2], [
+        vacancies = list(YandexRabotaParser().get_vacancies())
+        self.assertEqual(vacancies[:2], [
             {
                 'name': 'Python / PHP программист',
                 'salary': 'от 100 000 до 160 000 руб.',
@@ -79,3 +80,8 @@ class ParserTest(TestCase):
                                'возможность расти и развиваться в компании с...'
             }
         ])
+        self.assertEqual(vacancies[2]['name'], 'Программист (Python)')
+        self.assertEqual(vacancies[2]['salary'], '')
+
+        self.assertEqual(vacancies[3]['name'], 'Программист Python (Django)')
+        self.assertEqual(vacancies[3]['salary'], 'от 100 000 руб.')
