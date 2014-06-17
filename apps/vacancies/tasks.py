@@ -4,7 +4,7 @@ from celery import shared_task
 from apps.vacancies.parsers import VacancySync, YandexRabotaParser
 
 
-@shared_task
+@shared_task(ignore_result=True)
 def update_vacancies():
     fulltime = {
         'rid': 213,
@@ -20,4 +20,4 @@ def update_vacancies():
         YandexRabotaParser(urllib.parse.urlencode(fulltime), type='fulltime'),
         YandexRabotaParser(urllib.parse.urlencode(part_time), type='contract')
     ])
-    syncer.sync()
+    return syncer.sync()
