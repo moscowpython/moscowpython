@@ -29,8 +29,8 @@
                         {% if vacancy.type == 'contract' %}
                             <span class="vacancy-type vacancy-type_fulltime_no">Контракт</span>
                         {% endif %}
-                        {% if vacancy.is_participant %}
-                            <span class="vacancy-on-meetup" title="Представителей {{ vacancy.company }} можно встретить на митапе, чтобы задать вопросы">На meetup'е</span>
+                        {% if vacancy.salary %}
+                            <span class="vacancy-salary">{{ vacancy.salary }}</span>
                         {% endif %}
                         <time class="vacancy-date" datetime="{{ vacancy.published_at }}" title="Опубликовано {{ vacancy.published_at }}">{{ vacancy.published_at|ru_strftime:"%d %B" }}</time>
                     </a>
