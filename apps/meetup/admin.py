@@ -27,7 +27,7 @@ class TalkAdmin(admin.ModelAdmin):
     list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
-    ordering = ['event__pk', 'position']
+    ordering = ['-event__pk', 'position']
 
 
 class PhotoInline(admin.TabularInline):
