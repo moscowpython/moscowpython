@@ -23,7 +23,7 @@ preview.allow_tags = True
 
 
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
+    list_display = ['__str__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
     list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
@@ -40,18 +40,18 @@ class MediaCoverageInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
     form = EventAdminForm
-    list_display = ['__unicode__', 'date', 'venue', 'status']
+    list_display = ['__str__', 'date', 'venue', 'status']
     list_editable = ['status']
     exclude = ['status_changed']
     inlines = [PhotoInline, MediaCoverageInline]
 
 
 class VenueAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'address']
+    list_display = ['__str__', 'address']
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', preview, 'event', 'caption']
+    list_display = ['__str__', preview, 'event', 'caption']
     list_editable = ['caption']
     list_per_page = 10
     ordering = ['-id']
@@ -63,7 +63,7 @@ photo_preview.allow_tags = True
 
 
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', photo_preview, 'slug',]
+    list_display = ['__str__', photo_preview, 'slug',]
     list_editable = ['slug']
 
 
@@ -73,7 +73,7 @@ logo_preview.allow_tags = True
 
 
 class SponsorAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', logo_preview, 'url',]
+    list_display = ['__str__', logo_preview, 'url',]
     list_editable = ['url']
 
 
@@ -82,7 +82,7 @@ class TutorialAdmin(admin.ModelAdmin):
 
 
 class MediaCoverageAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'event']
+    list_display = ['__str__', 'event']
     list_filter = ['event']
     ordering = ['-event__pk', 'id']
 

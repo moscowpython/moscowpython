@@ -1,52 +1,41 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import model_utils.fields
+import django.utils.timezone
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Vacancy'
-        db.create_table('vacancies_vacancy', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created', self.gf('model_utils.fields.AutoCreatedField')(default=datetime.datetime.now)),
-            ('modified', self.gf('model_utils.fields.AutoLastModifiedField')(default=datetime.datetime.now)),
-            ('status', self.gf('model_utils.fields.StatusField')(default='active', max_length=100, no_check_for_status=True)),
-            ('status_changed', self.gf('model_utils.fields.MonitorField')(default=datetime.datetime.now, monitor='status')),
-            ('company', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('contacts', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('type', self.gf('django.db.models.fields.CharField')(default='fulltime', max_length=50)),
-            ('is_participant', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_priority', self.gf('django.db.models.fields.BooleanField')(default=False)),
-        ))
-        db.send_create_signal('vacancies', ['Vacancy'])
+    dependencies = [
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'Vacancy'
-        db.delete_table('vacancies_vacancy')
-
-
-    models = {
-        'vacancies.vacancy': {
-            'Meta': {'object_name': 'Vacancy'},
-            'company': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'contacts': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'created': ('model_utils.fields.AutoCreatedField', [], {'default': 'datetime.datetime.now'}),
-            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_participant': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_priority': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'modified': ('model_utils.fields.AutoLastModifiedField', [], {'default': 'datetime.datetime.now'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'status': ('model_utils.fields.StatusField', [], {'default': "'active'", 'max_length': '100', 'no_check_for_status': 'True'}),
-            'status_changed': ('model_utils.fields.MonitorField', [], {'default': 'datetime.datetime.now', 'monitor': "'status'"}),
-            'type': ('django.db.models.fields.CharField', [], {'default': "'fulltime'", 'max_length': '50'})
-        }
-    }
-
-    complete_apps = ['vacancies']
+    operations = [
+        migrations.CreateModel(
+            name='Vacancy',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('created', model_utils.fields.AutoCreatedField(editable=False, verbose_name='created', default=django.utils.timezone.now)),
+                ('modified', model_utils.fields.AutoLastModifiedField(editable=False, verbose_name='modified', default=django.utils.timezone.now)),
+                ('status', model_utils.fields.StatusField(max_length=100, no_check_for_status=True, choices=[('active', 'active'), ('draft', 'draft')], verbose_name='status', default='active')),
+                ('status_changed', model_utils.fields.MonitorField(monitor='status', verbose_name='status changed', default=django.utils.timezone.now)),
+                ('company', models.CharField(max_length=100, verbose_name='Компания')),
+                ('name', models.CharField(max_length=100, verbose_name='Должность')),
+                ('salary', models.CharField(max_length=100, verbose_name='З/П', blank=True)),
+                ('url', models.URLField(unique=True, verbose_name='Внешняя ссылка')),
+                ('published_at', models.DateTimeField(verbose_name='Дата публикации', null=True)),
+                ('description', models.TextField(help_text='Markdown', verbose_name='Текст', blank=True)),
+                ('contacts', models.TextField(help_text='Markdown', verbose_name='Контакты', blank=True)),
+                ('type', models.CharField(max_length=50, choices=[('fulltime', 'Фултайм'), ('contract', 'Контракт')], verbose_name='Занятость', default='fulltime')),
+                ('is_participant', models.BooleanField(verbose_name='На митапе', default=False)),
+                ('is_priority', models.BooleanField(verbose_name='Приоритетная вакансия', default=False)),
+            ],
+            options={
+                'ordering': ['-is_priority', '-published_at'],
+                'verbose_name_plural': 'Вакансии',
+                'verbose_name': 'Вакансия',
+            },
+            bases=(models.Model,),
+        ),
+    ]

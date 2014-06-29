@@ -120,10 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'south',
-    #    'django_sso',
     'storages',
-    #    'admin_sso',
     'pytils',
     'googlecharts',
 
