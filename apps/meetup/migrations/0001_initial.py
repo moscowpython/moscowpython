@@ -1,173 +1,184 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import model_utils.fields
+import picklefield.fields
+import django.utils.timezone
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Talk'
-        db.create_table('meetup_talk', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('status', self.gf('model_utils.fields.StatusField')(default='draft', max_length=100, no_check_for_status=True)),
-            ('status_changed', self.gf('model_utils.fields.MonitorField')(default=datetime.datetime.now, monitor='status')),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=1024)),
-            ('speaker', self.gf('django.db.models.fields.related.ForeignKey')(related_name='talks', to=orm['meetup.Speaker'])),
-            ('event', self.gf('django.db.models.fields.related.ForeignKey')(related_name='talks', to=orm['meetup.Event'])),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
-            ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('presentation', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
-            ('presentation_data', self.gf('picklefield.fields.PickledObjectField')(blank=True)),
-            ('video', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
-            ('video_data', self.gf('picklefield.fields.PickledObjectField')(blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Talk'])
+    dependencies = [
+    ]
 
-        # Adding model 'Event'
-        db.create_table('meetup_event', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('status', self.gf('model_utils.fields.StatusField')(default='draft', max_length=100, no_check_for_status=True)),
-            ('status_changed', self.gf('model_utils.fields.MonitorField')(default=datetime.datetime.now, monitor='status')),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=1024)),
-            ('number', self.gf('django.db.models.fields.SmallIntegerField')(null=True, blank=True)),
-            ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('date', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
-            ('venue', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['meetup.Venue'], null=True, blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Event'])
-
-        # Adding M2M table for field sponsors on 'Event'
-        db.create_table('meetup_event_sponsors', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('event', models.ForeignKey(orm['meetup.event'], null=False)),
-            ('sponsor', models.ForeignKey(orm['meetup.sponsor'], null=False))
-        ))
-        db.create_unique('meetup_event_sponsors', ['event_id', 'sponsor_id'])
-
-        # Adding model 'Venue'
-        db.create_table('meetup_venue', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('address', self.gf('django.db.models.fields.TextField')()),
-            ('latitude', self.gf('django.db.models.fields.DecimalField')(null=True, max_digits=9, decimal_places=6, blank=True)),
-            ('longitude', self.gf('django.db.models.fields.DecimalField')(null=True, max_digits=9, decimal_places=6, blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Venue'])
-
-        # Adding model 'Speaker'
-        db.create_table('meetup_speaker', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('photo', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('company_name', self.gf('django.db.models.fields.CharField')(max_length=1024, blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Speaker'])
-
-        # Adding model 'Photo'
-        db.create_table('meetup_photo', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('event', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='photos', null=True, to=orm['meetup.Event'])),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=200)),
-            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, blank=True)),
-            ('caption', self.gf('django.db.models.fields.TextField')(blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Photo'])
-
-        # Adding model 'Sponsor'
-        db.create_table('meetup_sponsor', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=250)),
-            ('logo', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
-        ))
-        db.send_create_signal('meetup', ['Sponsor'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Talk'
-        db.delete_table('meetup_talk')
-
-        # Deleting model 'Event'
-        db.delete_table('meetup_event')
-
-        # Removing M2M table for field sponsors on 'Event'
-        db.delete_table('meetup_event_sponsors')
-
-        # Deleting model 'Venue'
-        db.delete_table('meetup_venue')
-
-        # Deleting model 'Speaker'
-        db.delete_table('meetup_speaker')
-
-        # Deleting model 'Photo'
-        db.delete_table('meetup_photo')
-
-        # Deleting model 'Sponsor'
-        db.delete_table('meetup_sponsor')
-
-
-    models = {
-        'meetup.event': {
-            'Meta': {'ordering': "['-date']", 'object_name': 'Event'},
-            'date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '1024'}),
-            'number': ('django.db.models.fields.SmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'sponsors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['meetup.Sponsor']", 'symmetrical': 'False', 'blank': 'True'}),
-            'status': ('model_utils.fields.StatusField', [], {'default': "'draft'", 'max_length': '100', 'no_check_for_status': 'True'}),
-            'status_changed': ('model_utils.fields.MonitorField', [], {'default': 'datetime.datetime.now', 'monitor': "'status'"}),
-            'venue': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['meetup.Venue']", 'null': 'True', 'blank': 'True'})
-        },
-        'meetup.photo': {
-            'Meta': {'object_name': 'Photo'},
-            'caption': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'event': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'photos'", 'null': 'True', 'to': "orm['meetup.Event']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
-            'url': ('django.db.models.fields.URLField', [], {'max_length': '200'})
-        },
-        'meetup.speaker': {
-            'Meta': {'object_name': 'Speaker'},
-            'company_name': ('django.db.models.fields.CharField', [], {'max_length': '1024', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
-        },
-        'meetup.sponsor': {
-            'Meta': {'object_name': 'Sponsor'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'logo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '250'}),
-            'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'})
-        },
-        'meetup.talk': {
-            'Meta': {'object_name': 'Talk'},
-            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'event': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'talks'", 'to': "orm['meetup.Event']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '1024'}),
-            'presentation': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
-            'presentation_data': ('picklefield.fields.PickledObjectField', [], {'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
-            'speaker': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'talks'", 'to': "orm['meetup.Speaker']"}),
-            'status': ('model_utils.fields.StatusField', [], {'default': "'draft'", 'max_length': '100', 'no_check_for_status': 'True'}),
-            'status_changed': ('model_utils.fields.MonitorField', [], {'default': 'datetime.datetime.now', 'monitor': "'status'"}),
-            'video': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
-            'video_data': ('picklefield.fields.PickledObjectField', [], {'blank': 'True'})
-        },
-        'meetup.venue': {
-            'Meta': {'object_name': 'Venue'},
-            'address': ('django.db.models.fields.TextField', [], {}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
-            'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        }
-    }
-
-    complete_apps = ['meetup']
+    operations = [
+        migrations.CreateModel(
+            name='Event',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('status', model_utils.fields.StatusField(max_length=100, no_check_for_status=True, choices=[('planning', 'planning'), ('active', 'active'), ('archived', 'archived'), ('draft', 'draft')], verbose_name='status', default='planning')),
+                ('status_changed', model_utils.fields.MonitorField(monitor='status', verbose_name='status changed', default=django.utils.timezone.now)),
+                ('name', models.CharField(max_length=1024, verbose_name='Название')),
+                ('number', models.SmallIntegerField(verbose_name='Номер', blank=True, null=True)),
+                ('description', models.TextField(verbose_name='Описание', blank=True)),
+                ('image', models.ImageField(verbose_name='Изображение', upload_to='events', blank=True, null=True)),
+                ('date', models.DateTimeField(verbose_name='Начало', blank=True, null=True)),
+                ('timepad_id', models.IntegerField(verbose_name='ID события на Timepad', blank=True, default=0)),
+                ('manual_on_air', models.NullBooleanField(help_text='Включается автоматически за полчаса до начала и идёт 4 часа. Нужно, для тестирования в другое время.', verbose_name='Включить трансляцию', default=None)),
+                ('votable', models.BooleanField(verbose_name='Включить голосование', default=False)),
+            ],
+            options={
+                'ordering': ['-date'],
+                'verbose_name_plural': 'События',
+                'verbose_name': 'Событие',
+                'get_latest_by': 'number',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='MediaCoverage',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('name', models.CharField(max_length=250, verbose_name='Название упоминания')),
+                ('url', models.URLField(verbose_name='Адрес страницы с упоминанием')),
+                ('ico', models.CharField(max_length=250, verbose_name='Ссылка на .ico сайта', blank=True, null=True)),
+                ('event', models.ForeignKey(to='meetup.Event')),
+            ],
+            options={
+                'verbose_name_plural': 'Упоминания',
+                'verbose_name': 'Упоминание',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Photo',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('url', models.URLField(help_text='Временное поле', verbose_name='Ссылка на внешнее фото', blank=True)),
+                ('image', models.ImageField(verbose_name='Фотография', upload_to='photos', blank=True)),
+                ('caption', models.TextField(verbose_name='Подпись', blank=True)),
+                ('event', models.ForeignKey(to='meetup.Event', null=True, blank=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Фотографии',
+                'verbose_name': 'Фотография',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Speaker',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('name', models.CharField(max_length=100, verbose_name='Имя')),
+                ('slug', models.SlugField(verbose_name='Слаг', default='')),
+                ('photo', models.ImageField(verbose_name='Фотография', upload_to='speakers', blank=True, null=True)),
+                ('company_name', models.CharField(max_length=1024, verbose_name='Название компании', blank=True)),
+                ('description', models.TextField(verbose_name='Описание', blank=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Докладчики',
+                'verbose_name': 'Докладчик',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Sponsor',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('name', models.CharField(max_length=250, verbose_name='Название компании')),
+                ('logo', models.ImageField(verbose_name='Логотип', upload_to='sponsors')),
+                ('url', models.URLField(verbose_name='Адрес сайта', blank=True)),
+                ('status', models.CharField(max_length=10, choices=[('organizer', 'organizer'), ('partner', 'partner')], verbose_name='Тип')),
+            ],
+            options={
+                'verbose_name_plural': 'Спонсоры',
+                'verbose_name': 'Спонсор',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='event',
+            name='sponsors',
+            field=models.ManyToManyField(to='meetup.Sponsor', verbose_name='Спонсоры', blank=True),
+            preserve_default=True,
+        ),
+        migrations.CreateModel(
+            name='Talk',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('status', model_utils.fields.StatusField(max_length=100, no_check_for_status=True, choices=[('active', 'active'), ('draft', 'draft')], verbose_name='status', default='active')),
+                ('status_changed', model_utils.fields.MonitorField(monitor='status', verbose_name='status changed', default=django.utils.timezone.now)),
+                ('name', models.CharField(max_length=1024, verbose_name='Название')),
+                ('slug', models.SlugField(verbose_name='Код')),
+                ('description', models.TextField(verbose_name='Описание', blank=True)),
+                ('presentation', models.URLField(verbose_name='Адрес презентации', blank=True)),
+                ('presentation_data', picklefield.fields.PickledObjectField(editable=False, verbose_name='Meta-данные презентации', blank=True)),
+                ('video', models.URLField(verbose_name='Адрес видео', blank=True)),
+                ('video_data', picklefield.fields.PickledObjectField(editable=False, verbose_name='Meta-данные видео', blank=True)),
+                ('position', models.SmallIntegerField(help_text='Порядок выступления на событии', verbose_name='Порядок', default=0)),
+                ('event', models.ForeignKey(to='meetup.Event', verbose_name='Событие')),
+                ('speaker', models.ForeignKey(to='meetup.Speaker', verbose_name='Докладчик')),
+            ],
+            options={
+                'ordering': ('-event__number', 'position'),
+                'verbose_name_plural': 'Выступления',
+                'verbose_name': 'Выступление',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Tutorial',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('title', models.CharField(max_length=250, verbose_name='Название обучающего материала')),
+                ('slug', models.SlugField(verbose_name='Слаг', default='')),
+                ('description', models.TextField(verbose_name='Краткое описание')),
+                ('content', models.TextField(verbose_name='Содержание')),
+                ('author', models.ForeignKey(to='meetup.Speaker', verbose_name='Автор', null=True, blank=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Полезные материалы',
+                'verbose_name': 'Полезный материал',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Venue',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('name', models.CharField(max_length=100, verbose_name='Название места')),
+                ('address', models.TextField(verbose_name='Адрес')),
+                ('latitude', models.DecimalField(max_digits=9, verbose_name='Широта', decimal_places=6, blank=True, null=True)),
+                ('longitude', models.DecimalField(max_digits=9, verbose_name='Долгота', decimal_places=6, blank=True, null=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Места',
+                'verbose_name': 'Место',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='event',
+            name='venue',
+            field=models.ForeignKey(to='meetup.Venue', null=True, blank=True),
+            preserve_default=True,
+        ),
+        migrations.CreateModel(
+            name='Vote',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('created', model_utils.fields.AutoCreatedField(editable=False, verbose_name='created', default=django.utils.timezone.now)),
+                ('modified', model_utils.fields.AutoLastModifiedField(editable=False, verbose_name='modified', default=django.utils.timezone.now)),
+                ('ua', models.TextField(verbose_name='User Agent')),
+                ('ip', models.TextField(verbose_name='IP')),
+                ('event', models.ForeignKey(to='meetup.Event')),
+                ('talk', models.ForeignKey(to='meetup.Talk')),
+            ],
+            options={
+                'verbose_name_plural': 'Голос',
+                'verbose_name': 'Голос',
+            },
+            bases=(models.Model,),
+        ),
+    ]

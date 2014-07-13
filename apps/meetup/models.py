@@ -42,7 +42,7 @@ class Talk(StatusModel):
         self.original_presentation = self.presentation
         self.original_video = self.video
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @permalink
@@ -96,7 +96,7 @@ class Event(StatusModel):
     objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
 
-    def __unicode__(self):
+    def __str__(self):
         if self.number:
             return u'{0} №{1}'.format(self.name, self.number)
         else:
@@ -156,7 +156,7 @@ class Venue(models.Model):
     latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
     longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -171,7 +171,7 @@ class Speaker(models.Model):
     company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
     description = models.TextField(u'Описание', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @permalink
@@ -196,7 +196,7 @@ class Photo(models.Model):
     image = models.ImageField(u'Фотография', upload_to='photos', blank=True)
     caption = models.TextField(u'Подпись', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.caption or u'Фото №%s' % self.id
 
     def get_absolute_url(self):
@@ -218,7 +218,7 @@ class Sponsor(models.Model):
     url = models.URLField(u'Адрес сайта', blank=True)
     status = models.CharField(u'Тип', choices=STATUSES, max_length=10)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -235,7 +235,7 @@ class MediaCoverage(models.Model):
     url = models.URLField(u'Адрес страницы с упоминанием')
     ico = models.CharField(u'Ссылка на .ico сайта', max_length=250, null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -256,7 +256,7 @@ class Tutorial(models.Model):
     description = models.TextField(u'Краткое описание')
     content = models.TextField(u'Содержание')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     @permalink
