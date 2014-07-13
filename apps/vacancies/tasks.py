@@ -18,6 +18,7 @@ def update_vacancies():
 
     syncer = VacancySync(parsers=[
         YandexRabotaParser(urllib.parse.urlencode(fulltime), type='fulltime'),
-        YandexRabotaParser(urllib.parse.urlencode(part_time), type='contract')
+        # Contract feed is broken as of 13 july (shows same data as fulltime)
+        # YandexRabotaParser(urllib.parse.urlencode(part_time), type='contract')
     ])
     return syncer.sync()
