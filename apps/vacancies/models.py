@@ -1,6 +1,8 @@
 # coding: utf-8
+from datetime import datetime, timedelta
 from django.db import models
 from model_utils import Choices
+from model_utils.managers import QueryManager
 from model_utils.models import StatusModel, TimeStampedModel
 
 
@@ -18,6 +20,8 @@ class Vacancy(StatusModel, TimeStampedModel):
     type = models.CharField(u'Занятость', choices=TYPE, default='fulltime', max_length=50)
     is_participant = models.BooleanField(u'На митапе', default=False)
     is_priority = models.BooleanField(u'Приоритетная вакансия', default=False)
+
+    recent = QueryManager(status=STATUS.active, published_at__gt=lambda: datetime.now() - timedelta(weeks=4))
 
     def __unicode__(self):
         return self.name

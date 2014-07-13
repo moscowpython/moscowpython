@@ -5,7 +5,7 @@ from .models import Vacancy
 
 class VacancyList(ListView):
     template_name = 'vacancies.html'
-    queryset = Vacancy.active.all()
+    queryset = Vacancy.recent.all()
     context_object_name = 'vacancies'
 
 
@@ -15,6 +15,6 @@ class VacancyPage(DetailView):
 
     def get_context_data(self, **kwargs):
         data = super(VacancyPage, self).get_context_data(**kwargs)
-        data['vacancy_count'] = Vacancy.active.count()
+        data['vacancy_count'] = Vacancy.recent.count()
         return data
 
