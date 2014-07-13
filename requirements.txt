@@ -1,13 +1,11 @@
-Django>=1.6,<1.7
+https://www.djangoproject.com/download/1.7c1/tarball/
 Pillow==2.5.1
-django-model-utils==2.0.3
+-e git+https://github.com/carljm/django-model-utils#egg=django-model-utils  # django 1.7 support
 django-picklefield==0.3.1
 -e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
 pytils==0.3
-##django-admin-sso==0.1.1 # FIXME
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.12
-South==1.0
 requests==2.3.0
 Markdown==2.4.1
 django-suit==0.2.9
