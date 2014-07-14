@@ -16,8 +16,10 @@ class VacancyList(TestCase):
     """Integration tests for vacancy list page"""
 
     def test_vacancies(self):
-        vacancy1 = Vacancy.objects.create(name='XXX', company='a', url='http://yandex.ru')
-        vacancy2 = Vacancy.objects.create(name='YYY', company='b', url='http://mail.ru')
+        vacancy1 = Vacancy.objects.create(name='XXX', company='a', url='http://yandex.ru',
+                                          published_at=datetime.datetime.now())
+        vacancy2 = Vacancy.objects.create(name='YYY', company='b', url='http://mail.ru',
+                                          published_at=datetime.datetime.now())
         response = self.client.get(reverse('vacancies'))
         self.assertQuerysetEqual(response.context['vacancies'], list(map(repr, [vacancy2, vacancy1])))
 
