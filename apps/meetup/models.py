@@ -88,6 +88,7 @@ class Event(StatusModel):
     venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
     timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
+    registration_link = models.URLField(u'Ссылка на событие', blank=True)
     manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
                                             help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
                                                       u' Нужно, для тестирования в другое время.')
@@ -130,9 +131,11 @@ class Event(StatusModel):
         datetime_stop = self.date + datetime.timedelta(hours=4)  # Actually meetups are not that long
         return datetime_start <= datetime.datetime.now() <= datetime_stop
 
-    def get_timepad_url(self):
+    def get_registration_url(self):
         if self.timepad_id:
             return 'http://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
+        if self.registration_link:
+            return self.registration_link
 
     @classmethod
     def spotlight(cls):

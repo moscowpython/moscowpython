@@ -9,7 +9,7 @@
             {{ event.venue.address }}<br />
         </div>
         {% if event.is_active %}
-            <form action="{{ event.get_timepad_url }}">
+            <form action="{{ event.get_registration_url }}">
                 <button class="event__register-button" type="submit">
                     <span class="event__register-button-text">Я тоже буду!</span>
                 </button>
