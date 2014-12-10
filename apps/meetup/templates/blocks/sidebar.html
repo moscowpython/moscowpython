@@ -19,9 +19,9 @@
     </section>
     <section class="event__description">
         {{ event.description|restructuredtext }}
-        {% if not event.is_active %}
-            <a href="{% url 'live' %}">Смотреть запись трансляции</a>
-        {% endif %}
+{#        {% if not event.is_active %}#}
+{#            <a href="{% url 'live' %}">Смотреть запись трансляции</a>#}
+{#        {% endif %}#}
     </section>
     {% with event.media_coverages.all as media_coverages %}
         {% if media_coverages %}
