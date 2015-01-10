@@ -1,8 +1,11 @@
 language: python
 python:
   - 3.4
+cache:
+  directories:
+    - $HOME/.pip-cache/
 install:
-  - pip install -r requirements.txt
+  - pip install -r requirements.txt --download-cache $HOME/.pip-cache
 script:
   - coverage run --source=apps manage.py test
 after_success:
@@ -16,5 +19,5 @@ deploy:
     master: moscowdjango
     dev: moscowdjango-staging
   run:
-    - "python manage.py migrate"
+    - "python manage.py migrate --noinput"
     - "python manage.py collectstatic --noinput"
