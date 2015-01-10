@@ -7,6 +7,7 @@ script:
   - coverage run --source=apps manage.py test
 after_success:
   - coveralls
+sudo: false
 deploy:
   provider: heroku
   api_key:
