@@ -5,4 +5,15 @@ install:
   - pip install -r requirements.txt
 script:
   - coverage run --source=apps manage.py test
+after_success:
   - coveralls
+deploy:
+  provider: heroku
+  api_key:
+    secure: CmKGBrhGhM8xq33JJsHwRgG3uA5d+WO6rZJIyFSCjAkrUB/EoEl4vz+nttuLOvxHID40Tr4CefZIMPfJIcpKJJxccSwCLj+kDpmuDMc3ld7HG2xRnODKIDeCaV2DWbKyzuiQzVHo3Bxgwm9AdXVRZJQFF9JHC/jvcbp4lxCC+IY=
+  app:
+    master: moscowdjango
+    dev: moscowdjango-staging
+  run:
+    - "python manage.py migrate"
+    - "python manage.py collectstatic"
