@@ -1,17 +1,17 @@
-Django==1.7.1
+Django==1.7.3
 Pillow==2.7.0
 django-model-utils==2.2
 django-picklefield==0.3.1
 -e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
 pytils==0.3
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
-docutils==0.11
-requests==2.3.0
-Markdown==2.4.1
-django-suit==0.2.8
+docutils==0.12
+requests==2.5.1
+Markdown==2.5.2
+django-suit==0.2.12
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
-arrow==0.4.2
-python-dateutil==2.2
+arrow==0.4.4
+python-dateutil==2.4.0
 xmltodict==0.9.0
 
 # celery
@@ -23,11 +23,11 @@ amqp==1.4.6
 anyjson==0.3.3
 
 #development
-httpretty==0.8.0
-django-debug-toolbar==1.2.1
-django-nose==1.2
+httpretty==0.8.3
+django-debug-toolbar==1.2.2
+django-nose==1.3
 coveralls
 
 #heroku
-psycopg2==2.5.3
+psycopg2==2.5.4
 dj-database-url==0.3.0
