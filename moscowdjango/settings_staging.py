@@ -15,13 +15,10 @@ AWS_CALLING_FORMAT = 2  # SUBDOMAIN
 
 # Media & static
 DEFAULT_FILE_STORAGE = 'moscowdjango.amazon.DefaultStorage'
-STATICFILES_STORAGE = 'moscowdjango.amazon.StaticStorage'
 DEFAULT_S3_PATH = "media"
-STATIC_S3_PATH = "static"
 MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
 MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-STATIC_ROOT = "/%s/" % STATIC_S3_PATH
-STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Django compressor
 COMPRESS_ENABLED = False

@@ -1,9 +1,5 @@
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moscowdjango.settings")
-
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
 
 def force_domain(fn):
     def wrapped(environ, start_response):
@@ -15,4 +11,11 @@ def force_domain(fn):
         return fn(environ, start_response)
     return wrapped
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moscowdjango.settings")
+
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
+
+application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
 application = force_domain(application)
