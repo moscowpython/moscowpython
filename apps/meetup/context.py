@@ -30,13 +30,16 @@ def menu(request):
 def all_events_processor(request):
     show_announcement = False
     try:
-        days_to_next_event = Event.visible.all().latest().days_delta()
+        latest_event = Event.visible.all().latest()
+        days_to_next_event = latest_event.days_delta()
         if days_to_next_event is not None and days_to_next_event <= ANNOUNCEMENT_THRESHOLD:
             show_announcement = True
     except Event.DoesNotExist:
+        latest_event = None
         days_to_next_event = None
     return {
         'all_events': Event.visible.all(),
         'show_announcement': show_announcement,
+        'streaming_url': latest_event.streaming_url if latest_event else None,
         'days_to_next_event': days_to_next_event
     }

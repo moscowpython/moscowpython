@@ -89,6 +89,7 @@ class Event(StatusModel):
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
     timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
     registration_link = models.URLField(u'Ссылка на событие', blank=True)
+    streaming_url = models.URLField(u'Ссылка на трансляцию', blank=True)
     manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
                                             help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
                                                       u' Нужно, для тестирования в другое время.')
