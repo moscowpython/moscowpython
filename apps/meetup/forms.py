@@ -16,3 +16,4 @@ class EventAdminForm(ModelForm):
 
     class Meta:
         model = Event
+        exclude = []  # This is admin form FFS
