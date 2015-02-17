@@ -14,7 +14,7 @@ sudo: false
 deploy:
   provider: heroku
   api_key:
-    secure: CmKGBrhGhM8xq33JJsHwRgG3uA5d+WO6rZJIyFSCjAkrUB/EoEl4vz+nttuLOvxHID40Tr4CefZIMPfJIcpKJJxccSwCLj+kDpmuDMc3ld7HG2xRnODKIDeCaV2DWbKyzuiQzVHo3Bxgwm9AdXVRZJQFF9JHC/jvcbp4lxCC+IY=
+    secure: Hf5gX1+QIu6lRegxqEvX2pUFzeeeXf2iJ+hluRitG6GCkFB3ZUkvlLZ1B570p3Z9pHXBUhZEt7iTx0f8Zwq7lKSIw4wgt0ehtFOFS2xHohR6/VIx4OlWjoqfx8RnCDHp61oGQ/++Hp4TnaDesIMHeltmG6T4xlNCDTY7c+iqKR8=
   app:
     master: moscowdjango
     dev: moscowdjango-staging
