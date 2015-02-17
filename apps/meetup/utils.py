@@ -37,7 +37,7 @@ def subscribe_mail(email):
 
     try:
         my_config = {'verbose': sys.stderr}
-        response = requests.get('http://timepad.ru/api/maillist_add_items/', params=payload, config=my_config)
+        response = requests.get('https://timepad.ru/api/maillist_add_items/', params=payload, config=my_config)
     except requests.RequestException:
         logger.error('Timepad is unavailable')
         return False

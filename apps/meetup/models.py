@@ -134,7 +134,7 @@ class Event(StatusModel):
 
     def get_registration_url(self):
         if self.timepad_id:
-            return 'http://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
+            return 'https://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
         if self.registration_link:
             return self.registration_link
 

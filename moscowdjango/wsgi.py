@@ -1,4 +1,5 @@
 import os
+from wsgiref.util import guess_scheme
 
 
 def force_domain(fn):
@@ -6,7 +7,8 @@ def force_domain(fn):
         domain = os.environ.get('DOMAIN')
         if domain and environ['HTTP_HOST'] != domain:
             path = environ.get('PATH_INFO', '')
-            start_response('301 Redirect', [('Location', 'http://%s%s' % (domain, path)),])
+            protocol = guess_scheme(environ)
+            start_response('301 Redirect', [('Location', '%s://%s%s' % (protocol, domain, path)),])
             return []
         return fn(environ, start_response)
     return wrapped

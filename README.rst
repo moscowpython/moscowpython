@@ -1,7 +1,7 @@
 Moscow Django Meetup site
 =========================
 
-Sources of http://moscowdjango.ru
+Sources of https://moscowdjango.ru
 
 .. image:: https://img.shields.io/travis/futurecolors/moscowdjango/master.svg
     :target: https://travis-ci.org/futurecolors/moscowdjango
