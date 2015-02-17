@@ -6,7 +6,7 @@ django-picklefield==0.3.1
 pytils==0.3
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
-requests==2.3.0
+requests==2.5.1
 Markdown==2.4.1
 django-suit==0.2.8
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
@@ -23,12 +23,14 @@ pytz==2014.10
 amqp==1.4.6
 anyjson==0.3.3
 
-#development
+# development
+pytest-django==2.8.0
+pytest-cov==1.8.1
+responses==0.3.0
 httpretty==0.8.0
 django-debug-toolbar==1.2.1
-django-nose==1.2
 coveralls
 
-#heroku
+# heroku
 psycopg2==2.5.3
 dj-database-url==0.3.0

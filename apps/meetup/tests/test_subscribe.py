@@ -1,42 +1,58 @@
 # coding: utf-8
-import os
+import re
+from unittest.mock import patch
 
-from unittest.mock import patch, MagicMock
 from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
+import responses
+
 from apps.meetup.views import ajax_subscribe
 
 
-def FakeResponse(status_code, result, duplicate=0, wrong=0, added=1):
-    return MagicMock(status_code=status_code, json={
-        'itemsDuplicate': duplicate,
-        'itemsWrongFormat': wrong,
-        'result': result,
-        'itemsAdded': added
-    })
-
-
 @patch.dict('os.environ', TIMEPAD_API_KEY='xxx', TIMEPAD_ORG_ID='123', TIMEPAD_MAILLIST_ID='1')
-class SubscribeTest(TestCase):
+class AjaxSubscribeTest(TestCase):
 
     def setUp(self):
-        self.request = MagicMock(name='email subscribe')
-        self.request.POST.__getitem__.return_value = 'foo@bar.buz'
-        self.request.POST.__contains__.return_value = True
+        self.request = RequestFactory()
 
-    @patch('apps.meetup.utils.requests.get')
-    def test_email_ok(self, requests_mock):
-        requests_mock.return_value = FakeResponse(200, "ok")
-        response = ajax_subscribe(self.request)
-        self.assertContains(response, 'OK')
+    @responses.activate
+    def test_no_email(self):
+        no_email_request = self.request.post(reverse("subscribe"))
+        no_email_response = ajax_subscribe(no_email_request)
+        self.assertEqual(no_email_response.status_code, 200)
+        self.assertContains(no_email_response, "Failed")
 
-    @patch('apps.meetup.utils.requests.get')
-    def test_email_fail(self, requests_mock):
-        requests_mock.return_value = MagicMock(status_code=200, json={
-            'error': "wrong_code"
-        })
-        response = ajax_subscribe(self.request)
+    @responses.activate
+    def test_invalid_email(self):
+        invalid_email = "invalid_email"
+        invalid_email_request = self.request.post(reverse("subscribe"), {"email": invalid_email})
+        invalid_email_response = ajax_subscribe(invalid_email_request)
+        self.assertEqual(invalid_email_response.status_code, 200)
+        self.assertContains(invalid_email_response, "Failed")
+        assert len(responses.calls) == 0
+
+    @responses.activate
+    def test_valid_email(self):
+        responses.add(responses.GET, re.compile(r'https://timepad.ru/api/.+'),
+                      body='{"result": "ok"}', status=200,
+                      content_type='application/json')
+        valid_email = "email@domain.tdl"
+        valid_email_request = self.request.post(reverse("subscribe"), {"email": valid_email})
+        valid_email_response = ajax_subscribe(valid_email_request)
+        self.assertEqual(valid_email_response.status_code, 200)
+        print(valid_email_response.content)
+        self.assertContains(valid_email_response, "OK")
+        assert len(responses.calls) == 1
+
+    @responses.activate
+    def test_wrong_code(self):
+        responses.add(responses.GET, re.compile(r'https://timepad.ru/api/.+'),
+                      body='{"error": "bad code"}', status=200,
+                      content_type='application/json')
+
+        response = ajax_subscribe(self.request.post(reverse("subscribe"), {"email": 'foo@bar.ru'}))
         self.assertContains(response, 'Failed')
+        assert len(responses.calls) == 1
 
     def test_validate_email(self):
         from apps.meetup.utils import validate_email
@@ -48,50 +64,14 @@ class SubscribeTest(TestCase):
         for invalid in invalid_emails:
             self.assertFalse(validate_email(invalid), "Email '{0}' shouldn't be valid".format(invalid))
 
-    @patch('apps.meetup.utils.requests.get')
-    def test_subscribe_mail_envfail(self, requests_mock):
+    @patch.dict('os.environ', clear=True)
+    @responses.activate
+    def test_subscribe_mail_envfail(self):
+        responses.add(responses.GET, re.compile(r'https://timepad.ru/api/.+'),
+                      body='Unicorns here', status=500,
+                      content_type='application/json')
         from apps.meetup.utils import subscribe_mail
-
-        requests_mock.return_value = FakeResponse(500, "fail")
-
         email = "email@domain.tld"
 
-        os.environ = {}
-
         self.assertFalse(subscribe_mail(email))
-        self.assertFalse(requests_mock.called)
-
-
-@patch('apps.meetup.utils.requests.get')
-@patch.dict('os.environ', TIMEPAD_API_KEY='xxx', TIMEPAD_ORG_ID='123', TIMEPAD_MAILLIST_ID='1')
-class AjaxSubscribeTest(TestCase):
-    def setUp(self):
-        self.request = RequestFactory()
-
-    def test_no_email(self, requests_mock):
-        requests_mock.return_value = FakeResponse(200, "ok")
-        no_email_request = self.request.post(reverse("subscribe"))
-        no_email_response = ajax_subscribe(no_email_request)
-        self.assertEqual(no_email_response.status_code, 200)
-        self.assertContains(no_email_response, "Failed")
-        self.assertFalse(requests_mock.called)
-
-    def test_invalid_email(self, requests_mock):
-        requests_mock.return_value = FakeResponse(200, "ok")
-        invalid_email = "invalid_email"
-        invalid_email_request = self.request.post(reverse("subscribe"),
-            {"email": invalid_email})
-        invalid_email_response = ajax_subscribe(invalid_email_request)
-        self.assertEqual(invalid_email_response.status_code, 200)
-        self.assertContains(invalid_email_response, "Failed")
-        self.assertFalse(requests_mock.called)
-
-    def test_valid_email(self, requests_mock):
-        requests_mock.return_value = FakeResponse(200, "ok")
-        valid_email = "email@domain.tdl"
-        valid_email_request = self.request.post(reverse("subscribe"),
-            {"email": valid_email})
-        valid_email_response = ajax_subscribe(valid_email_request)
-        self.assertEqual(valid_email_response.status_code, 200)
-        self.assertContains(valid_email_response, "OK")
-        self.assertTrue(requests_mock.called)
+        assert len(responses.calls) == 0

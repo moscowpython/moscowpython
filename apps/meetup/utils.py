@@ -36,14 +36,13 @@ def subscribe_mail(email):
         return False
 
     try:
-        my_config = {'verbose': sys.stderr}
-        response = requests.get('https://timepad.ru/api/maillist_add_items/', params=payload, config=my_config)
+        response = requests.get('https://timepad.ru/api/maillist_add_items/', params=payload)
     except requests.RequestException:
         logger.error('Timepad is unavailable')
         return False
 
     try:
-        return response.status_code == 200 and response.json['result'] == 'ok'
+        return response.status_code == 200 and response.json()['result'] == 'ok'
     except KeyError:
         return False
 
