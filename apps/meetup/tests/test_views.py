@@ -19,22 +19,22 @@ class IndexSystem(TestCase):
         self.main_event = Event.objects.create(pk=1, number=2, name='Upcoming Meetup', status=Event.STATUS.active)
         self.passed_event = Event.objects.create(pk=2, number=1, name='Passed Meetup', status=Event.STATUS.archived)
 
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('index'), secure=True)
         self.assertEqual(response.context['main_event'], self.main_event)
 
     def test_no_active_event(self):
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('index'), secure=True)
         self.assertEqual(response.context['main_event'], None)
 
     def test_planning_event(self):
         Event.objects.create(number=2, name='Archived', status=Event.STATUS.archived)
         pln = Event.objects.create(number=3, name='Planning', status=Event.STATUS.planning)
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('index'), secure=True)
         self.assertEqual(response.context['main_event'], pln)
 
     def test_archived_events(self):
         act, drf, pln, arc = create_events()
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('index'), secure=True)
         self.assertQuerysetEqual(response.context['events'], [repr(arc)])
 
 
@@ -43,22 +43,21 @@ class EventList(TestCase):
 
     def test_event_list(self):
         act, drf, pln, arc = create_events()
-        response = self.client.get(reverse('events'))
+        response = self.client.get(reverse('events'), secure=True)
         self.assertQuerysetEqual(response.context['events'], [repr(event) for event in [act, pln, arc]])
 
 
 class EventsPage(TestCase):
     """Integration tests for event detail page"""
-
     def setUp(self):
         self.act, self.drf, self.pln, self.arc = create_events()
 
     def test_active_event_page(self):
-        response = self.client.get(reverse('event', args=[1]))
+        response = self.client.get(reverse('event', args=[1]), secure=True)
         self.assertEqual(response.context['event'], self.act)
 
     def test_draft_event_page(self):
-        response = self.client.get(reverse('event', args=[2]))
+        response = self.client.get(reverse('event', args=[2]), secure=True)
         self.assertEqual(response.status_code, 404)
 
 
@@ -71,13 +70,13 @@ class TalkPage(TestCase):
         self.talk = Talk.objects.create(name='Talk', slug='slug', event=event, speaker=speaker, status=Talk.STATUS.active)
 
     def test_talk_page_active(self):
-        response = self.client.get(reverse('talk', args=[1, 'slug']))
+        response = self.client.get(reverse('talk', args=[1, 'slug']), secure=True)
         self.assertEqual(response.context['talk'], self.talk)
 
     def test_talk_page_inactive(self):
         self.talk.status = Talk.STATUS.draft
         self.talk.save()
-        response = self.client.get(reverse('talk', args=[1, 'slug']))
+        response = self.client.get(reverse('talk', args=[1, 'slug']), secure=True)
         self.assertEqual(response.status_code, 404)
 
     def test_talk_page_order(self):
@@ -90,7 +89,7 @@ class SpeakerList(TestCase):
     def test_speakers(self):
         speaker1 = Speaker.objects.create(name='Speaker1', slug='slug1')
         speaker2 = Speaker.objects.create(name='Speaker2', slug='slug2')
-        response = self.client.get(reverse('speakers'))
+        response = self.client.get(reverse('speakers'), secure=True)
         self.assertQuerysetEqual(response.context['speakers'], [repr(speaker) for speaker in [speaker1, speaker2]])
 
 
@@ -99,7 +98,7 @@ class SpeakerDetail(TestCase):
 
     def test_speaker(self):
         speaker = Speaker.objects.create(name='Speaker1', slug='slug')
-        response = self.client.get(reverse('speaker', args=['slug']))
+        response = self.client.get(reverse('speaker', args=['slug']), secure=True)
         self.assertEqual(response.context['speaker'], speaker)
 
 
@@ -109,7 +108,7 @@ class AboutPage(TestCase):
     def test_page(self):
         photo1 = Photo.objects.create(image='_', caption='1')
         photo2 = Photo.objects.create(image='^', caption='2')
-        response = self.client.get(reverse('about'))
+        response = self.client.get(reverse('about'), secure=True)
         self.assertTemplateUsed(response, 'about.html')
         self.assertQuerysetEqual(response.context['photos'], [repr(photo) for photo in [photo2, photo1]])
 
@@ -118,6 +117,6 @@ class LivePage(TestCase):
     """Integration tests for live page"""
 
     def test_page(self):
-        response = self.client.get(reverse('live'))
+        response = self.client.get(reverse('live'), secure=True)
         self.assertTemplateUsed(response, 'live.html')
         self.assertEqual(response.context['event'], None)

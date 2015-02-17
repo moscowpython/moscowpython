@@ -91,6 +91,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,6 +124,7 @@ INSTALLED_APPS = (
     'storages',
     'pytils',
     'googlecharts',
+    'djangosecure',
 
     'apps.meetup',
     'apps.vacancies',
@@ -194,6 +196,16 @@ CELERYBEAT_SCHEDULE = {
     },
 }
 BROKER_POOL_LIMIT = 3
+
+# security stuff
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SESSION_COOKIE_SECURE = True
+SECURE_FRAME_DENY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
 
 try:
     LOCAL_SETTINGS
