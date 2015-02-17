@@ -3,9 +3,9 @@ python:
   - 3.4
 cache:
   directories:
-    - $HOME/.pip-cache/
+    - $HOME/.cache/pip
 install:
-  - pip install -r requirements.txt --download-cache $HOME/.pip-cache
+  - pip install -r requirements.txt
 script:
   - py.test --ds=moscowdjango.settings --cov apps
 after_success:
