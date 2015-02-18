@@ -20,4 +20,3 @@ deploy:
     dev: moscowdjango-staging
   run:
     - "python manage.py migrate --noinput"
-    - "python manage.py collectstatic --noinput"
