@@ -30,7 +30,7 @@ pytest-cov==1.8.1
 responses==0.3.0
 httpretty==0.8.0
 django-debug-toolbar==1.2.1
-coveralls
+coveralls>=1.0a1
 
 # heroku
 psycopg2==2.5.3
