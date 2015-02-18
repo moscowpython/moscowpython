@@ -27,6 +27,7 @@ class TalkAdmin(admin.ModelAdmin):
     list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
+    search_fields = ['name']
     ordering = ['-event__pk', 'position']
 
 
