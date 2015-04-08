@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'pytils',
     'googlecharts',
     'djangosecure',
+    'sslserver',
 
     'apps.meetup',
     'apps.vacancies',
