@@ -36,4 +36,4 @@ Tests
 -----
 ::
 
-    python manage.py test
+    tox

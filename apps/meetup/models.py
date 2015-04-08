@@ -14,8 +14,8 @@ from picklefield.fields import PickledObjectField
 
 class TalkManager(Manager):
     def active(self):
-        qs = self.get_query_set()
-        return qs.filter(status="active")
+        qs = self.get_queryset()
+        return qs.filter(status='active')
 
 
 class Talk(StatusModel):
