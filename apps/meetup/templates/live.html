@@ -23,8 +23,8 @@
         <h2 class="live__subheader" title="Будет объявлено">TBA</h2>
     {% endif %}
 
-    <div class="live__mailru">
-        {% include 'blocks/live-mailru.html' %}
+    <div class="live__embed">
+        {{ event.streaming_embed|safe }}
     </div>
 
     <a class="twitter-timeline" href="https://twitter.com/hashtag/moscowdjango"

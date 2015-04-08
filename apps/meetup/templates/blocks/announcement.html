@@ -4,7 +4,7 @@
 {% if show_announcement %}
 <div class="announcement">
     Следующая встреча
-    {% if days_to_next_event %}через {{ days_to_next_event }} {{ days_to_next_event|choose_plural:"день, дня, дней" }}{% else %}уже сегодня{% endif %}.
+    {% if days_to_next_event %}через {{ days_to_next_event }} {{ days_to_next_event|choose_plural:"день, дня, дней" }}{% else %}уже сегодня в {{ next_event_time|date:"H:i" }}{% endif %}.
     {% if streaming_url %}Будет <a href="{{ streaming_url }}">онлайн-трансляция</a>.{% endif %}
 </div>
 {% endif %}

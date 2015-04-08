@@ -40,6 +40,10 @@
 .live__disqus {
     margin-top: 50px;
 }
-.live__mailru {
+.live__embed {
     margin-left: -90px;
+    min-height: 530px;
+}
+.header {
+    display: none;
 }

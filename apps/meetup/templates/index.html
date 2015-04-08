@@ -24,7 +24,7 @@
             {% include 'blocks/share.html' with page='main' %}
             {% if main_event.on_air %}
                 <div class="event__live">
-                    {% include 'blocks/live-mailru.html' %}
+                    {{ main_event.streaming_embed|safe }}
                 </div>
             {% endif %}
             <div class="wrapper">

@@ -87,13 +87,16 @@ class Event(StatusModel):
     date = models.DateTimeField(u'Начало', blank=True, null=True)
     venue = models.ForeignKey('Venue', blank=True, null=True)
     sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
-    timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0)
     registration_link = models.URLField(u'Ссылка на событие', blank=True)
     streaming_url = models.URLField(u'Ссылка на трансляцию', blank=True)
+    streaming_embed = models.TextField(u'Embed трансляции', blank=True, help_text='html с ютуба или другого источника')
     manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
                                             help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
                                                       u' Нужно, для тестирования в другое время.')
-    votable = models.BooleanField(u'Включить голосование', default=False)
+
+    # Deprecated:
+    timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0, editable=False)
+    votable = models.BooleanField(u'Включить голосование', default=False, editable=False)
 
     objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])

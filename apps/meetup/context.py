@@ -41,5 +41,6 @@ def all_events_processor(request):
         'all_events': Event.visible.all(),
         'show_announcement': show_announcement,
         'streaming_url': latest_event.streaming_url if latest_event else None,
-        'days_to_next_event': days_to_next_event
+        'days_to_next_event': days_to_next_event,
+        'next_event_time': latest_event.date if latest_event else None
     }
