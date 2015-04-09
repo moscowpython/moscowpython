@@ -3,14 +3,14 @@ Moscow Django Meetup site
 
 Sources of https://moscowdjango.ru
 
-.. image:: https://img.shields.io/travis/futurecolors/moscowdjango/master.svg
-    :target: https://travis-ci.org/futurecolors/moscowdjango
+.. image:: https://img.shields.io/travis/moscowdjango/moscowdjango/master.svg
+    :target: https://travis-ci.org/moscowdjango/moscowdjango
 
-.. image:: https://img.shields.io/coveralls/futurecolors/moscowdjango/master.svg
-    :target: https://coveralls.io/r/futurecolors/moscowdjango/
+.. image:: https://img.shields.io/coveralls/moscowdjango/moscowdjango/master.svg
+    :target: https://coveralls.io/r/moscowdjango/moscowdjango/
 
-.. image:: https://requires.io/github/futurecolors/moscowdjango/requirements.svg?branch=master
-     :target: https://requires.io/github/futurecolors/moscowdjango/requirements/?branch=master
+.. image:: https://requires.io/github/moscowdjango/moscowdjango/requirements.svg?branch=master
+     :target: https://requires.io/github/moscowdjango/moscowdjango/requirements/?branch=master
 
 .. image:: https://img.shields.io/badge/python-3.4-blue.svg
 
@@ -21,7 +21,7 @@ Running locally
 
 ::
 
-    git clone https://github.com/futurecolors/moscowdjango/
+    git clone https://github.com/moscowdjango/moscowdjango/
     cd moscowdjango
     pyenv env
     source env/bin/activate

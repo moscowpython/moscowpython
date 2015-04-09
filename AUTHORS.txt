@@ -1,5 +1,5 @@
-Moscow Django site is developed and maintained by Future Colors.
-
+Moscow Django site is developed by Future Colors.
+Maintained by Moscow Django team.
 
 Original site authors:
 
