@@ -4,7 +4,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.base import TemplateView
+
 from .settings import STATIC_ROOT, ROOT_PATH
+
 
 admin.autodiscover()
 
@@ -15,9 +17,9 @@ urlpatterns = patterns('',
     url(r'^(robots.txt)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
     url(r'^humans.txt$', 'django.views.static.serve', {'document_root': ROOT_PATH, 'path': 'AUTHORS.txt'}),
     url(r'^admin/', include(admin.site.urls)),
-#    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'', include('apps.meetup.urls')),
     url(r'', include('apps.vacancies.urls')),
+    url(r'^(?P<filename>[\w-]+\.(?:html|txt))$', 'apps.meetup.views.confirm_ownership', name='ownership')
 )
 
 urlpatterns += staticfiles_urlpatterns()

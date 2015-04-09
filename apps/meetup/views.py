@@ -1,11 +1,12 @@
 # coding=utf-8
+import os
 import sys
 
 import django
 from django.core.urlresolvers import reverse
 from django.db import DatabaseError
 from django.db.models import Count
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import redirect, get_object_or_404
 from django.utils import six
 from django.views.generic.base import TemplateView
@@ -182,3 +183,12 @@ def ajax_vote(request, *args, **kwargs):
         except DatabaseError:
             return HttpResponse('DB error, sorry', status=402)
     return HttpResponse('Only POST', status=402)
+
+
+def confirm_ownership(request, *args, **kwargs):
+    content = os.environ.get('CONFIRM_OWNERSHIP_%s' % kwargs['filename'], None)
+    if content:
+        content_type = 'text/html' if kwargs['filename'].endswith('.html') else 'text/plain'
+        return HttpResponse(content, content_type=content_type)
+    else:
+        raise Http404

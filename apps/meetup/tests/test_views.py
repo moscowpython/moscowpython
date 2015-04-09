@@ -1,5 +1,7 @@
+import os
 from django.core.urlresolvers import reverse
 from django.test import TestCase
+import mock
 
 from apps.meetup.models import Event, Talk, Speaker, Photo
 
@@ -120,3 +122,20 @@ class LivePage(TestCase):
         response = self.client.get(reverse('live'), secure=True)
         self.assertTemplateUsed(response, 'live.html')
         self.assertEqual(response.context['event'], None)
+
+
+class OwnershipPage(TestCase):
+
+    @mock.patch.dict(os.environ, {
+        'CONFIRM_OWNERSHIP_b729180e1658.txt': 'ffk3ryf3',
+        'CONFIRM_OWNERSHIP_b729180e1657.html': '121212'
+    })
+    def test_page(self):
+        response = self.client.get('/b729180e1658.txt', secure=True)
+        assert response.content == b'ffk3ryf3'
+
+        response = self.client.get('/b729180e1657.html', secure=True)
+        assert response.content == b'121212'
+
+        response = self.client.get('/index.html', secure=True)
+        assert response.status_code == 404
