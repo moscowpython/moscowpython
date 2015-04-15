@@ -1,13 +1,12 @@
 # coding: utf-8
 from django.conf.urls import patterns, url, include
 from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, \
-    EventsList, AboutPage, LivePage, ajax_subscribe, Py3Page, \
+    EventsList, AboutPage, LivePage, Py3Page, \
     TutorialPage, TutorialList, ajax_vote, VoteResults
 
 
 urlpatterns = patterns('',
     url('^$', IndexPage.as_view(), name='index'),
-    url('^subscribe/$', ajax_subscribe, name='subscribe'),
     url('^about/$', AboutPage.as_view(), name='about'),
     url('^live/$', LivePage.as_view(), name='live'),
     url('^py3/$', Py3Page.as_view(), name='py3'),

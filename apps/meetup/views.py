@@ -156,14 +156,6 @@ class VoteResults(TemplateView):
         return context
 
 
-def ajax_subscribe(request):
-    if "email" in request.POST:
-        email = request.POST['email']
-        if validate_email(email) and subscribe_mail(email):
-            return HttpResponse('OK')
-    return HttpResponse('Failed')
-
-
 @csrf_exempt
 def ajax_vote(request, *args, **kwargs):
     if request.method == 'POST':

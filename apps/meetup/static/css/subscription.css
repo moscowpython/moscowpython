@@ -17,18 +17,23 @@
     font-family: Arial, Helvetica, Geneva, sans-serif;
     color: #000000;
     text-align: left;
-    margin: 0 auto 30px;
-    width: 302px;
+    margin: 10px auto 30px;
+    max-width: 400px;
+}
+.subscription__wrapper {
+    margin: 0 10px;
 }
 .subscription__header {
     margin: 0 0 15px;
-    text-transform: uppercase;
-    font-size: 13px;
+    font-size: 23px;
     color: #603913;
+}
+.subscription__link {
+    color: #0a6629;
 }
 .subscription__email {
     height: 32px;
-    width: 190px;
+    width: 50%;
     margin-bottom: 10px;
     padding: 0 10px;
     vertical-align: middle;
