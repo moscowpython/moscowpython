@@ -53,11 +53,14 @@ class Talk(StatusModel):
         original_field_value = getattr(self, 'original_{0}'.format(field_name))
         new_field_value = getattr(self, field_name)
         if new_field_value != original_field_value:
-            embedly_key = getattr(settings, 'EMBEDLY_KEY')
-            if embedly_key:
-                client = Embedly(embedly_key)
-                data_field_name = '{0}_data'.format(field_name)
-                setattr(self, data_field_name, client.oembed(new_field_value)._data)
+            data_field_name = '{0}_data'.format(field_name)
+            if new_field_value:
+                embedly_key = getattr(settings, 'EMBEDLY_KEY')
+                if embedly_key:
+                    client = Embedly(embedly_key)
+                    setattr(self, data_field_name, client.oembed(new_field_value)._data)
+            else:
+                setattr(self, data_field_name, "")
         setattr(self, 'original_{0}'.format(field_name), new_field_value)
 
     def save(self, *args, **kwargs):

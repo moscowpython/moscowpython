@@ -2,7 +2,8 @@ Django==1.8
 Pillow==2.7.0
 django-model-utils==2.2
 django-picklefield==0.3.1
--e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly  # fork for deepcopy workaround
+# fork for deepcopy workaround
+-e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly
 pytils==0.3
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
