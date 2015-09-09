@@ -5,9 +5,13 @@
   "scripts": {
     "postinstall": "gulp compile"
   },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.1.x"
+  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "async": "^1.3.0",
     "autoprefixer-core": "^5.1.11",
     "browser-sync": "^2.6.4",
@@ -34,9 +38,7 @@
     "postcss-simple-vars": "^0.3.0",
     "rimraf": "^2.3.1",
     "tiny-lr": "^0.1.5",
-    "ungrid": "^1.0.1"
-  },
-  "dependencies": {
+    "ungrid": "^1.0.1",
     "gulp": "^3.8.11"
   }
 }

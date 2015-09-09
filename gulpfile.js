@@ -1,7 +1,5 @@
 var gulp = require('gulp');
 
-var rigger = require('gulp-rigger');
-
 var postcss = require('gulp-postcss'),
     fs = require("fs"),
     postcssImport = require("postcss-import"),
@@ -11,8 +9,6 @@ var postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer-core'),
     mqpacker = require('css-mqpacker'),
     csswring = require('csswring');
-
-var evilIcons = require("gulp-evil-icons");
 
 var imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant');
@@ -64,7 +60,6 @@ gulp.task('compile:css', function () {
 
 gulp.task('compile:js', function() {
     return gulp.src(path.assets.js)
-        .pipe(rigger())
         .pipe(sourcemaps.init())
         .pipe( babel({ loose: 'all' }) ).on('error', console.log)
         .pipe(uglify())
