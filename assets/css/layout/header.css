@@ -1,0 +1,68 @@
+@import '../global-vars/index.css';
+
+.logo {
+    display: block;
+    position: relative;
+    float: left;
+    width: 202px;
+    height: 33px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../images/logo.png');
+    @media screen and (max-width: $screen-xs-max) {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    height: 80px;
+
+    @media screen and (max-width: $screen-sm-max) {
+        position: relative;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0.5em 0;
+        @media screen and (max-width: $screen-sm-max) {
+            display: none;
+        }
+    }
+
+    .btn-join {
+        @media screen and (max-width: $screen-xs-max) {
+            display: none;
+        }
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+        padding: 0 0 0 2em;
+        font-size: 1em;
+        text-transform: uppercase;
+
+        &:last-child:after {
+            display: none;
+        }
+        a {
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+
+            &:hover, &.active {
+                border-bottom-color: $baseFontColor;
+            }
+        }
+    }
+
+
+}
+

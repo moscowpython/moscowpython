@@ -1,0 +1,62 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: $baseFont;
+    color: $baseFontColor;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    letter-spacing: 0.04em;
+}
+
+* {
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
+.body-container {
+    position: relative;
+    padding-top: calc(2em + 46px);
+    /*padding-bottom: 128px;*/
+    overflow-x: hidden;
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding-top: 0;
+    }
+}
+section {
+    position: relative;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    padding: 1.5em 1em 1.5em;
+}
+
+#content-page {
+    padding-top: 105px;
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+
+}
+.hidden {
+    display: none !important;
+}
+
+div[id^="anchor-"] {
+    position: absolute;
+    top: calc(-1 * 2em + -1 * 53px);
+}
