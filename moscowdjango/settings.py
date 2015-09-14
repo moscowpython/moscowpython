@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'sslserver',
 
     'apps.meetup',
+    'apps.subscribers',
     'apps.vacancies',
 )
 
