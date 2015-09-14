@@ -1,7 +1,9 @@
 # coding: utf-8
+import csv
 import email
 from email.header import Header
 from email.utils import formataddr
+import glob
 import imaplib
 from urllib.parse import urlencode
 import time
@@ -14,6 +16,8 @@ import mailchimp
 
 mailchimp_api = mailchimp.Mailchimp(os.environ.get('MAILCHIMP_API_KEY'))
 
+invited_emails = None
+
 
 def is_subscribed(email_address):
     result = mailchimp_api.helper.search_members(email_address)
@@ -21,7 +25,13 @@ def is_subscribed(email_address):
 
 
 def is_invited_to_subscribe(email_address):
-    invited_emails = set(email_addr.lower().strip() for email_addr in open('data/invited.csv'))
+    global invited_emails
+
+    if invited_emails is None:
+        invited_emails = set()
+        for emails_csv in glob.glob('data/meetup*.csv'):
+            old_meetup_attendees = csv.DictReader(open(emails_csv, encoding='utf-8'), fieldnames=('fn', 'ln', 'email'))
+            invited_emails |= set(row['email'].lower().strip() for row in old_meetup_attendees)
     return email_address.lower().strip() in invited_emails
 
 
