@@ -1,59 +1,107 @@
 {% extends 'layout/body.html' %}
 
-
-{% load url from future %}
-
-
 {% block layout %}
-    <header class="header">
-        <div class="wrapper">
-            <a class="logo" href="/"></a>
-            <nav class="menu">
-                <ul class="menu__items">
-                {% for menu_item in menu_items %}
-                    {% if menu_item.url %}
-                    <li class="menu__item">
-                        <a class="menu__link" href="{{ menu_item.url }}"
-                           {% if menu_item.external %}target="_blank"{% endif %}>{{ menu_item.title }}</a>
-                    </li>
-                    {% else %}
-                    <li class="menu__item">
-                        <span class="menu__coming-soon">{{ menu_item.title }}</span>
-                    </li>
-                    {% endif %}
-                {% endfor %}
-                </ul>
-            </nav>
-            {% comment %}
-            <aside class="search">
-                <form action="">
-                    <input class="search__query" type="text" placeholder="Поиск по сайту" /><!--
-                 --><button class="search__submit" type="submit">
-                        <span class="search__submit-text">Найти</span>
-                    </button>
-                </form>
-            </aside>
-            {% endcomment %}
+    <header>
+        <div class="container">
+            <div class="content">
+                <div class="logo"><a href=""></a></div>
+                <div class="pull-right text-right">
+                    <a class="btn btn-join" href="#">Присоединиться</a>
+                </div>
+                <nav class="text-center">
+                    <ul>
+                        <li><a href="">Главная</a></li>
+                        <li><a href="">Преимущества</a></li>
+                        <li><a href="">О проекте</a></li>
+                        <li><a href="">Люди</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </header>
-    <div class="content-wrapper">
-        {% block page %}{% endblock %}
-    </div>
-    <footer class="footer">
-        <div class="wrapper">
-            <ul class="footer__menu">
-                <li class="footer__menu-item">
-                    <a href="{% url 'about' %}" class="footer__menu-link">О проекте</a>
-                </li>
-                <li class="footer__menu-item">
-                    <a href="mailto:meet@moscowdjango.ru" class="footer__menu-link">Обратная связь</a>
-                </li>
-            </ul>
-            {% block copyright %}
-            {% endblock %}
-            <span class="footer__copyright">
-                Сайт разработан <a class="footer__copyright-link" href="http://futurecolors.ru">Future Colors</a>
-            </span>
+
+    {% block page %}{% endblock %}
+
+    <section id="section-contacts" class="contacts">
+        <div class="container">
+            <div class="header">
+                <h1 class="heading"><span>Остались вопросы?</span></h1>
+                <div class="subheading">Свяжитесь с нами, используя форму или позвоните по телефону:</div>
+                <div class="phone">
+                    +7 (123) 456-78-90
+                </div>
+
+            </div>
+
+            <div class="contact-form-block">
+                    <h3 class="title">Связаться с нами</h3>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Ваше имя">
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Сообщение"></textarea>
+                        <div class="text-center submit">
+                            <a class="btn btn-signup signup">Отправить</a>
+                        </div>
+                    </form>
+                </div>
         </div>
-    </footer>
+    </section>
+
 {% endblock %}
+
+
+{#{% block layout %}#}
+{#    <header class="header">#}
+{#        <div class="wrapper">#}
+{#            <a class="logo" href="/"></a>#}
+{#            <nav class="menu">#}
+{#                <ul class="menu__items">#}
+{#                {% for menu_item in menu_items %}#}
+{#                    {% if menu_item.url %}#}
+{#                    <li class="menu__item">#}
+{#                        <a class="menu__link" href="{{ menu_item.url }}"#}
+{#                           {% if menu_item.external %}target="_blank"{% endif %}>{{ menu_item.title }}</a>#}
+{#                    </li>#}
+{#                    {% else %}#}
+{#                    <li class="menu__item">#}
+{#                        <span class="menu__coming-soon">{{ menu_item.title }}</span>#}
+{#                    </li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                </ul>#}
+{#            </nav>#}
+{#            {% comment %}#}
+{#            <aside class="search">#}
+{#                <form action="">#}
+{#                    <input class="search__query" type="text" placeholder="Поиск по сайту" /><!--#}
+{#                 --><button class="search__submit" type="submit">#}
+{#                        <span class="search__submit-text">Найти</span>#}
+{#                    </button>#}
+{#                </form>#}
+{#            </aside>#}
+{#            {% endcomment %}#}
+{#        </div>#}
+{#    </header>#}
+{#    <div class="content-wrapper">#}
+{#        {% block page %}{% endblock %}#}
+{#    </div>#}
+{#    <footer class="footer">#}
+{#        <div class="wrapper">#}
+{#            <ul class="footer__menu">#}
+{#                <li class="footer__menu-item">#}
+{#                    <a href="{% url 'about' %}" class="footer__menu-link">О проекте</a>#}
+{#                </li>#}
+{#                <li class="footer__menu-item">#}
+{#                    <a href="mailto:meet@moscowdjango.ru" class="footer__menu-link">Обратная связь</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            {% block copyright %}#}
+{#            {% endblock %}#}
+{#            <span class="footer__copyright">#}
+{#                Сайт разработан <a class="footer__copyright-link" href="http://futurecolors.ru">Future Colors</a>#}
+{#            </span>#}
+{#        </div>#}
+{#    </footer>#}
+{#{% endblock %}#}

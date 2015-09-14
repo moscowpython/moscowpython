@@ -1,17 +1,61 @@
 {% load pytils_dt %}
 
 
-<header class="event-header">
-    <div class="wrapper">
-        {% if event.date %}
-        <div class="event__date">
-            {{ event.date|ru_strftime:"%d %B %Y" }}
+<section id="section-main" class="main">
+    <div class="container">
+        <div class="header">
+            <h1 class="heading"><span>Moscow Django Meetup №28</span></h1>
+            <div class="arrow"></div>
         </div>
-        {% endif %}
-        <div class="event__title">
-            Moscow Django
-            <span class="event__type">MeetUp</span>
-            № {{ event.number }}
+        <div class="body">
+            <div class="signup-form-block">
+                <h3 class="title">Принять участие в Meetup №28</h3>
+                <form class="signup-form">
+                    <input type="text" placeholder="Ваше имя">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Телефон">
+                    <div class="text-center submit">
+                        <a class="btn btn-signup signup btn-large">Зарегистрироваться</a>
+                    </div>
+                </form>
+            </div>
+            <div class="program">
+                <div class="speech">
+                    <div class="announce">
+                        <div class="speaker">Артем Безукладичный</div>
+                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div>
+                    </div>
+                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
+                </div>
+                <div class="speech">
+                    <div class="announce">
+                        <div class="speaker">Артем Безукладичный</div>
+                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div>
+                    </div>
+                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
+                </div>
+                <div class="speech">
+                    <div class="announce">
+                        <div class="speaker">Артем Безукладичный</div>
+                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div></div>
+                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
+                </div>
+            </div>
         </div>
     </div>
-</header>
+</section>
+
+{#<header class="event-header">#}
+{#    <div class="wrapper">#}
+{#        {% if event.date %}#}
+{#        <div class="event__date">#}
+{#            {{ event.date|ru_strftime:"%d %B %Y" }}#}
+{#        </div>#}
+{#        {% endif %}#}
+{#        <div class="event__title">#}
+{#            Moscow Django#}
+{#            <span class="event__type">MeetUp</span>#}
+{#            № {{ event.number }}#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
