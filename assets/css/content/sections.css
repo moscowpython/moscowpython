@@ -348,29 +348,18 @@ section.archive {
     .meetups {
         margin-top: 35px;
         &> li {
-            width: 350px;
+            width: 330px;
             display: inline-block;
             &:first-child {
                 padding: 0;
-            }
-            &:last-child {
-                padding: 0;
-                width: 290px;
-                .speeches {
-                    .speech {
-                        .theme {
-                            width: 190px;
-                        }
-                    }
-                }
             }
             &> h3 {
                 text-transform: uppercase;
                 font-size: 24px;
                 margin-bottom: 25px;
             }
-            .speeches {
-                .speech {
+            .talks {
+                .talk {
                     margin-bottom: 25px;
                     .avatar {
                         display: inline-block;
@@ -381,7 +370,7 @@ section.archive {
                             height: 70px;
                         }
                     }
-                    .theme {
+                    .topic {
                         display: inline-block;
                         vertical-align: top;
                         width: 200px;
@@ -389,18 +378,32 @@ section.archive {
                         h3 {
                             font-size: 16px;
                             text-transform: none;
+                            a {
+                                text-decoration: none;
+                                &:hover {
+                                    opacity: 0.8;
+                                }
+                            }
                         }
                         .name {
-                            font-size: 20px;
-                            text-transform: uppercase;
-                            color: $colorRed;
                             padding-top: 5px;
+                            a {
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                color: $colorRed;
+                                text-decoration: none;
+                                &:hover {
+                                    color: $colorDarkRed;
+                                    opacity: 0.8;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
+
 }
 
 section.contacts {

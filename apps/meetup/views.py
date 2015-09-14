@@ -21,7 +21,7 @@ from .utils import subscribe_mail, validate_email, set_vote_cookie, can_vote
 class IndexPage(ListView):
     template_name = 'index.html'
     context_object_name = 'events'
-    queryset = Event.archived.prefetch_related('talks', 'talks__speaker', 'talks__event')
+    queryset = Event.archived.prefetch_related('talks', 'talks__speaker', 'talks__event')[:3]
 
     def get_context_data(self, **kwargs):
         context = super(IndexPage, self).get_context_data(**kwargs)
