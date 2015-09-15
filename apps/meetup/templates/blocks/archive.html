@@ -6,85 +6,33 @@
     <div class="container">
         <h1 class="heading"><span>Meetup Архив</span></h1>
         <ul class="meetups">
-            <li>
-                <h3>Meetup №27</h3>
-                <ul class="speeches">
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Meetup №27</h3>
-                <ul class="speeches">
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Meetup №27</h3>
-                <ul class="speeches">
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                    <li class="speech">
-                        <div class="avatar"><img src="{% static 'images/tmp/avatar1.jpg' %}"></div>
-                        <div class="theme">
-                            <h3>Обзор и сравнение методов реализации REST API в django</h3>
-                            <div class="name">Имя Фамилия</div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+            {% for event in events %}
+                <li>
+                    <h3>Meetup №{{ event.number }}</h3>
+                    <ul class="talks">
+                        {% for talk in event.talks.all %}
+                            <li class="talk">
+                                <div class="avatar">
+                                    <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
+                                        <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
+                                    </a>
+                                </div>
+                                <div class="topic">
+                                    <h3><a class="archive-item__topic" href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h3>
+                                    <div class="name"><a class="archive-item__speaker" href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
         </ul>
+
+        {% if show_more_link %}
+            <div class="meetups-more text-right">
+                <a href="{% url "events" %}" class="btn">Все события</a>
+            </div>
+        {% endif %}
 
     </div>
 </section>
