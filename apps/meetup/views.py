@@ -28,6 +28,7 @@ class IndexPage(ListView):
 
         context.update({
             'main_event': Event.spotlight(),
+            'show_more_link': True,
             'can_vote': can_vote(self.request)
         })
         return context

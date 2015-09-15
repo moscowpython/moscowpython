@@ -27,9 +27,12 @@
                 </li>
             {% endfor %}
         </ul>
-        <div class="meetups-more text-right">
-            <a href="{% url "events" %}" class="btn">Все события</a>
-        </div>
+
+        {% if show_more_link %}
+            <div class="meetups-more text-right">
+                <a href="{% url "events" %}" class="btn">Все события</a>
+            </div>
+        {% endif %}
 
     </div>
 </section>
