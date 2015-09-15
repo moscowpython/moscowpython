@@ -315,9 +315,15 @@ section.speakers {
                 text-align: center;
             }
             .name {
-                text-transform: uppercase;
-                color: $colorRed;
-                font-size: 18px;
+                a {
+                    text-transform: uppercase;
+                    color: $colorRed;
+                    font-size: 18px;
+                    text-decoration: none;
+                    &:hover {
+                        color: $colorDarkRed;
+                    }
+                }
             }
             &.new-speaker {
                 a {

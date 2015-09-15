@@ -13,6 +13,11 @@
         float: none;
         margin: 0 auto;
     }
+    a {
+        display: block;
+        width: 202px;
+        height: 33px;
+    }
 }
 
 header {
