@@ -26,7 +26,13 @@ class IndexPage(ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexPage, self).get_context_data(**kwargs)
 
+        # TODO: choose how select people for index page
+        # I see two options:
+        # By last talks -  Speaker.objects.order_by("-talks__event__id", "talk__position")[:9]
+        # Random: Speaker.objects.order_by("?")[:9]
+
         context.update({
+            'speakers': Speaker.objects.order_by("?")[:9],
             'main_event': Event.spotlight(),
             'show_more_link': True,
             'can_vote': can_vote(self.request)

@@ -35,7 +35,7 @@ section.main {
             background-repeat: no-repeat;
             background-position: 163px 50px;
 
-            .speech {
+            .talk {
                 width: 645px;
                 margin-bottom: 36px;
                 &:last-child {
@@ -315,9 +315,15 @@ section.speakers {
                 text-align: center;
             }
             .name {
-                text-transform: uppercase;
-                color: $colorRed;
-                font-size: 18px;
+                a {
+                    text-transform: uppercase;
+                    color: $colorRed;
+                    font-size: 18px;
+                    text-decoration: none;
+                    &:hover {
+                        color: $colorDarkRed;
+                    }
+                }
             }
             &.new-speaker {
                 a {

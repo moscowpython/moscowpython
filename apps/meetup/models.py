@@ -32,6 +32,9 @@ class Talk(StatusModel):
     video_data = PickledObjectField(u'Meta-данные видео', blank=True)
     position = models.SmallIntegerField(u'Порядок', help_text=u'Порядок выступления на событии', default=0)
 
+    start_time = models.TimeField(u'Время начала', blank=True, null=True)
+    end_time = models.TimeField(u'Время окончания', blank=True, null=True)
+
     objects = TalkManager()
 
     original_presentation = None
@@ -67,6 +70,18 @@ class Talk(StatusModel):
         self.set_embedly_data('presentation')
         self.set_embedly_data('video')
         super(Talk, self).save(*args, **kwargs)
+
+    # TODO: Add to talks normal timing
+    def get_time_start(self):
+        if self.start_time:
+            return self.start_time
+        return self.event.date + datetime.timedelta(minutes=40*self.position)
+
+    def get_time_end(self):
+        if self.end_time:
+            return self.end_time
+        return self.event.date + datetime.timedelta(minutes=40*(self.position+1))
+
 
     class Meta:
         verbose_name = u'Выступление'
