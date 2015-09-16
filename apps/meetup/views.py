@@ -28,7 +28,7 @@ class IndexPage(ListView):
 
         # TODO: choose how select people for index page
         # I see two options:
-        # By last talks -  Speaker.objects.order_by("-talks__event__id")[:9]
+        # By last talks -  Speaker.objects.order_by("-talks__event__id", "talk__position")[:9]
         # Random: Speaker.objects.order_by("?")[:9]
 
         context.update({

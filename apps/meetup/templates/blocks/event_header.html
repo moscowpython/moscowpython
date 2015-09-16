@@ -4,12 +4,12 @@
 <section id="section-main" class="main">
     <div class="container">
         <div class="header">
-            <h1 class="heading"><span>Moscow Django Meetup №28</span></h1>
+            <h1 class="heading"><span>{{ main_event.name }} №{{ main_event.number }}</span></h1>
             <div class="arrow"></div>
         </div>
         <div class="body">
             <div class="signup-form-block">
-                <h3 class="title">Принять участие в Meetup №28</h3>
+                <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
                 <form class="signup-form">
                     <input type="text" placeholder="Ваше имя">
                     <input type="email" placeholder="Email">
@@ -20,26 +20,15 @@
                 </form>
             </div>
             <div class="program">
-                <div class="speech">
+                {% for talk in main_event.talks.all %}
+                <div class="talk">
                     <div class="announce">
-                        <div class="speaker">Артем Безукладичный</div>
-                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div>
+                        <div class="speaker">{{ talk.speaker.name }}</div>
+                        <div class="time">{{ talk.get_time_start.hour|stringformat:"02d" }}<sup>{{ talk.get_time_start.minute|stringformat:"02d" }}</sup>-{{ talk.get_time_end.hour|stringformat:"02d" }}<sup>{{ talk.get_time_end.minute|stringformat:"02d" }}</sup></div>
                     </div>
-                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
+                    <h2>{{ talk.name }}</h2>
                 </div>
-                <div class="speech">
-                    <div class="announce">
-                        <div class="speaker">Артем Безукладичный</div>
-                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div>
-                    </div>
-                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
-                </div>
-                <div class="speech">
-                    <div class="announce">
-                        <div class="speaker">Артем Безукладичный</div>
-                        <div class="time">13<sup>15</sup>-13<sup>45</sup></div></div>
-                    <h2>Обзор и сравнение методов реализации REST API в django</h2>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
