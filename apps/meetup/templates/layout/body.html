@@ -11,7 +11,16 @@
         <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
         <meta name="twitter:site" content="@moscowdjango">
     {% endblock %}
+    <script>
+        if (window.location.hash) {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 1);
+        }
+    </script>
     <script type="text/javascript" src="{% static 'js/libs/modernizr-2.5.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/libs/jquery-1.7.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/scrolling.js' %}"></script>
 
     <title>&#9733; Moscow Python Meetup</title>
 

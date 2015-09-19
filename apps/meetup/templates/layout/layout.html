@@ -10,11 +10,12 @@
                 </div>
                 <nav class="text-center">
                     <ul>
-                        <li><a href="/">Главная</a></li>
-                        <li><a href="/#about">О проекте</a></li>
-                        <li><a href="/#speakers">Люди</a></li>
-                        <li><a href="/#archive">Архив</a></li>
-                        <li><a href="/#contacts">Контакты</a></li>
+                        {# Ugly hack for menu. TODO: make in some better way #}
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#">Главная</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#about">О проекте</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#speakers">Люди</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#archive">Архив</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#contacts">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
@@ -23,8 +24,8 @@
     </header>
 
     {% block page %}{% endblock %}
-
-    <section id="contacts" class="section-contacts">
+    <span id="contacts"></span>
+    <section  class="section-contacts">
         <div class="container">
             <div class="header">
                 <h1 class="heading"><span>Остались вопросы?</span></h1>
