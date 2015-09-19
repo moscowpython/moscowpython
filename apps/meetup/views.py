@@ -32,7 +32,7 @@ class IndexPage(ListView):
         # Random: Speaker.objects.order_by("?")[:9]
 
         context.update({
-            'speakers': Speaker.objects.order_by("?")[:9],
+            'speakers': Speaker.objects.order_by("?")[:10],
             'main_event': Event.spotlight(),
             'show_more_link': True,
             'can_vote': can_vote(self.request)

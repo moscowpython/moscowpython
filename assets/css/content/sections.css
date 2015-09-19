@@ -1,6 +1,6 @@
 @import '../global-vars/index.css';
 
-section.main {
+section.section-main {
     background-image: url(../images/section-main-bg.png);
     background-repeat: no-repeat;
     background-position:  center -80px;
@@ -24,6 +24,7 @@ section.main {
         .heading {
             color: $colorWhite;
             padding-top: 0;
+            display: inline-block;
         }
     }
     .body {
@@ -38,6 +39,9 @@ section.main {
             .talk {
                 width: 645px;
                 margin-bottom: 36px;
+                a {
+                    color: $colorWhite;
+                }
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -51,10 +55,12 @@ section.main {
                     position: relative;
                     margin-right: 40px;
                     .speaker {
-                        color: $colorRed;
-                        text-align: right;
-                        line-height: 1em;
-                        font-size: 13px;
+                            text-align: right;
+                            line-height: 1em;
+                            font-size: 13px;
+                        a {
+                            color: $colorRed;
+                        }
                     }
                     .time {
                         text-align: center;
@@ -216,7 +222,7 @@ section.main {
 }
 
 
-section.icons {
+section.section-icons {
     min-height: 200px;
     background: $colorWhite;
     ul {
@@ -226,7 +232,6 @@ section.icons {
             height: 150px;
             a {
                 display: inline-block;
-                text-decoration: none;
                 text-transform: uppercase;
                 width: 100%;
                 height: 100%;
@@ -256,7 +261,7 @@ section.icons {
     }
 }
 
-section.about {
+section.section-about {
     background-image: url(../images/section-about-bg.png);
     background-repeat: no-repeat;
     background-position:  center center;
@@ -299,7 +304,7 @@ section.about {
     }
 }
 
-section.speakers {
+section.section-speakers {
     background: $colorWhite;
     min-height: 200px;
     .speakers {
@@ -319,7 +324,6 @@ section.speakers {
                     text-transform: uppercase;
                     color: $colorRed;
                     font-size: 18px;
-                    text-decoration: none;
                     &:hover {
                         color: $colorDarkRed;
                     }
@@ -331,7 +335,6 @@ section.speakers {
                     display: inline-block;
                     width: 142px;
                     height: 182px;
-                    text-decoration: none;
                     color: $colorWhite;
                     text-transform: uppercase;
                     font-size: 19px;
@@ -349,7 +352,7 @@ section.speakers {
     }
 }
 
-section.archive {
+section.section-archive {
     background-color: $colorGray;
     .meetups {
         margin-top: 35px;
@@ -385,7 +388,6 @@ section.archive {
                             font-size: 16px;
                             text-transform: none;
                             a {
-                                text-decoration: none;
                                 &:hover {
                                     opacity: 0.8;
                                 }
@@ -397,7 +399,6 @@ section.archive {
                                 font-size: 20px;
                                 text-transform: uppercase;
                                 color: $colorRed;
-                                text-decoration: none;
                                 &:hover {
                                     color: $colorDarkRed;
                                     opacity: 0.8;
@@ -412,7 +413,7 @@ section.archive {
 
 }
 
-section.contacts {
+section.section-contacts {
     background-color: $colorBlack;
     background-image: url(../images/section-contacts-bg.png);
     background-repeat: no-repeat;
@@ -500,6 +501,221 @@ section.contacts {
                 display: block;
             }
         }
+    }
+
+}
+
+section.section-talk {
+    .speaker {
+        min-height: 150px;
+        background-color: $colorGray;
+        vertical-align: middle;
+        line-height: 150px;
+        &__photo {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        &__name {
+            display: inline-block;
+            padding-left: 45px;
+            width: 800px;
+            vertical-align: middle;
+            span {
+                display: block;
+                font-size: 20px;
+                line-height: normal;
+                margin-top: 10px;
+            }
+        }
+    }
+    .speaker-talks {
+        &__item {
+            margin-bottom: 50px;
+            &-event {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+            &-name {
+                margin: 30px 0;
+                font-size: 40px;
+                line-height: 40px;
+            }
+            &-description {
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+section.section-event, section.section-talk {
+    .event-header {
+        background-color: $colorGray;
+        .heading {
+            @media screen and (min-width: $screen-md) {
+                width: 862px;
+            }
+            font-size: 50px;
+            .event-date {
+                font-size: 26px;
+            }
+        }
+    }
+    .event__information {
+        float: right;
+        display: inline-block;
+        background-color: $colorBlackAlpha;
+        border-radius: 5px;
+        width: 320px;
+        min-height: 120px;
+        padding: 15px;
+        color: $colorWhite;
+        .event__registration {
+            &-summary {
+                .event-date {
+                    font-weight: bold;
+                }
+            }
+            &-button {
+                margin-top: 10px;
+            }
+        }
+        .event__description {
+            margin-top: 20px;
+        }
+    }
+    div.event__talks {
+        margin-right: 364px;
+
+        .event__talk {
+            &-speaker-link {
+                display: inline-block;
+                width: 150px;
+                margin-bottom: 15px;
+                text-align: center;
+                .avatar {
+                    width: 130px;
+                    height: 130px;
+                    margin-bottom: 5px;
+                }
+                .name {
+                    text-transform: uppercase;
+                    color: $colorRed;
+                    font-size: 14px;
+                    &:hover {
+                        color: $colorDarkRed;
+                    }
+                    div {
+                        font-size: 12px;
+                    }
+                }
+            }
+            &-content {
+                display: inline-block;
+                width: 480px;
+            }
+        }
+    }
+    div.event__sponsors {
+        &__icons {
+            margin: 25px 0;
+            text-align: center;
+            img {
+                margin: 5px 19px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+section.section-talk {
+    .talk__name {
+        margin: 30px 0;
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .talk__navigation {
+        float: right;
+        display: inline-block;
+        background-color: $colorBlackAlpha;
+        border-radius: 5px;
+        width: 320px;
+        min-height: 120px;
+        padding: 15px;
+        margin: 15px 0;
+        color: $colorWhite;
+
+        @media screen and (max-width: $screen-md) {
+            float: none;
+        }
+        @media screen and (max-width: $screen-xs) {
+            float: none;
+            width: 260px;
+        }
+        &-compact {
+            display: none;
+            max-width: 90%;
+            vertical-align: middle;
+            font-size: 11px;
+            @media screen and (max-width: $screen-md) {
+                display: inline;
+                color: $colorBlack;
+            }
+        }
+        .talk__others {
+            color: $colorRed;
+            a {
+                color: $colorWhite;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            @media screen and (max-width: $screen-md) {
+                display: none;
+            }
+        }
+    }
+    .talk__about {
+        margin-right: 364px;
+        @media screen and (max-width: $screen-md) {
+            margin-right: 0;
+        }
+        &-aside {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 15px;
+            text-align: center;
+            .avatar img {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            .name {
+                text-transform: uppercase;
+                color: $colorRed;
+                font-size: 14px;
+                &:hover {
+                    color: $colorDarkRed;
+                }
+                div {
+                    font-size: 12px;
+                }
+            }
+
+        }
+        .talk__description-wrapper {
+            display: inline-block;
+            width: 480px;
+            @media screen and (max-width: $screen-sm) {
+                width: auto;
+            }
+        }
+
     }
 
 }

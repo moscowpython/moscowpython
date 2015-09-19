@@ -1,7 +1,7 @@
 {% load static from staticfiles %}
 
 
-<section id="section-speakers" class="speakers">
+<section id="speakers" class="section-speakers">
     <div class="container">
         <h1 class="heading"><span>Люди</span></h1>
         <ul class="speakers text-center">
@@ -12,10 +12,11 @@
                     <div class="desc">{{ speaker.company_name }}</div>
                 </li>
             {% endfor %}
-            <li class="speaker new-speaker text-center"><a href="#">
-                <div class="star">&#9733;</div>
-                Выступить с&nbsp;докладом
-            </a></li>
+{#            Temporary disable #}
+{#            <li class="speaker new-speaker text-center"><a href="#">#}
+{#                <div class="star">&#9733;</div>#}
+{#                Выступить с&nbsp;докладом#}
+{#            </a></li>#}
         </ul>
     </div>
 </section>

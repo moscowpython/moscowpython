@@ -12,6 +12,7 @@
     height: 21px;
     &:hover {
         background-position-y: 33px;
+        text-decoration: none;
     }
 
     &.btn-large {

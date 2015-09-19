@@ -1,11 +1,9 @@
-<section class="event__talks">
+<div class="event__talks">
     {% for talk in event.talks.active %}
         <article class="event__talk">
             <a class="event__talk-speaker-link" href="{{ talk.get_absolute_url }}">
-                <span class="event__talk-avatar">
-                    <img src="{{ talk.speaker.avatar_url }}" width="68" height="68">
-                </span>
-                <div class="event__talk-speaker">
+                <img src="{{ talk.speaker.avatar_url }}" class="avatar">
+                <div class="name">
                     {{ talk.speaker }}
                     {% if talk.speaker.company_name %}
                         <div>({{ talk.speaker.company_name }})</div>
@@ -54,4 +52,4 @@
             </div>
         </article>
     {% endif %}
-</section>
+</div>

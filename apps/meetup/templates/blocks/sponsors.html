@@ -1,28 +1,32 @@
-<section class="event__sponsors">
-    <h1 class="event__sponsors-header">
-        <div class="event__sponsors-header-text">
+<div class="event__sponsors">
+    <h1 class="event__sponsors-header heading">
+        <span class="event__sponsors-header-text">
             Организаторы
-        </div>
+        </span>
     </h1>
-    {% for sponsor in event.sponsors.all %}
-        {% if sponsor.status == 'organizer' %}
-        <a href="{{ sponsor.get_absolute_url }}"><!--
-         --><img class="event__sponsor" src="{{ sponsor.logo.url }}" /><!--
-     --></a>
-        {% endif %}
-    {% endfor %}
-</section>
-<section class="event__sponsors">
-    <h1 class="event__sponsors-header">
-        <div class="event__sponsors-header-text">
+    <div class="event__sponsors__icons">
+        {% for sponsor in event.sponsors.all %}
+            {% if sponsor.status == 'organizer' %}
+                <a href="{{ sponsor.get_absolute_url }}">
+                    <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<div class="event__sponsors">
+    <h1 class="event__sponsors-header heading">
+        <span class="event__sponsors-header-text">
             Партнёры
-        </div>
+        </span>
     </h1>
-    {% for sponsor in event.sponsors.all %}
-        {% if sponsor.status == 'partner' %}
-        <a href="{{ sponsor.get_absolute_url }}"><!--
-         --><img class="event__sponsor" src="{{ sponsor.logo.url }}" /><!--
-     --></a>
-        {% endif %}
-    {% endfor %}
-</section>
+    <div class="event__sponsors__icons">
+        {% for sponsor in event.sponsors.all %}
+            {% if sponsor.status == 'partner' %}
+                <a href="{{ sponsor.get_absolute_url }}">
+                    <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
