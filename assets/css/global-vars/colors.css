@@ -5,3 +5,16 @@ $colorWhite: #ffffff;
 $colorGray: #d3ccc3;
 $colorBlack: #000000;
 $colorBlackAlpha: rgba(0, 0, 0, 0.7);
+
+.color-white {
+    color: $colorWhite;
+}
+.color-gray {
+    color: $colorGray;
+}
+.color-red {
+    color: $colorRed;
+}
+.color-dark-red {
+    color: $colorDarkRed;
+}

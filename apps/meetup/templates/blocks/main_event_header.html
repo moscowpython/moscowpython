@@ -59,6 +59,44 @@
     </div>
     {{/text}}
 </script>
+<script type="text/mustache" id="moscowpythonpad_success">
+    <div class="i-page i-jquery i-less i-bootstrap">
+        <div class="b-registration__section b-registration__section_indent color-white text-center">
+            <h2 class="b-unit__header b-unit__header_size_mid color-red">
+                Спасибо за регистрацию!
+            </h2>
+
+            {{> _event}}
+        </div>
+    </div>
+</script>
+<script type="text/mustache" id="moscowpythonpad_event">
+    <div class="b-event js-section-event">
+        {{#event.image}}
+            <div class="b-event__pic" style="background-image: url('{{event.image}}');"></div>
+        {{/event.image}}
+
+        <h2>Ждем вас!</h2>
+
+        <div class="b-event__info">
+            {{#event.place}}
+                <div class="row-fluid b-event__info-elem">
+                    <div class="span9">
+                        <span class="b-unit__text_size_small b-unit__text_color_black">
+                            {{#event.city}}{{{event.city}}}, {{/event.city}}
+                            {{{event.place}}}
+                        </span>
+                    </div>
+                </div>
+            {{/event.place}}
+            <div class="row-fluid b-event__info-elem">
+                <div class="span3 b-unit__text_size_small">
+                    {{event.datetime}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
 {% endverbatim %}
 
 <section id="main" class="section-main">
@@ -77,7 +115,9 @@
                                 "main": "#moscowpythonpad",
                                 "_ank": "#moscowpythonpad_ank",
                                 "_attendee_form": "#moscowpythonpad_attendee_form",
-                                "_question": "#moscowpythonpad_question"
+                                "_question": "#moscowpythonpad_question",
+                                "success": "#moscowpythonpad_success",
+                                "_event": "#moscowpythonpad_event"
                             },
                             loadCSS: [
                                 "https://moscowpython.herokuapp.com/static/css/main.css",
