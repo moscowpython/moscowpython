@@ -262,11 +262,11 @@ section.section-icons {
 }
 
 section.section-about {
-    background-image: url(../images/section-about-bg.png);
+    /*background-image: url(../images/section-about-bg.png);
     background-repeat: no-repeat;
-    background-position:  center center;
+    background-position:  center center;*/
     background-color: $colorGray;
-    height: 815px;
+    /*height: 815px;*/
     @media screen and (max-width: $screen-xs) {
         background-image: url(../images/section-about-bg.png);
         background-repeat: no-repeat;
@@ -288,7 +288,15 @@ section.section-about {
     }
     .body {
         margin-top: 14px;
-        width: 65%;
+        a {
+            color: $colorRed;
+            &:hover {
+                color: $colorDarkRed;
+            }
+        }
+        .heading {
+            margin-bottom: 25px;
+        }
         p.important {
             font-size: 24px;
             span {
