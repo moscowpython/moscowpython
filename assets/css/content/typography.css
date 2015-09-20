@@ -2,9 +2,6 @@ a {
     transition: all 0.5s ease;
     color: $baseFontColor;
     cursor: pointer;
-    &:hover {
-        text-decoration: none;
-    }
 }
 p {
     font-size: 1.1em;
@@ -24,7 +21,6 @@ h1 {
         background-image: url(../images/star.png);
         background-repeat: no-repeat;
         background-position:  2px 16px;
-        display: inline-block;
         padding-left: 138px;
         width: 530px;
         min-height: 90px;

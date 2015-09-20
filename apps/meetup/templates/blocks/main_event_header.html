@@ -1,0 +1,148 @@
+{% load pytils_dt %}
+{% verbatim %}
+<script type="text/mustache" id="moscowpythonpad">
+    {{> _promocodeBlock}}
+    <form id="eventreg_form" action="{{event.domain}}event/widget_register/{{event.id}}">
+    <div class="hidden">{{> _selectTickets}}</div>
+
+    {{^event.promocode_locked}}
+
+    <div class="b-registration__section b-registration__section_no-bottom-space">
+        <div class="b-registration__error hide"></div>
+    </div>
+
+    {{> _ank }}
+    {{/event.promocode_locked}}
+    </form>
+</script>
+<script type="text/mustache" id="moscowpythonpad_ank">
+        {{#event.has_master_questions}}
+            <div class="b-attendee-divide">
+                {{#event.master_questions}}
+                    {{> _question}}
+                {{/event.master_questions}}
+            </div>
+        {{/event.has_master_questions}}
+
+        <div class="b-attendees text-center">
+        {{#attendees}}
+            {{> _attendee_form}}
+        {{/attendees}}
+        </div>
+    </div>
+
+    <div class="b-registration__section section-submit b-registration__section_indent">
+
+        <div class="b-registration__check">
+            {{#event.uses_subscribe}}
+                <input type="hidden" name="subscribe" value="on">
+            {{/event.uses_subscribe}}
+            {{#event.uses_digest}}
+                <input type="hidden" name="subscribe_digest" value="on">
+            {{/event.uses_digest}}
+        </div>
+
+        <div class="text-center submit">
+            <button class="btn btn-signup signup btn-large b-pro-wiget__reg-button" name="submit_register" id="eventreg_submit" type="submit">Зарегистрироваться</button>
+        </div>
+    </div>
+</script>
+<script type="text/mustache" id="moscowpythonpad_attendee_form">
+    {{#questionsSet}}
+        {{> _question}}
+    {{/questionsSet}}
+</script>
+<script type="text/mustache" id="moscowpythonpad_question">
+    {{#text}}
+    <div class="b-input-block i-question-control">
+        <input type="text" name="{{formname}}"  class="span12 b-input" value="{{{value}}}" placeholder="{{{name}}}">
+    </div>
+    {{/text}}
+</script>
+<script type="text/mustache" id="moscowpythonpad_success">
+    <div class="i-page i-jquery i-less i-bootstrap">
+        <div class="b-registration__section b-registration__section_indent color-white text-center">
+            <h2 class="b-unit__header b-unit__header_size_mid color-red">
+                Спасибо за регистрацию!
+            </h2>
+
+            {{> _event}}
+        </div>
+    </div>
+</script>
+<script type="text/mustache" id="moscowpythonpad_event">
+    <div class="b-event js-section-event">
+        {{#event.image}}
+            <div class="b-event__pic" style="background-image: url('{{event.image}}');"></div>
+        {{/event.image}}
+
+        <h2>Ждем вас!</h2>
+
+        <div class="b-event__info">
+            {{#event.place}}
+                <div class="row-fluid b-event__info-elem">
+                    <div class="span9">
+                        <span class="b-unit__text_size_small b-unit__text_color_black">
+                            {{#event.city}}{{{event.city}}}, {{/event.city}}
+                            {{{event.place}}}
+                        </span>
+                    </div>
+                </div>
+            {{/event.place}}
+            <div class="row-fluid b-event__info-elem">
+                <div class="span3 b-unit__text_size_small">
+                    {{event.datetime}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+{% endverbatim %}
+
+<section id="main" class="section-main">
+    <div class="container">
+        <div class="header">
+            <h1 class="heading"><span>{{ main_event.name }} №{{ main_event.number }}</span></h1>
+            <div class="arrow"></div>
+        </div>
+        <div class="body">
+            <div class="signup-form-block">
+                <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
+                {% if  main_event.timepad_id %}
+                    <script type="text/javascript" defer="defer" data-data-timepad-customized="12675"  data-twf2s-event--id="{{ main_event.timepad_id }}"  data-timepad-widget-v2="event_register" src="//timepad.ru/js/tpwf/loader/min/loader.js">
+                        (function() {
+                            return {
+                                "overrideTemplates": {
+                                    "main": "#moscowpythonpad",
+                                    "_ank": "#moscowpythonpad_ank",
+                                    "_attendee_form": "#moscowpythonpad_attendee_form",
+                                    "_question": "#moscowpythonpad_question",
+                                    "success": "#moscowpythonpad_success",
+                                    "_event": "#moscowpythonpad_event"
+                                },
+                                loadCSS: [
+                                    "https://moscowpython.herokuapp.com/static/css/main.css",
+                                    "https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic"
+                                ],
+                                "skipBaseCSS": true,
+                                "disableBootstrap": true
+                            };
+                        })();
+                    </script>
+                {% endif %}
+            </div>
+            <div class="program">
+                {% for talk in main_event.talks.all %}
+                    <div class="talk">
+                        <div class="announce">
+                            <div class="speaker"><a href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
+                            <div class="time">{{ talk.get_time_start.hour|stringformat:"02d" }}<sup>{{ talk.get_time_start.minute|stringformat:"02d" }}</sup>-{{ talk.get_time_end.hour|stringformat:"02d" }}<sup>{{ talk.get_time_end.minute|stringformat:"02d" }}</sup></div>
+                        </div>
+                        <h2><a href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h2>
+                    </div>
+                {% endfor %}
+                <div class="b-registration__section b-registration__section_indent section-ank js-section-ank">
+            </div>
+        </div>
+    </div>
+</section>

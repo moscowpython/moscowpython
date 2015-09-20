@@ -64,6 +64,7 @@ header {
 
             &:hover, &.active {
                 border-bottom-color: $baseFontColor;
+                text-decoration: none;
             }
         }
     }

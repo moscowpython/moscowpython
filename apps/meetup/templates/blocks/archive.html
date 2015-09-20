@@ -2,13 +2,13 @@
 {% load static from staticfiles %}
 
 
-<section id="section-archive" class="archive">
+<section id="archive" class="section-archive">
     <div class="container">
         <h1 class="heading"><span>Meetup Архив</span></h1>
         <ul class="meetups">
             {% for event in events %}
                 <li>
-                    <h3>Meetup №{{ event.number }}</h3>
+                    <h3><a href="{{ event.get_absolute_url }}">Meetup №{{ event.number }}</a></h3>
                     <ul class="talks">
                         {% for talk in event.talks.all %}
                             <li class="talk">

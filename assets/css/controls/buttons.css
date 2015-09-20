@@ -1,3 +1,6 @@
+button.btn {
+    height: 42px!important;
+}
 .btn {
     transition: none;
     display: inline-block;
@@ -8,10 +11,13 @@
     text-transform: uppercase;
     color: $colorWhite;
     background-image: url(../images/btn.png);
+    background-color: transparent;
+    border: 0;
     width: 162px;
     height: 21px;
     &:hover {
         background-position-y: 33px;
+        text-decoration: none;
     }
 
     &.btn-large {

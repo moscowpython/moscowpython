@@ -6,15 +6,16 @@
             <div class="content">
                 <div class="logo"><a href="/"></a></div>
                 <div class="pull-right text-right">
-                    <a class="btn btn-join" href="#">Присоединиться</a>
+                    <a class="btn btn-join" href="https://www.facebook.com/groups/MoscowDjango/" target="_blank">Присоединиться</a>
                 </div>
                 <nav class="text-center">
                     <ul>
-                        <li><a href="">Главная</a></li>
-                        <li><a href="">Преимущества</a></li>
-                        <li><a href="">О проекте</a></li>
-                        <li><a href="">Люди</a></li>
-                        <li><a href="">Контакты</a></li>
+                        {# Ugly hack for menu. TODO: make in some better way #}
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#">Главная</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#about">О проекте</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#speakers">Люди</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#archive">Архив</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#contacts">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
@@ -23,28 +24,32 @@
     </header>
 
     {% block page %}{% endblock %}
-
-    <section id="section-contacts" class="contacts">
+    <span id="contacts"></span>
+    <section  class="section-contacts">
         <div class="container">
             <div class="header">
                 <h1 class="heading"><span>Остались вопросы?</span></h1>
-                <div class="subheading">Свяжитесь с нами, используя форму или позвоните по телефону:</div>
-                <div class="phone">
-                    +7 (123) 456-78-90
-                </div>
-
+                <div class="subheading">Свяжитесь с нами по email или телефону</div>
             </div>
 
-            <div class="contact-form-block">
+            <div class="contact-form-block text-center">
                     <h3 class="title">Связаться с нами</h3>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Ваше имя">
-                        <input type="email" placeholder="Email">
-                        <textarea placeholder="Сообщение"></textarea>
-                        <div class="text-center submit">
-                            <a class="btn btn-signup signup">Отправить</a>
+                    <div class="contacts">
+                        <div class="email">
+                            <a href="mailto:contact@moscowpython.ru">contact@moscowpython.ru</a>
                         </div>
-                    </form>
+                        <div class="phone">
+                            +7 (123) 456-78-90
+                        </div>
+                    </div>
+{#                    <form class="contact-form">#}
+{#                        <input type="text" placeholder="Ваше имя">#}
+{#                        <input type="email" placeholder="Email">#}
+{#                        <textarea placeholder="Сообщение"></textarea>#}
+{#                        <div class="text-center submit">#}
+{#                            <a class="btn btn-signup signup">Отправить</a>#}
+{#                        </div>#}
+{#                    </form>#}
                 </div>
         </div>
     </section>

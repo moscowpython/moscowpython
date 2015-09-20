@@ -9,8 +9,8 @@
 
 {% block twitter %}
     {{ block.super }}
-    <meta name="twitter:title" content="Moscow Django Meetup">
-    <meta name="twitter:description" content="Moscow Django Meetup — это ежемесячные встречи разработчиков на Джанго.
+    <meta name="twitter:title" content="Moscow Python Meetup">
+    <meta name="twitter:description" content="Moscow Python Meetup — это ежемесячные встречи разработчиков на Python.
 Несколько человек выступают перед публикой с докладами, так или иначе связанными с веб-разработкой, Python и Django.
 Не обходится и без самого интересного: общения в кулуарах.">
 {% endblock %}
@@ -18,10 +18,10 @@
 
 {% block page %}
     {% if main_event %}
-      {% include 'blocks/event_header.html' with event=main_event %}
+      {% include 'blocks/main_event_header.html' with event=main_event %}
     {% endif %}
 
-    <section id="section-about" class="about">
+    <section id="about" class="section-about">
         <div class="container">
             <div class="body">
                 <h1 class="heading"><span>О&nbsp;проекте</span></h1>

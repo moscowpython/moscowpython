@@ -14,53 +14,56 @@
 {% endblock %}
 
 {% block page %}
-    {% include 'blocks/event_header.html' with event=talk.event %}
-    <section class="talk">
-        <div class="wrapper">
+    <section class="section-talk">
+        {% include 'blocks/event_header.html' with event=talk.event %}
+        <div class="container">
             <h1 class="talk__name">{{ talk }}</h1>
-            <section class="talk__about">
-                <nav class="talk__navigation">
-                    <div class="talk__navigation-header">Доклады {{ talk.event }}</div>
-                    <ul class="talk__others">
-                        {% for other_talk in talk.event.talks.all %}
-                            {% if other_talk.pk != talk.pk %}
-                                <li class="talk__others-item">
-                                    <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>
-                                </li>
-                            {% else %}
-                                <li class="talk__others-item">
-                                    <span class="talk__others-item-current">{{ other_talk }}</span>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <select class="talk__navigation-compact js-talk-navigation">
-                        {% for other_talk in talk.event.talks.all %}
-                            <option value="{{ other_talk.get_absolute_url }}"
-                                    {% if other_talk.pk == talk.pk %}selected="selected"{% endif %}>
-                                {{ other_talk }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </nav>
+            <nav class="talk__navigation">
+                <h2 class="talk__navigation-header">Доклады {{ talk.event }}</h2>
+                <ul class="talk__others">
+                    {% for other_talk in talk.event.talks.all %}
+                        {% if other_talk.pk != talk.pk %}
+                            <li class="talk__others-item">
+                                <a class="talk__others-item-link" href="{{ other_talk.get_absolute_url }}">{{ other_talk }}</a>
+                            </li>
+                        {% else %}
+                            <li class="talk__others-item">
+                                <span class="talk__others-item-current">{{ other_talk }}</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <select class="talk__navigation-compact js-talk-navigation">
+                    {% for other_talk in talk.event.talks.all %}
+                        <option value="{{ other_talk.get_absolute_url }}"
+                                {% if other_talk.pk == talk.pk %}selected="selected"{% endif %}>
+                            {{ other_talk }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </nav>
+
+            <div class="talk__about">
+
                 <div class="talk__about-aside">
-                    <a href="{{ talk.speaker.get_absolute_url }}" class="talk__avatar">
+                    <a href="{{ talk.speaker.get_absolute_url }}" class="avatar">
                         <img src="{{ talk.speaker.avatar_url }}" />
                     </a>
-                    <a href="{{ talk.speaker.get_absolute_url }}" class="talk__speaker">
+                    <a href="{{ talk.speaker.get_absolute_url }}" class="name">
                         {{ talk.speaker }}
                         {% if talk.speaker.company_name %}
                             <div>({{ talk.speaker.company_name }})</div>
                         {% endif %}
                     </a>
                 </div>
+
                 <div class="talk__description-wrapper">
                     <div class="talk__description">
                         {{ talk.description }}
                     </div>
                 </div>
-            </section>
-            <div class="g-clear"></div>
+            </div>
+            <div class="clearfix"></div>
             <section class="talk-resources">
                 <article class="talk-resources__item">
                     {% if talk.video_data %}
@@ -77,7 +80,7 @@
                     {% endif %}
                 </article>
             </section>
-            <div class="g-clear"></div>
+            <div class="clearfix"></div>
             {% include 'blocks/share.html' with page='talk' without_wrapper=1 %}
             {% include 'blocks/comments.html' %}
         </div>
