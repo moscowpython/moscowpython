@@ -318,6 +318,10 @@ section.section-speakers {
                 height: 182px;
                 margin-bottom: 20px;
                 text-align: center;
+                img {
+                    width: 150px;
+                    height: 150px;
+                }
             }
             .name {
                 a {

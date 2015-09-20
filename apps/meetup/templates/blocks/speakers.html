@@ -7,7 +7,7 @@
         <ul class="speakers text-center">
             {% for speaker in speakers %}
                 <li class="speaker text-center">
-                    <div class="avatar"><a href="{{ speaker.get_absolute_url }}"><img src="{{ speaker.avatar_url }}" align="center"></a></div>
+                    <div class="avatar"><a href="{{ speaker.get_absolute_url }}"><img src="{{ speaker.avatar_url }}" align="center" width=""></a></div>
                     <div class="name"><a href="{{ speaker.get_absolute_url }}">{{ speaker.name }}</a></div>
                     <div class="desc">{{ speaker.company_name }}</div>
                 </li>

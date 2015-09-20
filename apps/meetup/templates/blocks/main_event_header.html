@@ -108,26 +108,28 @@
         <div class="body">
             <div class="signup-form-block">
                 <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
-                <script type="text/javascript" defer="defer" data-data-timepad-customized="12675"  data-twf2s-event--id="246832"  data-timepad-widget-v2="event_register" src="//timepad.ru/js/tpwf/loader/min/loader.js">
-                    (function() {
-                        return {
-                            "overrideTemplates": {
-                                "main": "#moscowpythonpad",
-                                "_ank": "#moscowpythonpad_ank",
-                                "_attendee_form": "#moscowpythonpad_attendee_form",
-                                "_question": "#moscowpythonpad_question",
-                                "success": "#moscowpythonpad_success",
-                                "_event": "#moscowpythonpad_event"
-                            },
-                            loadCSS: [
-                                "https://moscowpython.herokuapp.com/static/css/main.css",
-                                "https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic"
-                            ],
-                            "skipBaseCSS": true,
-                            "disableBootstrap": true
-                        };
-                    })();
-                </script>
+                {% if  main_event.timepad_id %}
+                    <script type="text/javascript" defer="defer" data-data-timepad-customized="12675"  data-twf2s-event--id="{{ main_event.timepad_id }}"  data-timepad-widget-v2="event_register" src="//timepad.ru/js/tpwf/loader/min/loader.js">
+                        (function() {
+                            return {
+                                "overrideTemplates": {
+                                    "main": "#moscowpythonpad",
+                                    "_ank": "#moscowpythonpad_ank",
+                                    "_attendee_form": "#moscowpythonpad_attendee_form",
+                                    "_question": "#moscowpythonpad_question",
+                                    "success": "#moscowpythonpad_success",
+                                    "_event": "#moscowpythonpad_event"
+                                },
+                                loadCSS: [
+                                    "https://moscowpython.herokuapp.com/static/css/main.css",
+                                    "https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic"
+                                ],
+                                "skipBaseCSS": true,
+                                "disableBootstrap": true
+                            };
+                        })();
+                    </script>
+                {% endif %}
             </div>
             <div class="program">
                 {% for talk in main_event.talks.all %}
