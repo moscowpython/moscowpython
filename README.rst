@@ -32,7 +32,7 @@ Running locally
     python manage.py syncdb
     python manage.py migrate
     python manage.py loaddata development.json  # convenient
-    python manage.py runsslserver
+    python manage.py runserver
 
 
 Tests
