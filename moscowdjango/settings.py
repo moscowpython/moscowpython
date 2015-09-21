@@ -130,7 +130,6 @@ INSTALLED_APPS = (
 
     'apps.meetup',
     'apps.subscribers',
-    'apps.vacancies',
 )
 
 #if DEBUG:
@@ -192,17 +191,11 @@ EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_ACCEPT_CONTENT = ['json']
-CELERYBEAT_SCHEDULE = {
-    'update_vacancies': {
-        'task': 'apps.vacancies.tasks.update_vacancies',
-        'schedule': crontab(hour='*/1', minute=0),
-    },
-}
 BROKER_POOL_LIMIT = 3
 
 # security stuff
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SESSION_COOKIE_SECURE = True

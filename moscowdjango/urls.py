@@ -18,7 +18,6 @@ urlpatterns = patterns('',
     url(r'^humans.txt$', 'django.views.static.serve', {'document_root': ROOT_PATH, 'path': 'AUTHORS.txt'}),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('apps.meetup.urls')),
-    url(r'', include('apps.vacancies.urls')),
     url(r'^(?P<filename>[\w-]+\.(?:html|txt))$', 'apps.meetup.views.confirm_ownership', name='ownership')
 )
 
