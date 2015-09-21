@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     'storages',
     'pytils',
     'googlecharts',
-    'djangosecure',
     'sslserver',
 
     'apps.meetup',
