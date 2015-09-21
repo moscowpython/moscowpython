@@ -1,0 +1,37 @@
+button.btn {
+    height: 42px!important;
+}
+.btn {
+    transition: none;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    padding: 6px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorWhite;
+    background-image: url(../images/btn.png);
+    background-color: transparent;
+    border: 0;
+    width: 162px;
+    height: 21px;
+    &:hover {
+        background-position-y: 33px;
+        text-decoration: none;
+    }
+
+    &.btn-large {
+        padding: 11px 0;
+        text-align: center;
+        background-image: url(../images/btn-large.png);
+        width: 225px;
+        height: 23px;
+        &:hover {
+            background-position-y: 45px;
+        }
+    }
+}
+
+.btn-middle {
+    padding: 1em;
+}

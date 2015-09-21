@@ -15,14 +15,14 @@
 
 
 {% block page %}
-    <section class="event">
+    <section class="section-event">
         {% include 'blocks/event_header.html' %}
-        <div class="wrapper">
+        <div class="container">
             {% include 'blocks/sidebar.html' %}
             {% include 'blocks/event_talks.html' %}
             {% include 'blocks/sponsors.html' %}
             {% include 'blocks/gallery.html' %}
+            {% include 'blocks/share.html' %}
         </div>
-        {% include 'blocks/share.html' %}
     </section>
 {% endblock %}

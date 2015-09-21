@@ -1,59 +1,113 @@
 {% extends 'layout/body.html' %}
 
-
-{% load url from future %}
-
-
 {% block layout %}
-    <header class="header">
-        <div class="wrapper">
-            <a class="logo" href="/"></a>
-            <nav class="menu">
-                <ul class="menu__items">
-                {% for menu_item in menu_items %}
-                    {% if menu_item.url %}
-                    <li class="menu__item">
-                        <a class="menu__link" href="{{ menu_item.url }}"
-                           {% if menu_item.external %}target="_blank"{% endif %}>{{ menu_item.title }}</a>
-                    </li>
-                    {% else %}
-                    <li class="menu__item">
-                        <span class="menu__coming-soon">{{ menu_item.title }}</span>
-                    </li>
-                    {% endif %}
-                {% endfor %}
-                </ul>
-            </nav>
-            {% comment %}
-            <aside class="search">
-                <form action="">
-                    <input class="search__query" type="text" placeholder="Поиск по сайту" /><!--
-                 --><button class="search__submit" type="submit">
-                        <span class="search__submit-text">Найти</span>
-                    </button>
-                </form>
-            </aside>
-            {% endcomment %}
+    <header>
+        <div class="container">
+            <div class="content">
+                <div class="logo"><a href="/"></a></div>
+                <div class="pull-right text-right">
+                    <a class="btn btn-join" href="https://www.facebook.com/groups/MoscowDjango/" target="_blank">Присоединиться</a>
+                </div>
+                <nav class="text-center">
+                    <ul>
+                        {# Ugly hack for menu. TODO: make in some better way #}
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#">Главная</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#about">О проекте</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#speakers">Люди</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#archive">Архив</a></li>
+                        <li><a href="https://www.youtube.com/moscowdjangoru" target="_blank">Видео</a></li>
+                        <li><a href="{% if not request.path == "/" %}/{% endif %}#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </header>
-    <div class="content-wrapper">
-        {% block page %}{% endblock %}
-    </div>
-    <footer class="footer">
-        <div class="wrapper">
-            <ul class="footer__menu">
-                <li class="footer__menu-item">
-                    <a href="{% url 'about' %}" class="footer__menu-link">О проекте</a>
-                </li>
-                <li class="footer__menu-item">
-                    <a href="mailto:meet@moscowdjango.ru" class="footer__menu-link">Обратная связь</a>
-                </li>
-            </ul>
-            {% block copyright %}
-            {% endblock %}
-            <span class="footer__copyright">
-                Сайт разработан <a class="footer__copyright-link" href="http://futurecolors.ru">Future Colors</a>
-            </span>
+
+    {% block page %}{% endblock %}
+    <span id="contacts"></span>
+    <section  class="section-contacts">
+        <div class="container">
+            <div class="header">
+                <h1 class="heading"><span>Остались вопросы?</span></h1>
+{#                <div class="subheading">Свяжитесь с нами по email или телефону #}</div>#}
+            </div>
+
+            <div class="contact-form-block text-center">
+                    <h3 class="title">Связаться с нами</h3>
+                    <div class="contacts">
+                        <div class="email">
+                            <a href="mailto:contact@moscowpython.ru">contact@moscowpython.ru</a>
+                        </div>
+{#                        <div class="phone">#}
+{#                            +7 (123) 456-78-90#}
+{#                        </div>#}
+                    </div>
+{#                    <form class="contact-form">#}
+{#                        <input type="text" placeholder="Ваше имя">#}
+{#                        <input type="email" placeholder="Email">#}
+{#                        <textarea placeholder="Сообщение"></textarea>#}
+{#                        <div class="text-center submit">#}
+{#                            <a class="btn btn-signup signup">Отправить</a>#}
+{#                        </div>#}
+{#                    </form>#}
+                </div>
         </div>
-    </footer>
+    </section>
+
 {% endblock %}
+
+
+{#{% block layout %}#}
+{#    <header class="header">#}
+{#        <div class="wrapper">#}
+{#            <a class="logo" href="/"></a>#}
+{#            <nav class="menu">#}
+{#                <ul class="menu__items">#}
+{#                {% for menu_item in menu_items %}#}
+{#                    {% if menu_item.url %}#}
+{#                    <li class="menu__item">#}
+{#                        <a class="menu__link" href="{{ menu_item.url }}"#}
+{#                           {% if menu_item.external %}target="_blank"{% endif %}>{{ menu_item.title }}</a>#}
+{#                    </li>#}
+{#                    {% else %}#}
+{#                    <li class="menu__item">#}
+{#                        <span class="menu__coming-soon">{{ menu_item.title }}</span>#}
+{#                    </li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                </ul>#}
+{#            </nav>#}
+{#            {% comment %}#}
+{#            <aside class="search">#}
+{#                <form action="">#}
+{#                    <input class="search__query" type="text" placeholder="Поиск по сайту" /><!--#}
+{#                 --><button class="search__submit" type="submit">#}
+{#                        <span class="search__submit-text">Найти</span>#}
+{#                    </button>#}
+{#                </form>#}
+{#            </aside>#}
+{#            {% endcomment %}#}
+{#        </div>#}
+{#    </header>#}
+{#    <div class="content-wrapper">#}
+{#        {% block page %}{% endblock %}#}
+{#    </div>#}
+{#    <footer class="footer">#}
+{#        <div class="wrapper">#}
+{#            <ul class="footer__menu">#}
+{#                <li class="footer__menu-item">#}
+{#                    <a href="{% url 'about' %}" class="footer__menu-link">О проекте</a>#}
+{#                </li>#}
+{#                <li class="footer__menu-item">#}
+{#                    <a href="mailto:meet@moscowdjango.ru" class="footer__menu-link">Обратная связь</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            {% block copyright %}#}
+{#            {% endblock %}#}
+{#            <span class="footer__copyright">#}
+{#                Сайт разработан <a class="footer__copyright-link" href="http://futurecolors.ru">Future Colors</a>#}
+{#            </span>#}
+{#        </div>#}
+{#    </footer>#}
+{#{% endblock %}#}

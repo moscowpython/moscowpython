@@ -1,0 +1,761 @@
+@import '../global-vars/index.css';
+
+section.section-main {
+    background-image: url(../images/section-main-bg.png);
+    background-repeat: no-repeat;
+    background-position:  center -80px;
+    min-height: 600px;
+    .header {
+        @media screen and (max-width: $screen-xs) {
+            padding-top: 7px;
+        }
+        padding-top: 47px;
+        .arrow {
+            display: inline-block;
+            width: 150px;
+            height: 146px;
+            background-image: url(../images/arrow.png);
+            background-repeat: no-repeat;
+            background-position:  17px 15px;
+            @media screen and (max-width: $screen-lg) {
+                display: none;
+            }
+        }
+        .heading {
+            color: $colorWhite;
+            padding-top: 0;
+            display: inline-block;
+        }
+    }
+    .body {
+        .program {
+            display: inline-block;
+            padding-top: 21px;
+            min-height: 400px;
+            background-image: url(../images/line.png);
+            background-repeat: no-repeat;
+            background-position: 163px 50px;
+
+            .talk {
+                width: 645px;
+                margin-bottom: 36px;
+                a {
+                    color: $colorWhite;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .announce {
+                    display: inline-block;
+                    background-color: $colorBlackAlpha;
+                    border-radius: 5px;
+                    width: 95px;
+                    height: 63px;
+                    padding: 12px 20px;
+                    position: relative;
+                    margin-right: 40px;
+                    .speaker {
+                        text-align: right;
+                        line-height: 1em;
+                        font-size: 13px;
+                        a {
+                            color: $colorRed;
+                        }
+                    }
+                    .time {
+                        text-align: center;
+                        color: $colorWhite;
+                        font-size: 23px;
+                        padding-top: 10px;
+                        letter-spacing: 0;
+                        sup {
+                            font-size: 15px;
+                        }
+                    }
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 23px;
+                        left: 100%;
+                        width: 0;
+                        height: 0;
+                        border-bottom: 8px solid transparent;
+                        border-top: 8px solid transparent;
+                        border-left: 8px solid $colorBlackAlpha;
+                        border-right: 8px solid transparent;
+                    }
+                }
+                h2 {
+                    color: $colorWhite;
+                    display: inline-block;
+                    text-transform: uppercase;
+                    position: relative;
+                    width: 420px;
+                    padding-left: 26px;
+                    padding-top: 8px;
+                    letter-spacing: 0.11em;
+                    &:before {
+                        content: ' ';
+                        display: block;
+                        position: absolute;
+                        top: 23px;
+                        left: -23px;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50px;
+                        background-color: $colorWhite;
+                    }
+                }
+            }
+
+            @media screen and (max-device-width: $screen-full) {
+                .speech {
+                    .announce {
+                        width: 115px;
+                        padding: 12px 10px;
+                    }
+                }
+            }
+
+            @media screen and (max-device-width: $screen-md-max) {
+                .speech {
+                    width: 600px;
+                    h2 {
+                        width: 330px;
+                    }
+                }
+            }
+            @media screen and (max-device-width: $screen-sm) {
+                .speech {
+                    h2 {
+                        width: 300px;
+                    }
+                }
+            }
+            @media screen and (max-device-width: $screen-xs-max) {
+                .speech {
+                    h2 {
+                        width: 250px;
+                    }
+                }
+            }
+            @media screen and (max-device-width: $screen-xs) {
+                background-position: 120px 50px;
+                min-height: initial;
+                .speech {
+                    width: auto;
+                    .announce {
+                        width: 90px;
+                        height: 48px;
+                        padding: 12px 5px;
+                        .speaker {
+                            font-size: 10px;
+                        }
+                        .time {
+                            font-size: 15px;
+                            sup {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    h2 {
+                        width: 145px;
+                        font-size: 11px;
+                        padding-left: 0;
+                        &:before {
+                            left: -31px;
+                        }
+                    }
+                }
+            }
+        }
+        .signup-form-block {
+            float: right;
+            display: inline-block;
+            background-color: $colorBlackAlpha;
+            border-radius: 5px;
+            width: 320px;
+            min-height: 320px;
+            padding: 15px;
+            .signup-form {
+                margin-top: 25px;
+                padding-left: 10px;
+                .submit {
+                    padding-top: 17px;
+                }
+            }
+            .title {
+                background-image: url(../images/signup.png);
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                max-width: 275px;
+                min-height: 55px;
+                padding-left: 63px;
+                padding-top: 10px;
+                color: $colorWhite;
+                font-size: 24px;
+                line-height: 24px;
+                text-transform: uppercase;
+                letter-spacing: 0.077em;
+                margin: 0 auto;
+            }
+
+            @media screen and (max-width: $screen-md) {
+                width: 100%;
+                float: none;
+
+                min-height: 320px;
+                padding: 5px;
+                margin: 10px auto;
+                text-align: center;
+                input {
+                    margin: 4px auto;
+                    height: 35px;
+                    width: 90%;
+                    max-width: 250px;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+section.section-icons {
+    min-height: 200px;
+    background: $colorWhite;
+    ul {
+        li.icon-block {
+            display: inline-block;
+            width: 195px;
+            height: 150px;
+            a {
+                display: inline-block;
+                text-transform: uppercase;
+                width: 100%;
+                height: 100%;
+                .icon-printer {
+                    height: 100px;
+                    background-image: url(../images/icons/printer.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media screen and (max-width: $screen-xs) {
+                width: 100%;
+                height: 100px;
+                line-height: 100px;
+                .icon {
+                    width: 100px;
+                    display: inline-block;
+                }
+                .text {
+                    width: 170px;
+                    vertical-align: middle;
+                    display: inline-block;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+section.section-about {
+    /*background-image: url(../images/section-about-bg.png);
+    background-repeat: no-repeat;
+    background-position:  center center;*/
+    background-color: $colorGray;
+    /*height: 815px;*/
+    @media screen and (max-width: $screen-xs) {
+        background-image: url(../images/section-about-bg.png);
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: $screen-sm;
+        .body {
+            width: 100%;
+            .signup {
+                .btn {
+                    margin-left: 0;
+                }
+            }
+        }
+        .heading {
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+    .body {
+        margin-top: 14px;
+        a {
+            color: $colorRed;
+            &:hover {
+                color: $colorDarkRed;
+            }
+        }
+        .heading {
+            margin-bottom: 25px;
+        }
+        p.important {
+            font-size: 24px;
+            span {
+                color: $colorRed;
+            }
+        }
+        .signup {
+            margin-top: 85px;
+            .btn {
+                margin-left: 75px;
+            }
+        }
+    }
+}
+
+section.section-speakers {
+    background: $colorWhite;
+    min-height: 200px;
+    .speakers {
+        .speaker {
+            display: inline-block;
+            width: 196px;
+            height: 264px;
+            margin-top: 25px;
+            .avatar {
+                width: 100%;
+                height: 182px;
+                margin-bottom: 20px;
+                text-align: center;
+                img {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+            .name {
+                a {
+                    text-transform: uppercase;
+                    color: $colorRed;
+                    font-size: 18px;
+                    &:hover {
+                        color: $colorDarkRed;
+                    }
+                }
+            }
+            &.new-speaker {
+                a {
+                    background: $colorRed;
+                    display: inline-block;
+                    width: 142px;
+                    height: 182px;
+                    color: $colorWhite;
+                    text-transform: uppercase;
+                    font-size: 19px;
+                    padding: 0 20px;
+                    .star {
+                        margin: 50px 0 40px 0;
+                        font-size: 76px;
+                    }
+                    &:hover {
+                        background-color: $colorDarkRed;
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.section-archive {
+    background-color: $colorGray;
+    .meetups {
+        margin-top: 35px;
+        &> li {
+            width: 330px;
+            display: inline-block;
+            &:first-child {
+                padding: 0;
+            }
+            &> h3 {
+                text-transform: uppercase;
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+            .talks {
+                .talk {
+                    margin-bottom: 25px;
+                    .avatar {
+                        display: inline-block;
+                        width: 70px;
+                        height: 70px;
+                        img {
+                            width: 70px;
+                            height: 70px;
+                        }
+                    }
+                    .topic {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 200px;
+                        margin-left: 25px;
+                        h3 {
+                            font-size: 16px;
+                            text-transform: none;
+                            a {
+                                &:hover {
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                        .name {
+                            padding-top: 5px;
+                            a {
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                color: $colorRed;
+                                &:hover {
+                                    color: $colorDarkRed;
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+section.section-contacts {
+    background-color: $colorBlack;
+    background-image: url(../images/section-contacts-bg.png);
+    background-repeat: no-repeat;
+    background-position:  center center;
+    min-height: 593px;
+
+    .header {
+        padding-top: 47px;
+        .heading {
+            color: $colorWhite;
+            padding-top: 0;
+            width: auto;
+            @media screen and (max-width: $screen-md) {
+                width: auto;
+            }
+        }
+        .subheading {
+            text-transform: uppercase;
+            color: $colorWhite;
+            padding-left: 138px;
+            font-size: 25px;
+            @media screen and (max-width: $screen-md) {
+                padding-left: 10px;
+                margin: 45px 0;
+                line-height: normal;
+                text-align: center;
+            }
+        }
+    }
+
+    .contact-form-block {
+        background-color: $colorBlackAlpha;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 33px;
+        .contact-form {
+            padding-left: 10px;
+            .submit {
+                padding-top: 17px;
+            }
+        }
+        .title {
+            background-image: url(../images/contact.png);
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            max-width: 275px;
+            min-height: 55px;
+            padding-left: 63px;
+            padding-top: 10px;
+            color: $colorWhite;
+            font-size: 24px;
+            line-height: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.077em;
+            margin: 0 auto;
+        }
+        .contacts {
+            margin: 15px auto;
+        }
+        .phone {
+            display: inline-block;
+            background-image: url(../images/phone.png);
+            background-repeat: no-repeat;
+            width: 230px;
+            padding-left: 20px;
+            font-size: 25px;
+            color: $colorWhite;
+            margin-left: 100px;
+            @media screen and (max-width: $screen-md) {
+                margin-left: 0px;
+            }
+        }
+        .email {
+            display: inline-block;
+            font-size: 25px;
+            color: $colorWhite;
+            height: 50px;
+            a {
+                color: $colorWhite;
+            }
+            @media screen and (max-width: $screen-md) {
+                font-size: 22px;
+            }
+        }
+
+        @media screen and (max-width: $screen-md) {
+            width: 100%;
+            float: none;
+
+            padding: 15px 5px;
+            margin: 10px auto;
+            text-align: center;
+            input {
+                margin: 4px auto;
+                height: 35px;
+                width: 90%;
+                max-width: 250px;
+                display: block;
+            }
+        }
+    }
+
+}
+
+section.section-talk {
+    .speaker {
+        min-height: 150px;
+        background-color: $colorGray;
+        vertical-align: middle;
+        line-height: 150px;
+        &__photo {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        &__name {
+            display: inline-block;
+            padding-left: 45px;
+            width: 800px;
+            vertical-align: middle;
+            span {
+                display: block;
+                font-size: 20px;
+                line-height: normal;
+                margin-top: 10px;
+            }
+        }
+    }
+    .speaker-talks {
+        &__item {
+            margin-bottom: 50px;
+            &-event {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+            &-name {
+                margin: 30px 0;
+                font-size: 40px;
+                line-height: 40px;
+            }
+            &-description {
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+section.section-event, section.section-talk {
+    .event-header {
+        background-color: $colorGray;
+        .heading {
+            @media screen and (min-width: $screen-md) {
+                width: 862px;
+            }
+            font-size: 50px;
+            .event-date {
+                font-size: 26px;
+            }
+        }
+    }
+    .event__information {
+        float: right;
+        display: inline-block;
+        background-color: $colorBlackAlpha;
+        border-radius: 5px;
+        width: 320px;
+        min-height: 120px;
+        padding: 15px;
+        color: $colorWhite;
+        @media screen and (max-width: $screen-md) {
+            width: 100%;
+            float: none;
+
+            padding: 15px 5px;
+            margin: 10px auto;
+            text-align: center;
+            input {
+                margin: 4px auto;
+                height: 35px;
+                width: 90%;
+                max-width: 250px;
+                display: block;
+            }
+        }
+        .event__registration {
+            &-summary {
+                .event-date {
+                    font-weight: bold;
+                }
+            }
+            &-button {
+                margin-top: 10px;
+            }
+        }
+        .event__description {
+            margin-top: 20px;
+        }
+    }
+    div.event__talks {
+        margin-right: 364px;
+
+        .event__talk {
+            &-speaker-link {
+                display: inline-block;
+                width: 150px;
+                margin-bottom: 15px;
+                text-align: center;
+                .avatar {
+                    width: 130px;
+                    height: 130px;
+                    margin-bottom: 5px;
+                }
+                .name {
+                    text-transform: uppercase;
+                    color: $colorRed;
+                    font-size: 14px;
+                    &:hover {
+                        color: $colorDarkRed;
+                    }
+                    div {
+                        font-size: 12px;
+                    }
+                }
+            }
+            &-content {
+                display: inline-block;
+                width: 480px;
+            }
+        }
+    }
+    div.event__sponsors {
+        &__icons {
+            margin: 25px 0;
+            text-align: center;
+            img {
+                margin: 5px 19px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+section.section-talk {
+    .talk__name {
+        margin: 30px 0;
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .talk__navigation {
+        float: right;
+        display: inline-block;
+        background-color: $colorBlackAlpha;
+        border-radius: 5px;
+        width: 320px;
+        min-height: 120px;
+        padding: 15px;
+        margin: 15px 0;
+        color: $colorWhite;
+
+        @media screen and (max-width: $screen-md) {
+            float: none;
+        }
+        @media screen and (max-width: $screen-xs) {
+            float: none;
+            width: 260px;
+        }
+        &-compact {
+            display: none;
+            max-width: 90%;
+            vertical-align: middle;
+            font-size: 11px;
+            @media screen and (max-width: $screen-md) {
+                display: inline;
+                color: $colorBlack;
+            }
+        }
+        .talk__others {
+            color: $colorRed;
+            a {
+                color: $colorWhite;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            @media screen and (max-width: $screen-md) {
+                display: none;
+            }
+        }
+    }
+    .talk__about {
+        margin-right: 364px;
+        @media screen and (max-width: $screen-md) {
+            margin-right: 0;
+        }
+        &-aside {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 15px;
+            text-align: center;
+            .avatar img {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            .name {
+                text-transform: uppercase;
+                color: $colorRed;
+                font-size: 14px;
+                &:hover {
+                    color: $colorDarkRed;
+                }
+                div {
+                    font-size: 12px;
+                }
+            }
+
+        }
+        .talk__description-wrapper {
+            display: inline-block;
+            width: 480px;
+            @media screen and (max-width: $screen-sm) {
+                width: auto;
+            }
+        }
+
+    }
+
+}

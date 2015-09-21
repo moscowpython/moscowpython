@@ -16,6 +16,7 @@ develop-eggs
 moscowdjango.db
 .idea
 env
+node_modules
 
 # Installer logs
 pip-log.txt

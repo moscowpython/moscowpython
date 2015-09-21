@@ -64,6 +64,7 @@ STATICFILES_DIRS = (
 # Put strings here, like "/home/html/static" or "C:/www/django/static".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+   os.path.join(ROOT_PATH, 'build'),
 )
 
 # List of finder classes that know how to find static files in
@@ -91,7 +92,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'djangosecure.middleware.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,12 +125,10 @@ INSTALLED_APPS = (
     'storages',
     'pytils',
     'googlecharts',
-    'djangosecure',
     'sslserver',
 
     'apps.meetup',
     'apps.subscribers',
-    'apps.vacancies',
 )
 
 #if DEBUG:
@@ -191,23 +190,14 @@ EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_ACCEPT_CONTENT = ['json']
-CELERYBEAT_SCHEDULE = {
-    'update_vacancies': {
-        'task': 'apps.vacancies.tasks.update_vacancies',
-        'schedule': crontab(hour='*/1', minute=0),
-    },
-}
 BROKER_POOL_LIMIT = 3
 
 # security stuff
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SESSION_COOKIE_SECURE = True
-SECURE_FRAME_DENY = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_SSL_REDIRECT = False
 SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 
 try:
     LOCAL_SETTINGS

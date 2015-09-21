@@ -25,11 +25,14 @@ Running locally
     cd moscowdjango
     pyenv env
     source env/bin/activate
-    pip install -r requiremets.txt
+    pip install -r requirements.txt
+    npm install
+    ./node_modules/.bin/gulp
+
     python manage.py syncdb
     python manage.py migrate
     python manage.py loaddata development.json  # convenient
-    python manage.py runsslserver
+    python manage.py runserver
 
 
 Tests

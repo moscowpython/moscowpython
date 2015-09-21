@@ -1,0 +1,16 @@
+@import '../global-vars/index.css';
+
+input, textarea {
+    border: none;
+    background: $colorWhite;
+    width: 290px;
+    height: 42px;
+    margin: 4px 0;
+    padding-left: 10px;
+}
+
+textarea {
+    height: 100px;
+    width: 288px;
+    resize: none;
+}

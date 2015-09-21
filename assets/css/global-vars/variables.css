@@ -1,0 +1,22 @@
+$baseFont: 'PT Sans';
+$baseFontBold: 'PT Sans';
+$baseFontSize: 11px;
+$baseSubHeaderFontSize: 36px;
+$baseHeaderFontSize: 58px;
+$baseHeaderFontLineHeight: 56px;
+
+$screen-xs: 480px;
+$screen-xs-max: 767px;
+
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm;
+$screen-sm-max: 991px;
+
+$screen-md: 992px;
+$screen-md-min: $screen-md;
+$screen-md-max: 1199px;
+
+$screen-lg: 1200px;
+$screen-lg-min: $screen-lg;
+
+$screen-full: 1300px;

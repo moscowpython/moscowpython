@@ -1,41 +1,38 @@
 {% load markup %}
+{% load static from staticfiles %}
 
 
-<section class="archive">
-    <div class="wrapper">
-        {% for event in events %}
-            <article class="archive-item">
-                <h1 class="archive-item__title">
-                    <a class="archive-item__link" href="{{ event.get_absolute_url }}">
-                        {{ event.name }}
-                        {% if event.number %}<span class="archive-item__number">№ {{ event.number }}</span>{% endif %}
-                    </a>
-                </h1>
-                <div class="archive-item__description">
-                    {{ event.description|restructuredtext }}
-                </div>
-                <ul class="archive-item__talks">
-                    {% for talk in event.talks.all %}<!--
-                     --><li class="archive-item__talk">
-                        <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
-                            <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
-                        </a>
-                        <div class="archive-item__talk-wrapper">
-                            <a class="archive-item__talk-title" href="{{ talk.get_absolute_url }}">
-                                {{ talk }}
-                            </a>
-                            <div class="archive-item__talk-author">
-                                {{ talk.speaker }}
-                                {% if talk.speaker.company_name %}
-                                    ({{ talk.speaker.company_name }})
-                                {% endif %}
-                            </div>
-                        </div>
-                    </li><!--
-                 -->{% endfor %}
-                </ul>
-                <div class="g-clear"></div>
-            </article>
-        {% endfor %}
+<section id="archive" class="section-archive">
+    <div class="container">
+        <h1 class="heading"><span>Meetup Архив</span></h1>
+        <ul class="meetups">
+            {% for event in events %}
+                <li>
+                    <h3><a href="{{ event.get_absolute_url }}">Meetup №{{ event.number }}</a></h3>
+                    <ul class="talks">
+                        {% for talk in event.talks.all %}
+                            <li class="talk">
+                                <div class="avatar">
+                                    <a class="archive-item__talk-avatar" href="{{ talk.get_absolute_url }}">
+                                        <img src="{{ talk.speaker.avatar_url }}" width="50" height="50">
+                                    </a>
+                                </div>
+                                <div class="topic">
+                                    <h3><a class="archive-item__topic" href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h3>
+                                    <div class="name"><a class="archive-item__speaker" href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if show_more_link %}
+            <div class="meetups-more text-right">
+                <a href="{% url "events" %}" class="btn">Все события</a>
+            </div>
+        {% endif %}
+
     </div>
 </section>

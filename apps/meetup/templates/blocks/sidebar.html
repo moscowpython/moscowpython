@@ -1,27 +1,27 @@
 {% load pytils_dt markup %}
 
 
-<section class="event__information">
+<div class="event__information pull-right">
     <section class="event__registration">
         <div class="event__registration-summary">
-            {{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}<br />
-            {{ event.venue|default_if_none:"" }}<br />
-            {{ event.venue.address }}<br />
+            <div class="event-date">{{ event.date|ru_strftime:"%d %B %Y, %H:%M" }}</div>
+            <h2 class="event-place">{{ event.venue|default_if_none:"" }}</h2>
+            <div class="event-address">{{ event.venue.address }}</div>
         </div>
         {% if event.is_active %}
-            <form action="{{ event.get_registration_url }}">
-                <button class="event__register-button" type="submit">
-                    <span class="event__register-button-text">Я тоже буду!</span>
-                </button>
-            </form>
+            <div class="event__registration-button">
+                <a href="{{ event.get_registration_url }}" class="btn pull-right">
+                    Я тоже буду!
+                </a>
+            </div>
         {% endif %}
         <div class="g-clear"></div>
     </section>
     <section class="event__description">
         {{ event.description|restructuredtext }}
-{#        {% if not event.is_active %}#}
-{#            <a href="{% url 'live' %}">Смотреть запись трансляции</a>#}
-{#        {% endif %}#}
+        {#        {% if not event.is_active %}#}
+        {#            <a href="{% url 'live' %}">Смотреть запись трансляции</a>#}
+        {#        {% endif %}#}
     </section>
     {% with event.media_coverages.all as media_coverages %}
         {% if media_coverages %}
@@ -42,4 +42,4 @@
     {% if event.is_active %}
         {% include 'blocks/map.html' %}
     {% endif %}
-</section>
+</div>

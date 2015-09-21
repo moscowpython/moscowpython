@@ -1,17 +1,15 @@
 {% load pytils_dt %}
 
-
-<header class="event-header">
-    <div class="wrapper">
-        {% if event.date %}
-        <div class="event__date">
-            {{ event.date|ru_strftime:"%d %B %Y" }}
-        </div>
-        {% endif %}
-        <div class="event__title">
-            Moscow Django
-            <span class="event__type">MeetUp</span>
-            № {{ event.number }}
-        </div>
+<div class="event-header">
+    <div class="container">
+        <h1 class="heading">
+            <span>{{ event.name }} № {{ event.number }}
+                {% if event.date %}
+                    <span class="event-date">
+                        {{ event.date|ru_strftime:"%d %B %Y" }}
+                    </span>
+                {% endif %}
+            </span>
+        </h1>
     </div>
-</header>
+</div>

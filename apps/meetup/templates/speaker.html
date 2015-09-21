@@ -1,63 +1,67 @@
 {% extends 'layout/layout.html' %}
 
 
-{% block title %}{{ speaker }} @ Moscow Django{% endblock %}
+{% block title %}{{ speaker }} @ Moscow Python{% endblock %}
 {% block facebook %}{{ speaker.avatar_url }}{% endblock %}
 
 
 {% block page %}
-    <header class="speaker">
-        <div class="wrapper">
-            <span class="speaker__photo">
-                <img src="{{ speaker.avatar_url }}" alt="{{ speaker }}">
-            </span>
-            <div class="speaker__name">
-                {{ speaker }}
-                {% if speaker.company_name %}
-                <span class="speaker__company-name">{{ speaker.company_name }}</span>
-                {% endif %}
+
+    <section id="talk" class="section-talk">
+        <div class="speaker">
+            <div class="container">
+                <span class="speaker__photo">
+                    <img src="{{ speaker.avatar_url }}" alt="{{ speaker }}">
+                </span>
+                <h1 class="speaker__name">
+                    {{ speaker }}
+                    {% if speaker.company_name %}
+                        <span class="speaker__company-name">{{ speaker.company_name }}</span>
+                    {% endif %}
+                </h1>
             </div>
         </div>
-    </header>
-    <section class="speaker-talks">
-        <div class="wrapper">
-            {% if speaker.description %}
-            <p class="speaker-talks__description">
-                {{ speaker.description }}
-            </p>
-            {% endif %}
 
-            {% for talk in speaker.talks.all %}
-            <article class="speaker-talks__item">
-                <header class="speaker-talks__item-header">
-                    <a href="{{ talk.event.get_absolute_url }}" class="speaker-talks__item-event">
-                        {{ talk.event }}
-                    </a>
-                    <h1 class="speaker-talks__item-name">
-                        <a href="{{ talk.get_absolute_url }}" class="speaker-talks__item-name-link">{{ talk }}</a>
-                    </h1>
-                </header>
-                <div class="speaker-talks__item-description">
-                    {{ talk.description }}
-                </div>
-                <section class="talk-resources">
-                    <article class="talk-resources__item">
-                        {% if talk.video_data %}
-                            {{ talk.video_data.html|safe }}
-                        {% endif %}
-                        {% if not talk.video_data and talk.presentation_data %}
-                            {% if talk.presentation_data %}
-                                {% if talk.presentation_data.type == 'link' %}
-                                    <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>
-                                {% else %}
-                                    {{ talk.presentation_data.html|safe }}
+        <div class="container">
+            <section class="speaker-talks">
+                {% if speaker.description %}
+                    <p class="speaker-talks__description">
+                        {{ speaker.description }}
+                    </p>
+                {% endif %}
+
+                {% for talk in speaker.talks.all %}
+                    <article class="speaker-talks__item">
+                        <div class="speaker-talks__item-header">
+                            <a href="{{ talk.event.get_absolute_url }}" class="speaker-talks__item-event">
+                                {{ talk.event }}
+                            </a>
+                            <h1 class="speaker-talks__item-name">
+                                <a href="{{ talk.get_absolute_url }}" class="speaker-talks__item-name-link">{{ talk }}</a>
+                            </h1>
+                        </div>
+                        <div class="speaker-talks__item-description">
+                            {{ talk.description }}
+                        </div>
+                        <section class="talk-resources">
+                            <article class="talk-resources__item">
+                                {% if talk.video_data %}
+                                    {{ talk.video_data.html|safe }}
                                 {% endif %}
-                            {% endif %}
-                        {% endif %}
+                                {% if not talk.video_data and talk.presentation_data %}
+                                    {% if talk.presentation_data %}
+                                        {% if talk.presentation_data.type == 'link' %}
+                                            <a class="talk__resource-link" href="{{ talk.presentation_data.url }}">{{ talk }}</a>
+                                        {% else %}
+                                            {{ talk.presentation_data.html|safe }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            </article>
+                        </section>
                     </article>
-                </section>
-            </article>
-            {% endfor %}
+                {% endfor %}
+            </section>
         </div>
     </section>
 {% endblock %}
