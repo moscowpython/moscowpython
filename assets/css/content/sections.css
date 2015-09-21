@@ -460,7 +460,7 @@ section.section-contacts {
         background-color: $colorBlackAlpha;
         border-radius: 5px;
         padding: 15px;
-        margin-top: 66px;
+        margin-top: 33px;
         .contact-form {
             padding-left: 10px;
             .submit {
