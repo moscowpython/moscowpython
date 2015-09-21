@@ -134,7 +134,7 @@ INSTALLED_APPS = (
 #if DEBUG:
 #    INSTALLED_APPS += ('debug_toolbar',)
 
-ALLOWED_HOSTS = ['moscowdjango.ru', 'moscowdjango-staging.herokuapp.com', 'localhost', 'moscowpython.ru']
+ALLOWED_HOSTS = ['.moscowdjango.ru', 'moscowdjango-staging.herokuapp.com', 'localhost', '.moscowpython.ru']
 
 LOGGING = {
     'version': 1,
