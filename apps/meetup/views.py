@@ -1,21 +1,14 @@
 # coding=utf-8
 import os
-import sys
 
-import django
-from django.core.urlresolvers import reverse
-from django.db import DatabaseError
-from django.db.models import Count
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect, get_object_or_404
-from django.utils import six
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.decorators.csrf import csrf_exempt
 
-from .models import Talk, Photo, Speaker, Event, Tutorial, Vote
-from .utils import subscribe_mail, validate_email, set_vote_cookie, can_vote
+from .models import Talk, Photo, Speaker, Event, Tutorial
+from .utils import can_vote
 
 
 class IndexPage(ListView):
@@ -125,49 +118,6 @@ class TutorialList(ListView):
 class TutorialPage(DetailView):
     template_name = 'tutorial.html'
     model = Tutorial
-
-
-class VoteResults(TemplateView):
-    template_name = 'vote_results.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(VoteResults, self).get_context_data(**kwargs)
-        talks = Talk.objects.filter(event=Event.spotlight()).annotate(num_votes=Count("votes"))
-
-        talks_votes = [talk.num_votes for talk in talks]
-        votes_total = sum(talks_votes)
-        votes_max = max(talks_votes)
-        if votes_total:
-            for talk in talks:
-                talk.votes_percent = int(talk.num_votes * 100 / votes_total)
-                if talk.num_votes == votes_max:
-                    talk.is_leader = True
-        context.update({
-            'talks': talks,
-        })
-
-        return context
-
-
-@csrf_exempt
-def ajax_vote(request, *args, **kwargs):
-    if request.method == 'POST':
-        if not can_vote(request):
-            return HttpResponse(u'Можно голосовать только за один доклад', status=409)
-        try:
-            event = Talk.objects.get(pk=kwargs['talk_id']).event
-            if not event.votable:
-                return HttpResponse('Voting is closed, sorry', status=409)
-            Vote.objects.create(talk_id=kwargs['talk_id'],
-                                event=event,
-                                ua=request.META.get('HTTP_USER_AGENT'),
-                                ip=request.META.get('REMOTE_ADDR'))
-            response = HttpResponse(reverse('vote-results'))
-            response = set_vote_cookie(response)
-            return response
-        except DatabaseError:
-            return HttpResponse('DB error, sorry', status=402)
-    return HttpResponse('Only POST', status=402)
 
 
 def confirm_ownership(request, *args, **kwargs):

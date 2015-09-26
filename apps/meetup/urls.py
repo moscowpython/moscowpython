@@ -14,8 +14,6 @@ urlpatterns = patterns('',
     url('^speakers/(?P<slug>[\w-]+)/$', views.SpeakerPage.as_view(), name='speaker'),
     url('^tutorials/$', views.TutorialList.as_view(), name='tutorials'),
     url('^tutorials/(?P<slug>[\w-]+)/$', views.TutorialPage.as_view(), name='tutorial'),
-    url('^vote/(?P<talk_id>\d+)/$', views.ajax_vote, name='vote'),
-    url('^prize/$', views.VoteResults.as_view(), name='vote-results'),
 
     # legacy
     url('', include('apps.meetup.legacy.urls')),
