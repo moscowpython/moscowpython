@@ -1,16 +1,16 @@
-Moscow Django Meetup site
+Moscow Python Meetup site
 =========================
 
-Sources of https://moscowdjango.ru
+Sources of https://moscowpython.ru (previously moscowdjango.ru)
 
-.. image:: https://img.shields.io/travis/moscowdjango/moscowdjango/master.svg
-    :target: https://travis-ci.org/moscowdjango/moscowdjango
+.. image:: https://img.shields.io/travis/moscowpython/moscowpython/master.svg
+    :target: https://travis-ci.org/moscowpython/moscowpython
 
-.. image:: https://img.shields.io/coveralls/moscowdjango/moscowdjango/master.svg
-    :target: https://coveralls.io/r/moscowdjango/moscowdjango/
+.. image:: https://img.shields.io/coveralls/moscowpython/moscowpython/master.svg
+    :target: https://coveralls.io/r/moscowpython/moscowpython/
 
-.. image:: https://requires.io/github/moscowdjango/moscowdjango/requirements.svg?branch=master
-     :target: https://requires.io/github/moscowdjango/moscowdjango/requirements/?branch=master
+.. image:: https://requires.io/github/moscowpython/moscowpython/requirements.svg?branch=master
+     :target: https://requires.io/github/moscowpython/moscowpython/requirements/?branch=master
 
 .. image:: https://img.shields.io/badge/python-3.4-blue.svg
 
@@ -21,8 +21,8 @@ Running locally
 
 ::
 
-    git clone https://github.com/moscowdjango/moscowdjango/
-    cd moscowdjango
+    git clone https://github.com/moscowpython/moscowpython/
+    cd moscowpython
     pyenv env
     source env/bin/activate
     pip install -r requirements.txt
