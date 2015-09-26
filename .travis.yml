@@ -14,9 +14,9 @@ sudo: false
 deploy:
   provider: heroku
   api_key:
-    secure: Hf5gX1+QIu6lRegxqEvX2pUFzeeeXf2iJ+hluRitG6GCkFB3ZUkvlLZ1B570p3Z9pHXBUhZEt7iTx0f8Zwq7lKSIw4wgt0ehtFOFS2xHohR6/VIx4OlWjoqfx8RnCDHp61oGQ/++Hp4TnaDesIMHeltmG6T4xlNCDTY7c+iqKR8=
+    secure: Z8Zo+o2zuSI8Hi/UJgpGUu6J0ozuGelxH6VP+1E187r2NHR+qiu6s/4tTzfO+hMrjmqRsRZlEaxJkZt/04BubMSmDST01TMSRyAy7hOjcSbZgwxSyrnBuMppWctxjL+sqj2od+bzSEh1Qa+UTqxIRy2bZJDPuJEwQftSg2A4syE=
   app:
     master: moscowdjango
     dev: moscowdjango-staging
   run:
-    - "python manage.py migrate --noinput"
+  - python manage.py migrate --noinput
