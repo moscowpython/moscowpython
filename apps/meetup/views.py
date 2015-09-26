@@ -127,20 +127,6 @@ class TutorialPage(DetailView):
     model = Tutorial
 
 
-class Py3Page(TemplateView):
-    template_name = 'py3.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(Py3Page, self).get_context_data(**kwargs)
-
-        context.update({
-            'django': django.get_version(),
-            'python': sys.version,
-            'py3': six.PY3,
-        })
-        return context
-
-
 class VoteResults(TemplateView):
     template_name = 'vote_results.html'
 
