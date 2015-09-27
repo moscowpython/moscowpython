@@ -62,27 +62,35 @@ class EventsPage(TestCase):
         response = self.client.get(reverse('event', args=[2]))
         self.assertEqual(response.status_code, 404)
 
+    def test_event_page(self):
+        event = Event.objects.create(id=10, number=30, status=Event.STATUS.active)
+        response = self.client.get(reverse('old-event', args=(event.pk,)), follow=True)
+        assert response.status_code == 200
+        assert response.context['event'] == event
+
 
 class TalkPage(TestCase):
     """Integration tests for event detail page"""
 
     def setUp(self):
-        event = Event.objects.create(number=1, name='Active', status=Event.STATUS.active)
+        event = Event.objects.create(id=1, number=10, name='Active', status=Event.STATUS.active)
         speaker = Speaker.objects.create(name='Speaker', slug='slug')
-        self.talk = Talk.objects.create(name='Talk', slug='slug', event=event, speaker=speaker, status=Talk.STATUS.active)
+        self.talk = Talk.objects.create(name='Talk', slug='slug', event=event,
+                                        speaker=speaker, status=Talk.STATUS.active)
 
     def test_talk_page_active(self):
-        response = self.client.get(reverse('talk', args=[1, 'slug']))
+        response = self.client.get(reverse('talk', args=[10, 'slug']))
         self.assertEqual(response.context['talk'], self.talk)
 
     def test_talk_page_inactive(self):
         self.talk.status = Talk.STATUS.draft
         self.talk.save()
-        response = self.client.get(reverse('talk', args=[1, 'slug']))
+        response = self.client.get(reverse('talk', args=[10, 'slug']))
         self.assertEqual(response.status_code, 404)
 
-    def test_talk_page_order(self):
-        pass
+    def test_talk_page(self):
+        response = self.client.get(reverse('old-talk', args=(1, 'slug')), follow=True)
+        assert response.context['talk'] == self.talk
 
 
 class SpeakerList(TestCase):
