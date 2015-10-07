@@ -2,32 +2,36 @@
 
 <section id="main" class="section-main">
     <div class="container">
-        <div class="header">
-            <h1 class="heading"><span>{{ main_event.name }} №{{ main_event.number }}</span></h1>
+        <div class="header{% if main_event.on_air and main_event.streaming_embed %} live{% endif %}">
+            <h1 class="heading"><a href="{{ main_event.get_absolute_url }}"><span>{{ main_event.name }} №{{ main_event.number }}{% if main_event.on_air and main_event.streaming_embed %}<sup>Live</sup>{% endif %}</span></a></h1>
             <div class="arrow"></div>
         </div>
         <div class="body">
-            <div class="signup-form-block text-center">
-                <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
+            {% if not main_event.on_air or not main_event.streaming_embed %}
+                <div class="signup-form-block text-center">
+                    <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
 
-                <h2 class="date color-red">{{ event.date|ru_strftime:"%d %B, %H:%M" }}</h2>
-                <div class="address color-white">{{ event.venue.address }}</div>
+                    <h2 class="date color-red">{{ event.date|ru_strftime:"%d %B, %H:%M" }}</h2>
+                    <div class="address color-white">{{ event.venue.address }}</div>
 
-                <a class="btn btn-large" href="{{ event.registration_link }}">Зарегистрироваться</a>
+                    <a class="btn btn-large" href="{{ event.registration_link }}">Зарегистрироваться</a>
 
-            </div>
-            <div class="program">
-                {% for talk in main_event.talks.all %}
-                    <div class="talk">
-                        <div class="announce">
-                            <div class="speaker"><a href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
-                            <div class="time">{{ talk.get_time_start.hour|stringformat:"02d" }}<sup>{{ talk.get_time_start.minute|stringformat:"02d" }}</sup>-{{ talk.get_time_end.hour|stringformat:"02d" }}<sup>{{ talk.get_time_end.minute|stringformat:"02d" }}</sup></div>
+                </div>
+                <div class="program">
+                    {% for talk in main_event.talks.all %}
+                        <div class="talk">
+                            <div class="announce">
+                                <div class="speaker"><a href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
+                                <div class="time">{{ talk.get_time_start.hour|stringformat:"02d" }}<sup>{{ talk.get_time_start.minute|stringformat:"02d" }}</sup>-{{ talk.get_time_end.hour|stringformat:"02d" }}<sup>{{ talk.get_time_end.minute|stringformat:"02d" }}</sup></div>
+                            </div>
+                            <h2><a href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h2>
                         </div>
-                        <h2><a href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h2>
-                    </div>
-                {% endfor %}
-                <div class="b-registration__section b-registration__section_indent section-ank js-section-ank">
-            </div>
+                    {% endfor %}
+                    <div class="b-registration__section b-registration__section_indent section-ank js-section-ank"></div>
+                </div>
+            {% else %}
+                {{ main_event.streaming_embed|safe }}
+            {% endif %}
         </div>
     </div>
 </section>
