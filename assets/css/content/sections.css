@@ -10,6 +10,9 @@ section.section-main {
             padding-top: 7px;
         }
         padding-top: 47px;
+        &.live {
+            padding-top: 10px;
+        }
         .arrow {
             display: inline-block;
             width: 150px;
@@ -23,8 +26,16 @@ section.section-main {
         }
         .heading {
             color: $colorWhite;
+            a {
+                color: $colorWhite;
+            }
             padding-top: 0;
             display: inline-block;
+            sup {
+                color: $colorRed;
+                font-size: 14px;
+                top: -2.4em;
+            }
         }
     }
     .body {
@@ -596,7 +607,15 @@ section.section-event, section.section-talk {
             .event-date {
                 font-size: 26px;
             }
+            sup {
+                color: $colorRed;
+                font-size: 14px;
+                top: -1em;
+            }
         }
+    }
+    .event__live {
+        margin-bottom: 25px;
     }
     .event__information {
         float: right;

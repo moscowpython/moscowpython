@@ -1,0 +1,5 @@
+<div class="event__live">
+    {% if event.on_air and event.streaming_embed %}
+        {{ event.streaming_embed|safe }}
+    {% endif %}
+</div>
