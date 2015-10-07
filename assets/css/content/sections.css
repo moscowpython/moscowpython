@@ -29,6 +29,9 @@ section.section-main {
             a {
                 color: $colorWhite;
             }
+            span {
+                font-size: 57px;
+            }
             padding-top: 0;
             display: inline-block;
             sup {

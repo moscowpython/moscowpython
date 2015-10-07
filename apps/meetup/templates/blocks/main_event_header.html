@@ -14,7 +14,11 @@
                     <h2 class="date color-red">{{ event.date|ru_strftime:"%d %B, %H:%M" }}</h2>
                     <div class="address color-white">{{ event.venue.address }}</div>
 
-                    <a class="btn btn-large" href="{{ event.registration_link }}">Зарегистрироваться</a>
+                    {% if event.registration_link %}
+                        <a class="btn btn-large" href="{{ event.registration_link }}">Зарегистрироваться</a>
+                    {% else %}
+                        <span>Извините, но регистрация закрыта</span>
+                    {% endif %}
 
                 </div>
                 <div class="program">
