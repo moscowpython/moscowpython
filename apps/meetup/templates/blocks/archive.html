@@ -4,7 +4,7 @@
 
 <section id="archive" class="section-archive">
     <div class="container">
-        <h1 class="heading"><span>Meetup Архив</span></h1>
+        <h1 class="heading"><a href="{% url "events" %}"><span>Meetup Архив</span></a></h1>
         <ul class="meetups">
             {% for event in events %}
                 <li>
