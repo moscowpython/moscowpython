@@ -3,7 +3,7 @@
 
 <section id="speakers" class="section-speakers">
     <div class="container">
-        <h1 class="heading"><span>Люди</span></h1>
+        <h1 class="heading"><a href="{% url "speakers" %}"><span>Люди</span></a></h1>
         <ul class="speakers text-center">
             {% for speaker in speakers %}
                 <li class="speaker text-center">
@@ -18,5 +18,12 @@
 {#                Выступить с&nbsp;докладом#}
 {#            </a></li>#}
         </ul>
+            {% if show_more_link %}
+            <div class="speakers-more text-right">
+                <a href="{% url "speakers" %}" class="btn">Все спикеры</a>
+            </div>
+        {% endif %}
+        <div class="text-center signup">
+        </div>
     </div>
 </section>
