@@ -13,8 +13,8 @@
                         {# Ugly hack for menu. TODO: make in some better way #}
                         <li><a href="{% if not request.path == "/" %}/{% endif %}#">Главная</a></li>
                         <li><a href="{% if not request.path == "/" %}/{% endif %}#about">О проекте</a></li>
-                        <li><a href="{% if not request.path == "/" %}/{% endif %}#speakers">Люди</a></li>
-                        <li><a href="{% if not request.path == "/" %}/{% endif %}#archive">Архив</a></li>
+                        <li><a href="{% url "speakers" %}">Люди</a></li>
+                        <li><a href="{% url "events" %}">Архив</a></li>
                         <li><a href="https://www.youtube.com/moscowdjangoru" target="_blank">Видео</a></li>
                         <li><a href="{% if not request.path == "/" %}/{% endif %}#contacts">Контакты</a></li>
                     </ul>
