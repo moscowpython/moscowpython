@@ -66,6 +66,7 @@ photo_preview.allow_tags = True
 class SpeakerAdmin(admin.ModelAdmin):
     list_display = ['__str__', photo_preview, 'slug',]
     list_editable = ['slug']
+    search_fields = ['name']
 
 
 def logo_preview(obj):
