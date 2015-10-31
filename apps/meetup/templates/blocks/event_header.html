@@ -10,6 +10,9 @@
                         {% if event.on_air and event.streaming_embed %}
                             <sup>live</sup>
                         {% endif %}
+                        {% if event.status == "draft" %}
+                            <sup>draft</sup>
+                        {% endif %}
                     </span>
                 {% endif %}
             </span>

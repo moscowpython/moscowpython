@@ -3,7 +3,7 @@
 <section id="main" class="section-main">
     <div class="container">
         <div class="header{% if main_event.on_air and main_event.streaming_embed %} live{% endif %}">
-            <h1 class="heading"><a href="{{ main_event.get_absolute_url }}"><span>{{ main_event.name }} №{{ main_event.number }}{% if main_event.on_air and main_event.streaming_embed %}<sup>Live</sup>{% endif %}</span></a></h1>
+            <h1 class="heading"><a href="{{ main_event.get_absolute_url }}"><span>{{ main_event.name }} №{{ main_event.number }}{% if main_event.on_air and main_event.streaming_embed %}<sup>Live</sup>{% endif %}{% if event.status == "draft" %}<sup>draft</sup>{% endif %}</span></a></h1>
             <div class="arrow"></div>
         </div>
         <div class="body">

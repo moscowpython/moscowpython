@@ -401,6 +401,15 @@ section.section-archive {
                 font-size: 24px;
                 margin-bottom: 25px;
             }
+            &.draft {
+                opacity: 0.8;
+                h3 {
+                    sup {
+                        color: $colorRed;
+                        text-transform: none;
+                    }
+                }
+            }
             .talks {
                 .talk {
                     margin-bottom: 25px;
@@ -707,6 +716,10 @@ section.section-talk {
         margin: 30px 0;
         font-size: 40px;
         line-height: 40px;
+        sup {
+            color: $colorRed;
+            text-transform: none;
+        }
     }
     .talk__navigation {
         float: right;
