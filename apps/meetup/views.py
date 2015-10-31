@@ -26,7 +26,7 @@ class IndexPage(ListView):
         if self.request.user.is_staff:
             qs = Event.objects.all()
         else:
-            qs = Event.visible.all()
+            qs = Event.archived.all()
 
         return qs.prefetch_related('talks', 'talks__speaker', 'talks__event')[:3]
 
