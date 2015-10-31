@@ -13,9 +13,10 @@ from picklefield.fields import PickledObjectField
 
 
 class TalkManager(Manager):
+
     def active(self):
         qs = self.get_queryset()
-        return qs.filter(status='active')
+        return qs.filter(status='active').exclude(event__status="draft")
 
 
 class Talk(StatusModel):
@@ -160,10 +161,12 @@ class Event(StatusModel):
             return self.registration_link
 
     @classmethod
-    def spotlight(cls):
+    def spotlight(cls, with_drafts=False):
         """ Last active or last planned or last archived
         """
         try:
+            if with_drafts:
+                return Event.objects.latest()
             return Event.visible.latest()
         except Event.DoesNotExist:
             return None

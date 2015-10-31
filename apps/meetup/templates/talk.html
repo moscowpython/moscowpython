@@ -17,7 +17,7 @@
     <section class="section-talk">
         {% include 'blocks/event_header.html' with event=talk.event %}
         <div class="container">
-            <h1 class="talk__name">{{ talk }}</h1>
+            <h1 class="talk__name">{{ talk }}{% if talk.status == "draft" %}<sup>draft</sup>{% endif %}</h1>
             <nav class="talk__navigation">
                 <h2 class="talk__navigation-header">Доклады {{ talk.event }}</h2>
                 <ul class="talk__others">

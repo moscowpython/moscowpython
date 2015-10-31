@@ -21,7 +21,14 @@ from .utils import subscribe_mail, validate_email, set_vote_cookie, can_vote
 class IndexPage(ListView):
     template_name = 'index.html'
     context_object_name = 'events'
-    queryset = Event.archived.prefetch_related('talks', 'talks__speaker', 'talks__event')[:3]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            qs = Event.objects.all()
+        else:
+            qs = Event.visible.all()
+
+        return qs.prefetch_related('talks', 'talks__speaker', 'talks__event')[:3]
 
     def get_context_data(self, **kwargs):
         context = super(IndexPage, self).get_context_data(**kwargs)
@@ -33,7 +40,7 @@ class IndexPage(ListView):
 
         context.update({
             'speakers': Speaker.objects.order_by("?")[:10],
-            'main_event': Event.spotlight(),
+            'main_event': Event.spotlight(self.request.user.is_staff),
             'show_more_link': True,
             'can_vote': can_vote(self.request)
         })
@@ -45,12 +52,23 @@ class EventsList(ListView):
     queryset = Event.visible.prefetch_related('talks', 'talks__speaker', 'talks__event')
     context_object_name = 'events'
 
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            qs = Event.objects.all()
+        else:
+            qs = Event.visible.all()
+        return qs.prefetch_related('talks', 'talks__speaker', 'talks__event')
+
 
 class EventPage(DetailView):
     template_name = 'event.html'
     slug_url_kwarg = 'number'
     slug_field = 'number'
-    queryset = Event.visible.all()
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Event.objects.all()
+        return Event.visible.all()
 
     def get_context_data(self, **kwargs):
         context = super(EventPage, self).get_context_data(**kwargs)
@@ -64,7 +82,11 @@ class EventPage(DetailView):
 class TalkPage(DetailView):
     template_name = 'talk.html'
     slug_url_kwarg = 'talk_slug'
-    queryset = Talk.active.select_related('event', 'speaker')
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Talk.objects.select_related('event', 'speaker')
+        return Talk.objects.active().select_related('event', 'speaker')
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
