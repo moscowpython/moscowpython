@@ -19,6 +19,17 @@ class TalkManager(Manager):
         return qs.filter(status='active').exclude(event__status="draft")
 
 
+class SponsorManager(Manager):
+
+    def partners(self):
+        qs = self.get_queryset()
+        return qs.filter(status="partner")
+
+    def organizers(self):
+        qs = self.get_queryset()
+        return qs.filter(status="organizer")
+
+
 class Talk(StatusModel):
     STATUS = Choices('active', 'draft')
 
@@ -246,6 +257,8 @@ class Sponsor(models.Model):
     url = models.URLField(u'Адрес сайта', blank=True)
     status = models.CharField(u'Тип', choices=STATUSES, max_length=10)
 
+    objects = SponsorManager()
+
     def __str__(self):
         return self.name
 
@@ -305,3 +318,19 @@ class Vote(TimeStampedModel):
     class Meta:
         verbose_name = u'Голос'
         verbose_name_plural = u'Голос'
+
+
+class Executive(models.Model):
+
+    name = models.CharField(max_length=64)
+    company = models.CharField(max_length=64)
+    link = models.URLField()
+    order = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        verbose_name = u'Администратор'
+        verbose_name_plural = u'Администраторы'
+        ordering = ['order']
+
+    def __str__(self):
+        return self.name

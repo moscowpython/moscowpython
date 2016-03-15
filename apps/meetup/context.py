@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.core.urlresolvers import reverse_lazy
-from .models import Event
+from .models import Event, Executive
 
 
 ANNOUNCEMENT_THRESHOLD = 14
@@ -43,3 +43,7 @@ def all_events_processor(request):
         'days_to_next_event': days_to_next_event,
         'next_event_time': latest_event.date if latest_event else None
     }
+
+
+def executives(request):
+    return {"executives": Executive.objects.all()}
