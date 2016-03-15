@@ -5,28 +5,26 @@
         </span>
     </h1>
     <div class="event__sponsors__icons">
-        {% for sponsor in event.sponsors.all %}
-            {% if sponsor.status == 'organizer' %}
-                <a href="{{ sponsor.get_absolute_url }}">
-                    <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
-                </a>
-            {% endif %}
+        {% for sponsor in event.sponsors.organizers %}
+            <a href="{{ sponsor.get_absolute_url }}">
+                <img class="event__sponsor" src="{{ sponsor.logo.url }}" height="50"/>
+            </a>
         {% endfor %}
     </div>
 </div>
-<div class="event__sponsors">
-    <h1 class="event__sponsors-header heading">
-        <span class="event__sponsors-header-text">
-            Партнёры
-        </span>
-    </h1>
-    <div class="event__sponsors__icons">
-        {% for sponsor in event.sponsors.all %}
-            {% if sponsor.status == 'partner' %}
+{% if event.sponsors.partners.count %}
+    <div class="event__sponsors">
+        <h1 class="event__sponsors-header heading">
+            <span class="event__sponsors-header-text">
+                Партнёры
+            </span>
+        </h1>
+        <div class="event__sponsors__icons">
+            {% for sponsor in event.sponsors.partners %}
                 <a href="{{ sponsor.get_absolute_url }}">
                     <img class="event__sponsor" src="{{ sponsor.logo.url }}" />
                 </a>
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
+{% endif %}

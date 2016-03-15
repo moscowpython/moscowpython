@@ -89,6 +89,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'apps.meetup.context.menu',
     'apps.meetup.context.all_events_processor',
+    'apps.meetup.context.executives',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,7 +115,7 @@ WSGI_APPLICATION = 'moscowdjango.wsgi.application'
 TEMPLATE_DIRS = ('',)
 
 INSTALLED_APPS = (
-    'suit',
+    # 'suit',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

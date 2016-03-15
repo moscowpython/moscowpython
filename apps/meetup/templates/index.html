@@ -36,11 +36,9 @@
                     объединять российское python-сообщество и вносить свой вклад в развитие IT-экосистемы.
 
                 <h2>Администраторы сообщества:</h2>
-                <p>Валентин Домбровский (<a href="http://travelabs.org/" target="_blank">Travelabs</a>)</p>
-                <p>Михаил Корнеев (<a href="http://navigine.com/" target="_blank">Navigine</a>)</p>
-                <p>Илья Барышев (<a href="http://mybook.ru/" target="_blank">Mybook</a>)</p>
-                <p>Григорий Петров (<a href="https://voximplant.com/" target="_blank">Voximplant</a>)</p>
-                <p>Владимир Филонов (<a href="https://itcanfly.org/" target="_blank">itcanfly</a>)</p>
+                {% for executive in executives %}
+                    <p>{{ executive.name }} (<a href="{{ executive.link }}" target="_blank">{{ executive.company }}</a>)</p>
+                {% endfor %}
 
 {#                <div class="text-center signup">#}
 {#                    <a class="btn btn-signup btn-default btn-grey btn-large">Зарегистрироваться</a>#}
