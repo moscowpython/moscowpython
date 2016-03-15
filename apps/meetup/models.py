@@ -130,6 +130,7 @@ class Event(StatusModel):
 
     objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
+    future = QueryManager(status__in=[STATUS.planning, STATUS.active])
 
     def __str__(self):
         if self.number:
@@ -178,7 +179,7 @@ class Event(StatusModel):
         try:
             if with_drafts:
                 return Event.objects.latest()
-            return Event.visible.latest()
+            return Event.future.latest()
         except Event.DoesNotExist:
             return None
 
