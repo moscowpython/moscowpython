@@ -23,6 +23,7 @@
 header {
     position: fixed;
     z-index: 1000;
+    /*top: 158px;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -68,7 +69,22 @@ header {
             }
         }
     }
-
-
 }
 
+
+
+#top-banner {
+    background-color: #3776ab;
+    background-image: url(../images/learn.banner.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:contain;
+
+    width: 100%;
+    height: 138px;
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
