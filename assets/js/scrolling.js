@@ -34,6 +34,8 @@ $(function() {
         e.preventDefault();
     });
 
+    var initial_top = $("header").css("top");
+
     // Bind to scroll
     $(window).scroll(function(){
         // Get container scroll position
@@ -53,6 +55,14 @@ $(function() {
             // Set/remove active class
             $(menuItems).removeClass("active").filter("[href=#"+id+"]").addClass("active");
         }
+
+        //// Moving top menu block
+        //if ($(this).scrollTop() < initial_top) {
+        //    $("header").css("top", initial_top-$(this).scrollTop());
+        //} else {
+        //    $("header").css("top", 0);
+        //}
+
     });
 
 });
