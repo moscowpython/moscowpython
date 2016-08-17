@@ -2,6 +2,8 @@
 """
     Based on deprecated django.contrib.markup
 """
+from random import getrandbits
+
 from django.utils.encoding import force_str, force_bytes, force_text
 import markdown as mdlib
 from docutils.core import publish_parts
@@ -23,3 +25,8 @@ def markdown(value):
 def restructuredtext(value):
     parts = publish_parts(source=force_bytes(value), writer_name="html4css1")
     return mark_safe(force_text(parts["fragment"]))
+
+
+@register.assignment_tag(name="getrandbits")
+def _getrandbits():
+    return getrandbits(1)
