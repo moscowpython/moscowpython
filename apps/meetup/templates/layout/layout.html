@@ -23,13 +23,8 @@
             </div>
         </div>
     </header>
-    {% getrandbits as shuffler %}
-    <div id="top-banner" class="{% if shuffler %}learn{% else %}conf{% endif %}">
-        {% if shuffler %}
-            <a href="http://learn.python.ru/?utm_source=moscowpython&utm_medium=banner&utm_campaign=top" target="_blank"></a>
-        {% else %}
-            <a href="http://conf.python.ru/?utm_source=moscowpython&utm_medium=banner&utm_campaign=top" target="_blank"></a>
-        {% endif %}
+    <div id="top-banner" class="learn">
+        <a href="http://learn.python.ru/?utm_source=moscowpython&utm_medium=banner&utm_campaign=top" target="_blank"></a>
     </div>
 
     {% block page %}{% endblock %}
