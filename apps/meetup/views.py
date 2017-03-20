@@ -99,8 +99,7 @@ class EventPage(DetailView):
         except queryset.model.MultipleObjectsReturned:
             obj = queryset.latest("date")
         except queryset.model.DoesNotExist:
-            raise Http404(_("No %(verbose_name)s found matching the query") %
-                          {'verbose_name': queryset.model._meta.verbose_name})
+            raise Http404
         return obj
 
     def get_context_data(self, **kwargs):
