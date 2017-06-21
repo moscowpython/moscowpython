@@ -24,7 +24,9 @@
     {% endif %}
 
     <div class="live__embed">
-        {{ event.streaming_embed|safe }}
+{#        {{ event.streaming_embed|safe }}#}
+      <h3>По техническим причинам трансляция на сайте невозможна</h3>
+      <h2><a href="{{ event.video }}">Смотрите трансляцию на YouTube</a></h2>
     </div>
 
     <a class="twitter-timeline" href="https://twitter.com/hashtag/moscowdjango"
