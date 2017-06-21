@@ -7,7 +7,10 @@
             <div class="arrow"></div>
         </div>
         <div class="body">
-            {% if not main_event.on_air or not main_event.streaming_embed %}
+            {% if main_event.on_air and not main_event.streaming_embed and main_event.video %}
+              <h3>По техническим причинам трансляция на сайте невозможна</h3>
+              <h2><a href="{{ main_event.video }}">Смотрите трансляцию на YouTube</a></h2>
+            {% elif not main_event.on_air or not main_event.streaming_embed %}
                 <div class="signup-form-block text-center">
                     <h3 class="title">Принять участие в Meetup №{{ main_event.number }}</h3>
 
@@ -33,9 +36,6 @@
                     {% endfor %}
                     <div class="b-registration__section b-registration__section_indent section-ank js-section-ank"></div>
                 </div>
-            {% elif main_event.on_air %}
-              <h3>По техническим причинам трансляция на сайте невозможна</h3>
-              <h2><a href="{{ main_event.video }}">Смотрите трансляцию на YouTube</a></h2>
             {% else %}
                 {{ main_event.streaming_embed|safe }}
             {% endif %}
