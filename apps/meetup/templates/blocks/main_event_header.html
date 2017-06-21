@@ -34,7 +34,10 @@
                     <div class="b-registration__section b-registration__section_indent section-ank js-section-ank"></div>
                 </div>
             {% else %}
-                {{ main_event.streaming_embed|safe }}
+
+              <h3>По техническим причинам трансляция на сайте невозможна</h3>
+              <h2><a href="{{ main_event.video }}">Смотрите трансляцию на YouTube</a></h2>
+{#                {{ main_event.streaming_embed|safe }}#}
             {% endif %}
         </div>
     </div>
