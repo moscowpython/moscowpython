@@ -498,6 +498,7 @@ section.section-contacts {
         .title {
             background-image: url(../images/contact.png);
             background-position: 10px 10px;
+            background-size: 37px 25px;
             background-repeat: no-repeat;
             max-width: 275px;
             min-height: 55px;
