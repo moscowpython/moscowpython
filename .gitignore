@@ -17,6 +17,7 @@ moscowdjango.db
 .idea
 env
 node_modules
+.venv
 
 # Installer logs
 pip-log.txt

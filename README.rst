@@ -21,18 +21,15 @@ Running locally
 
 ::
 
-    git clone https://github.com/moscowpython/moscowpython/
+    git clone git@github.com:moscowpython/moscowpython.git
     cd moscowpython
-    pyenv env
-    source env/bin/activate
-    pip install -r requirements.txt
+    pipenv install --skip-lock
     npm install
-    ./node_modules/.bin/gulp
+    npx gulp
 
-    python manage.py syncdb
-    python manage.py migrate
-    python manage.py loaddata development.json  # convenient
-    python manage.py runserver
+    pipenv run python manage.py migrate
+    pipenv run python manage.py loaddata development.json
+    pipenv run python manage.py runserver
 
 
 Tests

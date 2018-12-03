@@ -1,5 +1,6 @@
 Django<1.10
-Pillow==3.1.1
+# Minimum Windows-compatible version
+Pillow==5.1.0
 django-model-utils==2.4
 django-picklefield==0.3.2
 # fork for deepcopy workaround
@@ -16,7 +17,8 @@ whitenoise==1.0.6
 
 # celery
 celery==3.1.17
-kombu==3.0.24
+# https://github.com/celery/kombu/issues/545
+kombu==3.0.30
 billiard==3.3.0.19
 pytz==2014.10
 amqp==1.4.6
@@ -33,5 +35,8 @@ coveralls>=1.0a1
 -e git+https://github.com/bitly/bitly-api-python@8f51e7775938238398da4c8cb619dd3609c76f3d#egg=bitly_api-master
 
 # heroku
-psycopg2==2.6.1
+# ======
+
+# Minimum Windows-compatible version
+psycopg2==2.7.5
 dj-database-url==0.4.0
