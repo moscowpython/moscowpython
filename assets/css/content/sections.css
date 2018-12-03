@@ -307,13 +307,17 @@ section.section-about {
     }
     .body {
         margin-top: 14px;
-        a {
-            color: $colorRed;
-            &:hover {
-                color: $colorDarkRed;
+        .executive {
+            a {
+                color: $colorRed;
+                &:hover {
+                    color: $colorDarkRed;
+                }
             }
         }
         .heading {
+            width: auto;
+            display: inline-block;
             margin-bottom: 25px;
         }
         p.important {
@@ -328,6 +332,11 @@ section.section-about {
                 margin-left: 75px;
             }
         }
+    }
+    .heading-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 }
 

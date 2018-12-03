@@ -13,7 +13,7 @@ button.btn {
     background-image: url(../images/btn.png);
     background-color: transparent;
     border: 0;
-    width: 162px;
+    width: 180px;
     height: 21px;
     &:hover {
         background-position-y: 33px;

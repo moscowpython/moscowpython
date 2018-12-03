@@ -24,7 +24,10 @@
     <section id="about" class="section-about">
         <div class="container">
             <div class="body">
-                <h1 class="heading"><span>О&nbsp;проекте</span></h1>
+                <div class="heading-box">
+                    <h1 class="heading"><span>О&nbsp;проекте</span></h1>
+                    <a class="btn" href="https://bit.ly/mp-speaker" target="_blank">Предложить доклад</a>
+                </div>
                 <p>MoscowPython - сообщество, появившееся в 2012-м году под именем MoscowDjango.
                     Первая встреча, прошедшая в Высшей Школе Экономики собрала около 20 человек энтузиастов.
                     С течением времени стало понятно, что пришла необходимость расширить тематику встреч и
@@ -37,7 +40,7 @@
 
                 <h2>Администраторы сообщества:</h2>
                 {% for executive in executives %}
-                    <p>{{ executive.name }}{% if executive.company %} ({% if executive.link %}<a href="{{ executive.link }}" target="_blank">{% endif %}{{ executive.company }}{% if executive.link %}</a>{% endif %}){% endif %}</p>
+                    <p class="executive">{{ executive.name }}{% if executive.company %} ({% if executive.link %}<a href="{{ executive.link }}" target="_blank">{% endif %}{{ executive.company }}{% if executive.link %}</a>{% endif %}){% endif %}</p>
                 {% endfor %}
 
 {#                <div class="text-center signup">#}
