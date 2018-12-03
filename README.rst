@@ -25,7 +25,7 @@ Running locally
     cd moscowpython
     pipenv install --skip-lock
     npm install
-    npx gulp
+    npx gulp compile
 
     pipenv run python manage.py migrate
     pipenv run python manage.py loaddata development.json
