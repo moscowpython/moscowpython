@@ -37,7 +37,7 @@
 
                 <h2>Администраторы сообщества:</h2>
                 {% for executive in executives %}
-                    <p>{{ executive.name }} (<a href="{{ executive.link }}" target="_blank">{{ executive.company }}</a>)</p>
+                    <p>{{ executive.name }}{% if executive.company %} ({% if executive.link %}<a href="{{ executive.link }}" target="_blank">{% endif %}{{ executive.company }}{% if executive.link %}</a>{% endif %}){% endif %}</p>
                 {% endfor %}
 
 {#                <div class="text-center signup">#}
