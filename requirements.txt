@@ -8,7 +8,8 @@ django-picklefield==0.3.2
 pytils==0.3
 -e git+https://github.com/coagulant/django-storages-py3@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
-requests==2.9.1
+# https://nvd.nist.gov/vuln/detail/CVE-2018-18074
+requests==2.20.0
 Markdown==2.4.1
 django-suit==0.2.18
 -e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
