@@ -21,6 +21,9 @@
                                 <div class="topic">
                                     <h3><a class="archive-item__topic" href="{{ talk.get_absolute_url }}">{{ talk.name }}</a></h3>
                                     <div class="name"><a class="archive-item__speaker" href="{{ talk.speaker.get_absolute_url }}">{{ talk.speaker.name }}</a></div>
+                                    {% if talk.speaker.company_name %}
+                                        <div class="company">({{ talk.speaker.company_name }})</div>
+                                    {% endif %}
                                 </div>
                             </li>
                         {% endfor %}

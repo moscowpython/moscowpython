@@ -454,6 +454,9 @@ section.section-archive {
                                 }
                             }
                         }
+                        .company {
+                            padding-top: 5px;
+                        }
                     }
                 }
             }
