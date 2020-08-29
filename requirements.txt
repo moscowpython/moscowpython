@@ -1,6 +1,6 @@
 Django<1.10
 # Minimum Windows-compatible version
-Pillow==5.1.0
+Pillow==5.4.0
 django-model-utils==2.4
 django-picklefield==0.3.2
 # fork for deepcopy workaround
@@ -39,5 +39,5 @@ coveralls>=1.0a1
 # ======
 
 # Minimum Windows-compatible version
-psycopg2==2.7.5
+psycopg2-binary==2.8.4
 dj-database-url==0.4.0

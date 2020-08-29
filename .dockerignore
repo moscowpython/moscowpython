@@ -1,0 +1,11 @@
+env/
+.git/
+__pycache__/
+.vscode/
+.idea
+.envrc
+.editorconfig
+src/
+build/
+node_modules/
+*.dump

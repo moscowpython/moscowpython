@@ -18,6 +18,9 @@ moscowdjango.db
 env
 node_modules
 .venv
+src/
+.envrc
+Pipfile
 
 # Installer logs
 pip-log.txt
@@ -31,3 +34,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Postgres dump
+*.dump

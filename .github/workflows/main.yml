@@ -1,0 +1,30 @@
+name: Duild and deploy Docker container
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to DockerHub Registry
+      run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    - name: Build the tagged Docker image
+      run: docker build . --file Dockerfile --tag korneevm/moscowpython
+    - name: Push the tagged Docker image
+      run: docker push korneevm/moscowpython
+    - name: login to server and pull container
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script_stop: true
+        script: |
+          cd /opt/servers
+          docker-compose pull moscowpython
+          docker-compose up -d
+          docker exec -i servers_moscowpython_1 python3 manage.py migrate --noinput
