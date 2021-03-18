@@ -1,6 +1,6 @@
 Django<1.10
 # Minimum Windows-compatible version
-Pillow==7.1.0
+Pillow==8.1.1
 django-model-utils==2.4
 django-picklefield==0.3.2
 # fork for deepcopy workaround
