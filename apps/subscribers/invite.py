@@ -9,7 +9,6 @@ from urllib.parse import urlencode
 import time
 import os
 
-from bitly_api import Connection
 from django.template.loader import render_to_string
 import mailchimp
 
@@ -35,12 +34,6 @@ def is_invited_to_subscribe(email_address):
     return email_address.lower().strip() in invited_emails
 
 
-def shorten_url(url):
-    c = Connection(login=os.environ.get('BITLY_LOGIN'),
-                   api_key=os.environ.get('BITLY_API_KEY'))
-    return c.shorten(url)['url']
-
-
 def prepare_text(email_address, first_name, last_name):
     url = 'http://moscowdjango.us10.list-manage1.com/subscribe?' + urlencode({
         'u': 'c697064155714e24c8be7e9d8',
@@ -53,7 +46,7 @@ def prepare_text(email_address, first_name, last_name):
         'email': email_address,
         'first_name': first_name,
         'last_name': last_name,
-        'url': shorten_url(url)
+        'url': url
     })
     return template
 

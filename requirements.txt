@@ -6,7 +6,7 @@ django-picklefield==0.3.2
 # fork for deepcopy workaround
 -e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly
 pytils==0.3
--e git+https://github.com/coagulant/django-storages-py3#egg=django-storages
+-e git+https://github.com/coagulant/django-storages-py3.git@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=storages
 docutils==0.11
 # https://nvd.nist.gov/vuln/detail/CVE-2018-18074
 requests==2.20.0
@@ -26,12 +26,11 @@ amqp==1.4.6
 anyjson==0.3.3
 
 # development
+pytest==3.*
 pytest-django==2.8.0
-pytest-cov==2.10.1
 responses==0.3.0
 httpretty==0.8.0
 coveralls>=1.0a1
-bitly_api==0.3
 
 # heroku
 # ======
