@@ -33,7 +33,7 @@ responses==0.3.0
 httpretty==0.8.0
 django-debug-toolbar==1.11.1
 coveralls>=1.0a1
--e git+https://github.com/bitly/bitly-api-python@8f51e7775938238398da4c8cb619dd3609c76f3d#egg=bitly_api-master
+bitly_api==0.3
 
 # heroku
 # ======
