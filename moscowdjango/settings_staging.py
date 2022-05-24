@@ -1,7 +1,7 @@
 # Django settings for moscowdjango project.
 from .settings import *
 
-DEBUG = int(bool(os.environ.get('DEBUG', False)))
+DEBUG = bool(int(os.environ.get('DEBUG', False)))
 
 EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
