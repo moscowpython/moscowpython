@@ -1,8 +1,8 @@
-FROM python:3.7-slim-buster
+FROM python:3.7.16-slim-buster
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install git nodejs npm -y --no-install-recommends
+RUN apt-get update && apt-get install git nodejs npm libpq-dev gcc build-essential -y --no-install-recommends
 
 RUN pip install gunicorn==20.0.4
 
