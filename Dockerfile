@@ -17,6 +17,5 @@ RUN npm install
 RUN npx gulp compile
 
 RUN mkdir -p /opt/staticfiles
-RUN python3 manage.py collectstatic --noinput
 
 CMD ["gunicorn", "-b 0.0.0.0:8000", "moscowdjango.wsgi:application"]

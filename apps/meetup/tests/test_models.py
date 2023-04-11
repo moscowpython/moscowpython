@@ -1,35 +1,26 @@
-# coding: utf-8
+from __future__ import annotations
+
 import datetime
-from django.test import TestCase, override_settings
 from unittest.mock import patch
+
+from django.test import TestCase, override_settings
 from embedly import Embedly
-from apps.meetup.models import Talk, Event, Speaker
+
+from apps.meetup.models import Event, Speaker, Talk
 
 
-class FakeOembed():
+class FakeOembed:
     _data = {"key": "value"}
 
 
 class TalkTestCase(TestCase):
-
     def setUp(self):
-        self.event = Event.objects.create(
-            date=datetime.datetime(2015, 5, 16, 2, 0, 0),
-            name="test",
-
-        )
-        self.speaker = Speaker.objects.create(
-            name="test",
-            slug="test",
-        )
+        self.event = Event.objects.create(date=datetime.datetime(2015, 5, 16, 2, 0, 0), name="test")
+        self.speaker = Speaker.objects.create(name="test", slug="test")
 
     @override_settings(EMBEDLY_KEY="internal")
     def test_set_embedly_data(self):
-        talk = Talk.objects.create(
-            event=self.event,
-            speaker=self.speaker,
-            name="test"
-        )
+        talk = Talk.objects.create(event=self.event, speaker=self.speaker, name="test")
         with patch.object(Embedly, 'oembed', return_value=FakeOembed()) as oembed:
             talk.presentation = "http://example.com/presentation/"
             talk.video = "http://example.com/video/"

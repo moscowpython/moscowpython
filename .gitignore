@@ -37,3 +37,6 @@ pip-log.txt
 
 # Postgres dump
 *.dump
+*.sql
+.vscode/
+static/

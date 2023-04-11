@@ -1,40 +1,30 @@
-Django<1.10
-# Minimum Windows-compatible version
-Pillow==9.0.1
-django-model-utils==1.5.0
-django-picklefield==0.3.2
-# fork for deepcopy workaround
--e git+https://github.com/coagulant/embedly-python@raw_data#egg=embedly
-pytils==0.3
--e git+https://github.com/coagulant/django-storages-py3.git@bf64ba562c06fb366a84e73e7a258d54627bd172#egg=django-storages
-docutils==0.11
-# https://nvd.nist.gov/vuln/detail/CVE-2018-18074
-requests==2.20.0
-Markdown==2.4.1
-django-suit==0.2.18
--e git+https://github.com/mvasilkov/django-google-charts#egg=django-google-charts
-xmltodict==0.9.0
-whitenoise==1.0.6
+Django==4.2
 
-# celery
-celery==3.1.17
-# https://github.com/celery/kombu/issues/545
-kombu==3.0.30
-billiard==3.3.0.19
-pytz==2014.10
-amqp==1.4.6
-anyjson==0.3.3
+django-configurations==2.4.1
+django-model-utils==4.3.1
+django-picklefield==3.1
+django-storages==1.13.2
+
+boto3==1.26.110
+docutils==0.19
+embedly2==0.6.0
+
+Markdown==3.4.3
+pytils==0.4.1
+Pillow==9.5.0
+psycopg2==2.9.6
+redis==4.5.4
+requests==2.28.2
+
+sentry-sdk==1.19.1
+
+whitenoise==6.4.0
 
 # development
-pytest==3.*
-pytest-django==2.8.0
-responses==0.3.0
-httpretty==0.8.0
-coveralls>=1.0a1
+pytest==7.3.0
+pytest-django==4.5.2
+responses==0.23.1
 
-# heroku
-# ======
-
-# Minimum Windows-compatible version
-psycopg2-binary==2.8.4
-dj-database-url==0.4.0
+black==23.3.0
+flake8==6.0.0
+isort==5.12.0

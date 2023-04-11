@@ -1,25 +1,15 @@
+from __future__ import annotations
+
 from django.conf import settings
-from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import include, path, re_path
 from django.views.generic.base import TemplateView
-
-from .settings import STATIC_ROOT, ROOT_PATH
-
-
-admin.autodiscover()
 
 handler500 = TemplateView.as_view(template_name="500.html")
 
-urlpatterns = patterns('',
-    url(r'^(favicon.ico)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
-    url(r'^(robots.txt)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
-    url(r'^humans.txt$', 'django.views.static.serve', {'document_root': ROOT_PATH, 'path': 'AUTHORS.txt'}),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('apps.meetup.urls')),
-    url(r'^(?P<filename>[\w-]+\.(?:html|txt))$', 'apps.meetup.views.confirm_ownership', name='ownership')
-)
+urlpatterns = [path('', include('apps.meetup.urls')), re_path(r'^admin/', admin.site.urls)]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

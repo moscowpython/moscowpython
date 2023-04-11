@@ -1,6 +1,8 @@
-# coding: utf-8
+from __future__ import annotations
+
 from django import forms
 from django.forms import ModelForm
+
 from .models import Event, Sponsor
 
 
@@ -9,10 +11,7 @@ class EventAdminForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(EventAdminForm, self).__init__(*args, **kwargs)
-        self.fields['manual_on_air'].widget.choices = \
-            ((u'1', 'Автоматически'),
-             (u'2', 'Вкл'),
-             (u'3', 'Выкл'))
+        self.fields['manual_on_air'].widget.choices = (('1', 'Автоматически'), ('2', 'Вкл'), ('3', 'Выкл'))
 
     class Meta:
         model = Event

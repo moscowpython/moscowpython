@@ -11,10 +11,10 @@ jobs:
       DJANGO_DB_USER: postgres
       DJANGO_DB_PASSWORD: postgres
       DJANGO_DB_NAME: postgres
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+      DJANGO_CONFIGURATION: Test
     services:
       postgres:
-        image: postgres:10
+        image: postgres:14
         env:
           POSTGRES_USER: ${{env.DJANGO_DB_USER}}
           POSTGRES_PASSWORD: ${{env.DJANGO_DB_PASSWORD}}
@@ -24,10 +24,10 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.7
+    - name: Set up Python 3.10
       uses: actions/setup-python@v2
       with:
-        python-version: '3.7'
+        python-version: '3.10'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -50,3 +50,4 @@ jobs:
           cd /opt/servers
           docker-compose pull moscowpython
           docker-compose up -d
+          docker exec -i servers_moscowpython_1 python3 manage.py collectstatic --noinput

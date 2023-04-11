@@ -1,18 +1,19 @@
-# coding: utf-8
-from django.core.urlresolvers import reverse_lazy
-from .models import Event, Executive
+from __future__ import annotations
 
+from django.urls import reverse_lazy
+
+from .models import Event, Executive
 
 ANNOUNCEMENT_THRESHOLD = 14
 
 
 def menu(request):
     menu_items = (
-        {'title': u'События', 'url': 'events'},
-        {'title': u'Видео', 'url': 'https://www.youtube.com/moscowdjangoru'},
-        {'title': u'Группа Facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/'},
-        {'title': u'Люди', 'url': 'speakers'},
-        {'title': u'О проекте', 'url': 'about'},
+        {'title': 'События', 'url': 'events'},
+        {'title': 'Видео', 'url': 'https://www.youtube.com/moscowdjangoru'},
+        {'title': 'Группа Facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/'},
+        {'title': 'Люди', 'url': 'speakers'},
+        {'title': 'О проекте', 'url': 'about'},
     )
 
     for item in menu_items:
@@ -41,7 +42,7 @@ def all_events_processor(request):
         'show_announcement': show_announcement,
         'streaming_url': latest_event.streaming_url if latest_event else None,
         'days_to_next_event': days_to_next_event,
-        'next_event_time': latest_event.date if latest_event else None
+        'next_event_time': latest_event.date if latest_event else None,
     }
 
 
