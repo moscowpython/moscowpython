@@ -19,14 +19,18 @@ class Staging(Base):
     AWS_STORAGE_BUCKET_NAME = values.Value()
     AWS_QUERYSTRING_AUTH = False
 
+    STATIC_AWS_ACCESS_KEY_ID = values.Value()
+    STATIC_AWS_SECRET_ACCESS_KEY = values.Value()
+    STATIC_AWS_STORAGE_BUCKET_NAME = values.Value()
+
     STORAGES = {
         'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage', 'OPTIONS': {'location': 'media'}},
         'staticfiles': {
             'BACKEND': 'storages.backends.s3boto3.S3ManifestStaticStorage',
             'OPTIONS': {
-                'access_key': values.Value(environ_name='DJANGO_STATIC_AWS_ACCESS_KEY_ID'),
-                'secret_key': values.Value(environ_name='DJANGO_STATIC_AWS_SECRET_ACCESS_KEY'),
-                'bucket_name': values.Value(environ_name='DJANGO_STATIC_AWS_STORAGE_BUCKET_NAME'),
+                'access_key': STATIC_AWS_ACCESS_KEY_ID,
+                'secret_key': STATIC_AWS_SECRET_ACCESS_KEY,
+                'bucket_name': STATIC_AWS_STORAGE_BUCKET_NAME,
                 'location': 'static',
             },
         },
