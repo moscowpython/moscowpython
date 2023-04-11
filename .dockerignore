@@ -1,4 +1,5 @@
 env/
+venv/
 .git/
 __pycache__/
 .vscode/
@@ -9,3 +10,5 @@ src/
 build/
 node_modules/
 *.dump
+*.sql
+static/

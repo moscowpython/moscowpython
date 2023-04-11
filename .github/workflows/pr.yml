@@ -1,0 +1,44 @@
+name: Lint and test PR
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  check:
+    name: Check and test PR
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_DB_USER: postgres
+      DJANGO_DB_PASSWORD: postgres
+      DJANGO_DB_NAME: postgres
+      DJANGO_CONFIGURATION: Test
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: ${{env.DJANGO_DB_USER}}
+          POSTGRES_PASSWORD: ${{env.DJANGO_DB_PASSWORD}}
+          POSTGRES_DB: ${{env.DJANGO_DB_NAME}}
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+            python-version: '3.11'
+      - name: psycopg2 prerequisites
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: pip install -r requirements/base.txt -r requirements/dev.txt
+      - name: Run checks
+        run: flake8 .
+      - name: Check migrations
+        run: python manage.py makemigrations --dry-run --check
+      - name: Run migrations
+        run: python manage.py migrate
+      - name: Run tests
+        run: python -m pytest

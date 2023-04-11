@@ -1,11 +1,13 @@
-# coding: utf-8
+from __future__ import annotations
+
 import datetime
+from urllib.parse import urljoin
 
 from django.conf import settings
 from django.db import models
-from django.db.models import permalink
-from embedly.client import Embedly
 from django.db.models.manager import Manager
+from django.urls import reverse
+from embedly.client import Embedly
 from model_utils import Choices
 from model_utils.managers import QueryManager
 from model_utils.models import StatusModel, TimeStampedModel
@@ -13,14 +15,12 @@ from picklefield.fields import PickledObjectField
 
 
 class TalkManager(Manager):
-
     def active(self):
         qs = self.get_queryset()
         return qs.filter(status='active').exclude(event__status="draft")
 
 
 class SponsorManager(Manager):
-
     def partners(self):
         qs = self.get_queryset()
         return qs.filter(status="partner")
@@ -33,19 +33,19 @@ class SponsorManager(Manager):
 class Talk(StatusModel):
     STATUS = Choices('active', 'draft')
 
-    name = models.CharField(u'Название', max_length=1024)
-    speaker = models.ForeignKey('Speaker', verbose_name=u'Докладчик', related_name='talks')
-    event = models.ForeignKey('Event', verbose_name=u'Событие', related_name='talks')
-    slug = models.SlugField(u'Код')
-    description = models.TextField(u'Описание', blank=True)
-    presentation = models.URLField(u'Адрес презентации', blank=True)
-    presentation_data = PickledObjectField(u'Meta-данные презентации', editable=True, blank=True)
-    video = models.URLField(u'Адрес видео', blank=True)
-    video_data = PickledObjectField(u'Meta-данные видео', blank=True)
-    position = models.SmallIntegerField(u'Порядок', help_text=u'Порядок выступления на событии', default=0)
+    name = models.CharField('Название', max_length=1024)
+    speaker = models.ForeignKey('Speaker', on_delete=models.CASCADE, verbose_name='Докладчик', related_name='talks')
+    event = models.ForeignKey('Event', on_delete=models.CASCADE, verbose_name='Событие', related_name='talks')
+    slug = models.SlugField('Код')
+    description = models.TextField('Описание', null=True, blank=True)
+    presentation = models.URLField('Адрес презентации', null=True, blank=True)
+    presentation_data = PickledObjectField('Meta-данные презентации', editable=True, blank=True, null=True)
+    video = models.URLField('Адрес видео', null=True, blank=True)
+    video_data = PickledObjectField('Meta-данные видео', null=True, blank=True)
+    position = models.SmallIntegerField('Порядок', help_text='Порядок выступления на событии', default=0)
 
-    start_time = models.TimeField(u'Время начала', blank=True, null=True)
-    end_time = models.TimeField(u'Время окончания', blank=True, null=True)
+    start_time = models.TimeField('Время начала', blank=True, null=True)
+    end_time = models.TimeField('Время окончания', blank=True, null=True)
 
     objects = TalkManager()
 
@@ -60,9 +60,8 @@ class Talk(StatusModel):
     def __str__(self):
         return self.name
 
-    @permalink
     def get_absolute_url(self):
-        return 'talk', [self.event.number, self.slug]
+        return reverse('talk', kwargs={'event_number': self.event.number, 'talk_slug': self.slug})
 
     def set_embedly_data(self, field_name):
         original_field_value = getattr(self, 'original_{0}'.format(field_name))
@@ -87,46 +86,49 @@ class Talk(StatusModel):
     def get_time_start(self):
         if self.start_time:
             return self.start_time
-        return self.event.date + datetime.timedelta(minutes=40*self.position)
+        return self.event.date + datetime.timedelta(minutes=40 * self.position)
 
     def get_time_end(self):
         if self.end_time:
             return self.end_time
-        return self.event.date + datetime.timedelta(minutes=40*(self.position+1))
-
+        return self.event.date + datetime.timedelta(minutes=(40 * (self.position + 1)))
 
     class Meta:
-        verbose_name = u'Выступление'
-        verbose_name_plural = u'Выступления'
-        ordering = ('-event__number', 'position',)
+        verbose_name = 'Выступление'
+        verbose_name_plural = 'Выступления'
+        ordering = ('-event__number', 'position')
 
 
 class Event(StatusModel):
-    """ Events
-        * draft - totally invisible
-        * planning - only event description is shown
-        * active - event is scheduled, speakers also visible
-        * archived - event passed, registration is disabled
+    """Events
+    * draft - totally invisible
+    * planning - only event description is shown
+    * active - event is scheduled, speakers also visible
+    * archived - event passed, registration is disabled
     """
-    STATUS = Choices('planning', 'active', 'archived', 'draft',)
 
-    name = models.CharField(u'Название', max_length=1024)
-    number = models.SmallIntegerField(u'Номер', blank=True, null=True)
-    description = models.TextField(u'Описание', blank=True)
-    image = models.ImageField(u'Изображение', upload_to='events', null=True, blank=True)
-    date = models.DateTimeField(u'Начало', blank=True, null=True)
-    venue = models.ForeignKey('Venue', blank=True, null=True)
-    sponsors = models.ManyToManyField('Sponsor', verbose_name=u'Спонсоры', blank=True)
-    registration_link = models.URLField(u'Ссылка на событие', blank=True)
-    streaming_url = models.URLField(u'Ссылка на трансляцию', blank=True)
-    streaming_embed = models.TextField(u'Embed трансляции', blank=True, help_text='html с ютуба или другого источника')
-    manual_on_air = models.NullBooleanField(u'Включить трансляцию', default=None,
-                                            help_text=u'Включается автоматически за полчаса до начала и идёт 4 часа.'
-                                                      u' Нужно, для тестирования в другое время.')
+    STATUS = Choices('planning', 'active', 'archived', 'draft')
+
+    name = models.CharField('Название', max_length=1024)
+    number = models.SmallIntegerField('Номер', blank=True, null=True)
+    description = models.TextField('Описание', blank=True)
+    image = models.ImageField('Изображение', upload_to='events', null=True, blank=True)
+    date = models.DateTimeField('Начало', blank=True, null=True)
+    venue = models.ForeignKey('Venue', on_delete=models.CASCADE, blank=True, null=True)
+    sponsors = models.ManyToManyField('Sponsor', verbose_name='Спонсоры', blank=True)
+    registration_link = models.URLField('Ссылка на событие', blank=True)
+    streaming_url = models.URLField('Ссылка на трансляцию', blank=True)
+    streaming_embed = models.TextField('Embed трансляции', blank=True, help_text='html с ютуба или другого источника')
+    manual_on_air = models.BooleanField(
+        'Включить трансляцию',
+        default=None,
+        null=True,
+        help_text='Включается автоматически за полчаса до начала и идёт 4 часа.',
+    )
 
     # Deprecated:
-    timepad_id = models.IntegerField(u'ID события на Timepad', blank=True, default=0, editable=False)
-    votable = models.BooleanField(u'Включить голосование', default=False, editable=False)
+    timepad_id = models.IntegerField('ID события на Timepad', blank=True, default=0, editable=False)
+    votable = models.BooleanField('Включить голосование', default=False, editable=False)
 
     objects = Manager()
     visible = QueryManager(status__in=[STATUS.planning, STATUS.active, STATUS.archived])
@@ -134,16 +136,15 @@ class Event(StatusModel):
 
     def __str__(self):
         if self.number:
-            return u'{0} №{1}'.format(self.name, self.number)
+            return f'{self.name} №{self.number}'
         else:
             return self.name
 
     def __repr__(self):
-        return '<Event №%s>' % self.number
+        return f'<Event №{self.number}>'
 
-    @permalink
     def get_absolute_url(self):
-        return 'event', [self.number]
+        return reverse('event', kwargs={'number': self.number})
 
     @property
     def is_active(self):
@@ -168,14 +169,13 @@ class Event(StatusModel):
 
     def get_registration_url(self):
         if self.timepad_id:
-            return 'https://moscowdjango.timepad.ru/event/%s/' % self.timepad_id
+            return f'https://moscowdjango.timepad.ru/event/{self.timepad_id}/'
         if self.registration_link:
             return self.registration_link
 
     @classmethod
     def spotlight(cls, with_drafts=False):
-        """ Last active or last planned or last archived
-        """
+        """Last active or last planned or last archived"""
         try:
             if with_drafts:
                 return Event.objects.latest()
@@ -184,60 +184,59 @@ class Event(StatusModel):
             return None
 
     class Meta:
-        verbose_name = u'Событие'
-        verbose_name_plural = u'События'
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'
         get_latest_by = 'number'
         ordering = ['-date']
 
 
 class Venue(models.Model):
-    name = models.CharField(u'Название места', max_length=100)
-    address = models.TextField(u'Адрес')
-    latitude = models.DecimalField(u'Широта', decimal_places=6, max_digits=9, blank=True, null=True)
-    longitude = models.DecimalField(u'Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
+    name = models.CharField('Название места', max_length=100)
+    address = models.TextField('Адрес')
+    latitude = models.DecimalField('Широта', decimal_places=6, max_digits=9, blank=True, null=True)
+    longitude = models.DecimalField('Долгота', decimal_places=6, max_digits=9, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = u'Место'
-        verbose_name_plural = u'Места'
+        verbose_name = 'Место'
+        verbose_name_plural = 'Места'
 
 
 class Speaker(models.Model):
-    name = models.CharField(u'Имя', max_length=100)
-    slug = models.SlugField(u'Слаг', default='')
-    photo = models.ImageField(u'Фотография', upload_to='speakers', null=True, blank=True)
-    company_name = models.CharField(u'Название компании', max_length=1024, blank=True)
-    description = models.TextField(u'Описание', blank=True)
+    name = models.CharField('Имя', max_length=100)
+    slug = models.SlugField('Слаг', default='')
+    photo = models.ImageField('Фотография', upload_to='speakers', null=True, blank=True)
+    company_name = models.CharField('Название компании', max_length=1024, blank=True)
+    description = models.TextField('Описание', blank=True)
 
     def __str__(self):
         return self.name
 
-    @permalink
     def get_absolute_url(self):
-        return 'speaker', [self.slug]
+        return reverse('speaker', kwargs={'slug': self.slug})
 
     @property
     def avatar_url(self):
         if self.photo:
             return self.photo.url
         else:
-            return settings.STATIC_URL + 'images/avatars/reinhardt.png'
+            return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
 
     class Meta:
-        verbose_name = u'Докладчик'
-        verbose_name_plural = u'Докладчики'
+        verbose_name = 'Докладчик'
+        verbose_name_plural = 'Докладчики'
 
 
 class Photo(models.Model):
-    event = models.ForeignKey(Event, related_name='photos', blank=True, null=True)
-    url = models.URLField(u'Ссылка на внешнее фото', help_text=u'Временное поле', blank=True)
-    image = models.ImageField(u'Фотография', upload_to='photos', blank=True)
-    caption = models.TextField(u'Подпись', blank=True)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='photos', blank=True, null=True)
+    url = models.URLField('Ссылка на внешнее фото', help_text=u'Временное поле', blank=True)
+    image = models.ImageField('Фотография', upload_to='photos', blank=True)
+    caption = models.TextField('Подпись', blank=True)
 
     def __str__(self):
-        return self.caption or u'Фото №%s' % self.id
+        return self.caption or f'Фото №{self.id}'
 
     def get_absolute_url(self):
         if self.url:
@@ -246,17 +245,17 @@ class Photo(models.Model):
             return self.image.url
 
     class Meta:
-        verbose_name = u'Фотография'
-        verbose_name_plural = u'Фотографии'
+        verbose_name = 'Фотография'
+        verbose_name_plural = 'Фотографии'
 
 
 class Sponsor(models.Model):
     STATUSES = Choices('organizer', 'partner')
 
-    name = models.CharField(u'Название компании', max_length=250)
-    logo = models.ImageField(u'Логотип', upload_to='sponsors')
-    url = models.URLField(u'Адрес сайта', blank=True)
-    status = models.CharField(u'Тип', choices=STATUSES, max_length=10)
+    name = models.CharField('Название компании', max_length=250)
+    logo = models.ImageField('Логотип', upload_to='sponsors')
+    url = models.URLField('Адрес сайта', blank=True)
+    status = models.CharField('Тип', choices=STATUSES, max_length=10)
 
     objects = SponsorManager()
 
@@ -267,15 +266,15 @@ class Sponsor(models.Model):
         return self.url
 
     class Meta:
-        verbose_name = u'Спонсор'
-        verbose_name_plural = u'Спонсоры'
+        verbose_name = 'Спонсор'
+        verbose_name_plural = 'Спонсоры'
 
 
 class MediaCoverage(models.Model):
-    event = models.ForeignKey(Event, related_name='media_coverages')
-    name = models.CharField(u'Название упоминания', max_length=250)
-    url = models.URLField(u'Адрес страницы с упоминанием')
-    ico = models.CharField(u'Ссылка на .ico сайта', max_length=250, null=True, blank=True)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='media_coverages')
+    name = models.CharField('Название упоминания', max_length=250)
+    url = models.URLField('Адрес страницы с упоминанием')
+    ico = models.CharField('Ссылка на .ico сайта', max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -284,53 +283,50 @@ class MediaCoverage(models.Model):
         return self.url
 
     class Meta:
-        verbose_name = u'Упоминание'
-        verbose_name_plural = u'Упоминания'
+        verbose_name = 'Упоминание'
+        verbose_name_plural = 'Упоминания'
 
 
 class Tutorial(models.Model):
-    title = models.CharField(u'Название обучающего материала', max_length=250)
-    slug = models.SlugField(u'Слаг', default='')
+    title = models.CharField('Название обучающего материала', max_length=250)
+    slug = models.SlugField('Слаг', default='')
 
-    author = models.ForeignKey(Speaker, blank=True, null=True,
-        verbose_name=u'Автор')
+    author = models.ForeignKey(Speaker, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Автор')
 
-    description = models.TextField(u'Краткое описание')
-    content = models.TextField(u'Содержание')
+    description = models.TextField('Краткое описание')
+    content = models.TextField('Содержание')
 
     def __str__(self):
         return self.title
 
-    @permalink
     def get_absolute_url(self):
-        return 'tutorial', [self.slug]
+        return reverse('tutorial', kwargs={'slug': self.slug})
 
     class Meta:
-        verbose_name = u'Полезный материал'
-        verbose_name_plural = u'Полезные материалы'
+        verbose_name = 'Полезный материал'
+        verbose_name_plural = 'Полезные материалы'
 
 
 class Vote(TimeStampedModel):
-    talk = models.ForeignKey(Talk, related_name='votes')
-    event = models.ForeignKey(Event, related_name='votes')
-    ua = models.TextField(u'User Agent')
-    ip = models.TextField(u'IP')
+    talk = models.ForeignKey(Talk, on_delete=models.CASCADE, related_name='votes')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='votes')
+    ua = models.TextField('User Agent')
+    ip = models.TextField('IP')
 
     class Meta:
-        verbose_name = u'Голос'
-        verbose_name_plural = u'Голос'
+        verbose_name = 'Голос'
+        verbose_name_plural = 'Голос'
 
 
 class Executive(models.Model):
-
     name = models.CharField(max_length=64)
     company = models.CharField(max_length=64, blank=True)
     link = models.URLField(blank=True)
     order = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        verbose_name = u'Администратор'
-        verbose_name_plural = u'Администраторы'
+        verbose_name = 'Администратор'
+        verbose_name_plural = 'Администраторы'
         ordering = ['order']
 
     def __str__(self):

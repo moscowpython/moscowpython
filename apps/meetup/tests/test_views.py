@@ -1,9 +1,9 @@
-import os
-from django.core.urlresolvers import reverse
-from django.test import TestCase
-import mock
+from __future__ import annotations
 
-from apps.meetup.models import Event, Talk, Speaker, Photo
+from django.test import TestCase
+from django.urls import reverse
+
+from apps.meetup.models import Event, Photo, Speaker, Talk
 
 
 def create_events():
@@ -37,7 +37,7 @@ class IndexSystem(TestCase):
     def test_archived_events(self):
         act, drf, pln, arc = create_events()
         response = self.client.get(reverse('index'))
-        self.assertQuerysetEqual(response.context['events'], [repr(arc)])
+        self.assertQuerySetEqual(response.context['events'], [arc])
 
 
 class EventList(TestCase):
@@ -46,11 +46,12 @@ class EventList(TestCase):
     def test_event_list(self):
         act, drf, pln, arc = create_events()
         response = self.client.get(reverse('events'))
-        self.assertQuerysetEqual(response.context['events'], [repr(event) for event in [act, pln, arc]])
+        self.assertQuerySetEqual(response.context['events'], [event for event in [act, pln, arc]])
 
 
 class EventsPage(TestCase):
     """Integration tests for event detail page"""
+
     def setUp(self):
         self.act, self.drf, self.pln, self.arc = create_events()
 
@@ -69,7 +70,9 @@ class TalkPage(TestCase):
     def setUp(self):
         event = Event.objects.create(number=1, name='Active', status=Event.STATUS.active)
         speaker = Speaker.objects.create(name='Speaker', slug='slug')
-        self.talk = Talk.objects.create(name='Talk', slug='slug', event=event, speaker=speaker, status=Talk.STATUS.active)
+        self.talk = Talk.objects.create(
+            name='Talk', slug='slug', event=event, speaker=speaker, status=Talk.STATUS.active
+        )
 
     def test_talk_page_active(self):
         response = self.client.get(reverse('talk', args=[1, 'slug']))
@@ -92,7 +95,7 @@ class SpeakerList(TestCase):
         speaker1 = Speaker.objects.create(name='Speaker1', slug='slug1')
         speaker2 = Speaker.objects.create(name='Speaker2', slug='slug2')
         response = self.client.get(reverse('speakers'))
-        self.assertQuerysetEqual(response.context['speakers'], [repr(speaker) for speaker in [speaker1, speaker2]])
+        self.assertQuerySetEqual(response.context['speakers'], [speaker1, speaker2])
 
 
 class SpeakerDetail(TestCase):
@@ -112,7 +115,7 @@ class AboutPage(TestCase):
         photo2 = Photo.objects.create(image='^', caption='2')
         response = self.client.get(reverse('about'))
         self.assertTemplateUsed(response, 'about.html')
-        self.assertQuerysetEqual(response.context['photos'], [repr(photo) for photo in [photo2, photo1]])
+        self.assertQuerySetEqual(response.context['photos'], [photo2, photo1])
 
 
 class LivePage(TestCase):
@@ -122,20 +125,3 @@ class LivePage(TestCase):
         response = self.client.get(reverse('live'))
         self.assertTemplateUsed(response, 'live.html')
         self.assertEqual(response.context['event'], None)
-
-
-class OwnershipPage(TestCase):
-
-    @mock.patch.dict(os.environ, {
-        'CONFIRM_OWNERSHIP_b729180e1658.txt': 'ffk3ryf3',
-        'CONFIRM_OWNERSHIP_b729180e1657.html': '121212'
-    })
-    def test_page(self):
-        response = self.client.get('/b729180e1658.txt')
-        assert response.content == b'ffk3ryf3'
-
-        response = self.client.get('/b729180e1657.html')
-        assert response.content == b'121212'
-
-        response = self.client.get('/index.html')
-        assert response.status_code == 404

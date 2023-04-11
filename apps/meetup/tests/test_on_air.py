@@ -1,9 +1,10 @@
-# -*- coding: utf-8 -*-
-import contextlib
+from __future__ import annotations
 
+import contextlib
 import datetime
 
 from django.test import TestCase
+
 from apps.meetup.models import Event
 
 
@@ -22,10 +23,16 @@ def mock_now(dt_value):
         def now(cls):
             # Create a copy of dt_value.
             return datetime.datetime(
-                dt_value.year, dt_value.month, dt_value.day,
-                dt_value.hour, dt_value.minute, dt_value.second, dt_value.microsecond,
-                dt_value.tzinfo
+                dt_value.year,
+                dt_value.month,
+                dt_value.day,
+                dt_value.hour,
+                dt_value.minute,
+                dt_value.second,
+                dt_value.microsecond,
+                dt_value.tzinfo,
             )
+
     real_datetime = datetime.datetime
     datetime.datetime = MockDateTime
     try:
@@ -35,12 +42,10 @@ def mock_now(dt_value):
 
 
 class TestOnAir(TestCase):
-
     def setUp(self):
         self.seventh_meetup = Event(date=datetime.datetime(2012, 11, 21, 19, 0, 0))
 
     def test_simple(self):
-
         with mock_now(datetime.datetime(2012, 11, 13, 19, 45)):
             self.assertFalse(self.seventh_meetup.on_air)
 

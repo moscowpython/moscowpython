@@ -1,21 +1,19 @@
-# coding=utf-8
-import os
-import sys
+from __future__ import annotations
 
-import django
-from django.core.urlresolvers import reverse
+import os
+
 from django.db import DatabaseError
 from django.db.models import Count
-from django.http import HttpResponse, Http404
-from django.shortcuts import redirect, get_object_or_404
-from django.utils import six
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.decorators.csrf import csrf_exempt
 
-from .models import Talk, Photo, Speaker, Event, Tutorial, Vote
-from .utils import subscribe_mail, validate_email, set_vote_cookie, can_vote
+from .models import Event, Photo, Speaker, Talk, Tutorial, Vote
+from .utils import can_vote, set_vote_cookie
 
 
 class IndexPage(ListView):
@@ -33,17 +31,14 @@ class IndexPage(ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexPage, self).get_context_data(**kwargs)
 
-        # TODO: choose how select people for index page
-        # I see two options:
-        # By last talks -  Speaker.objects.order_by("-talks__event__id", "talk__position")[:9]
-        # Random: Speaker.objects.order_by("?")[:9]
-
-        context.update({
-            'speakers': Speaker.objects.order_by("?")[:10],
-            'main_event': Event.spotlight(self.request.user.is_staff),
-            'show_more_link': True,
-            'can_vote': can_vote(self.request)
-        })
+        context.update(
+            {
+                'speakers': Speaker.objects.order_by("?")[:10],
+                'main_event': Event.spotlight(self.request.user.is_staff),
+                'show_more_link': True,
+                'can_vote': can_vote(self.request),
+            }
+        )
         return context
 
 
@@ -89,9 +84,9 @@ class EventPage(DetailView):
 
         # If none of those are defined, it's an error.
         if pk is None and slug is None:
-            raise AttributeError("Generic detail view %s must be called with "
-                                 "either an object pk or a slug."
-                                 % self.__class__.__name__)
+            raise AttributeError(
+                "Generic detail view %s must be called with " "either an object pk or a slug." % self.__class__.__name__
+            )
 
         try:
             # Get the single item from the filtered queryset
@@ -104,10 +99,7 @@ class EventPage(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EventPage, self).get_context_data(**kwargs)
-        context.update({
-            'photos': context['event'].photos.all(),
-            'can_vote': can_vote(self.request),
-        })
+        context.update({'photos': context['event'].photos.all(), 'can_vote': can_vote(self.request)})
         return context
 
 
@@ -141,10 +133,7 @@ class SpeakerPage(DetailView):
     template_name = 'speaker.html'
 
     def get_object(self, queryset=None):
-        return get_object_or_404(
-            Speaker.objects.prefetch_related('talks', 'talks__event'),
-            slug=self.kwargs['slug']
-        )
+        return get_object_or_404(Speaker.objects.prefetch_related('talks', 'talks__event'), slug=self.kwargs['slug'])
 
 
 class AboutPage(TemplateView):
@@ -152,9 +141,7 @@ class AboutPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutPage, self).get_context_data(**kwargs)
-        context.update({
-            'photos': Photo.objects.all().order_by('-pk')[:10]
-        })
+        context.update({'photos': Photo.objects.all().order_by('-pk')[:10]})
         return context
 
 
@@ -164,9 +151,7 @@ class LivePage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(LivePage, self).get_context_data(**kwargs)
 
-        context.update({
-            'event': Event.spotlight(),
-        })
+        context.update({'event': Event.spotlight()})
         return context
 
 
@@ -179,20 +164,6 @@ class TutorialList(ListView):
 class TutorialPage(DetailView):
     template_name = 'tutorial.html'
     model = Tutorial
-
-
-class Py3Page(TemplateView):
-    template_name = 'py3.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(Py3Page, self).get_context_data(**kwargs)
-
-        context.update({
-            'django': django.get_version(),
-            'python': sys.version,
-            'py3': six.PY3,
-        })
-        return context
 
 
 class VoteResults(TemplateView):
@@ -210,9 +181,7 @@ class VoteResults(TemplateView):
                 talk.votes_percent = int(talk.num_votes * 100 / votes_total)
                 if talk.num_votes == votes_max:
                     talk.is_leader = True
-        context.update({
-            'talks': talks,
-        })
+        context.update({'talks': talks})
 
         return context
 
@@ -221,15 +190,17 @@ class VoteResults(TemplateView):
 def ajax_vote(request, *args, **kwargs):
     if request.method == 'POST':
         if not can_vote(request):
-            return HttpResponse(u'Можно голосовать только за один доклад', status=409)
+            return HttpResponse('Можно голосовать только за один доклад', status=409)
         try:
             event = Talk.objects.get(pk=kwargs['talk_id']).event
             if not event.votable:
                 return HttpResponse('Voting is closed, sorry', status=409)
-            Vote.objects.create(talk_id=kwargs['talk_id'],
-                                event=event,
-                                ua=request.META.get('HTTP_USER_AGENT'),
-                                ip=request.META.get('REMOTE_ADDR'))
+            Vote.objects.create(
+                talk_id=kwargs['talk_id'],
+                event=event,
+                ua=request.headers.get('user-agent'),
+                ip=request.META.get('REMOTE_ADDR'),
+            )
             response = HttpResponse(reverse('vote-results'))
             response = set_vote_cookie(response)
             return response

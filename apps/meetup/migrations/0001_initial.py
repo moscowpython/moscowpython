@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(verbose_name='Название упоминания', max_length=250)),
                 ('url', models.URLField(verbose_name='Адрес страницы с упоминанием')),
                 ('ico', models.CharField(null=True, blank=True, max_length=250, verbose_name='Ссылка на .ico сайта')),
-                ('event', models.ForeignKey(related_name='media_coverages', to='meetup.Event')),
+                ('event', models.ForeignKey(on_delete=models.CASCADE, related_name='media_coverages', to='meetup.Event')),
             ],
             options={
                 'verbose_name': 'Упоминание',
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('url', models.URLField(verbose_name='Ссылка на внешнее фото', blank=True, help_text='Временное поле')),
                 ('image', models.ImageField(verbose_name='Фотография', upload_to='photos', blank=True)),
                 ('caption', models.TextField(verbose_name='Подпись', blank=True)),
-                ('event', models.ForeignKey(null=True, related_name='photos', blank=True, to='meetup.Event')),
+                ('event', models.ForeignKey(on_delete=models.CASCADE, null=True, related_name='photos', blank=True, to='meetup.Event')),
             ],
             options={
                 'verbose_name': 'Фотография',
@@ -111,8 +111,8 @@ class Migration(migrations.Migration):
                 ('video', models.URLField(verbose_name='Адрес видео', blank=True)),
                 ('video_data', picklefield.fields.PickledObjectField(verbose_name='Meta-данные видео', blank=True, editable=False)),
                 ('position', models.SmallIntegerField(verbose_name='Порядок', default=0, help_text='Порядок выступления на событии')),
-                ('event', models.ForeignKey(verbose_name='Событие', related_name='talks', to='meetup.Event')),
-                ('speaker', models.ForeignKey(verbose_name='Докладчик', related_name='talks', to='meetup.Speaker')),
+                ('event', models.ForeignKey(on_delete=models.CASCADE, verbose_name='Событие', related_name='talks', to='meetup.Event')),
+                ('speaker', models.ForeignKey(on_delete=models.CASCADE, verbose_name='Докладчик', related_name='talks', to='meetup.Speaker')),
             ],
             options={
                 'ordering': ('-event__number', 'position'),
@@ -129,7 +129,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(verbose_name='Слаг', default='')),
                 ('description', models.TextField(verbose_name='Краткое описание')),
                 ('content', models.TextField(verbose_name='Содержание')),
-                ('author', models.ForeignKey(null=True, verbose_name='Автор', blank=True, to='meetup.Speaker')),
+                ('author', models.ForeignKey(on_delete=models.CASCADE, null=True, verbose_name='Автор', blank=True, to='meetup.Speaker')),
             ],
             options={
                 'verbose_name': 'Полезный материал',
@@ -160,8 +160,8 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(verbose_name='modified', default=django.utils.timezone.now, editable=False)),
                 ('ua', models.TextField(verbose_name='User Agent')),
                 ('ip', models.TextField(verbose_name='IP')),
-                ('event', models.ForeignKey(related_name='votes', to='meetup.Event')),
-                ('talk', models.ForeignKey(related_name='votes', to='meetup.Talk')),
+                ('event', models.ForeignKey(on_delete=models.CASCADE, related_name='votes', to='meetup.Event')),
+                ('talk', models.ForeignKey(on_delete=models.CASCADE, related_name='votes', to='meetup.Talk')),
             ],
             options={
                 'verbose_name': 'Голос',
@@ -178,7 +178,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='event',
             name='venue',
-            field=models.ForeignKey(null=True, blank=True, to='meetup.Venue'),
+            field=models.ForeignKey(on_delete=models.CASCADE, null=True, blank=True, to='meetup.Venue'),
             preserve_default=True,
         ),
     ]

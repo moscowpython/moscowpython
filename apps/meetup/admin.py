@@ -1,27 +1,26 @@
-# coding: utf-8
+from __future__ import annotations
+
 from django.contrib import admin
+
 from .forms import EventAdminForm
-from .models import Photo, Venue, MediaCoverage, Talk, Sponsor, Speaker, \
-    Event, Tutorial, Vote, Executive
+from .models import Event, Executive, MediaCoverage, Photo, Speaker, Sponsor, Talk, Tutorial, Venue, Vote
 
 
+@admin.display(description='Слайды', boolean=True)
 def oembed_presentation(obj):
     return bool(obj.presentation_data)
-oembed_presentation.short_description = u'Слайды'
-oembed_presentation.boolean = True
 
 
+@admin.display(description='Видео', boolean=True)
 def oembed_video(obj):
     return bool(obj.video_data)
-oembed_video.short_description = u'Видео'
-oembed_video.boolean = True
 
 
 def preview(obj):
     return '<img src=%s style="height:100px">' % obj.get_absolute_url()
-preview.allow_tags = True
 
 
+@admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
     list_editable = ['position']
@@ -39,6 +38,7 @@ class MediaCoverageInline(admin.TabularInline):
     model = MediaCoverage
 
 
+@admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     form = EventAdminForm
     list_display = ['__str__', 'date', 'venue', 'status']
@@ -47,10 +47,12 @@ class EventAdmin(admin.ModelAdmin):
     inlines = [PhotoInline, MediaCoverageInline]
 
 
+@admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'address']
 
 
+@admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ['__str__', preview, 'event', 'caption']
     list_editable = ['caption']
@@ -59,43 +61,37 @@ class PhotoAdmin(admin.ModelAdmin):
 
 
 def photo_preview(obj):
-    return '<img src=%s style="height:50px">' % obj.avatar_url
-photo_preview.allow_tags = True
+    return f'<img src={obj.avatar_url} style="height:50px">'
 
 
+@admin.register(Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ['__str__', photo_preview, 'slug',]
+    list_display = ['__str__', photo_preview, 'slug']
     list_editable = ['slug']
     search_fields = ['name']
 
 
 def logo_preview(obj):
-    return '<img src=%s width=150>' % obj.logo.url
-logo_preview.allow_tags = True
+    return f'<img src={obj.logo.url} width=150>'
 
 
+@admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
-    list_display = ['__str__', logo_preview, 'url',]
+    list_display = ['__str__', logo_preview, 'url']
     list_editable = ['url']
 
 
+@admin.register(Tutorial)
 class TutorialAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(MediaCoverage)
 class MediaCoverageAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'event']
     list_filter = ['event']
     ordering = ['-event__pk', 'id']
 
 
-admin.site.register(Talk, TalkAdmin)
-admin.site.register(Event, EventAdmin)
-admin.site.register(Venue, VenueAdmin)
-admin.site.register(Speaker, SpeakerAdmin)
-admin.site.register(Photo, PhotoAdmin)
-admin.site.register(Sponsor, SponsorAdmin)
-admin.site.register(MediaCoverage, MediaCoverageAdmin)
-admin.site.register(Tutorial, TutorialAdmin)
 admin.site.register(Vote)
 admin.site.register(Executive)

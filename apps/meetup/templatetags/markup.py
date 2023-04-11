@@ -1,16 +1,14 @@
-# coding: utf-8
 """
     Based on deprecated django.contrib.markup
 """
-from random import getrandbits
+from __future__ import annotations
 
-from django.utils.encoding import force_str, force_bytes, force_text
 import markdown as mdlib
-from docutils.core import publish_parts
 from django import template
 from django.template.defaultfilters import stringfilter
+from django.utils.encoding import force_bytes, force_str
 from django.utils.safestring import mark_safe
-
+from docutils.core import publish_parts
 
 register = template.Library()
 
@@ -24,9 +22,4 @@ def markdown(value):
 @register.filter(is_safe=True)
 def restructuredtext(value):
     parts = publish_parts(source=force_bytes(value), writer_name="html4css1")
-    return mark_safe(force_text(parts["fragment"]))
-
-
-@register.assignment_tag(name="getrandbits")
-def _getrandbits():
-    return getrandbits(1)
+    return mark_safe(force_str(parts["fragment"]))

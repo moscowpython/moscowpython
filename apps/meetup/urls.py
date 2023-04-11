@@ -1,25 +1,35 @@
-# coding: utf-8
-from django.conf.urls import patterns, url, include
-from .views import EventPage, TalkPage, SpeakerPage, SpeakerList, IndexPage, \
-    EventsList, AboutPage, LivePage, Py3Page, \
-    TutorialPage, TutorialList, ajax_vote, VoteResults
+from __future__ import annotations
 
+from django.urls import include, path, re_path
 
-urlpatterns = patterns('',
-    url('^$', IndexPage.as_view(), name='index'),
-    url('^about/$', AboutPage.as_view(), name='about'),
-    url('^live/$', LivePage.as_view(), name='live'),
-    url('^py3/$', Py3Page.as_view(), name='py3'),
-    url('^meetup/$', EventsList.as_view(), name='events'),
-    url('^meetup/(?P<number>\d+)/$', EventPage.as_view(), name='event'),
-    url('^meetup/(?P<event_number>\d+)/(?P<talk_slug>[\w-]+)/$', TalkPage.as_view(), name='talk'),
-    url('^speakers/$', SpeakerList.as_view(), name='speakers'),
-    url('^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
-    url('^tutorials/$', TutorialList.as_view(), name='tutorials'),
-    url('^tutorials/(?P<slug>[\w-]+)/$', TutorialPage.as_view(), name='tutorial'),
-    url('^vote/(?P<talk_id>\d+)/$', ajax_vote, name='vote'),
-    url('^prize/$', VoteResults.as_view(), name='vote-results'),
-
-    # legacy
-    url('', include('apps.meetup.legacy.urls')),
+from .views import (
+    AboutPage,
+    EventPage,
+    EventsList,
+    IndexPage,
+    LivePage,
+    SpeakerList,
+    SpeakerPage,
+    TalkPage,
+    TutorialList,
+    TutorialPage,
+    VoteResults,
+    ajax_vote,
 )
+
+urlpatterns = [
+    path('', IndexPage.as_view(), name='index'),
+    path('about/', AboutPage.as_view(), name='about'),
+    path('live/', LivePage.as_view(), name='live'),
+    path('meetup/', EventsList.as_view(), name='events'),
+    path('meetup/<int:number>/', EventPage.as_view(), name='event'),
+    re_path(r'^meetup/(?P<event_number>\d+)/(?P<talk_slug>[\w-]+)/$', TalkPage.as_view(), name='talk'),
+    path('speakers/', SpeakerList.as_view(), name='speakers'),
+    re_path(r'^speakers/(?P<slug>[\w-]+)/$', SpeakerPage.as_view(), name='speaker'),
+    path('tutorials/', TutorialList.as_view(), name='tutorials'),
+    re_path(r'^tutorials/(?P<slug>[\w-]+)/$', TutorialPage.as_view(), name='tutorial'),
+    path('vote/<int:talk_id>/', ajax_vote, name='vote'),
+    path('prize/', VoteResults.as_view(), name='vote-results'),
+    # legacy
+    path('', include('apps.meetup.legacy.urls')),
+]
