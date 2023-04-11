@@ -15,7 +15,7 @@ jobs:
       DJANGO_CONFIGURATION: Test
     services:
       postgres:
-        image: postgres:14
+        image: postgres:15
         env:
           POSTGRES_USER: ${{env.DJANGO_DB_USER}}
           POSTGRES_PASSWORD: ${{env.DJANGO_DB_PASSWORD}}
@@ -26,10 +26,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-            python-version: '3.10'
+            python-version: '3.11'
       - name: psycopg2 prerequisites
         run: sudo apt-get install libpq-dev
       - name: Install dependencies

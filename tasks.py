@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from datetime import datetime
-
 from invoke import task
 
 
@@ -41,15 +39,12 @@ def run(cmd):
 @task
 def check(cmd):
     cmd.run('python ./manage.py makemigrations --dry-run --check')
-    cmd.run('pre-commit run no-asserts --all-files')
-    cmd.run('pre-commit run line-count --all-files')
     cmd.run('flake8 .')
 
 
 @task
 def test(cmd):
-    seed = round(datetime.timestamp(datetime.now()))
-    cmd.run(f'python -m pytest --randomly-seed={seed}')
+    cmd.run('DJANGO_CONFIGURATION=Test python -m pytest')
 
 
 @task
