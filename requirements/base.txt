@@ -138,6 +138,10 @@ embedly2==0.6.0 \
     --hash=sha256:4d74396a1839dd85a16428907cbfb2aa0e499736b8e4a82f9df9c6733a54ff46 \
     --hash=sha256:8d09c8b7f833ba24f47cdf3336f2b023b311d58a0abf8113862b8e73811b1084
     # via -r requirements/base.in
+gunicorn==20.1.0 \
+    --hash=sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e \
+    --hash=sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8
+    # via -r requirements/base.in
 httplib2==0.22.0 \
     --hash=sha256:14ae0a53c1ba8f3d37e9e27cf37eabb0fb9980f435ba405d546948b009dd64dc \
     --hash=sha256:d7a10bc5ef5ab08322488bde8c726eeee5c8618723fdb399597ec58f3d82df81
@@ -281,3 +285,9 @@ urllib3==1.26.15 \
     #   botocore
     #   requests
     #   sentry-sdk
+
+# The following packages are considered to be unsafe in a requirements file:
+setuptools==67.6.1 \
+    --hash=sha256:257de92a9d50a60b8e22abfcbb771571fde0dbf3ec234463212027a4eeecbe9a \
+    --hash=sha256:e728ca814a823bf7bf60162daf9db95b93d532948c4c0bea762ce62f60189078
+    # via gunicorn
