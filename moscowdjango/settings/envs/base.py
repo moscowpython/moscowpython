@@ -5,7 +5,6 @@ import os
 import sentry_sdk
 from configurations import Configuration, values
 from sentry_sdk.integrations.django import DjangoIntegration
-from sentry_sdk.integrations.redis import RedisIntegration
 
 
 class Base(Configuration):
@@ -111,7 +110,7 @@ class Base(Configuration):
         self._SENTRY_CONFIG = {
             'dsn': values.Value('', environ_name='SENTRY_DSN'),
             'release': '',  # noqa: allowed straight assignment
-            'integrations': [DjangoIntegration(), RedisIntegration()],  # noqa: allowed straight assignment
+            'integrations': [DjangoIntegration()],  # noqa: allowed straight assignment
             'environment': values.Value('', environ_name='CONFIGURATION').lower(),
             'traces_sample_rate': 1.0,  # noqa: allowed straight assignment
             'send_default_pii': True,  # noqa: allowed straight assignment
