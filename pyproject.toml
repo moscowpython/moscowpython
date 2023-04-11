@@ -21,7 +21,7 @@ ensure_newline_before_comments = true
 use_parentheses = true
 add_imports = ['from __future__ import annotations']
 skip_gitignore = true
-skip = ['migrations']
+skip = ['migrations', 'env', 'venv', '.git', '.mypy_cache']
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "moscowdjango.settings"
@@ -30,3 +30,4 @@ testpaths = "apps"
 addopts = [
     "--nomigrations",
 ]
+filterwarnings = "ignore::DeprecationWarning"

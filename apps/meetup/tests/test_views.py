@@ -37,7 +37,7 @@ class IndexSystem(TestCase):
     def test_archived_events(self):
         act, drf, pln, arc = create_events()
         response = self.client.get(reverse('index'))
-        self.assertQuerySetEqual(response.context['events'], [repr(arc)])
+        self.assertQuerySetEqual(response.context['events'], [arc])
 
 
 class EventList(TestCase):
@@ -46,7 +46,7 @@ class EventList(TestCase):
     def test_event_list(self):
         act, drf, pln, arc = create_events()
         response = self.client.get(reverse('events'))
-        self.assertQuerySetEqual(response.context['events'], [repr(event) for event in [act, pln, arc]])
+        self.assertQuerySetEqual(response.context['events'], [event for event in [act, pln, arc]])
 
 
 class EventsPage(TestCase):
@@ -95,7 +95,7 @@ class SpeakerList(TestCase):
         speaker1 = Speaker.objects.create(name='Speaker1', slug='slug1')
         speaker2 = Speaker.objects.create(name='Speaker2', slug='slug2')
         response = self.client.get(reverse('speakers'))
-        self.assertQuerySetEqual(response.context['speakers'], [repr(speaker) for speaker in [speaker1, speaker2]])
+        self.assertQuerySetEqual(response.context['speakers'], [speaker1, speaker2])
 
 
 class SpeakerDetail(TestCase):
@@ -115,7 +115,7 @@ class AboutPage(TestCase):
         photo2 = Photo.objects.create(image='^', caption='2')
         response = self.client.get(reverse('about'))
         self.assertTemplateUsed(response, 'about.html')
-        self.assertQuerySetEqual(response.context['photos'], [repr(photo) for photo in [photo2, photo1]])
+        self.assertQuerySetEqual(response.context['photos'], [photo2, photo1])
 
 
 class LivePage(TestCase):

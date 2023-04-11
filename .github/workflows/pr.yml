@@ -33,10 +33,11 @@ jobs:
       - name: psycopg2 prerequisites
         run: sudo apt-get install libpq-dev
       - name: Install dependencies
-        run: |
-            pip install -r requirements.txt
+        run: pip install -r requirements/dev.txt
       - name: Run checks
         run: flake8 .
+      - name: Check migrations
+        run: python manage.py migrate --dry-run --check
       - name: Run migrations
         run: python manage.py migrate
       - name: Run tests
