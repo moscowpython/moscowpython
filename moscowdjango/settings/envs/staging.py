@@ -10,9 +10,9 @@ class Staging(Base):
 
     SECRET_KEY = values.SecretValue()
 
-    CSRF_TRUSTED_ORIGINS = values.ListValue(['https://dev.moscowdjango.ru'])
+    CSRF_TRUSTED_ORIGINS = values.ListValue(['https://dev.moscowpython.ru'])
 
-    ALLOWED_HOSTS = values.ListValue(['https://dev.moscowdjango.ru'])
+    ALLOWED_HOSTS = values.ListValue(['dev.moscowpython.ru'])
 
     AWS_ACCESS_KEY_ID = values.Value()
     AWS_SECRET_ACCESS_KEY = values.Value()

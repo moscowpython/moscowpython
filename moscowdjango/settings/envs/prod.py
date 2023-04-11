@@ -10,6 +10,6 @@ class Prod(Staging):
 
     SECRET_KEY = values.SecretValue()
 
-    CSRF_TRUSTED_ORIGINS = values.ListValue(['https://moscowdjango.ru', 'https://www.moscowdjango.ru'])
+    CSRF_TRUSTED_ORIGINS = values.ListValue(['https://moscowpython.ru', 'https://www.moscowpython.ru'])
 
-    ALLOWED_HOSTS = values.ListValue(['https://moscowdjango.ru', 'https://www.moscowdjango.ru'])
+    ALLOWED_HOSTS = values.ListValue(['moscowpython.ru', 'www.moscowpython.ru'])
