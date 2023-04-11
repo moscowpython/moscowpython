@@ -12,7 +12,7 @@ class Staging(Base):
 
     CSRF_TRUSTED_ORIGINS = values.ListValue(['https://dev.moscowpython.ru'])
 
-    ALLOWED_HOSTS = values.ListValue(['dev.moscowpython.ru'])
+    ALLOWED_HOSTS = values.ListValue(['dev.moscowpython.ru', '45.8.250.219'])
 
     AWS_ACCESS_KEY_ID = values.Value()
     AWS_SECRET_ACCESS_KEY = values.Value()
