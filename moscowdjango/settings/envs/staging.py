@@ -23,6 +23,10 @@ class Staging(Base):
     STATIC_AWS_SECRET_ACCESS_KEY = values.Value()
     STATIC_AWS_STORAGE_BUCKET_NAME = values.Value()
 
+    @property
+    def STATIC_URL(self):
+        return f'https://{self.STATIC_AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+
     STORAGES = {
         'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage', 'OPTIONS': {'location': 'media'}},
         'staticfiles': {'BACKEND': 'moscowdjango.storage_backends.S3StaticStorage'},
