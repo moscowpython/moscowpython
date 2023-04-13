@@ -18,10 +18,18 @@ RUN set -xe; \
             zlib1g-dev \
             curl \
             wget \
-            ca-certificates
+            ca-certificates \
+            nodejs \
+            npm
 
 ADD requirements/base.txt /requirements.txt
 RUN pip install --prefix=/install -r /requirements.txt
+
+COPY . /app
+WORKDIR /app
+
+RUN npm install
+RUN npx gulp compile
 
 
 FROM base
@@ -34,9 +42,7 @@ RUN set -xe; \
         -o APT::Install-Suggests=false \
         locales \
         libpq-dev \
-        tzdata \
-        nodejs \
-        npm 
+        tzdata
 
 RUN dpkg-reconfigure -f noninteractive tzdata
 
@@ -44,12 +50,11 @@ COPY --from=builder /install /usr/local
 
 COPY . /opt/app
 
+COPY --from=builder /app/build /opt/app/moscowdjango/static
+
 RUN chmod +x /opt/app/entrypoint.sh
 
 WORKDIR /opt/app
-
-RUN npm install
-RUN npx gulp compile
 
 RUN chown -R unprivileged:unprivileged /opt/app
 

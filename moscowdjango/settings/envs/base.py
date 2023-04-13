@@ -100,7 +100,7 @@ class Base(Configuration):
     STATIC_ROOT = values.Value(os.path.join(BASE_DIR, 'static'))
 
     STATICFILES_DIRS = [  # noqa: static object
-        os.path.join(BASE_DIR, 'assets'),
+        os.path.join(BASE_DIR, 'moscowdjango', 'static'),
     ]
 
     MEDIA_ROOT = values.Value(os.path.join(BASE_DIR, 'media'))
