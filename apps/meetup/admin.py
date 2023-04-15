@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 from .forms import EventAdminForm
 from .models import Event, Executive, MediaCoverage, Photo, Speaker, Sponsor, Talk, Tutorial, Venue, Vote
@@ -17,7 +18,7 @@ def oembed_video(obj):
 
 
 def preview(obj):
-    return '<img src=%s style="height:100px">' % obj.get_absolute_url()
+    return mark_safe(f'<img src="{obj.get_absolute_url()}" style="height:100px">')
 
 
 @admin.register(Talk)
@@ -61,7 +62,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 
 def photo_preview(obj):
-    return f'<img src={obj.avatar_url} style="height:50px">'
+    return mark_safe(f'<img src="{obj.avatar_url}" style="height:50px">')
 
 
 @admin.register(Speaker)
@@ -72,7 +73,7 @@ class SpeakerAdmin(admin.ModelAdmin):
 
 
 def logo_preview(obj):
-    return f'<img src={obj.logo.url} width=150>'
+    return mark_safe(f'<img src="{obj.logo.url}" width=150>')
 
 
 @admin.register(Sponsor)
