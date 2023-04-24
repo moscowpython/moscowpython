@@ -12,4 +12,4 @@ class Prod(Staging):
 
     CSRF_TRUSTED_ORIGINS = values.ListValue(['https://moscowpython.ru', 'https://www.moscowpython.ru'])
 
-    ALLOWED_HOSTS = values.ListValue(['moscowpython.ru', 'www.moscowpython.ru', 'msk.python.ru'])
+    ALLOWED_HOSTS = values.ListValue(['moscowpython.ru', 'www.moscowpython.ru', 'msk.python.ru', '45.8.250.219'])
