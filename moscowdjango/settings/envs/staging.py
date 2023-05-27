@@ -28,6 +28,7 @@ class Staging(Base):
         return f'https://{self.STATIC_AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 
     STORAGES = {
-        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage', 'OPTIONS': {'location': 'media'}},
+        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+                    'OPTIONS': {'location': 'media', 'default_acl': 'public-read'}},
         'staticfiles': {'BACKEND': 'moscowdjango.storage_backends.S3StaticStorage'},
     }

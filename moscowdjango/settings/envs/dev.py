@@ -15,6 +15,7 @@ class Dev(Base):
     AWS_QUERYSTRING_AUTH = False
 
     STORAGES = {
-        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage', 'OPTIONS': {'location': 'media'}},
+        'default': {'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+                    'OPTIONS': {'location': 'media', 'default_acl': 'public-read'}},
         'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
     }
