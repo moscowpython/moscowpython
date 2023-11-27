@@ -26,7 +26,7 @@ ADD requirements/base.txt /requirements.txt
 RUN pip install --prefix=/install -r /requirements.txt
 
 
-FROM node:12-alpine AS nodebuilder
+FROM node:11-alpine AS nodebuilder
 
 COPY . /app
 WORKDIR /app

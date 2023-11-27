@@ -6,7 +6,7 @@
     "postinstall": "gulp compile"
   },
   "engines": {
-    "node": "12.x"
+    "node": "11.x"
   },
   "author": "",
   "license": "ISC",
