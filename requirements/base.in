@@ -9,7 +9,7 @@ embedly2==0.6.0
 gunicorn==20.1.0 
 Markdown==3.4.3
 pytils==0.4.1
-Pillow==9.5.0
+Pillow==10.0.1
 psycopg2==2.9.6
 redis==4.5.4
 requests==2.31.0
