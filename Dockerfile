@@ -25,6 +25,9 @@ RUN set -xe; \
 ADD requirements/base.txt /requirements.txt
 RUN pip install --prefix=/install -r /requirements.txt
 
+
+FROM node:12-alpine AS nodebuilder
+
 COPY . /app
 WORKDIR /app
 
@@ -50,7 +53,7 @@ COPY --from=builder /install /usr/local
 
 COPY . /opt/app
 
-COPY --from=builder /app/build /opt/app/moscowdjango/static
+COPY --from=nodebuilder /app/build /opt/app/moscowdjango/static
 
 RUN chmod +x /opt/app/entrypoint.sh
 
