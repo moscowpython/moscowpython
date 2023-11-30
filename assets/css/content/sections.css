@@ -357,6 +357,7 @@ section.section-speakers {
                 img {
                     width: 150px;
                     height: 150px;
+                    object-fit: cover;
                 }
             }
             .name {
@@ -426,6 +427,7 @@ section.section-archive {
                         img {
                             width: 70px;
                             height: 70px;
+                            object-fit: cover;
                         }
                     }
                     .topic {
@@ -584,6 +586,7 @@ section.section-talk {
             img {
                 width: 150px;
                 height: 150px;
+                object-fit: cover;
             }
         }
         &__name {
