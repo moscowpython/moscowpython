@@ -32,6 +32,14 @@ def migrate(cmd):
 
 
 @task
+def frontend(cmd):
+    cmd.run('npm install')
+    cmd.run('npx gulp compile')
+    cmd.run('mkdir -p moscowdjango/static')
+    cmd.run('cp -R build/* moscowdjango/static/')
+
+
+@task
 def run(cmd):
     cmd.run('python3 manage.py runserver')
 
