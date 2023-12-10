@@ -27,3 +27,10 @@ Tests
 
     inv check
     inv test
+
+Pre-commit
+----------
+
+To install pre-commit hooks, run::
+
+    inv precommit
