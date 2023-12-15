@@ -23,6 +23,7 @@ class Base(Configuration):
     DEFAULT_AUTO_FIELD = "django.db.models.AutoField"  # noqa: allowed straight assignment
 
     INSTALLED_APPS = [  # noqa: static object
+        'django.contrib.sites',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',

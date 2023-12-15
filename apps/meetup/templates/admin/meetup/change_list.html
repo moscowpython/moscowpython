@@ -1,0 +1,21 @@
+{% extends "admin/change_list.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        function doEnforceEmbedData(uri) {
+            if (confirm("Existing data will be overwritten. Procees?")) {
+                fetch(uri, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => response)
+                .then(response => console.log(response));
+            }
+        }
+    </script>
+{% endblock %}

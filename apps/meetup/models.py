@@ -12,6 +12,7 @@ from model_utils import Choices
 from model_utils.managers import QueryManager
 from model_utils.models import StatusModel, TimeStampedModel
 from picklefield.fields import PickledObjectField
+from apps.meetup.embed import get_embed_data
 
 
 class TalkManager(Manager):
@@ -63,16 +64,25 @@ class Talk(StatusModel):
     def get_absolute_url(self):
         return reverse('talk', kwargs={'event_number': self.event.number, 'talk_slug': self.slug})
 
-    def set_embedly_data(self, field_name):
+    def set_embedly_data(self, field_name, force=False):
         original_field_value = getattr(self, 'original_{0}'.format(field_name))
         new_field_value = getattr(self, field_name)
-        if new_field_value != original_field_value:
+        if new_field_value != original_field_value or force:
             data_field_name = '{0}_data'.format(field_name)
             if new_field_value:
-                embedly_key = getattr(settings, 'EMBEDLY_KEY')
-                if embedly_key:
-                    client = Embedly(embedly_key)
-                    setattr(self, data_field_name, client.oembed(new_field_value)._data)
+                data = get_embed_data(new_field_value)
+                if data is not None:
+                    setattr(self, data_field_name, data)
+                return data
+                # data = SpeakerDeckEmbed.request(new_field_value)
+                # setattr(self, data_field_name, data)
+                # return data
+                # embedly_key = getattr(settings, 'EMBEDLY_KEY')
+                # if embedly_key:
+                #     client = Embedly(embedly_key)
+                #     response = client.oembed(new_field_value)
+                #     setattr(self, data_field_name, response._data)
+                #     return response
             else:
                 setattr(self, data_field_name, "")
         setattr(self, 'original_{0}'.format(field_name), new_field_value)
@@ -219,6 +229,7 @@ class Speaker(models.Model):
 
     @property
     def avatar_url(self):
+        return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
         if self.photo:
             return self.photo.url
         else:

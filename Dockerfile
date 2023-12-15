@@ -1,5 +1,6 @@
 FROM python:3.11-slim as base
 
+ENV DJANGO_DB_HOST=host.docker.internal
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -23,6 +24,9 @@ RUN set -xe; \
             npm
 
 ADD requirements/base.txt /requirements.txt
+RUN pip install --prefix=/install -r /requirements.txt
+
+ADD requirements/dev.txt /requirements.txt
 RUN pip install --prefix=/install -r /requirements.txt
 
 

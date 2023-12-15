@@ -15,6 +15,7 @@ from .views import (
     TutorialPage,
     VoteResults,
     ajax_vote,
+    ajax_set_embedly_data,
 )
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     path('tutorials/', TutorialList.as_view(), name='tutorials'),
     re_path(r'^tutorials/(?P<slug>[\w-]+)/$', TutorialPage.as_view(), name='tutorial'),
     path('vote/<int:talk_id>/', ajax_vote, name='vote'),
+    path('set-embedly-data/<int:talk_id>/<str:field_name>', ajax_set_embedly_data, name='set-embedly-data'),
     path('prize/', VoteResults.as_view(), name='vote-results'),
     # legacy
     path('', include('apps.meetup.legacy.urls')),

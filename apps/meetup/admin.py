@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 from django.contrib import admin
+from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.utils.html import format_html
+
 
 from .forms import EventAdminForm
 from .models import Event, Executive, MediaCoverage, Photo, Speaker, Sponsor, Talk, Tutorial, Venue, Vote
@@ -23,13 +26,29 @@ def preview(obj):
 
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event']
+    list_display = ['__str__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event', 'set_presentation', 'set_video']
     list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
     search_fields = ['name']
     ordering = ['-event__pk', 'position']
 
+    def set_presentation(self, obj):
+        uri = reverse('set-embedly-data', args=[obj.id, 'presentation'])
+        # return format_html("<a href='{}'>Enforce presentation</a>", uri)
+        return format_html(
+            f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Presentation</a>"
+        )    
+    
+    def set_video(self, obj):
+        uri = reverse('set-embedly-data', args=[obj.id, 'video'])
+        # return format_html(
+        #     f"<button onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embedly Video</button>"
+        # )    
+        return format_html(
+            f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Video</a>"
+        )
+    
 
 class PhotoInline(admin.TabularInline):
     model = Photo
