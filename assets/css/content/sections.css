@@ -358,6 +358,7 @@ section.section-speakers {
                     width: 150px;
                     height: 150px;
                     object-fit: cover;
+                    line-height: normal;
                 }
             }
             .name {
@@ -428,6 +429,7 @@ section.section-archive {
                             width: 70px;
                             height: 70px;
                             object-fit: cover;
+                            line-height: normal;
                         }
                     }
                     .topic {
@@ -587,6 +589,7 @@ section.section-talk {
                 width: 150px;
                 height: 150px;
                 object-fit: cover;
+                line-height: normal;
             }
         }
         &__name {
