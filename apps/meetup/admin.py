@@ -35,16 +35,12 @@ class TalkAdmin(admin.ModelAdmin):
 
     def set_presentation(self, obj):
         uri = reverse('set-embedly-data', args=[obj.id, 'presentation'])
-        # return format_html("<a href='{}'>Enforce presentation</a>", uri)
         return format_html(
             f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Presentation</a>"
         )    
     
     def set_video(self, obj):
         uri = reverse('set-embedly-data', args=[obj.id, 'video'])
-        # return format_html(
-        #     f"<button onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embedly Video</button>"
-        # )    
         return format_html(
             f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Video</a>"
         )

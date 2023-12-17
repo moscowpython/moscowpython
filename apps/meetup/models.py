@@ -74,15 +74,6 @@ class Talk(StatusModel):
                 if data is not None:
                     setattr(self, data_field_name, data)
                 return data
-                # data = SpeakerDeckEmbed.request(new_field_value)
-                # setattr(self, data_field_name, data)
-                # return data
-                # embedly_key = getattr(settings, 'EMBEDLY_KEY')
-                # if embedly_key:
-                #     client = Embedly(embedly_key)
-                #     response = client.oembed(new_field_value)
-                #     setattr(self, data_field_name, response._data)
-                #     return response
             else:
                 setattr(self, data_field_name, "")
         setattr(self, 'original_{0}'.format(field_name), new_field_value)
@@ -229,7 +220,6 @@ class Speaker(models.Model):
 
     @property
     def avatar_url(self):
-        return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
         if self.photo:
             return self.photo.url
         else:
