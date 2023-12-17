@@ -7,7 +7,6 @@ from django.conf import settings
 from django.db import models
 from django.db.models.manager import Manager
 from django.urls import reverse
-from embedly.client import Embedly
 from model_utils import Choices
 from model_utils.managers import QueryManager
 from model_utils.models import StatusModel, TimeStampedModel

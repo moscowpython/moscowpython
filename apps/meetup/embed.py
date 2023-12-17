@@ -15,19 +15,13 @@ class BaseEmbed:
 
     @classmethod
     def request(self, url: str) -> None:
-        params = {
-            "url": url,
-        }
+        params = {"url": url}
         params.update(self.PARAMS)
-        resp = requests.get(
-            url=self.URL,
-            params=params,
-            timeout=(self.READ_TIMEOUT, self.CONNECT_TIMEOUT)
-        )
+        resp = requests.get(url=self.URL, params=params, timeout=(self.READ_TIMEOUT, self.CONNECT_TIMEOUT))
 
         if resp.status_code != 200:
             raise Exception(f"Error: {resp.status_code}")
-        
+
         return resp.json()
 
 
@@ -42,21 +36,17 @@ class YoutubeEmbed(BaseEmbed):
 
 class EmbedlyEmbed:
     @classmethod
-    def request(self, url: str) -> None:        
+    def request(self, url: str) -> None:
         embedly_key = getattr(settings, 'EMBEDLY_KEY')
         if embedly_key is None or embedly_key == '':
             raise Exception("no embedly key")
-        
+
         client = Embedly(embedly_key)
         response = client.oembed(url)
         return response._data
 
 
-adapters = {
-    "speakerdeck.com": SpeakerDeckEmbed,
-    "youtube.com": YoutubeEmbed,
-    "youtu.be": YoutubeEmbed,
-}
+adapters = {"speakerdeck.com": SpeakerDeckEmbed, "youtube.com": YoutubeEmbed, "youtu.be": YoutubeEmbed}
 
 
 def get_domain(url):
@@ -67,10 +57,10 @@ def get_domain(url):
 def get_embed_data(url):
     if url is None or url == '':
         return None
-    
+
     domain = get_domain(url)
     adapter = adapters.get(domain, EmbedlyEmbed)
-    
+
     try:
         return adapter.request(url)
     except Exception:

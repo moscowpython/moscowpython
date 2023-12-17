@@ -26,7 +26,17 @@ def preview(obj):
 
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'position', 'speaker', 'status', oembed_presentation, oembed_video, 'event', 'set_presentation', 'set_video']
+    list_display = [
+        '__str__',
+        'position',
+        'speaker',
+        'status',
+        oembed_presentation,
+        oembed_video,
+        'event',
+        'set_presentation',
+        'set_video',
+    ]
     list_editable = ['position']
     list_filter = ['event']
     readonly_fields = ['presentation_data', 'video_data']
@@ -37,14 +47,12 @@ class TalkAdmin(admin.ModelAdmin):
         uri = reverse('set-embedly-data', args=[obj.id, 'presentation'])
         return format_html(
             f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Presentation</a>"
-        )    
-    
+        )
+
     def set_video(self, obj):
         uri = reverse('set-embedly-data', args=[obj.id, 'video'])
-        return format_html(
-            f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Video</a>"
-        )
-    
+        return format_html(f"<a href='#' onclick=\"doEnforceEmbedData('{uri}');return false;\">Enforce Embed Video</a>")
+
 
 class PhotoInline(admin.TabularInline):
     model = Photo
