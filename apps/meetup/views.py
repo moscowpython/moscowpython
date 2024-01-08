@@ -216,3 +216,21 @@ def confirm_ownership(request, *args, **kwargs):
         return HttpResponse(content, content_type=content_type)
     else:
         raise Http404
+
+
+@csrf_exempt
+def ajax_set_embedly_data(request, *args, **kwargs):
+    if not request.user.is_staff:
+        return HttpResponse('No way to change embedly data', status=409)
+
+    talk_id = kwargs.get('talk_id')
+    field_name = kwargs.get('field_name')
+
+    if talk_id is None or field_name is None or field_name not in ('video', 'presentation'):
+        return HttpResponse('Invalid request', status=409)
+
+    talk = Talk.objects.get(pk=talk_id)
+    talk.set_embedly_data(field_name, True)
+    talk.save()
+
+    return HttpResponse('OK', status=200)

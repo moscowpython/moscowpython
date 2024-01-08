@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from django.test import TestCase
+from unittest.mock import patch
+from django.contrib.auth.models import User
+from django.test import TestCase, tag
 from django.urls import reverse
 
 from apps.meetup.models import Event, Photo, Speaker, Talk
@@ -125,3 +127,77 @@ class LivePage(TestCase):
         response = self.client.get(reverse('live'))
         self.assertTemplateUsed(response, 'live.html')
         self.assertEqual(response.context['event'], None)
+
+
+class AjaxSetEmbedlyDataView(TestCase):
+    def setUp(self):
+        self.username = 'username'
+        self.password = 'password'
+        event = Event.objects.create(number=1, name='Active', status=Event.STATUS.active)
+        speaker = Speaker.objects.create(name='Speaker', slug='slug')
+
+        User.objects.create_user(self.username, 'email@moscowpython.ru', self.password, is_staff=True)
+
+        self.talk = Talk.objects.create(
+            name='Talk',
+            slug='slug',
+            event=event,
+            speaker=speaker,
+            status=Talk.STATUS.active,
+            presentation="https://speakerdeck.com/moscowdjango/moscow-python-meetup-83-alieksiei-tatarinov",
+        )
+
+    @tag('ajax')
+    def test_ajax_bad_request(self):
+        response = self.client.get(reverse('set-embedly-data', args=[1, 'presentation']))
+        self.assertEqual(response.status_code, 409)
+        # self.assertEqual(response.content, b'Only POST')
+        self.assertEqual(response.content, b'No way to change embedly data')
+
+    @tag('ajax')
+    def test_ajax_bad_user(self):
+        response = self.client.post(reverse('set-embedly-data', args=[1, 'presentation']))
+        self.assertEqual(response.status_code, 409)
+        self.assertEqual(response.content, b'No way to change embedly data')
+
+    @tag('ajax')
+    def test_ajax_ok(self):
+        # self.assertEqual(1, 2)
+        self.client.login(username=self.username, password=self.password)
+        expected = {
+            'type': 'rich',
+            'version': 1.0,
+            'provider_name': 'Speaker Deck',
+            'provider_url': 'https://speakerdeck.com/',
+            'title': 'Moscow Python Meetup №83 Алексей Татаринов.',
+            'author_name': 'Moscow Python Meetup',
+            'author_url': 'https://speakerdeck.com/moscowdjango',
+            'html': (
+                '<iframe id="talk_frame_1070228" class="speakerdeck-iframe" src="//speakerdeck.com/player/'
+                '557fa918d07443f8bd9f729456e8c329" width="710" height="399" style="aspect-ratio:710/399; '
+                'border:0; padding:0; margin:0; background:transparent;" frameborder="0" allowtransparenc'
+                'y="true" allowfullscreen="allowfullscreen"></iframe>\n'),
+            'width': 710,
+            'height': 399,
+            'ratio': 1.7777777777777777,
+        }
+
+        with patch("apps.meetup.embed.SpeakerDeckEmbed.request", return_value=expected) as embed_mock:
+            response = self.client.post(reverse('set-embedly-data', args=[self.talk.id, 'presentation']))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content, b'OK')
+
+        t = Talk.objects.get(pk=self.talk.pk)
+        self.assertEqual(t.presentation_data, expected)
+
+        embed_mock.assert_called_once_with(
+            'https://speakerdeck.com/moscowdjango/moscow-python-meetup-83-alieksiei-tatarinov'
+        )
+
+    @tag('ajax')
+    def test_ajax_bad_fieldname(self):
+        self.client.login(username=self.username, password=self.password)
+        response = self.client.post(reverse('set-embedly-data', args=[self.talk.id, 'wrong-field-name']))
+        self.assertEqual(response.status_code, 409)
+        self.assertEqual(response.content, b'Invalid request')
