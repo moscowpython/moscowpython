@@ -219,11 +219,12 @@ class Speaker(models.Model):
 
     @property
     def avatar_url(self):
-        if settings.DEBUG:
-            return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
-        if self.photo:
-            return self.photo.url
-        else:
+        try:
+            if self.photo:
+                return self.photo.url
+            else:
+                return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
+        except Exception:
             return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
 
     class Meta:
