@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from bs4 import BeautifulSoup
-from django.conf import settings
-from embedly.client import Embedly
 from urllib.parse import urlparse
 
 import requests
+from bs4 import BeautifulSoup
+from django.conf import settings
+from embedly.client import Embedly
 
 
 class BaseEmbed:
@@ -15,7 +15,7 @@ class BaseEmbed:
     PARAMS = {}
 
     @classmethod
-    def request(self, url: str) -> None:
+    def request(self, url: str) -> dict:
         params = {"url": url}
         params.update(self.PARAMS)
         resp = requests.get(url=self.URL, params=params, timeout=(self.READ_TIMEOUT, self.CONNECT_TIMEOUT))
@@ -35,7 +35,7 @@ class YoutubeEmbed(BaseEmbed):
     PARAMS = {"format": "json"}
 
     @classmethod
-    def request(self, url: str) -> None:
+    def request(self, url: str) -> dict:
         data = super().request(url)
         print(data)
         w, h = settings.EMBED_VIDEO_WIDTH, settings.EMBED_VIDEO_HEIGHT
@@ -43,17 +43,17 @@ class YoutubeEmbed(BaseEmbed):
         data['height'] = h
 
         html = data.get('html') or ''
-        
+
         soup = BeautifulSoup(html, features="html.parser")
         iframe = soup.find('iframe')
-        
+
         if iframe is None:
             print('wuuut!!!!!!')
             return html
-        
+
         iframe['width'] = w
         iframe['height'] = h
-        
+
         data['html'] = str(iframe)
         print(data)
         return data
@@ -61,7 +61,7 @@ class YoutubeEmbed(BaseEmbed):
 
 class EmbedlyEmbed:
     @classmethod
-    def request(self, url: str) -> None:
+    def request(self, url: str) -> dict:
         embedly_key = getattr(settings, 'EMBEDLY_KEY')
         if embedly_key is None or embedly_key == '':
             raise Exception("no embedly key")
