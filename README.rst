@@ -38,8 +38,6 @@ Run migrations and load fixtures::
     export DJANGO_DB_NAME=<pgsql-name>
     export DJANGO_DB_PORT=5432
 
-    # fix installed apps
-    
     inv migrate
     python manage.py loaddata development.json
 
