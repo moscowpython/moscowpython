@@ -41,30 +41,30 @@ class YoutubeEmbed(BaseEmbed):
     def request(cls, url: str) -> dict:
         data = super().request(url)
         w, h = settings.EMBED_VIDEO_WIDTH, settings.EMBED_VIDEO_HEIGHT
-        data['width'] = w
-        data['height'] = h
+        data["width"] = w
+        data["height"] = h
 
-        html = data.get('html') or ''
+        html = data.get("html") or ""
 
         soup = BeautifulSoup(html, features="html.parser")
-        iframe = soup.find('iframe')
+        iframe = soup.find("iframe")
 
         if iframe is None:
             logger.warning("Iframe not found in youtube emded code, video size won't be adjusted")
-            return html
+            return data
 
-        iframe['width'] = w
-        iframe['height'] = h
+        iframe["width"] = w
+        iframe["height"] = h
 
-        data['html'] = str(iframe)
+        data["html"] = str(iframe)
         return data
 
 
 class EmbedlyEmbed:
     @classmethod
     def request(cls, url: str) -> dict:
-        embedly_key = getattr(settings, 'EMBEDLY_KEY')
-        if embedly_key is None or embedly_key == '':
+        embedly_key = getattr(settings, "EMBEDLY_KEY")
+        if embedly_key is None or embedly_key == "":
             raise Exception("no embedly key")
 
         client = Embedly(embedly_key)
@@ -77,11 +77,11 @@ adapters = {"speakerdeck.com": SpeakerDeckEmbed, "youtube.com": YoutubeEmbed, "y
 
 def get_domain(url: str) -> str:
     parts = urlparse(url).netloc
-    return '.'.join(parts.split('.')[-2:])
+    return ".".join(parts.split(".")[-2:])
 
 
 def get_embed_data(url: str | None) -> dict | None:
-    if url is None or url == '':
+    if url is None or url == "":
         return None
 
     domain = get_domain(url)

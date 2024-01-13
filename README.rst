@@ -66,3 +66,13 @@ Pre-commit
 To install pre-commit hooks, run::
 
     inv precommit
+
+Update requirements
+-------------------
+
+If you want to add a new dependency or update the version:
+
+* update `requirements/base.in` or `requirements/dev.in` files
+* and run to update compiled txt files::
+
+    inv update-requirements
