@@ -25,6 +25,8 @@ RUN set -xe; \
 ADD requirements/base.txt /requirements.txt
 RUN pip install --prefix=/install -r /requirements.txt
 
+ADD requirements/dev.txt /requirements.txt
+RUN pip install --prefix=/install -r /requirements.txt
 
 FROM node:11-alpine AS nodebuilder
 

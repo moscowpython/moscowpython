@@ -219,6 +219,8 @@ class Speaker(models.Model):
 
     @property
     def avatar_url(self):
+        if settings.DEBUG:
+            return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
         if self.photo:
             return self.photo.url
         else:
@@ -227,6 +229,7 @@ class Speaker(models.Model):
     class Meta:
         verbose_name = 'Докладчик'
         verbose_name_plural = 'Докладчики'
+        ordering = ['name', '-pk']
 
 
 class Photo(models.Model):

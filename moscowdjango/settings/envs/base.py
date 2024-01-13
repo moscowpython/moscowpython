@@ -109,6 +109,9 @@ class Base(Configuration):
 
     EMBEDLY_KEY = os.environ.get('EMBEDLY_KEY')
 
+    EMBED_VIDEO_WIDTH = values.Value(854)
+    EMBED_VIDEO_HEIGHT = values.Value(480)
+
     @property
     def SENTRY_CONFIG(self):
         self._SENTRY_CONFIG = {

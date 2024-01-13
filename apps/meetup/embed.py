@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from bs4 import BeautifulSoup
 from django.conf import settings
 from embedly.client import Embedly
 from urllib.parse import urlparse
@@ -32,6 +33,30 @@ class SpeakerDeckEmbed(BaseEmbed):
 class YoutubeEmbed(BaseEmbed):
     URL = "https://youtube.com/oembed"
     PARAMS = {"format": "json"}
+
+    @classmethod
+    def request(self, url: str) -> None:
+        data = super().request(url)
+        print(data)
+        w, h = settings.EMBED_VIDEO_WIDTH, settings.EMBED_VIDEO_HEIGHT
+        data['width'] = w
+        data['height'] = h
+
+        html = data.get('html') or ''
+        
+        soup = BeautifulSoup(html, features="html.parser")
+        iframe = soup.find('iframe')
+        
+        if iframe is None:
+            print('wuuut!!!!!!')
+            return html
+        
+        iframe['width'] = w
+        iframe['height'] = h
+        
+        data['html'] = str(iframe)
+        print(data)
+        return data
 
 
 class EmbedlyEmbed:
