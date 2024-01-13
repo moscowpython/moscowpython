@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+from logging import getLogger
 from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
 from django.conf import settings
 from embedly.client import Embedly
+
+logger = getLogger(__name__)
 
 
 class BaseEmbed:
@@ -15,10 +18,10 @@ class BaseEmbed:
     PARAMS = {}
 
     @classmethod
-    def request(self, url: str) -> dict:
+    def request(cls, url: str) -> dict:
         params = {"url": url}
-        params.update(self.PARAMS)
-        resp = requests.get(url=self.URL, params=params, timeout=(self.READ_TIMEOUT, self.CONNECT_TIMEOUT))
+        params.update(cls.PARAMS)
+        resp = requests.get(url=cls.URL, params=params, timeout=(cls.READ_TIMEOUT, cls.CONNECT_TIMEOUT))
 
         if resp.status_code != 200:
             raise Exception(f"Error: {resp.status_code}")
@@ -35,9 +38,8 @@ class YoutubeEmbed(BaseEmbed):
     PARAMS = {"format": "json"}
 
     @classmethod
-    def request(self, url: str) -> dict:
+    def request(cls, url: str) -> dict:
         data = super().request(url)
-        print(data)
         w, h = settings.EMBED_VIDEO_WIDTH, settings.EMBED_VIDEO_HEIGHT
         data['width'] = w
         data['height'] = h
@@ -48,20 +50,19 @@ class YoutubeEmbed(BaseEmbed):
         iframe = soup.find('iframe')
 
         if iframe is None:
-            print('wuuut!!!!!!')
+            logger.warning("Iframe not found in youtube emded code, video size won't be adjusted")
             return html
 
         iframe['width'] = w
         iframe['height'] = h
 
         data['html'] = str(iframe)
-        print(data)
         return data
 
 
 class EmbedlyEmbed:
     @classmethod
-    def request(self, url: str) -> dict:
+    def request(cls, url: str) -> dict:
         embedly_key = getattr(settings, 'EMBEDLY_KEY')
         if embedly_key is None or embedly_key == '':
             raise Exception("no embedly key")
@@ -74,12 +75,12 @@ class EmbedlyEmbed:
 adapters = {"speakerdeck.com": SpeakerDeckEmbed, "youtube.com": YoutubeEmbed, "youtu.be": YoutubeEmbed}
 
 
-def get_domain(url):
+def get_domain(url: str) -> str:
     parts = urlparse(url).netloc
     return '.'.join(parts.split('.')[-2:])
 
 
-def get_embed_data(url):
+def get_embed_data(url: str | None) -> dict | None:
     if url is None or url == '':
         return None
 

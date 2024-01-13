@@ -152,7 +152,7 @@
     margin-bottom: 20px;
 }
 .talk-resources__item iframe {
-    max-width: 792px;
+    max-width: 792px
 }
 @media screen and (max-width: 770px) {
     .talk-resources {
@@ -198,9 +198,4 @@
     .comments {
         margin-left: 0;
     }
-}
-
-
-article.talk-resources__item {
-    padding: 10px;
 }
