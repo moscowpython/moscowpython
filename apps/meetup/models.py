@@ -219,14 +219,18 @@ class Speaker(models.Model):
 
     @property
     def avatar_url(self):
-        if self.photo:
-            return self.photo.url
-        else:
+        try:
+            if self.photo:
+                return self.photo.url
+            else:
+                return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
+        except Exception:
             return urljoin(settings.STATIC_URL, 'images/avatars/reinhardt.png')
 
     class Meta:
         verbose_name = 'Докладчик'
         verbose_name_plural = 'Докладчики'
+        ordering = ['name', '-pk']
 
 
 class Photo(models.Model):

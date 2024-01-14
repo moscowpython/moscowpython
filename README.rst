@@ -38,8 +38,6 @@ Run migrations and load fixtures::
     export DJANGO_DB_NAME=<pgsql-name>
     export DJANGO_DB_PORT=5432
 
-    # fix installed apps
-    
     inv migrate
     python manage.py loaddata development.json
 
@@ -68,3 +66,13 @@ Pre-commit
 To install pre-commit hooks, run::
 
     inv precommit
+
+Update requirements
+-------------------
+
+If you want to add a new dependency or update the version:
+
+* update `requirements/base.in` or `requirements/dev.in` files
+* and run to update compiled txt files::
+
+    inv update-requirements
