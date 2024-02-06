@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime
+import logging
 from urllib.parse import urljoin
 
 from django.conf import settings
@@ -12,6 +13,8 @@ from model_utils.managers import QueryManager
 from model_utils.models import StatusModel, TimeStampedModel
 from picklefield.fields import PickledObjectField
 from apps.meetup.embed import get_embed_data
+
+log = logging.getLogger(__name__)
 
 
 class TalkManager(Manager):

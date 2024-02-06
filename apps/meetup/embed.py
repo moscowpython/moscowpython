@@ -82,12 +82,28 @@ def get_domain(url: str) -> str:
 
 def get_embed_data(url: str | None) -> dict | None:
     if url is None or url == "":
+        logger.warning("url is empty or None")
         return None
 
-    domain = get_domain(url)
+    effective_url = get_effective_url(url)
+
+    if url != effective_url:
+        logger.info(f"embed url has redirects effective-url={effective_url} url={url}")
+
+    domain = get_domain(effective_url)
     adapter = adapters.get(domain, EmbedlyEmbed)
 
     try:
-        return adapter.request(url)
-    except Exception:
+        return adapter.request(effective_url)
+    except Exception as E:
+        logger.error(f"url={effective_url} err={E}")
         return None
+
+
+def get_effective_url(url: str) -> str:
+    resp = requests.get(url, allow_redirects=True)
+
+    if resp.status_code == 200:
+        return resp.url
+
+    return url

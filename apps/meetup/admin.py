@@ -5,14 +5,19 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 
-
 from .forms import EventAdminForm
 from .models import Event, Executive, MediaCoverage, Photo, Speaker, Sponsor, Talk, Tutorial, Venue, Vote
 
 
 @admin.display(description='Слайды', boolean=True)
 def oembed_presentation(obj):
-    return bool(obj.presentation_data)
+    if not bool(obj.presentation_data):
+        return False
+
+    if obj.presentation_data.get("error_code", 200) != 200:
+        return False
+
+    return True
 
 
 @admin.display(description='Видео', boolean=True)
